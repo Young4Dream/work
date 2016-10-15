@@ -1,0 +1,296 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<WorkBook xmlVersion="20100901">
+<TableDataMap>
+<TableData name="L" class="com.fr.data.impl.DBTableData">
+<Parameters>
+<Parameter>
+<Attributes name="area"/>
+<O>
+<![CDATA[A-中心通信站]]></O>
+</Parameter>
+<Parameter>
+<Attributes name="paytype"/>
+<O>
+<![CDATA[%]]></O>
+</Parameter>
+<Parameter>
+<Attributes name="xtype"/>
+<O>
+<![CDATA[2]]></O>
+</Parameter>
+<Parameter>
+<Attributes name="timeend"/>
+<O>
+<![CDATA[2011-07-06]]></O>
+</Parameter>
+<Parameter>
+<Attributes name="timestart"/>
+<O>
+<![CDATA[2011-05-06]]></O>
+</Parameter>
+<Parameter>
+<Attributes name="ttype"/>
+<O>
+<![CDATA[1]]></O>
+</Parameter>
+<Parameter>
+<Attributes name="skrid"/>
+<O>
+<![CDATA[admin]]></O>
+</Parameter>
+</Parameters>
+<Attributes maxMemRowCount="-1"/>
+<Connection class="com.fr.data.impl.NameDatabaseConnection">
+<DatabaseName>
+<![CDATA[tsdBilling]]></DatabaseName>
+</Connection>
+<Query>
+<![CDATA[select ii.skry,
+       ii.lsz,
+       ii.hth,
+       ii.yhmch,
+       ii.byck,
+       ii.jfshj,
+       ij.jfshj  xzjfshj,
+       i.tvalues pay_flag
+  from jiaofei ij, jiaofei ii
+  left join tsd_ini i
+    on i.tsection = 'payitem'
+   and i.tident = ii.pay_flag
+ where ii.isxz = 1
+   and ij.isxz = 1
+   and 'xz' || ii.lsz = ij.lsz
+   and ii.hth = ij.hth
+   and (('1' = '${ttype}' and ii.jfshj >= to_date('${timestart}','YYYY-MM-DD HH24:MI:SS') and
+       ii.jfshj <= to_date('${timeend} 23:59:59','YYYY-MM-DD HH24:MI:SS')) or
+       ('2' = '${ttype}' and ij.jfshj >= to_date('${timestart}','YYYY-MM-DD HH24:MI:SS') and
+       ij.jfshj <= to_date('${timeend} 23:59:59','YYYY-MM-DD HH24:MI:SS')))
+   and (('1' = '${xtype}' and ii.skry = '${skrid}') or
+       ('2' = '${xtype}' and ii.area like '${area}'))
+   and ii.pay_flag like '%${paytype}%'
+]]></Query>
+</TableData>
+<TableData name="D" class="com.fr.data.impl.DBTableData">
+<Parameters/>
+<Attributes maxMemRowCount="-1"/>
+<Connection class="com.fr.data.impl.NameDatabaseConnection">
+<DatabaseName>
+<![CDATA[tsdBilling]]></DatabaseName>
+</Connection>
+<Query>
+<![CDATA[select '打印时间：' || to_char(sysdate,'YYYY-MM-DD HH24:MI:SS') TM from dual]]></Query>
+</TableData>
+</TableDataMap>
+<ReportWebAttr>
+<Title>
+<![CDATA[反销帐查询]]></Title>
+<Background name="NullBackground"/>
+<CacheValidateTime>
+<![CDATA[0]]></CacheValidateTime>
+</ReportWebAttr>
+<Report class="com.fr.report.WorkSheet" name="sheet1">
+<ReportPageAttr>
+<HR/>
+<FR/>
+<HC/>
+<FC/>
+</ReportPageAttr>
+<RowHeight defaultValue="19">
+<![CDATA[35,19,19,24,24,19,19,19,19,19,19,19,19,19,19,19,19,19,19,19,19,19,19,19,19,19,19,19,19,19,19,19,19,19,19,19,19,19,19,19,19,19,19,19,19,19,19,19,19,19,19,19,19]]></RowHeight>
+<ColumnWidth defaultValue="72">
+<![CDATA[83,131,84,98,65,120,120,68,72,72,72,72,72,72,72,72,72,72,72,72,72]]></ColumnWidth>
+<CellElementList>
+<C c="0" r="0" cs="8" s="0">
+<O>
+<![CDATA[反销帐查询]]></O>
+<Expand/>
+</C>
+<C c="5" r="1" cs="3">
+<O t="DSColumn">
+<Attributes dsName="D" columnName="TM"/>
+<Complex/>
+<RG class="com.fr.report.cellElement.core.FunctionGrouper"/>
+<Parameters/>
+</O>
+<Expand dir="0"/>
+</C>
+<C c="0" r="2" cs="4">
+<O t="Formula" class="Formula">
+<Attributes>
+<![CDATA[=if($ttype='2','反销时间：' + $timestart + '到' + $timeend  ,'缴费时间：' + $timestart + '到' + $timeend)]]></Attributes>
+</O>
+<Expand/>
+</C>
+<C c="0" r="3" s="1">
+<O>
+<![CDATA[收款人员]]></O>
+<Expand/>
+</C>
+<C c="1" r="3" s="1">
+<O>
+<![CDATA[流水号]]></O>
+<Expand/>
+</C>
+<C c="2" r="3" s="1">
+<O>
+<![CDATA[账号]]></O>
+<Expand/>
+</C>
+<C c="3" r="3" s="1">
+<O>
+<![CDATA[付费名称]]></O>
+<Expand/>
+</C>
+<C c="4" r="3" s="1">
+<O>
+<![CDATA[实收金额]]></O>
+<Expand/>
+</C>
+<C c="5" r="3" s="1">
+<O>
+<![CDATA[付款时间]]></O>
+<Expand/>
+</C>
+<C c="6" r="3" s="1">
+<O>
+<![CDATA[退款时间]]></O>
+<Expand/>
+</C>
+<C c="7" r="3" s="1">
+<O>
+<![CDATA[付费方式]]></O>
+<Expand/>
+</C>
+<C c="0" r="4">
+<O t="DSColumn">
+<Attributes dsName="L" columnName="SKRY"/>
+<Condition class="com.fr.data.condition.ListCondition"/>
+<Complex/>
+<RG class="com.fr.report.cellElement.core.FunctionGrouper">
+<Attr divideMode="1"/>
+</RG>
+<Result>
+<![CDATA[$$$]]></Result>
+<Parameters/>
+</O>
+<Expand dir="0"/>
+</C>
+<C c="1" r="4">
+<O t="DSColumn">
+<Attributes dsName="L" columnName="LSZ"/>
+<Complex/>
+<RG class="com.fr.report.cellElement.core.FunctionGrouper"/>
+<Parameters/>
+</O>
+<Expand dir="0"/>
+</C>
+<C c="2" r="4">
+<O t="DSColumn">
+<Attributes dsName="L" columnName="HTH"/>
+<Complex/>
+<RG class="com.fr.report.cellElement.core.FunctionGrouper"/>
+<Parameters/>
+</O>
+<Expand dir="0"/>
+</C>
+<C c="3" r="4">
+<O t="DSColumn">
+<Attributes dsName="L" columnName="YHMCH"/>
+<Complex/>
+<RG class="com.fr.report.cellElement.core.FunctionGrouper"/>
+<Parameters/>
+</O>
+<Expand dir="0"/>
+</C>
+<C c="4" r="4">
+<O t="DSColumn">
+<Attributes dsName="L" columnName="BYCK"/>
+<Complex/>
+<RG class="com.fr.report.cellElement.core.FunctionGrouper"/>
+<Parameters/>
+</O>
+<Expand dir="0"/>
+</C>
+<C c="5" r="4">
+<O t="DSColumn">
+<Attributes dsName="L" columnName="JFSHJ"/>
+<Complex/>
+<RG class="com.fr.report.cellElement.core.FunctionGrouper"/>
+<Parameters/>
+</O>
+<Expand dir="0"/>
+</C>
+<C c="6" r="4">
+<O t="DSColumn">
+<Attributes dsName="L" columnName="XZJFSHJ"/>
+<Complex/>
+<RG class="com.fr.report.cellElement.core.FunctionGrouper"/>
+<Parameters/>
+</O>
+<Expand dir="0"/>
+</C>
+<C c="7" r="4">
+<O t="DSColumn">
+<Attributes dsName="L" columnName="PAY_FLAG"/>
+<Complex/>
+<RG class="com.fr.report.cellElement.core.FunctionGrouper"/>
+<Parameters/>
+</O>
+<Expand dir="0"/>
+</C>
+</CellElementList>
+<ReportSettings headerHeight="0.0" footerHeight="0.2362204724409449">
+<PaperSetting>
+<Margin top="0.27" left="0.08070866141732283" bottom="0.27" right="0.08070866141732283"/>
+</PaperSetting>
+</ReportSettings>
+<Header reportPageType="0">
+<Background name="NullBackground"/>
+<LeftList/>
+<CenterList/>
+<RightList/>
+</Header>
+<Footer reportPageType="0">
+<Background name="NullBackground"/>
+<LeftList/>
+<CenterList/>
+<RightList>
+<HFElement className="com.fr.report.core.headerfooter.TextHFElement">
+<FRFont name="SimSun" style="0" size="12"/>
+<![CDATA[当前第 ]]></HFElement>
+<HFElement className="com.fr.report.core.headerfooter.PageNumberHFElement">
+<FRFont name="SimSun" style="0" size="12"/>
+<![CDATA[1]]></HFElement>
+<HFElement className="com.fr.report.core.headerfooter.TextHFElement">
+<FRFont name="SimSun" style="0" size="12"/>
+<![CDATA[ 页,共 ]]></HFElement>
+<HFElement className="com.fr.report.core.headerfooter.NumberOfPageHFElement">
+<FRFont name="SimSun" style="0" size="12"/>
+<![CDATA[100]]></HFElement>
+<HFElement className="com.fr.report.core.headerfooter.TextHFElement">
+<FRFont name="SimSun" style="0" size="12"/>
+<![CDATA[ 页      ]]></HFElement>
+</RightList>
+</Footer>
+</Report>
+<ReportParameterAttr>
+<Attributes showWindow="false" delayPlaying="true" windowPosition="1" align="1"/>
+<PWTitle>
+<![CDATA[参数]]></PWTitle>
+</ReportParameterAttr>
+<StyleList>
+<Style horizontal_alignment="0">
+<FRFont name="SimSun" style="1" size="20"/>
+<Background name="NullBackground"/>
+<Border/>
+</Style>
+<Style>
+<FRFont name="SimSun" style="0" size="12"/>
+<Background name="NullBackground"/>
+<Border>
+<Top style="1"/>
+<Bottom style="1"/>
+</Border>
+</Style>
+</StyleList>
+</WorkBook>

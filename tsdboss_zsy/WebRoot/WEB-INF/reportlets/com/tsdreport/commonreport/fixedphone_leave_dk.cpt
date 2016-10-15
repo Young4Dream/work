@@ -1,0 +1,572 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<WorkBook xmlVersion="20110221">
+<TableDataMap>
+<TableData name="hfys_hthhf_out" class="com.fr.data.impl.DBTableData">
+<Parameters>
+<Parameter>
+<Attributes name="lsz"/>
+<O>
+<![CDATA[\'admin-201107-00046\']]></O>
+</Parameter>
+</Parameters>
+<Attributes maxMemRowCount="-1"/>
+<Connection class="com.fr.data.impl.NameDatabaseConnection">
+<DatabaseName>
+<![CDATA[tsdBilling]]></DatabaseName>
+</Connection>
+<Query>
+<![CDATA[select sum(hf1) as shf,
+sum(hf5+hf6) as gnct,sum(hf2+hf3+hf4) as nbhf,sum(hf10) as swf,sum(hf9) as bdw,sum(znj) znj,sum(syye_ysk) syye_ysk,sum(bcyj) bcyj,sum(byye_ysk) byye_ysk,sum(bcss) bcss ,sum(hf31) zwct, sum(hf7+hf8) gjct,sum(zfs1) yz,sum(zfs3) zxf,sum(zfs2) xgn,sum(zfs4-daijiao+daijiaofor) tcf,sum(zfs5) yhf,sum(dhsl) dhsl,max(out_bz5) payflag from hfys_hthhf_out_his
+  where out_bz4 in ([?lsz|admin?]A)]]></Query>
+</TableData>
+<TableData name="sysdate" class="com.fr.data.impl.DBTableData">
+<Parameters/>
+<Attributes maxMemRowCount="-1"/>
+<Connection class="com.fr.data.impl.NameDatabaseConnection">
+<DatabaseName>
+<![CDATA[tsdBilling]]></DatabaseName>
+</Connection>
+<Query>
+<![CDATA[select to_char(sysdate,'YYYYMMDD') from dual]]></Query>
+</TableData>
+<TableData name="payflag" class="com.fr.data.impl.DBTableData">
+<Parameters/>
+<Attributes maxMemRowCount="-1"/>
+<Connection class="com.fr.data.impl.NameDatabaseConnection">
+<DatabaseName>
+<![CDATA[tsdBilling]]></DatabaseName>
+</Connection>
+<Query>
+<![CDATA[select * from tsd_ini ii where ii.tsection='payitem']]></Query>
+</TableData>
+<TableData name="jiaofei" class="com.fr.data.impl.DBTableData">
+<Parameters>
+<Parameter>
+<Attributes name="lsz"/>
+<O>
+<![CDATA[\'\']]></O>
+</Parameter>
+</Parameters>
+<Attributes maxMemRowCount="-1"/>
+<Connection class="com.fr.data.impl.NameDatabaseConnection">
+<DatabaseName>
+<![CDATA[tsdBilling]]></DatabaseName>
+</Connection>
+<Query>
+<![CDATA[select sum(byck-yjf-znj) as ycf from jiaofei where lsz in ([?lsz|?]A)]]></Query>
+</TableData>
+<TableData name="hthdang" class="com.fr.data.impl.DBTableData">
+<Parameters>
+<Parameter>
+<Attributes name="lsz"/>
+<O>
+<![CDATA[\'admin\']]></O>
+</Parameter>
+</Parameters>
+<Attributes maxMemRowCount="-1"/>
+<Connection class="com.fr.data.impl.NameDatabaseConnection">
+<DatabaseName>
+<![CDATA[tsdBilling]]></DatabaseName>
+</Connection>
+<Query>
+<![CDATA[select yhmc,hth,dh,yhlb from hthdang where bm1=(
+select bm1 from  hthdang g where hth=(
+select hth from hfys_hthhf_out_his o where o.out_bz4 in ([?lsz|admin?]A) and rownum=1
+)) and custtype=1  and rownum=1]]></Query>
+</TableData>
+<TableData name="pay" class="com.fr.data.impl.DBTableData">
+<Parameters>
+<Parameter>
+<Attributes name="lsz"/>
+<O>
+<![CDATA[\'admin\']]></O>
+</Parameter>
+</Parameters>
+<Attributes maxMemRowCount="-1"/>
+<Connection class="com.fr.data.impl.NameDatabaseConnection">
+<DatabaseName>
+<![CDATA[tsdBilling]]></DatabaseName>
+</Connection>
+<Query>
+<![CDATA[select out_bz4,yhmc,dh,hth,dhsl,hzyf,out_bz3 ,skr,skrid,to_char(skr_date,'YYYY-MM-DD') skrdate from hfys_hthhf_out_his where out_bz4 in ([?lsz|admin?]A)  and rownum=1]]></Query>
+</TableData>
+</TableDataMap>
+<Report class="com.fr.report.WorkSheet" name="sheet1">
+<ReportSettings headerHeight="0" footerHeight="0">
+<PaperSetting>
+<PaperSize width="27360000" height="14904000"/>
+<Margin top="1872000" left="144000" bottom="0" right="0"/>
+</PaperSetting>
+</ReportSettings>
+<ElementCase class="com.fr.report.SingleBlock">
+<ReportPageAttr>
+<HR/>
+<FR/>
+<HC/>
+<FC/>
+</ReportPageAttr>
+<RowHeight defaultValue="723900">
+<![CDATA[1008000,1728000,1728000,1728000,1440000,1440000,1440000,1440000,646560,762000,723900]]></RowHeight>
+<ColumnWidth defaultValue="2743200">
+<![CDATA[3398400,0,3024000,3024000,3024000,3024000,3168000,3168000,3168000,1981200,2514600,2743200]]></ColumnWidth>
+<CellElementList>
+<C c="0" r="0" s="0">
+<O>
+<![CDATA[话费月份]]></O>
+<Expand leftParentDefault="false" left="B3"/>
+</C>
+<C c="2" r="0" s="0">
+<O t="DSColumn">
+<Attributes dsName="pay" columnName="HZYF"/>
+<Complex/>
+<RG class="com.fr.report.cellElement.core.FunctionGrouper"/>
+<Parameters/>
+</O>
+<Expand dir="0"/>
+</C>
+<C c="3" r="0" cs="3" s="1">
+<O t="DSColumn">
+<Attributes dsName="pay" columnName="OUT_BZ4"/>
+<Complex/>
+<RG class="com.fr.report.cellElement.core.FunctionGrouper"/>
+<Parameters/>
+</O>
+<Expand dir="0"/>
+</C>
+<C c="6" r="0" cs="4" s="1">
+<O t="DSColumn">
+<Attributes dsName="pay" columnName="OUT_BZ3"/>
+<Complex/>
+<RG class="com.fr.report.cellElement.core.FunctionGrouper"/>
+<Parameters/>
+</O>
+<Expand dir="0"/>
+</C>
+<C c="0" r="1" s="0">
+<O>
+<![CDATA[用     户]]></O>
+<CellGUIAttr printContent="false"/>
+<CellPageAttr/>
+<CellInsertPolicy/>
+<Expand/>
+</C>
+<C c="2" r="1" cs="3" s="1">
+<O t="DSColumn">
+<Attributes dsName="hthdang" columnName="HTH"/>
+<Complex/>
+<RG class="com.fr.report.cellElement.core.FunctionGrouper"/>
+<Parameters/>
+</O>
+<Expand dir="0"/>
+</C>
+<C c="5" r="1" s="0">
+<O>
+<![CDATA[电话号码]]></O>
+<CellGUIAttr printContent="false"/>
+<CellPageAttr/>
+<CellInsertPolicy/>
+<Expand/>
+</C>
+<C c="6" r="1" s="0">
+<O t="DSColumn">
+<Attributes dsName="pay" columnName="DH"/>
+<Complex/>
+<RG class="com.fr.report.cellElement.core.FunctionGrouper"/>
+<Parameters/>
+</O>
+<Expand dir="0"/>
+</C>
+<C c="7" r="1" s="0">
+<O>
+<![CDATA[电话总数]]></O>
+<CellGUIAttr printContent="false"/>
+<CellPageAttr/>
+<CellInsertPolicy/>
+<Expand/>
+</C>
+<C c="8" r="1" s="0">
+<O t="DSColumn">
+<Attributes dsName="hfys_hthhf_out" columnName="DHSL"/>
+<Complex/>
+<RG class="com.fr.report.cellElement.core.FunctionGrouper"/>
+<Parameters/>
+</O>
+<Expand dir="0"/>
+</C>
+<C c="0" r="2" s="0">
+<O>
+<![CDATA[用户名称]]></O>
+<CellGUIAttr printContent="false"/>
+<CellPageAttr/>
+<CellInsertPolicy/>
+<Expand/>
+</C>
+<C c="2" r="2" cs="3" s="1">
+<O t="DSColumn">
+<Attributes dsName="hthdang" columnName="YHMC"/>
+<Complex/>
+<RG class="com.fr.report.cellElement.core.FunctionGrouper"/>
+<Parameters/>
+</O>
+<Expand dir="0"/>
+</C>
+<C c="5" r="2" s="0">
+<O>
+<![CDATA[交费方式]]></O>
+<CellGUIAttr printContent="false"/>
+<CellPageAttr/>
+<CellInsertPolicy/>
+<Expand/>
+</C>
+<C c="6" r="2" s="0">
+<O t="DSColumn">
+<Attributes dsName="payflag" columnName="TVALUES"/>
+<Condition class="com.fr.data.condition.CommonCondition">
+<CNAME>
+<![CDATA[TIDENT]]></CNAME>
+<Compare op="0">
+<AnDSColumn dsName="hfys_hthhf_out" columnName="PAYFLAG"/>
+</Compare>
+</Condition>
+<Complex/>
+<RG class="com.fr.report.cellElement.core.FunctionGrouper"/>
+<Result>
+<![CDATA[$$$]]></Result>
+<Parameters/>
+</O>
+<Expand dir="0" leftParentDefault="false" left="I2"/>
+</C>
+<C c="7" r="2" s="0">
+<O>
+<![CDATA[用户类别]]></O>
+<CellGUIAttr printContent="false"/>
+<CellPageAttr/>
+<CellInsertPolicy/>
+<Expand/>
+</C>
+<C c="8" r="2" s="0">
+<O t="DSColumn">
+<Attributes dsName="hthdang" columnName="YHLB"/>
+<Condition class="com.fr.data.condition.ListCondition"/>
+<Complex/>
+<RG class="com.fr.report.cellElement.core.FunctionGrouper">
+<Attr divideMode="1"/>
+</RG>
+<Result>
+<![CDATA[$$$]]></Result>
+<Parameters/>
+</O>
+<Expand dir="0" leftParentDefault="false" left="C2"/>
+</C>
+<C c="0" r="3" s="0">
+<O>
+<![CDATA[合计金额]]></O>
+<CellGUIAttr printContent="false"/>
+<CellPageAttr/>
+<CellInsertPolicy/>
+<Expand/>
+</C>
+<C c="2" r="3" cs="3" s="1">
+<O t="DSColumn">
+<Attributes dsName="hfys_hthhf_out" columnName="BCSS"/>
+<Condition class="com.fr.data.condition.ListCondition"/>
+<Complex/>
+<RG class="com.fr.report.cellElement.core.FunctionGrouper"/>
+<Result>
+<![CDATA[CNMONEY($$$)]]></Result>
+<Parameters/>
+</O>
+<Expand dir="0"/>
+</C>
+<C c="5" r="3" s="0">
+<O>
+<![CDATA[本期实收]]></O>
+<Expand/>
+</C>
+<C c="6" r="3" s="1">
+<O t="DSColumn">
+<Attributes dsName="hfys_hthhf_out" columnName="BCSS"/>
+<Complex/>
+<RG class="com.fr.report.cellElement.core.FunctionGrouper"/>
+<Parameters/>
+</O>
+<Expand dir="0"/>
+</C>
+<C c="7" r="3" s="0">
+<O>
+<![CDATA[前期余额]]></O>
+<Expand/>
+</C>
+<C c="8" r="3" s="1">
+<O t="DSColumn">
+<Attributes dsName="hfys_hthhf_out" columnName="SYYE_YSK"/>
+<Complex/>
+<RG class="com.fr.report.cellElement.core.FunctionGrouper"/>
+<Parameters/>
+</O>
+<Expand dir="0"/>
+</C>
+<C c="0" r="4" s="0">
+<O>
+<![CDATA[国际话费]]></O>
+<CellGUIAttr printContent="false"/>
+<CellPageAttr/>
+<CellInsertPolicy/>
+<Expand/>
+</C>
+<C c="2" r="4" s="0">
+<O t="DSColumn">
+<Attributes dsName="hfys_hthhf_out" columnName="GJCT"/>
+<Complex/>
+<RG class="com.fr.report.cellElement.core.FunctionGrouper"/>
+<Parameters/>
+</O>
+<Expand dir="0"/>
+</C>
+<C c="3" r="4" s="0">
+<O>
+<![CDATA[市内话费]]></O>
+<CellGUIAttr printContent="false"/>
+<CellPageAttr/>
+<CellInsertPolicy/>
+<Expand/>
+</C>
+<C c="4" r="4" s="0">
+<O t="DSColumn">
+<Attributes dsName="hfys_hthhf_out" columnName="SHF"/>
+<Complex/>
+<RG class="com.fr.report.cellElement.core.FunctionGrouper"/>
+<Parameters/>
+</O>
+<Expand dir="0"/>
+</C>
+<C c="5" r="4" s="0">
+<O>
+<![CDATA[月份月租]]></O>
+<CellGUIAttr printContent="false"/>
+<CellPageAttr/>
+<CellInsertPolicy/>
+<Expand/>
+</C>
+<C c="6" r="4" s="0">
+<O t="DSColumn">
+<Attributes dsName="hfys_hthhf_out" columnName="YZ"/>
+<Complex/>
+<RG class="com.fr.report.cellElement.core.FunctionGrouper"/>
+<Parameters/>
+</O>
+<Expand dir="0"/>
+</C>
+<C c="7" r="4" s="0">
+<O>
+<![CDATA[预交话费]]></O>
+<CellGUIAttr printContent="false"/>
+<CellPageAttr/>
+<CellInsertPolicy/>
+<Expand/>
+</C>
+<C c="8" r="4" s="0">
+<O t="DSColumn">
+<Attributes dsName="jiaofei" columnName="YCF"/>
+<Complex/>
+<RG class="com.fr.report.cellElement.core.FunctionGrouper"/>
+<Parameters/>
+</O>
+<Expand dir="0"/>
+</C>
+<C c="0" r="5" s="0">
+<O>
+<![CDATA[国内话费]]></O>
+<CellGUIAttr printContent="false"/>
+<CellPageAttr/>
+<CellInsertPolicy/>
+<Expand/>
+</C>
+<C c="2" r="5" s="0">
+<O t="DSColumn">
+<Attributes dsName="hfys_hthhf_out" columnName="GNCT"/>
+<Complex/>
+<RG class="com.fr.report.cellElement.core.FunctionGrouper"/>
+<Parameters/>
+</O>
+<Expand dir="0"/>
+</C>
+<C c="3" r="5" s="0">
+<O>
+<![CDATA[上网费]]></O>
+<Expand/>
+</C>
+<C c="4" r="5" s="0">
+<O t="DSColumn">
+<Attributes dsName="hfys_hthhf_out" columnName="SWF"/>
+<Complex/>
+<RG class="com.fr.report.cellElement.core.FunctionGrouper"/>
+<Parameters/>
+</O>
+<Expand dir="0"/>
+</C>
+<C c="5" r="5" s="0">
+<O>
+<![CDATA[新业务费]]></O>
+<CellGUIAttr printContent="false"/>
+<CellPageAttr/>
+<CellInsertPolicy/>
+<Expand/>
+</C>
+<C c="6" r="5" s="0">
+<O t="DSColumn">
+<Attributes dsName="hfys_hthhf_out" columnName="XGN"/>
+<Complex/>
+<RG class="com.fr.report.cellElement.core.FunctionGrouper"/>
+<Parameters/>
+</O>
+<Expand dir="0"/>
+</C>
+<C c="7" r="5" s="0">
+<O>
+<![CDATA[套餐费]]></O>
+<Expand/>
+</C>
+<C c="8" r="5" s="0">
+<O t="DSColumn">
+<Attributes dsName="hfys_hthhf_out" columnName="TCF"/>
+<Complex/>
+<RG class="com.fr.report.cellElement.core.FunctionGrouper"/>
+<Parameters/>
+</O>
+<Expand dir="0"/>
+</C>
+<C c="0" r="6" s="0">
+<O>
+<![CDATA[本地网话费]]></O>
+<CellGUIAttr printContent="false"/>
+<CellPageAttr/>
+<CellInsertPolicy/>
+<Expand/>
+</C>
+<C c="2" r="6" s="0">
+<O t="DSColumn">
+<Attributes dsName="hfys_hthhf_out" columnName="BDW"/>
+<Complex/>
+<RG class="com.fr.report.cellElement.core.FunctionGrouper"/>
+<Parameters/>
+</O>
+<Expand dir="0"/>
+</C>
+<C c="3" r="6" s="0">
+<O>
+<![CDATA[内部话费]]></O>
+<CellGUIAttr printContent="false"/>
+<CellPageAttr/>
+<CellInsertPolicy/>
+<Expand/>
+</C>
+<C c="4" r="6" s="0">
+<O t="DSColumn">
+<Attributes dsName="hfys_hthhf_out" columnName="NBHF"/>
+<Complex/>
+<RG class="com.fr.report.cellElement.core.FunctionGrouper"/>
+<Parameters/>
+</O>
+<Expand dir="0"/>
+</C>
+<C c="5" r="6" s="0">
+<O>
+<![CDATA[滞 纳 金]]></O>
+<CellGUIAttr printContent="false"/>
+<CellPageAttr/>
+<CellInsertPolicy/>
+<Expand/>
+</C>
+<C c="6" r="6" s="0">
+<O t="DSColumn">
+<Attributes dsName="hfys_hthhf_out" columnName="ZNJ"/>
+<Complex/>
+<RG class="com.fr.report.cellElement.core.FunctionGrouper"/>
+<Parameters/>
+</O>
+<Expand dir="0"/>
+</C>
+<C c="7" r="6" s="0">
+<O>
+<![CDATA[话费余额]]></O>
+<Expand/>
+</C>
+<C c="8" r="6" s="0">
+<O t="DSColumn">
+<Attributes dsName="hfys_hthhf_out" columnName="BYYE_YSK"/>
+<Complex/>
+<RG class="com.fr.report.cellElement.core.FunctionGrouper"/>
+<Parameters/>
+</O>
+<Expand dir="0"/>
+</C>
+<C c="0" r="7">
+<Expand/>
+</C>
+<C c="7" r="7" s="0">
+<O>
+<![CDATA[本期应收]]></O>
+<Expand/>
+</C>
+<C c="8" r="7" s="0">
+<O t="DSColumn">
+<Attributes dsName="hfys_hthhf_out" columnName="BCYJ"/>
+<Complex/>
+<RG class="com.fr.report.cellElement.core.FunctionGrouper"/>
+<Parameters/>
+</O>
+<Expand dir="0"/>
+</C>
+<C c="6" r="8" s="2">
+<O t="DSColumn">
+<Attributes dsName="pay" columnName="SKRID"/>
+<Complex/>
+<RG class="com.fr.report.cellElement.core.FunctionGrouper"/>
+<Parameters/>
+</O>
+<Expand dir="0"/>
+</C>
+<C c="8" r="8" s="3">
+<O t="DSColumn">
+<Attributes dsName="sysdate" columnName="TO_CHAR(SYSDATE,&apos;YYYYMMDD&apos;)"/>
+<Complex/>
+<RG class="com.fr.report.cellElement.core.FunctionGrouper"/>
+<Parameters/>
+</O>
+<Expand dir="0"/>
+</C>
+<C c="9" r="8">
+<Expand/>
+</C>
+</CellElementList>
+</ElementCase>
+</Report>
+<ReportParameterAttr>
+<Attributes showWindow="false" delayPlaying="true" windowPosition="1" align="1"/>
+<PWTitle>
+<![CDATA[参数]]></PWTitle>
+</ReportParameterAttr>
+<StyleList>
+<Style horizontal_alignment="0">
+<FRFont name="SimSun" style="0" size="96"/>
+<Background name="NullBackground"/>
+<Border/>
+</Style>
+<Style>
+<FRFont name="SimSun" style="0" size="96"/>
+<Background name="NullBackground"/>
+<Border/>
+</Style>
+<Style horizontal_alignment="0">
+<FRFont name="SimSun" style="0" size="88"/>
+<Background name="NullBackground"/>
+<Border/>
+</Style>
+<Style>
+<FRFont name="SimSun" style="0" size="88"/>
+<Background name="NullBackground"/>
+<Border/>
+</Style>
+</StyleList>
+</WorkBook>

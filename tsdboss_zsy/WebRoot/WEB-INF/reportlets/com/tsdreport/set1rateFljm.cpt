@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<WorkBook>
+<Version>6.2</Version>
+<Report class="com.fr.report.WorkSheet" name="sheet1">
+<TableDataMap>
+<NameTableData name="Fljm">
+<TableData class="com.fr.data.impl.DBTableData">
+<Parameters>
+<Parameter>
+<Attributes name="fusearchsql"
+ type="0"
+ shown="true" />
+<O t="S"><![CDATA[]]></O>
+</Parameter>
+</Parameters>
+<Attributes isCache="true" isDiskCache="true" />
+<Connection class="com.fr.data.impl.NameDatabaseConnection">
+<DatabaseName><![CDATA[tsdCDR]]></DatabaseName>
+</Connection><Query><![CDATA[select * from Fljm where [?fusearchsql|?]]]></Query>
+</TableData>
+</NameTableData>
+</TableDataMap>
+<ReportSettings shrinkToFit="false" headerHeight="0.0" footerHeight="0.0">
+<Margin top="0.27" left="0.7499999999999999" bottom="0.27" right="0.7499999999999999" />
+</ReportSettings>
+<ReportPageAttr>
+<HR F="0" T="1" /></ReportPageAttr>
+<ReportParameterAttr>
+<Parameters>
+</Parameters>
+<Attributes showWindow="true" delayPlaying="true" windowPosition="0" userDefineWindow="false" />
+<PWTitle><![CDATA[参数]]></PWTitle>
+</ReportParameterAttr>
+<AutoRecalculate>false</AutoRecalculate>
+<DesignAttributes>
+</DesignAttributes>
+<ReportWebAttr>
+<EmailManager mailHost="" password="___" user="" fromEmailAddress="" />
+<ServerPrinter>
+</ServerPrinter>
+</ReportWebAttr>
+<ReportWriteAttr>
+</ReportWriteAttr>
+<Header reportPageType="0">
+<Background name="NullBackground" />
+<LeftList>
+</LeftList>
+<CenterList>
+</CenterList>
+<RightList>
+</RightList>
+</Header>
+<Footer reportPageType="0">
+<Background name="NullBackground" />
+<LeftList>
+</LeftList>
+<CenterList>
+</CenterList>
+<RightList>
+</RightList>
+</Footer>
+<RowHeight defaultValue="19">
+<![CDATA[44,25,25]]>
+</RowHeight>
+<ColumnWidth defaultValue="72">
+<![CDATA[38,69,110,106,123,90,108]]>
+</ColumnWidth>
+<CellElementList>
+<C c="1" r="0" cs="6" s="0"><O t="S"><![CDATA[分时段减免费率列表]]></O>
+</C>
+<C c="0" r="1" s="1"><O t="S"><![CDATA[序号]]></O>
+</C>
+<C c="1" r="1" s="2"><O t="S"><![CDATA[减免类型]]></O>
+</C>
+<C c="2" r="1" s="2"><O t="S"><![CDATA[减免时段]]></O>
+</C>
+<C c="3" r="1" s="2"><O t="S"><![CDATA[基本费率减免额]]></O>
+</C>
+<C c="4" r="1" s="2"><O t="S"><![CDATA[基本费率减免比率]]></O>
+</C>
+<C c="5" r="1" s="2"><O t="S"><![CDATA[附加费减免额]]></O>
+</C>
+<C c="6" r="1" s="2"><O t="S"><![CDATA[附加费减免比率]]></O>
+</C>
+<C c="0" r="2" s="3"><O t="Formula" class="Formula" ><Attributes><![CDATA[=&B3]]></Attributes></O>
+<Expand leftParentDefault="false" left="B3" />
+</C>
+<C c="1" r="2" s="3"><O t="DSColumn"><Attributes dsName="Fljm" columnName="Jmlx" />
+<Condition class="com.fr.data.condition.ListCondition"></Condition>
+<RG class="com.fr.report.cellElement.core.FunctionGrouper"><Attr divideMode="1" /></RG><Result><![CDATA[$$$]]></Result></O>
+<Expand dir="0" />
+</C>
+<C c="2" r="2" s="3"><O t="DSColumn"><Attributes dsName="Fljm" columnName="Jmshd" />
+<RG class="com.fr.report.cellElement.core.FunctionGrouper"></RG></O>
+<Expand dir="0" />
+</C>
+<C c="3" r="2" s="3"><O t="DSColumn"><Attributes dsName="Fljm" columnName="jdjbJme" />
+<RG class="com.fr.report.cellElement.core.FunctionGrouper"></RG></O>
+<Expand dir="0" />
+</C>
+<C c="4" r="2" s="3"><O t="DSColumn"><Attributes dsName="Fljm" columnName="jbJmbl" />
+<RG class="com.fr.report.cellElement.core.FunctionGrouper"></RG></O>
+<Expand dir="0" />
+</C>
+<C c="5" r="2" s="3"><O t="DSColumn"><Attributes dsName="Fljm" columnName="jdfjJme" />
+<RG class="com.fr.report.cellElement.core.FunctionGrouper"></RG></O>
+<Expand dir="0" />
+</C>
+<C c="6" r="2" s="3"><O t="DSColumn"><Attributes dsName="Fljm" columnName="fjJmbl" />
+<RG class="com.fr.report.cellElement.core.FunctionGrouper"></RG></O>
+<Expand dir="0" />
+</C>
+</CellElementList>
+</Report>
+<StyleList>
+<Style horizontal_alignment="0">
+<FRFont name="SimSun" style="1" size="18" />
+<Background name="NullBackground" />
+<Border></Border>
+</Style>
+<Style horizontal_alignment="0">
+<FRFont name="SimSun" style="1" size="13" />
+<Background name="NullBackground" />
+<Border><Top style="1" /><Bottom style="1" /><Left style="1" /><Right style="1" /></Border>
+</Style>
+<Style horizontal_alignment="0">
+<FRFont name="SimSun" style="1" size="13" />
+<Background name="ColorBackground"
+ color="-1">
+</Background>
+<Border><Top style="1" /><Bottom style="1" /><Left style="1" /><Right style="1" /></Border>
+</Style>
+<Style horizontal_alignment="0">
+<FRFont name="SimSun" style="0" size="13" />
+<Background name="NullBackground" />
+<Border><Top style="1" /><Bottom style="1" /><Left style="1" /><Right style="1" /></Border>
+</Style>
+</StyleList>
+</WorkBook>

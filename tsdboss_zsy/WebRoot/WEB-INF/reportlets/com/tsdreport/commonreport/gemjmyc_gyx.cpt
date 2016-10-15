@@ -1,0 +1,285 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<WorkBook>
+<Version>6.2</Version>
+<Report class="com.fr.report.WorkSheet" name="sheet1">
+<TableDataMap>
+<NameTableData name="yichang">
+<TableData class="com.fr.data.impl.DBTableData">
+<Parameters>
+<Parameter>
+<Attributes name="tmonth"
+ type="0"
+ shown="true" />
+<O t="S"><![CDATA[]]></O>
+</Parameter>
+</Parameters>
+<Attributes isCache="true" isDiskCache="true" />
+<Connection class="com.fr.data.impl.NameDatabaseConnection">
+<DatabaseName><![CDATA[broadband]]></DatabaseName>
+</Connection><Query><![CDATA[select b.username,b.jobtype,date(b.jobrectime),b.userid,b.area,b.ifeetype,b.sdh1,b.srealname,b.Feename from  radjob b where   b.FeeName in ('格尔木预交两年费用：0元','格尔木交一年使用费免移机费：0') and extract(year_month from b.jobrectime)=[?tmonth|?] and b.username not in (
+select b.username from radjob b,radjiaofei j,tbl_IspList i where b.FeeName in ('格尔木预交两年费用：0元','格尔木交一年使用费免移机费：0') and b.username=j.username and i.FeeCode=b.ifeetype  and datediff(b.jobrectime,j.acctpaytime)=0 and j.paymoney>=i.basefee*(case b.jobtype when 'setup' then 24 when 'move' then 12 else 0 end) 
+)
+ 
+]]></Query>
+</TableData>
+</NameTableData>
+<NameTableData name="工号">
+<TableData class="com.fr.data.impl.DBTableData">
+<Parameters>
+</Parameters>
+<Attributes isCache="true" isDiskCache="true" />
+<Connection class="com.fr.data.impl.NameDatabaseConnection">
+<DatabaseName><![CDATA[tsdBilling]]></DatabaseName>
+</Connection><Query><![CDATA[select userid,username from sys_user]]></Query>
+</TableData>
+</NameTableData>
+<NameTableData name="IspList">
+<TableData class="com.fr.data.impl.DBTableData">
+<Parameters>
+</Parameters>
+<Attributes isCache="true" isDiskCache="true" />
+<Connection class="com.fr.data.impl.NameDatabaseConnection">
+<DatabaseName><![CDATA[broadband]]></DatabaseName>
+</Connection><Query><![CDATA[select feecode,feename,basefee from tbl_IspList ]]></Query>
+</TableData>
+</NameTableData>
+</TableDataMap>
+<DictMap>
+<NameDictionary name="数据查询1">
+<Dictionary class="com.fr.data.impl.TableDataDictionary">
+<TableDataDictAttr keyColumnIndex="1" valueColumnIndex="2">
+<TableData class="com.fr.data.impl.DBTableData">
+<Parameters>
+</Parameters>
+<Attributes isCache="true" isDiskCache="true" />
+<Connection class="com.fr.data.impl.NameDatabaseConnection">
+<DatabaseName><![CDATA[tsdBilling]]></DatabaseName>
+</Connection><Query><![CDATA[select userid,username from sys_user]]></Query>
+</TableData>
+</TableDataDictAttr>
+</Dictionary>
+</NameDictionary>
+<NameDictionary name="自定义2">
+<Dictionary class="com.fr.data.impl.CustomDictionary">
+<CustomDictAttr>
+<Dict key="1:I" value="私费用户"/>
+<Dict key="2:I" value="公费用户"/>
+</CustomDictAttr>
+</Dictionary>
+</NameDictionary>
+<NameDictionary name="数据查询3">
+<Dictionary class="com.fr.data.impl.TableDataDictionary">
+<TableDataDictAttr keyColumnIndex="1" valueColumnIndex="2">
+<TableData class="com.fr.data.impl.DBTableData">
+<Parameters>
+</Parameters>
+<Attributes isCache="true" isDiskCache="true" />
+<Connection class="com.fr.data.impl.NameDatabaseConnection">
+<DatabaseName><![CDATA[tsdBilling]]></DatabaseName>
+</Connection><Query><![CDATA[select userid,username from sys_user]]></Query>
+</TableData>
+</TableDataDictAttr>
+</Dictionary>
+</NameDictionary>
+</DictMap>
+<ReportSettings orientation="1" shrinkToFit="false" headerHeight="0.0" footerHeight="0.0">
+<Margin top="0.27" left="0.7499999999999999" bottom="0.27" right="0.7499999999999999" />
+</ReportSettings>
+<ReportPageAttr>
+</ReportPageAttr>
+<ReportParameterAttr>
+<Parameters>
+</Parameters>
+<Attributes showWindow="true" delayPlaying="true" windowPosition="1" userDefineWindow="true" />
+<PWTitle><![CDATA[参数]]></PWTitle>
+<WorkSheet>
+<ReportSettings shrinkToFit="false" headerHeight="0.0" footerHeight="0.0">
+<Margin top="0.27" left="0.75" bottom="0.27" right="0.75" />
+</ReportSettings>
+<ReportParameterAttr>
+<Parameters>
+</Parameters>
+<Attributes showWindow="true" delayPlaying="true" windowPosition="0" userDefineWindow="false" />
+<PWTitle><![CDATA[参数]]></PWTitle>
+</ReportParameterAttr>
+<AutoRecalculate>false</AutoRecalculate>
+<DesignAttributes>
+</DesignAttributes>
+<ReportWebAttr>
+<EmailManager mailHost="" password="___" user="" fromEmailAddress="" />
+<ServerPrinter>
+</ServerPrinter>
+</ReportWebAttr>
+<ReportWriteAttr>
+</ReportWriteAttr>
+<RowHeight defaultValue="19">
+<![CDATA[42,38,19,25]]>
+</RowHeight>
+<ColumnWidth defaultValue="72">
+<![CDATA[108,90,108,28,155]]>
+</ColumnWidth>
+<CellElementList>
+<C c="0" r="0" rs="2" s="0"><O t="S"><![CDATA[报表说明：]]></O>
+</C>
+<C c="1" r="0" cs="4" s="1"><O t="S"><![CDATA[报表是按月查询格尔木地区一次性费用减免异常的用户]]></O>
+</C>
+<C c="1" r="1" cs="4" s="2"><O t="S"><![CDATA[查询时间的格式为\"201005\"，输入时间点击查询]]></O>
+</C>
+<C c="0" r="2" cs="5"><O t="S"><![CDATA[]]></O>
+</C>
+<C c="1" r="3" s="3"><O t="S"><![CDATA[查询时间：]]></O>
+</C>
+<C c="2" r="3" s="3"><O t="PR" >
+<ParameterRef name="tmonth" />
+</O>
+</C>
+<C c="3" r="3" s="3"></C>
+<C c="4" r="3" s="3"><O t="PB" >
+<ParameterButton name="查询" type="0" />
+</O>
+</C>
+<C c="5" r="3" s="3"></C>
+</CellElementList>
+</WorkSheet>
+</ReportParameterAttr>
+<AutoRecalculate>false</AutoRecalculate>
+<DesignAttributes>
+</DesignAttributes>
+<ReportWebAttr>
+<EmailManager mailHost="" password="___" user="" fromEmailAddress="" />
+<ServerPrinter>
+</ServerPrinter>
+</ReportWebAttr>
+<ReportWriteAttr>
+</ReportWriteAttr>
+<RowHeight defaultValue="19">
+<![CDATA[75,53,53]]>
+</RowHeight>
+<ColumnWidth defaultValue="72">
+<![CDATA[96,85,213,129,72,155,101]]>
+</ColumnWidth>
+<CellElementList>
+<C c="0" r="0" cs="7" s="4"><O t="S"><![CDATA[格尔木一次性费用减免异常用户]]></O>
+</C>
+<C c="0" r="1" s="5"><O t="S"><![CDATA[账号]]></O>
+</C>
+<C c="1" r="1" s="5"><O t="S"><![CDATA[姓名]]></O>
+</C>
+<C c="2" r="1" s="5"><O t="S"><![CDATA[业务类型]]></O>
+</C>
+<C c="3" r="1" s="5"><O t="S"><![CDATA[计费规则]]></O>
+</C>
+<C c="4" r="1" s="5"><O t="S"><![CDATA[办理人员]]></O>
+</C>
+<C c="5" r="1" s="5"><O t="S"><![CDATA[办理时间]]></O>
+</C>
+<C c="6" r="1" s="5"><O t="S"><![CDATA[用户类型]]></O>
+</C>
+<C c="0" r="2" s="5"><O t="DSColumn"><Attributes dsName="yichang" columnName="username" />
+<RG class="com.fr.report.cellElement.core.FunctionGrouper"></RG></O>
+<NameJavaScriptGroup>
+<NameJavaScript name="网络报表1">
+<JavaScript class="com.fr.report.javaScript.ReportletHyperlink"><TargetFrame><![CDATA[_blank]]></TargetFrame>
+<ReportletName extendParameters="true"><![CDATA[/com/tsdreport/commonreport/gemjmyc_gyx_mx.cpt]]></ReportletName>
+<Parameters>
+<Parameter>
+<Attributes name="username"
+ type="7"
+ shown="true" />
+<O t="Formula" class="Formula" ><Attributes><![CDATA[=a3]]></Attributes></O>
+</Parameter>
+<Parameter>
+<Attributes name="tmonth"
+ type="7"
+ shown="true" />
+<O t="Formula" class="Formula" ><Attributes><![CDATA[=$tmonth]]></Attributes></O>
+</Parameter>
+</Parameters>
+</JavaScript>
+</NameJavaScript>
+</NameJavaScriptGroup>
+<Expand dir="0" />
+</C>
+<C c="1" r="2" s="5"><O t="DSColumn"><Attributes dsName="yichang" columnName="srealname" />
+<RG class="com.fr.report.cellElement.core.FunctionGrouper"></RG></O>
+<Expand dir="0" />
+</C>
+<C c="2" r="2" s="5"><O t="DSColumn"><Attributes dsName="yichang" columnName="Feename" />
+<RG class="com.fr.report.cellElement.core.FunctionGrouper"></RG></O>
+<Expand dir="0" />
+</C>
+<C c="3" r="2" s="5"><O t="DSColumn"><Attributes dsName="yichang" columnName="ifeetype" />
+<RG class="com.fr.report.cellElement.core.FunctionGrouper"></RG></O>
+<Present class="com.fr.report.cellElement.DictPresent"><Dict class="com.fr.data.impl.TableDataDictionary">
+<TableDataDictAttr keyColumnIndex="1" valueColumnIndex="2">
+<TableData class="com.fr.data.impl.NameTableData">
+<Name><![CDATA[IspList]]></Name>
+</TableData>
+</TableDataDictAttr>
+</Dict></Present><Expand dir="0" />
+</C>
+<C c="4" r="2" s="5"><O t="DSColumn"><Attributes dsName="yichang" columnName="userid" />
+<RG class="com.fr.report.cellElement.core.FunctionGrouper"></RG></O>
+<Present class="com.fr.report.cellElement.DictPresent"><Dict class="com.fr.data.impl.TableDataDictionary">
+<TableDataDictAttr keyColumnIndex="1" valueColumnIndex="2">
+<TableData class="com.fr.data.impl.NameTableData">
+<Name><![CDATA[工号]]></Name>
+</TableData>
+</TableDataDictAttr>
+</Dict></Present><Expand dir="0" />
+</C>
+<C c="5" r="2" s="6"><O t="DSColumn"><Attributes dsName="yichang" columnName="date(b.jobrectime)" />
+<RG class="com.fr.report.cellElement.core.FunctionGrouper"></RG></O>
+<Expand dir="0" />
+</C>
+<C c="6" r="2" s="5"><O t="DSColumn"><Attributes dsName="yichang" columnName="sdh1" />
+<RG class="com.fr.report.cellElement.core.FunctionGrouper"></RG></O>
+<Present class="com.fr.report.cellElement.DictPresent"><Dict class="com.fr.data.impl.CustomDictionary">
+<CustomDictAttr>
+<Dict key="1:I" value="私费用户"/>
+<Dict key="2:I" value="公费用户"/>
+</CustomDictAttr>
+</Dict></Present><Expand dir="0" />
+</C>
+</CellElementList>
+</Report>
+<StyleList>
+<Style>
+<FRFont name="SimSun" style="1" size="16" />
+<Background name="NullBackground" />
+<Border><Bottom style="1" /></Border>
+</Style>
+<Style>
+<FRFont name="SimSun" style="1" size="14" />
+<Background name="NullBackground" />
+<Border></Border>
+</Style>
+<Style>
+<FRFont name="SimSun" style="1" size="14" />
+<Background name="NullBackground" />
+<Border><Bottom style="1" /></Border>
+</Style>
+<Style>
+<FRFont name="SimSun" style="0" size="14" />
+<Background name="NullBackground" />
+<Border></Border>
+</Style>
+<Style horizontal_alignment="0">
+<FRFont name="SimSun" style="1" size="22" />
+<Background name="NullBackground" />
+<Border></Border>
+</Style>
+<Style horizontal_alignment="0">
+<FRFont name="SimSun" style="0" size="15" />
+<Background name="NullBackground" />
+<Border><Top style="1" /><Bottom style="1" /><Left style="1" /><Right style="1" /></Border>
+</Style>
+<Style horizontal_alignment="0">
+<Format class="java.text.SimpleDateFormat"><![CDATA[yyyy-MM-dd]]>
+</Format>
+<FRFont name="SimSun" style="0" size="15" />
+<Background name="NullBackground" />
+<Border><Top style="1" /><Bottom style="1" /><Left style="1" /><Right style="1" /></Border>
+</Style>
+</StyleList>
+</WorkBook>

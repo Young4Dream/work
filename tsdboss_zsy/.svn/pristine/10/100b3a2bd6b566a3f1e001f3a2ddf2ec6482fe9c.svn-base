@@ -1,0 +1,319 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<WorkBook>
+<Version>6.2</Version>
+<Report class="com.fr.report.WorkSheet" name="sheet1">
+<TableDataMap>
+<NameTableData name="tsddanganM">
+<TableData class="com.fr.data.impl.DBTableData">
+<Parameters>
+<Parameter>
+<Attributes name="fusearchsql"
+ type="0"
+ shown="true" />
+<O t="S"><![CDATA[1=1]]></O>
+</Parameter>
+</Parameters>
+<Attributes isCache="true" isDiskCache="true" />
+<Connection class="com.fr.data.impl.NameDatabaseConnection">
+<DatabaseName><![CDATA[broadband]]></DatabaseName>
+</Connection><Query><![CDATA[SELECT UserName AS "UserName",Attribute AS "Attribute",op AS "op",'***',ipaddr AS "ipaddr",vlanid AS "vlanid",AcctStartTime AS "AcctStartTime",AcctStopTime AS "AcctStopTime",PauseStartTime AS "PauseStartTime",PauseStopTime AS "PauseStopTime",AcctStartMonth AS "AcctStartMonth",AcctEndMonth AS "AcctEndMonth",PauseStartMonth AS "PauseStartMonth",PauseEndMonth AS "PauseEndMonth",RemainFee "RemainFee",PayType AS "PayType",UserID AS "UserID",iFeeType "iFeeType",iFeeStopType AS "iFeeStopType",sDh AS "sDh",sRegDate AS "sRegDate",sRealName AS "sRealName",sBm AS "sBm",sAddress AS "sAddress",iStatus AS "iStatus",iMacAutoBand AS "iMacAutoBand",iSimultaneous AS "iSimultaneous",iAutoSessiontimeout AS "iAutoSessiontimeout",RemainTime AS "RemainTime",thismonthtime AS "thismonthtime",nextmonthtime AS "nextmonthtime",totaltime AS "totaltime",feeendtime AS "feeendtime",iFeeTypeTime AS "iFeeTypeTime",iFeeType1 AS "iFeeType1",iFeeTypeS AS "iFeeTypeS",sDh1 AS "sDh1",sDh2 AS "sDh2",UserName1 AS "UserName1",UserName2 AS "UserName2",Fee1 AS "Fee1",Fee2 AS "Fee2",Fee3 AS "Fee3",Fee4 AS "Fee4",Fee5 AS "Fee5",idtype AS "idtype",idcard AS "idcard",speed AS "speed",autopay AS "autopay",mobile AS "mobile",linkphone AS "linkphone",linkman AS "linkman" FROM vw_radcheck  where [?fusearchsql|1=1?]]]></Query>
+</TableData>
+</NameTableData>
+</TableDataMap>
+<ReportSettings orientation="1" shrinkToFit="false" headerHeight="0.0" footerHeight="0.0">
+<PaperSize width="33.056" height="46.778" />
+<Margin top="0.27" left="0.1968503937007874" bottom="0.27" right="0.1968503937007874" />
+</ReportSettings>
+<ReportPageAttr>
+<HR F="0" T="3" /></ReportPageAttr>
+<ReportParameterAttr>
+<Parameters>
+</Parameters>
+<Attributes showWindow="true" delayPlaying="true" windowPosition="0" userDefineWindow="false" />
+<PWTitle><![CDATA[参数]]></PWTitle>
+</ReportParameterAttr>
+<AutoRecalculate>false</AutoRecalculate>
+<DesignAttributes>
+</DesignAttributes>
+<ReportWebAttr>
+<EmailManager mailHost="" password="___" user="" fromEmailAddress="" />
+<ServerPrinter>
+</ServerPrinter>
+</ReportWebAttr>
+<ReportWriteAttr>
+</ReportWriteAttr>
+<Header reportPageType="0">
+<Background name="NullBackground" />
+<LeftList>
+</LeftList>
+<CenterList>
+</CenterList>
+<RightList>
+</RightList>
+</Header>
+<Footer reportPageType="0">
+<Background name="NullBackground" />
+<LeftList>
+</LeftList>
+<CenterList>
+</CenterList>
+<RightList>
+</RightList>
+</Footer>
+<RowHeight defaultValue="19">
+<![CDATA[19,30,19,30,25]]>
+</RowHeight>
+<ColumnWidth defaultValue="72">
+<![CDATA[42,72,72,105,97,142,134,136,143,103,72,72,72,132,72,72,205,81,105,72,72,83,86,86,134,124]]>
+</ColumnWidth>
+<CellElementList>
+<C c="0" r="1" s="0"></C>
+<C c="1" r="1" s="0"></C>
+<C c="2" r="1" s="0"></C>
+<C c="3" r="1" cs="2" s="1"><O t="S"><![CDATA[ 宽 带 用 户 档 案 ]]></O>
+</C>
+<C c="5" r="1" s="0"></C>
+<C c="6" r="1" s="0"></C>
+<C c="7" r="1" s="0"></C>
+<C c="8" r="1" s="0"></C>
+<C c="9" r="1" s="0"></C>
+<C c="10" r="1" s="0"></C>
+<C c="11" r="1" s="0"></C>
+<C c="12" r="1" s="0"></C>
+<C c="13" r="1" s="0"></C>
+<C c="14" r="1" s="0"></C>
+<C c="15" r="1" s="0"></C>
+<C c="16" r="1" s="0"></C>
+<C c="17" r="1" s="0"></C>
+<C c="18" r="1" s="0"></C>
+<C c="19" r="1" s="0"></C>
+<C c="20" r="1" s="0"></C>
+<C c="21" r="1" s="0"></C>
+<C c="22" r="1" s="0"></C>
+<C c="23" r="1" s="0"></C>
+<C c="24" r="1" s="0"></C>
+<C c="25" r="1" s="0"></C>
+<C c="26" r="1" s="0"></C>
+<C c="27" r="1" s="0"></C>
+<C c="28" r="1" s="0"></C>
+<C c="29" r="1" s="0"></C>
+<C c="30" r="1" s="0"></C>
+<C c="31" r="1" s="0"></C>
+<C c="32" r="1" s="0"></C>
+<C c="33" r="1" s="0"></C>
+<C c="34" r="1" s="0"></C>
+<C c="0" r="3" s="2"><O t="S"><![CDATA[序号]]></O>
+</C>
+<C c="1" r="3" s="2"><O t="S"><![CDATA[账号]]></O>
+</C>
+<C c="2" r="3" s="2"><O t="S"><![CDATA[密码]]></O>
+</C>
+<C c="3" r="3" s="2"><O t="S"><![CDATA[绑定ip]]></O>
+</C>
+<C c="4" r="3" s="2"><O t="S"><![CDATA[绑定vlanid]]></O>
+</C>
+<C c="5" r="3" s="2"><O t="S"><![CDATA[账号有效起始时间]]></O>
+</C>
+<C c="6" r="3" s="2"><O t="S"><![CDATA[账户有效截止时间]]></O>
+</C>
+<C c="7" r="3" s="2"><O t="S"><![CDATA[停机开始时间]]></O>
+</C>
+<C c="8" r="3" s="2"><O t="S"><![CDATA[停机结束时间]]></O>
+</C>
+<C c="9" r="3" s="2"><O t="S"><![CDATA[账户剩余金额]]></O>
+</C>
+<C c="10" r="3" s="2"><O t="S"><![CDATA[用户类别]]></O>
+</C>
+<C c="11" r="3" s="2"><O t="S"><![CDATA[计费规则]]></O>
+</C>
+<C c="12" r="3" s="2"><O t="S"><![CDATA[电话]]></O>
+</C>
+<C c="13" r="3" s="2"><O t="S"><![CDATA[开户日期]]></O>
+</C>
+<C c="14" r="3" s="2"><O t="S"><![CDATA[姓名]]></O>
+</C>
+<C c="15" r="3" s="2"><O t="S"><![CDATA[部门]]></O>
+</C>
+<C c="16" r="3" s="2"><O t="S"><![CDATA[地址]]></O>
+</C>
+<C c="17" r="3" s="2"><O t="S"><![CDATA[用户锁定状态]]></O>
+</C>
+<C c="18" r="3" s="2"><O t="S"><![CDATA[是否进行网卡自动]]></O>
+</C>
+<C c="19" r="3" s="2"><O t="S"><![CDATA[同时在线数]]></O>
+</C>
+<C c="20" r="3" s="2"><O t="S"><![CDATA[剩余时长]]></O>
+</C>
+<C c="21" r="3" s="2"><O t="S"><![CDATA[本月剩余时长]]></O>
+</C>
+<C c="22" r="3" s="2"><O t="S"><![CDATA[下月剩余时长]]></O>
+</C>
+<C c="23" r="3" s="2"><O t="S"><![CDATA[本月累计时长]]></O>
+</C>
+<C c="24" r="3" s="2"><O t="S"><![CDATA[计费规则变更日期]]></O>
+</C>
+<C c="25" r="3" s="2"><O t="S"><![CDATA[计费开始时间]]></O>
+</C>
+<C c="26" r="3" s="2"><O t="S"><![CDATA[用户区域]]></O>
+</C>
+<C c="27" r="3" s="2"><O t="S"><![CDATA[端口]]></O>
+</C>
+<C c="28" r="3" s="2"><O t="S"><![CDATA[邮政编码]]></O>
+</C>
+<C c="29" r="3" s="2"><O t="S"><![CDATA[证件类型]]></O>
+</C>
+<C c="30" r="3" s="2"><O t="S"><![CDATA[证据号]]></O>
+</C>
+<C c="31" r="3" s="2"><O t="S"><![CDATA[带宽]]></O>
+</C>
+<C c="32" r="3" s="2"><O t="S"><![CDATA[移动电话]]></O>
+</C>
+<C c="33" r="3" s="2"><O t="S"><![CDATA[联系电话]]></O>
+</C>
+<C c="34" r="3" s="2"><O t="S"><![CDATA[联系人]]></O>
+</C>
+<C c="0" r="4" s="3"><O t="Formula" class="Formula" ><Attributes><![CDATA[=&B5]]></Attributes></O>
+<Expand leftParentDefault="false" left="B5" />
+</C>
+<C c="1" r="4" s="3"><O t="DSColumn"><Attributes dsName="tsddanganM" columnName="UserName" />
+<Condition class="com.fr.data.condition.ListCondition"></Condition>
+<RG class="com.fr.report.cellElement.core.FunctionGrouper"><Attr divideMode="1" /></RG><Result><![CDATA[$$$]]></Result></O>
+<Expand dir="0" leftParentDefault="false" />
+</C>
+<C c="2" r="4" s="3"><O t="DSColumn"><Attributes dsName="tsddanganM" columnName="&apos;***&apos;" />
+<Condition class="com.fr.data.condition.ListCondition"></Condition>
+<RG class="com.fr.report.cellElement.core.FunctionGrouper"></RG><Result><![CDATA[$$$]]></Result></O>
+</C>
+<C c="3" r="4" s="3"><O t="DSColumn"><Attributes dsName="tsddanganM" columnName="ipaddr" />
+<RG class="com.fr.report.cellElement.core.FunctionGrouper"></RG></O>
+<CellGUIAttr autoAdjustRowHeight="1" ></CellGUIAttr></C>
+<C c="4" r="4" s="3"><O t="DSColumn"><Attributes dsName="tsddanganM" columnName="vlanid" />
+<RG class="com.fr.report.cellElement.core.FunctionGrouper"></RG></O>
+<CellGUIAttr autoAdjustRowHeight="1" ></CellGUIAttr></C>
+<C c="5" r="4" s="3"><O t="DSColumn"><Attributes dsName="tsddanganM" columnName="AcctStartTime" />
+<Condition class="com.fr.data.condition.ListCondition"></Condition>
+<RG class="com.fr.report.cellElement.core.FunctionGrouper"></RG><Result><![CDATA[$$$]]></Result></O>
+<CellGUIAttr autoAdjustRowHeight="1" ></CellGUIAttr></C>
+<C c="6" r="4" s="3"><O t="DSColumn"><Attributes dsName="tsddanganM" columnName="AcctStopTime" />
+<Condition class="com.fr.data.condition.ListCondition"></Condition>
+<RG class="com.fr.report.cellElement.core.FunctionGrouper"></RG><Result><![CDATA[$$$]]></Result></O>
+</C>
+<C c="7" r="4" s="3"><O t="DSColumn"><Attributes dsName="tsddanganM" columnName="PauseStartTime" />
+<Condition class="com.fr.data.condition.ListCondition"></Condition>
+<RG class="com.fr.report.cellElement.core.FunctionGrouper"></RG><Result><![CDATA[$$$]]></Result></O>
+<CellGUIAttr autoAdjustRowHeight="1" ></CellGUIAttr></C>
+<C c="8" r="4" s="3"><O t="DSColumn"><Attributes dsName="tsddanganM" columnName="PauseStopTime" />
+<Condition class="com.fr.data.condition.ListCondition"></Condition>
+<RG class="com.fr.report.cellElement.core.FunctionGrouper"></RG><Result><![CDATA[$$$]]></Result></O>
+<CellGUIAttr autoAdjustRowHeight="1" ></CellGUIAttr></C>
+<C c="9" r="4" s="3"><O t="DSColumn"><Attributes dsName="tsddanganM" columnName="RemainFee" />
+<RG class="com.fr.report.cellElement.core.FunctionGrouper"></RG></O>
+<CellGUIAttr autoAdjustRowHeight="1" ></CellGUIAttr></C>
+<C c="10" r="4" s="3"><O t="DSColumn"><Attributes dsName="tsddanganM" columnName="PayType" />
+<RG class="com.fr.report.cellElement.core.FunctionGrouper"></RG></O>
+<CellGUIAttr autoAdjustRowHeight="1" ></CellGUIAttr></C>
+<C c="11" r="4" s="3"><O t="DSColumn"><Attributes dsName="tsddanganM" columnName="iFeeType" />
+<RG class="com.fr.report.cellElement.core.FunctionGrouper"></RG></O>
+<CellGUIAttr autoAdjustRowHeight="1" ></CellGUIAttr></C>
+<C c="12" r="4" s="3"><O t="DSColumn"><Attributes dsName="tsddanganM" columnName="sDh" />
+<RG class="com.fr.report.cellElement.core.FunctionGrouper"></RG></O>
+<CellGUIAttr autoAdjustRowHeight="1" ></CellGUIAttr></C>
+<C c="13" r="4" s="3"><O t="DSColumn"><Attributes dsName="tsddanganM" columnName="cast(date_format(sRegDate,&apos;%Y-%m-%d %H:%i:%S&apos;) as char)" />
+<RG class="com.fr.report.cellElement.core.FunctionGrouper"></RG></O>
+<CellGUIAttr autoAdjustRowHeight="1" ></CellGUIAttr></C>
+<C c="14" r="4" s="3"><O t="DSColumn"><Attributes dsName="tsddanganM" columnName="sRealName" />
+<RG class="com.fr.report.cellElement.core.FunctionGrouper"></RG></O>
+<CellGUIAttr autoAdjustRowHeight="1" ></CellGUIAttr></C>
+<C c="15" r="4" s="3"><O t="DSColumn"><Attributes dsName="tsddanganM" columnName="sBm" />
+<RG class="com.fr.report.cellElement.core.FunctionGrouper"></RG></O>
+<CellGUIAttr autoAdjustRowHeight="1" ></CellGUIAttr></C>
+<C c="16" r="4" s="3"><O t="DSColumn"><Attributes dsName="tsddanganM" columnName="sAddress" />
+<RG class="com.fr.report.cellElement.core.FunctionGrouper"></RG></O>
+<CellGUIAttr autoAdjustRowHeight="1" ></CellGUIAttr></C>
+<C c="17" r="4" s="3"><O t="DSColumn"><Attributes dsName="tsddanganM" columnName="iStatus" />
+<RG class="com.fr.report.cellElement.core.FunctionGrouper"></RG></O>
+<CellGUIAttr autoAdjustRowHeight="1" ></CellGUIAttr></C>
+<C c="18" r="4" s="3"><O t="DSColumn"><Attributes dsName="tsddanganM" columnName="iMacAutoBand" />
+<RG class="com.fr.report.cellElement.core.FunctionGrouper"></RG></O>
+<CellGUIAttr autoAdjustRowHeight="1" ></CellGUIAttr></C>
+<C c="19" r="4" s="3"><O t="DSColumn"><Attributes dsName="tsddanganM" columnName="iSimultaneous" />
+<RG class="com.fr.report.cellElement.core.FunctionGrouper"></RG></O>
+<CellGUIAttr autoAdjustRowHeight="1" ></CellGUIAttr></C>
+<C c="20" r="4" s="3"><O t="DSColumn"><Attributes dsName="tsddanganM" columnName="RemainTime" />
+<RG class="com.fr.report.cellElement.core.FunctionGrouper"></RG></O>
+<CellGUIAttr autoAdjustRowHeight="1" ></CellGUIAttr></C>
+<C c="21" r="4" s="3"><O t="DSColumn"><Attributes dsName="tsddanganM" columnName="thismonthtime" />
+<RG class="com.fr.report.cellElement.core.FunctionGrouper"></RG></O>
+<CellGUIAttr autoAdjustRowHeight="1" ></CellGUIAttr></C>
+<C c="22" r="4" s="3"><O t="DSColumn"><Attributes dsName="tsddanganM" columnName="nextmonthtime" />
+<RG class="com.fr.report.cellElement.core.FunctionGrouper"></RG></O>
+<CellGUIAttr autoAdjustRowHeight="1" ></CellGUIAttr></C>
+<C c="23" r="4" s="3"><O t="DSColumn"><Attributes dsName="tsddanganM" columnName="totaltime" />
+<RG class="com.fr.report.cellElement.core.FunctionGrouper"></RG></O>
+<CellGUIAttr autoAdjustRowHeight="1" ></CellGUIAttr></C>
+<C c="24" r="4" s="3"><O t="DSColumn"><Attributes dsName="tsddanganM" columnName="feeendtime" />
+<Condition class="com.fr.data.condition.ListCondition"></Condition>
+<RG class="com.fr.report.cellElement.core.FunctionGrouper"></RG><Result><![CDATA[$$$]]></Result></O>
+<CellGUIAttr autoAdjustRowHeight="1" ></CellGUIAttr></C>
+<C c="25" r="4" s="3"><O t="DSColumn"><Attributes dsName="tsddanganM" columnName="iFeeTypeTime" />
+<Condition class="com.fr.data.condition.ListCondition"></Condition>
+<RG class="com.fr.report.cellElement.core.FunctionGrouper"></RG><Result><![CDATA[$$$]]></Result></O>
+<CellGUIAttr autoAdjustRowHeight="1" ></CellGUIAttr></C>
+<C c="26" r="4" s="3"><O t="DSColumn"><Attributes dsName="tsddanganM" columnName="sDh2" />
+<RG class="com.fr.report.cellElement.core.FunctionGrouper"></RG></O>
+<CellGUIAttr autoAdjustRowHeight="1" ></CellGUIAttr></C>
+<C c="27" r="4" s="3"><O t="DSColumn"><Attributes dsName="tsddanganM" columnName="UserName1" />
+<RG class="com.fr.report.cellElement.core.FunctionGrouper"></RG></O>
+<CellGUIAttr autoAdjustRowHeight="1" ></CellGUIAttr></C>
+<C c="28" r="4" s="3"><O t="DSColumn"><Attributes dsName="tsddanganM" columnName="idtype" />
+<RG class="com.fr.report.cellElement.core.FunctionGrouper"></RG></O>
+<CellGUIAttr autoAdjustRowHeight="1" ></CellGUIAttr></C>
+<C c="29" r="4" s="3"><O t="DSColumn"><Attributes dsName="tsddanganM" columnName="idtype" />
+<RG class="com.fr.report.cellElement.core.FunctionGrouper"></RG></O>
+<CellGUIAttr autoAdjustRowHeight="1" ></CellGUIAttr></C>
+<C c="30" r="4" s="3"><O t="DSColumn"><Attributes dsName="tsddanganM" columnName="idcard" />
+<RG class="com.fr.report.cellElement.core.FunctionGrouper"></RG></O>
+<CellGUIAttr autoAdjustRowHeight="2" ></CellGUIAttr></C>
+<C c="31" r="4" s="3"><O t="DSColumn"><Attributes dsName="tsddanganM" columnName="speed" />
+<RG class="com.fr.report.cellElement.core.FunctionGrouper"></RG></O>
+<CellGUIAttr autoAdjustRowHeight="2" ></CellGUIAttr></C>
+<C c="32" r="4" s="3"><O t="DSColumn"><Attributes dsName="tsddanganM" columnName="mobile" />
+<RG class="com.fr.report.cellElement.core.FunctionGrouper"></RG></O>
+<CellGUIAttr autoAdjustRowHeight="1" ></CellGUIAttr></C>
+<C c="33" r="4" s="3"><O t="DSColumn"><Attributes dsName="tsddanganM" columnName="linkphone" />
+<RG class="com.fr.report.cellElement.core.FunctionGrouper"></RG></O>
+<CellGUIAttr autoAdjustRowHeight="1" ></CellGUIAttr></C>
+<C c="34" r="4" s="3"><O t="DSColumn"><Attributes dsName="tsddanganM" columnName="linkman" />
+<RG class="com.fr.report.cellElement.core.FunctionGrouper"></RG></O>
+<CellGUIAttr autoAdjustRowHeight="1" ></CellGUIAttr></C>
+<C c="8" r="5"><O t="S"><![CDATA[]]></O>
+</C>
+<C c="28" r="5"></C>
+<C c="3" r="6"></C>
+</CellElementList>
+</Report>
+<StyleList>
+<Style>
+<FRFont name="SimSun" style="0" size="18" />
+<Background name="NullBackground" />
+<Border></Border>
+</Style>
+<Style>
+<FRFont name="SimSun" style="1" size="18" />
+<Background name="NullBackground" />
+<Border></Border>
+</Style>
+<Style horizontal_alignment="0">
+<FRFont name="SimSun" style="1" size="15" />
+<Background name="ColorBackground"
+ color="-1">
+</Background>
+<Border><Top style="1" /><Bottom style="1" /><Left style="1" /><Right style="1" /></Border>
+</Style>
+<Style horizontal_alignment="0">
+<FRFont name="SimSun" style="0" size="12" />
+<Background name="NullBackground" />
+<Border><Top style="1" /><Bottom style="1" /><Left style="1" /><Right style="1" /></Border>
+</Style>
+</StyleList>
+</WorkBook>

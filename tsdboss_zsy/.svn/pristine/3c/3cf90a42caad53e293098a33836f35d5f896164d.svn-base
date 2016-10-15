@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<WorkBook>
+<Version>6.2</Version>
+<Report class="com.fr.report.WorkSheet" name="sheet1">
+<TableDataMap>
+<NameTableData name="tsdattributes4">
+<TableData class="com.fr.data.impl.DBTableData">
+<Parameters>
+<Parameter>
+<Attributes name="fusearchsql"
+ type="0"
+ shown="true" />
+<O t="S"><![CDATA[]]></O>
+</Parameter>
+</Parameters>
+<Attributes isCache="true" isDiskCache="true" />
+<Connection class="com.fr.data.impl.NameDatabaseConnection">
+<DatabaseName><![CDATA[tsdBilling]]></DatabaseName>
+</Connection><Query><![CDATA[select sCode, sName, YqCallType, Hwjb FROM Dhgn where [?fusearchsql|?]]]></Query>
+</TableData>
+</NameTableData>
+</TableDataMap>
+<ReportSettings shrinkToFit="false" headerHeight="0.0" footerHeight="0.0">
+<Margin top="0.27" left="0.75" bottom="0.27" right="0.75" />
+</ReportSettings>
+<ReportParameterAttr>
+<Parameters>
+</Parameters>
+<Attributes showWindow="true" delayPlaying="true" windowPosition="0" userDefineWindow="false" />
+<PWTitle><![CDATA[参数]]></PWTitle>
+</ReportParameterAttr>
+<AutoRecalculate>false</AutoRecalculate>
+<DesignAttributes>
+</DesignAttributes>
+<ReportWebAttr>
+<EmailManager mailHost="" password="___" user="" fromEmailAddress="" />
+<ServerPrinter>
+</ServerPrinter>
+</ReportWebAttr>
+<ReportWriteAttr>
+</ReportWriteAttr>
+<RowHeight defaultValue="19">
+<![CDATA[19,19,19,30]]>
+</RowHeight>
+<ColumnWidth defaultValue="72">
+<![CDATA[72,72,121,269]]>
+</ColumnWidth>
+<CellElementList>
+<C c="2" r="2" s="0"><O t="S"><![CDATA[电话功能]]></O>
+</C>
+<C c="0" r="3" s="1"><O t="S"><![CDATA[序号]]></O>
+</C>
+<C c="1" r="3" s="1"><O t="S"><![CDATA[功能代码]]></O>
+</C>
+<C c="2" r="3" s="1"><O t="S"><![CDATA[功能名称]]></O>
+</C>
+<C c="3" r="3" s="1"><O t="S"><![CDATA[越权呼叫类型]]></O>
+</C>
+<C c="4" r="3" s="1"><O t="S"><![CDATA[话务级别]]></O>
+</C>
+<C c="0" r="4" s="2"><O t="Formula" class="Formula" ><Attributes><![CDATA[=&B5]]></Attributes></O>
+<Expand leftParentDefault="false" left="B5" />
+</C>
+<C c="1" r="4" s="2"><O t="DSColumn"><Attributes dsName="tsdattributes4" columnName="sCode" />
+<Condition class="com.fr.data.condition.ListCondition"></Condition>
+<RG class="com.fr.report.cellElement.core.FunctionGrouper"><Attr divideMode="1" /></RG><Result><![CDATA[$$$]]></Result></O>
+<CellGUIAttr autoAdjustRowHeight="1" ></CellGUIAttr><Expand dir="0" />
+</C>
+<C c="2" r="4" s="2"><O t="DSColumn"><Attributes dsName="tsdattributes4" columnName="sName" />
+<RG class="com.fr.report.cellElement.core.FunctionGrouper"></RG></O>
+<CellGUIAttr autoAdjustRowHeight="1" ></CellGUIAttr><Expand dir="0" />
+</C>
+<C c="3" r="4" s="2"><O t="DSColumn"><Attributes dsName="tsdattributes4" columnName="YqCallType" />
+<RG class="com.fr.report.cellElement.core.FunctionGrouper"></RG></O>
+<CellGUIAttr autoAdjustRowHeight="1" ></CellGUIAttr><Expand dir="0" />
+</C>
+<C c="4" r="4" s="2"><O t="DSColumn"><Attributes dsName="tsdattributes4" columnName="Hwjb" />
+<RG class="com.fr.report.cellElement.core.FunctionGrouper"></RG></O>
+<CellGUIAttr autoAdjustRowHeight="1" ></CellGUIAttr><Expand dir="0" />
+</C>
+</CellElementList>
+</Report>
+<StyleList>
+<Style>
+<FRFont name="SimSun" style="1" size="13" />
+<Background name="NullBackground" />
+<Border></Border>
+</Style>
+<Style>
+<FRFont name="SimSun" style="0" size="12" />
+<Background name="ColorBackground"
+ color="-13382452">
+</Background>
+<Border><Top style="1" /><Bottom style="1" /><Left style="1" /><Right style="1" /></Border>
+</Style>
+<Style>
+<FRFont name="SimSun" style="0" size="12" />
+<Background name="NullBackground" />
+<Border><Top style="1" /><Bottom style="1" /><Left style="1" /><Right style="1" /></Border>
+</Style>
+</StyleList>
+</WorkBook>

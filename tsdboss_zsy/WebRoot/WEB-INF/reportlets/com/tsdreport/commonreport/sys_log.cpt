@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<WorkBook>
+<Version>6.2</Version>
+<Report class="com.fr.report.WorkSheet" name="sheet1">
+<TableDataMap>
+<NameTableData name="sys_log">
+<TableData class="com.fr.data.impl.DBTableData">
+<Parameters>
+<Parameter>
+<Attributes name="fusearchsql"
+ type="0"
+ shown="true" />
+<O t="S"><![CDATA[]]></O>
+</Parameter>
+</Parameters>
+<Attributes isCache="true" isDiskCache="true" />
+<Connection class="com.fr.data.impl.NameDatabaseConnection">
+<DatabaseName><![CDATA[tsdLog]]></DatabaseName>
+</Connection><Query><![CDATA[select logtime as "logtime",modulename as "modulename",logtype as "logtype",loginfo as "loginfo",ipaddress as "ipaddress" from sys_log  where [?fusearchsql|1=1?]]]></Query>
+</TableData>
+</NameTableData>
+<NameTableData name="user">
+<TableData class="com.fr.data.impl.DBTableData">
+<Parameters>
+</Parameters>
+<Attributes isCache="true" isDiskCache="true" />
+<Connection class="com.fr.data.impl.NameDatabaseConnection">
+<DatabaseName><![CDATA[tsdBilling]]></DatabaseName>
+</Connection><Query><![CDATA[select userid as "userid",username as "username" from sys_user]]></Query>
+</TableData>
+</NameTableData>
+</TableDataMap>
+<ReportSettings orientation="1" shrinkToFit="false" headerHeight="0.0" footerHeight="0.0">
+<PaperSize width="16.528" height="23.389" />
+<Margin top="0.27" left="0.7499999999999999" bottom="0.27" right="0.7499999999999999" />
+</ReportSettings>
+<ReportPageAttr>
+<HR F="0" T="1" /></ReportPageAttr>
+<ReportParameterAttr>
+<Parameters>
+</Parameters>
+<Attributes showWindow="true" delayPlaying="true" windowPosition="0" userDefineWindow="false" />
+<PWTitle><![CDATA[参数]]></PWTitle>
+</ReportParameterAttr>
+<AutoRecalculate>false</AutoRecalculate>
+<DesignAttributes>
+</DesignAttributes>
+<ReportWebAttr>
+<EmailManager mailHost="" password="___" user="" fromEmailAddress="" />
+<ServerPrinter>
+</ServerPrinter>
+</ReportWebAttr>
+<ReportWriteAttr>
+</ReportWriteAttr>
+<Header reportPageType="0">
+<Background name="NullBackground" />
+<LeftList>
+</LeftList>
+<CenterList>
+</CenterList>
+<RightList>
+</RightList>
+</Header>
+<Footer reportPageType="0">
+<Background name="NullBackground" />
+<LeftList>
+</LeftList>
+<CenterList>
+</CenterList>
+<RightList>
+</RightList>
+</Footer>
+<RowHeight defaultValue="19">
+<![CDATA[46,25,25]]>
+</RowHeight>
+<ColumnWidth defaultValue="72">
+<![CDATA[40,129,64,160,72,315,132]]>
+</ColumnWidth>
+<CellElementList>
+<C c="0" r="0" cs="7" s="0"><O t="S"><![CDATA[ 系 统 日 志]]></O>
+</C>
+<C c="0" r="1" s="1"><O t="S"><![CDATA[序号]]></O>
+</C>
+<C c="1" r="1" s="1"><O t="S"><![CDATA[记录时间]]></O>
+</C>
+<C c="2" r="1" s="1"><O t="S"><![CDATA[工号]]></O>
+</C>
+<C c="3" r="1" s="1"><O t="S"><![CDATA[模块名称]]></O>
+</C>
+<C c="4" r="1" s="1"><O t="S"><![CDATA[日志类型]]></O>
+</C>
+<C c="5" r="1" s="1"><O t="S"><![CDATA[日志信息]]></O>
+</C>
+<C c="6" r="1" s="1"><O t="S"><![CDATA[IP地址]]></O>
+</C>
+<C c="0" r="2" s="2"><O t="Formula" class="Formula" ><Attributes><![CDATA[=&B3]]></Attributes></O>
+<Expand leftParentDefault="false" left="B3" />
+</C>
+<C c="1" r="2" s="2"><O t="DSColumn"><Attributes dsName="sys_log" columnName="logtime" />
+<Condition class="com.fr.data.condition.ListCondition"></Condition>
+<RG class="com.fr.report.cellElement.core.FunctionGrouper"></RG><Result><![CDATA[$$$]]></Result></O>
+<Expand dir="0" leftParentDefault="false" />
+</C>
+<C c="2" r="2" s="2"><O t="DSColumn"><Attributes dsName="user" columnName="username" />
+<Condition class="com.fr.data.condition.CommonCondition"><CNAME><![CDATA[username]]></CNAME><Compare op="0">
+<AnDSColumn dsName="user" columnName="username" /></Compare>
+</Condition>
+<RG class="com.fr.report.cellElement.core.FunctionGrouper"></RG><Result><![CDATA[$$$]]></Result></O>
+<Expand dir="0" />
+</C>
+<C c="3" r="2" s="2"><O t="DSColumn"><Attributes dsName="sys_log" columnName="modulename" />
+<RG class="com.fr.report.cellElement.core.FunctionGrouper"></RG></O>
+<Expand dir="0" />
+</C>
+<C c="4" r="2" s="2"><O t="DSColumn"><Attributes dsName="sys_log" columnName="logtype" />
+<RG class="com.fr.report.cellElement.core.FunctionGrouper"></RG></O>
+<Expand dir="0" />
+</C>
+<C c="5" r="2" s="2"><O t="DSColumn"><Attributes dsName="sys_log" columnName="loginfo" />
+<RG class="com.fr.report.cellElement.core.FunctionGrouper"></RG></O>
+<Expand dir="0" />
+</C>
+<C c="6" r="2" s="2"><O t="DSColumn"><Attributes dsName="sys_log" columnName="ipaddress" />
+<RG class="com.fr.report.cellElement.core.FunctionGrouper"></RG></O>
+<Expand dir="0" />
+</C>
+</CellElementList>
+</Report>
+<StyleList>
+<Style horizontal_alignment="0">
+<FRFont name="SimSun" style="1" size="18" />
+<Background name="NullBackground" />
+<Border></Border>
+</Style>
+<Style horizontal_alignment="0">
+<FRFont name="SimSun" style="1" size="13" />
+<Background name="NullBackground" />
+<Border><Top style="1" /><Bottom style="1" /><Left style="1" /><Right style="1" /></Border>
+</Style>
+<Style horizontal_alignment="0">
+<FRFont name="SimSun" style="0" size="12" />
+<Background name="NullBackground" />
+<Border><Top style="1" /><Bottom style="1" /><Left style="1" /><Right style="1" /></Border>
+</Style>
+</StyleList>
+</WorkBook>

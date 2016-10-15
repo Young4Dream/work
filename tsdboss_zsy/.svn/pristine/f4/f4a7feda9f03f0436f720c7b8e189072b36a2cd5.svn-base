@@ -1,0 +1,485 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<WorkBook>
+<Version>6.2</Version>
+<Report class="com.fr.report.WorkSheet" name="sheet1">
+<TableDataMap>
+<NameTableData name="ds1">
+<TableData class="com.fr.data.impl.DBTableData">
+<Parameters>
+<Parameter>
+<Attributes name="jobid"
+ type="0"
+ shown="true" />
+<O t="S"><![CDATA[]]></O>
+</Parameter>
+</Parameters>
+<Attributes isCache="true" isDiskCache="true" />
+<Connection class="com.fr.data.impl.NameDatabaseConnection">
+<DatabaseName><![CDATA[tsdBilling]]></DatabaseName>
+</Connection><Query><![CDATA[select * from radjob  where jobid=[?jobid|?]]]></Query>
+</TableData>
+</NameTableData>
+<NameTableData name="ds2">
+<TableData class="com.fr.data.impl.DBTableData">
+<Parameters>
+</Parameters>
+<Attributes isCache="true" isDiskCache="true" />
+<Connection class="com.fr.data.impl.NameDatabaseConnection">
+<DatabaseName><![CDATA[tsdBilling]]></DatabaseName>
+</Connection><Query><![CDATA[select bname,sname from radywsl]]></Query>
+</TableData>
+</NameTableData>
+<NameTableData name="ds3">
+<TableData class="com.fr.data.impl.DBTableData">
+<Parameters>
+<Parameter>
+<Attributes name="jobid"
+ type="0"
+ shown="true" />
+<O t="S"><![CDATA[]]></O>
+</Parameter>
+</Parameters>
+<Attributes isCache="true" isDiskCache="true" />
+<Connection class="com.fr.data.impl.NameDatabaseConnection">
+<DatabaseName><![CDATA[tsdBilling]]></DatabaseName>
+</Connection><Query><![CDATA[select fgq,tp,onu,dz  from 
+air_xqline where xqlineid=(select lineid from air_user_line where userid=(select sdh from radjob where jobid=[?jobid|?]))]]></Query>
+</TableData>
+</NameTableData>
+<NameTableData name="ds4">
+<TableData class="com.fr.data.impl.DBTableData">
+<Parameters>
+<Parameter>
+<Attributes name="jobid"
+ type="0"
+ shown="true" />
+<O t="S"><![CDATA[]]></O>
+</Parameter>
+</Parameters>
+<Attributes isCache="true" isDiskCache="true" />
+<Connection class="com.fr.data.impl.NameDatabaseConnection">
+<DatabaseName><![CDATA[tsdBilling]]></DatabaseName>
+</Connection><Query><![CDATA[select fgq,tp,onu,dz from 
+air_xqline where xqlineid=(select lineid from air_user_line where userid=(select username from radjob  where jobid=[?jobid|?]))]]></Query>
+</TableData>
+</NameTableData>
+<NameTableData name="ds5">
+<TableData class="com.fr.data.impl.DBTableData">
+<Parameters>
+<Parameter>
+<Attributes name="jobid"
+ type="0"
+ shown="true" />
+<O t="S"><![CDATA[]]></O>
+</Parameter>
+</Parameters>
+<Attributes isCache="true" isDiskCache="true" />
+<Connection class="com.fr.data.impl.NameDatabaseConnection">
+<DatabaseName><![CDATA[tsdBilling]]></DatabaseName>
+</Connection><Query><![CDATA[select username from sys_user where userid in (select userid from radjob where jobid=[?jobid|123?])]]></Query>
+</TableData>
+</NameTableData>
+<NameTableData name="tianchong">
+<TableData class="com.fr.data.impl.DBTableData">
+<Parameters>
+<Parameter>
+<Attributes name="jobid"
+ type="0"
+ shown="true" />
+<O t="S"><![CDATA[]]></O>
+</Parameter>
+</Parameters>
+<Attributes isCache="true" isDiskCache="true" />
+<Connection class="com.fr.data.impl.NameDatabaseConnection">
+<DatabaseName><![CDATA[tsdBilling]]></DatabaseName>
+</Connection><Query><![CDATA[select * from sys_user where rownum<=(select case  
+ when (select count(*) from radjob where jobid in ([?jobid|?])) <6 then (6-(select count(*) from radjob where jobid in ([?jobid|?])))
+ else  ((select count(*) from radjob where jobid in ([?jobid|?]))%6) end from dual)]]></Query>
+</TableData>
+</NameTableData>
+<NameTableData name="ds6">
+<TableData class="com.fr.data.impl.DBTableData">
+<Parameters>
+</Parameters>
+<Attributes isCache="true" isDiskCache="true" />
+<Connection class="com.fr.data.impl.NameDatabaseConnection">
+<DatabaseName><![CDATA[tsdBilling]]></DatabaseName>
+</Connection><Query><![CDATA[select sysdate from dual]]></Query>
+</TableData>
+</NameTableData>
+<NameTableData name="taocan">
+<TableData class="com.fr.data.impl.DBTableData">
+<Parameters>
+<Parameter>
+<Attributes name="jobid"
+ type="0"
+ shown="true" />
+<O t="S"><![CDATA[]]></O>
+</Parameter>
+</Parameters>
+<Attributes isCache="true" isDiskCache="true" />
+<Connection class="com.fr.data.impl.NameDatabaseConnection">
+<DatabaseName><![CDATA[tsdBilling]]></DatabaseName>
+</Connection><Query><![CDATA[ select * from tbl_isplist where feecode in (select decode(ifeetype,'',(select ifeetype from radcheck_del where
+ username in (select username from radjob where jobid=[?jobid|?])),ifeetype) from radcheck where username in (select username from radjob where jobid=[?jobid|?]))]]></Query>
+</TableData>
+</NameTableData>
+</TableDataMap>
+<ReportSettings orientation="1" shrinkToFit="false" headerHeight="0.0" footerHeight="0.0">
+<PaperSize width="7.165687" height="10.118579" />
+<Margin top="0.15188976377952756" left="0.5137795275590552" bottom="0.15188976377952756" right="0.2775590551181103" />
+</ReportSettings>
+<ReportPageAttr>
+</ReportPageAttr>
+<ReportParameterAttr>
+<Parameters>
+</Parameters>
+<Attributes showWindow="true" delayPlaying="true" windowPosition="0" userDefineWindow="false" />
+<PWTitle><![CDATA[参数]]></PWTitle>
+</ReportParameterAttr>
+<AutoRecalculate>false</AutoRecalculate>
+<DesignAttributes>
+</DesignAttributes>
+<ReportWebAttr>
+<EmailManager mailHost="" password="___" user="" fromEmailAddress="" />
+<ServerPrinter>
+</ServerPrinter>
+<ToolbarManager showToolbar="true" specifiedToolbar="true" toolbarPosition="1" isIconVisible="true" isTextVisible="true" isShowPageSetup="true" isShowFlashPrint="false" isShowPDFPrint="true" isShowAppletPrint="false" isShowPDF="false" isShowExcel="false" isShowPrint="true" isShowExport="true" isShowEmail="true">
+<firstIconObject path="/com/fr/web/images/first.png">
+</firstIconObject>
+<previousIconObject path="/com/fr/web/images/previous.png">
+</previousIconObject>
+<nextIconObject path="/com/fr/web/images/next.png">
+</nextIconObject>
+<lastIconObject path="/com/fr/web/images/last.png">
+</lastIconObject>
+<pageSetupIconObject path="/com/fr/web/images/pageSetup.png">
+</pageSetupIconObject>
+<flashPrintIconObject path="/com/fr/web/images/flashPrint.png">
+</flashPrintIconObject>
+<pdfPrintIconObject path="/com/fr/web/images/pdfPrint.png">
+</pdfPrintIconObject>
+<appletPrintIconObject path="/com/fr/web/images/appletPrint.png">
+</appletPrintIconObject>
+<pdfIconObject path="/com/fr/web/images/pdf.png">
+</pdfIconObject>
+<printIconObject path="/com/fr/web/images/serverPrint.png">
+</printIconObject>
+<exportIconObject path="/com/fr/web/images/export.png">
+</exportIconObject>
+<emailIconObject path="/com/fr/web/images/email.png">
+</emailIconObject>
+</ToolbarManager>
+</ReportWebAttr>
+<ReportWriteAttr>
+</ReportWriteAttr>
+<Header reportPageType="0">
+<Background name="NullBackground" />
+<LeftList>
+</LeftList>
+<CenterList>
+</CenterList>
+<RightList>
+</RightList>
+</Header>
+<Footer reportPageType="0">
+<Background name="NullBackground" />
+<LeftList>
+</LeftList>
+<CenterList>
+</CenterList>
+<RightList>
+</RightList>
+</Footer>
+<RowHeight defaultValue="19">
+<![CDATA[65,23,22,22,22,27,22,25,25,22,22,35,31,35]]>
+</RowHeight>
+<ColumnWidth defaultValue="72">
+<![CDATA[90,81,90,82,86,100,94,87,76,95,5,0,4]]>
+</ColumnWidth>
+<CellElementList>
+<C c="0" r="0" cs="12" s="0"><O t="S"><![CDATA[网 络 业 务 派 工 单]]></O>
+</C>
+<C c="0" r="1" s="1"><O t="S"><![CDATA[编  号：]]></O>
+</C>
+<C c="1" r="1" cs="3" s="2"><O t="DSColumn"><Attributes dsName="ds1" columnName="hth" />
+<RG class="com.fr.report.cellElement.core.FunctionGrouper"></RG></O>
+<Expand dir="0" />
+</C>
+<C c="4" r="1"></C>
+<C c="5" r="1"></C>
+<C c="6" r="1"></C>
+<C c="7" r="1" s="3"><O t="S"><![CDATA[日   期：]]></O>
+</C>
+<C c="8" r="1" cs="3"><O t="DSColumn"><Attributes dsName="ds6" columnName="sysdate" />
+<RG class="com.fr.report.cellElement.core.FunctionGrouper"></RG></O>
+<Expand dir="0" />
+</C>
+<C c="11" r="1"></C>
+<C c="0" r="2" s="4"><O t="S"><![CDATA[用户名称：]]></O>
+</C>
+<C c="1" r="2" cs="3" s="4"><O t="DSColumn"><Attributes dsName="ds1" columnName="srealname" />
+<Condition class="com.fr.data.condition.ListCondition"></Condition>
+<RG class="com.fr.report.cellElement.core.SummaryGrouper"><FN><![CDATA[com.fr.data.util.function.MaxFunction]]></FN></RG><Result><![CDATA[$$$]]></Result></O>
+</C>
+<C c="4" r="2" s="4"><O t="S"><![CDATA[宽带帐号：]]></O>
+</C>
+<C c="5" r="2" cs="2" s="5"><O t="DSColumn"><Attributes dsName="ds1" columnName="username" />
+<Condition class="com.fr.data.condition.ListCondition"></Condition>
+<RG class="com.fr.report.cellElement.core.SummaryGrouper"><FN><![CDATA[com.fr.data.util.function.MaxFunction]]></FN></RG><Result><![CDATA[$$$]]></Result></O>
+<CellWriteAttr>
+</CellWriteAttr>
+</C>
+<C c="7" r="2" s="4"><O t="S"><![CDATA[上网带宽：]]></O>
+</C>
+<C c="8" r="2" cs="4" s="4"><O t="DSColumn"><Attributes dsName="ds1" columnName="speed" />
+<Condition class="com.fr.data.condition.ListCondition"></Condition>
+<RG class="com.fr.report.cellElement.core.SummaryGrouper"><FN><![CDATA[com.fr.data.util.function.MaxFunction]]></FN></RG><Result><![CDATA[$$$]]></Result></O>
+</C>
+<C c="0" r="3" s="4"><O t="S"><![CDATA[用户地址：]]></O>
+</C>
+<C c="1" r="3" cs="3" s="4"><O t="DSColumn"><Attributes dsName="ds1" columnName="saddress" />
+<Condition class="com.fr.data.condition.ListCondition"></Condition>
+<RG class="com.fr.report.cellElement.core.SummaryGrouper"><FN><![CDATA[com.fr.data.util.function.MaxFunction]]></FN></RG><Result><![CDATA[$$$]]></Result></O>
+</C>
+<C c="4" r="3" s="4"><O t="S"><![CDATA[联 系 人：]]></O>
+</C>
+<C c="5" r="3" cs="2" s="4"><O t="DSColumn"><Attributes dsName="ds1" columnName="linkman" />
+<RG class="com.fr.report.cellElement.core.FunctionGrouper"></RG></O>
+<Expand dir="0" />
+</C>
+<C c="7" r="3" s="4"><O t="S"><![CDATA[联系电话：]]></O>
+</C>
+<C c="8" r="3" cs="4" s="4"><O t="DSColumn"><Attributes dsName="ds1" columnName="linkphone" />
+<Condition class="com.fr.data.condition.ListCondition"></Condition>
+<RG class="com.fr.report.cellElement.core.FunctionGrouper"></RG><Result><![CDATA[$$$]]></Result></O>
+<Expand dir="0" />
+</C>
+<C c="0" r="4" s="4"><O t="S"><![CDATA[现场服务：]]></O>
+</C>
+<C c="1" r="4" cs="3" s="4"><O t="DSColumn"><Attributes dsName="ds1" columnName="mqbm" />
+<Condition class="com.fr.data.condition.ListCondition"></Condition>
+<RG class="com.fr.report.cellElement.core.SummaryGrouper"><FN><![CDATA[com.fr.data.util.function.MaxFunction]]></FN></RG><Result><![CDATA[$$$]]></Result></O>
+</C>
+<C c="4" r="4" s="4"><O t="S"><![CDATA[签 发 人：]]></O>
+</C>
+<C c="5" r="4" cs="2" s="4"><O t="DSColumn"><Attributes dsName="ds5" columnName="username" />
+<Condition class="com.fr.data.condition.ListCondition"></Condition>
+<RG class="com.fr.report.cellElement.core.SummaryGrouper"><FN><![CDATA[com.fr.data.util.function.MaxFunction]]></FN></RG><Result><![CDATA[$$$]]></Result></O>
+</C>
+<C c="7" r="4" s="4"><O t="S"><![CDATA[派工时间：]]></O>
+</C>
+<C c="8" r="4" cs="4" s="5"><O t="DSColumn"><Attributes dsName="ds1" columnName="jobrectime" />
+<Condition class="com.fr.data.condition.ListCondition"></Condition>
+<RG class="com.fr.report.cellElement.core.SummaryGrouper"><FN><![CDATA[com.fr.data.util.function.MaxFunction]]></FN></RG><Result><![CDATA[$$$]]></Result></O>
+</C>
+<C c="0" r="5" cs="12" s="6"><O t="S"><![CDATA[网 络 号 线 资 料]]></O>
+</C>
+<C c="0" r="6" s="4"><O t="S"><![CDATA[申请业务]]></O>
+</C>
+<C c="1" r="6" s="4"><O t="S"><![CDATA[电话号码]]></O>
+</C>
+<C c="2" r="6" s="4"><O t="S"><![CDATA[装机地址]]></O>
+</C>
+<C c="3" r="6" s="4"><O t="S"><![CDATA[号线]]></O>
+</C>
+<C c="4" r="6" s="4"><O t="S"><![CDATA[局线]]></O>
+</C>
+<C c="5" r="6" s="7"><O t="S"><![CDATA[配线箱]]></O>
+</C>
+<C c="6" r="6" s="7"><O t="S"><![CDATA[层箱]]></O>
+</C>
+<C c="7" r="6" s="7"><O t="S"><![CDATA[分线箱]]></O>
+</C>
+<C c="8" r="6" cs="3" s="7"><O t="S"><![CDATA[套餐种类]]></O>
+</C>
+<C c="11" r="6" s="8"></C>
+<C c="0" r="7" rs="2" s="4"><O t="DSColumn"><Attributes dsName="ds2" columnName="sname" />
+<Condition class="com.fr.data.condition.CommonCondition"><CNAME><![CDATA[bname]]></CNAME><Compare op="0">
+<ColumnRow column="1" row="14"/>
+</Compare>
+</Condition>
+<RG class="com.fr.report.cellElement.core.FunctionGrouper"></RG><Result><![CDATA[$$$]]></Result></O>
+<Expand dir="0" />
+</C>
+<C c="1" r="7" rs="2" s="4"><O t="DSColumn"><Attributes dsName="ds1" columnName="sdh" />
+<RG class="com.fr.report.cellElement.core.FunctionGrouper"></RG></O>
+<Expand dir="0" />
+</C>
+<C c="2" r="7" rs="2" s="7"><O t="DSColumn"><Attributes dsName="ds1" columnName="saddress" />
+<RG class="com.fr.report.cellElement.core.FunctionGrouper"></RG></O>
+<Expand dir="0" />
+</C>
+<C c="3" r="7" s="4"><O t="S"><![CDATA[原号线]]></O>
+<Expand dir="0" />
+</C>
+<C c="4" r="7" s="4"><O t="DSColumn"><Attributes dsName="ds3" columnName="fgq" />
+<RG class="com.fr.report.cellElement.core.FunctionGrouper"></RG></O>
+<Expand dir="0" />
+</C>
+<C c="5" r="7" s="4"><O t="DSColumn"><Attributes dsName="ds3" columnName="tp" />
+<RG class="com.fr.report.cellElement.core.FunctionGrouper"></RG></O>
+<Expand dir="0" />
+</C>
+<C c="6" r="7" s="9"><O t="DSColumn"><Attributes dsName="ds3" columnName="onu" />
+<RG class="com.fr.report.cellElement.core.FunctionGrouper"></RG></O>
+<Expand dir="0" />
+</C>
+<C c="7" r="7" s="9"><O t="DSColumn"><Attributes dsName="ds3" columnName="dz" />
+<RG class="com.fr.report.cellElement.core.FunctionGrouper"></RG></O>
+<Expand dir="0" />
+</C>
+<C c="8" r="7" cs="3" rs="2" s="9"><O t="DSColumn"><Attributes dsName="taocan" columnName="feename" />
+<Condition class="com.fr.data.condition.ListCondition"></Condition>
+<RG class="com.fr.report.cellElement.core.SummaryGrouper"><FN><![CDATA[com.fr.data.util.function.MaxFunction]]></FN></RG><Result><![CDATA[$$$]]></Result></O>
+<Expand leftParentDefault="false" left="F3" />
+</C>
+<C c="11" r="7"></C>
+<C c="3" r="8" s="1"><O t="S"><![CDATA[新号线]]></O>
+</C>
+<C c="4" r="8" s="4"><O t="DSColumn"><Attributes dsName="ds4" columnName="fgq" />
+<RG class="com.fr.report.cellElement.core.FunctionGrouper"></RG></O>
+<Expand dir="0" />
+</C>
+<C c="5" r="8" s="4"><O t="DSColumn"><Attributes dsName="ds4" columnName="tp" />
+<RG class="com.fr.report.cellElement.core.FunctionGrouper"></RG></O>
+<Expand dir="0" />
+<CellWriteAttr>
+</CellWriteAttr>
+</C>
+<C c="6" r="8" s="9"><O t="DSColumn"><Attributes dsName="ds4" columnName="onu" />
+<RG class="com.fr.report.cellElement.core.FunctionGrouper"></RG></O>
+<Expand dir="0" />
+</C>
+<C c="7" r="8" s="9"><O t="DSColumn"><Attributes dsName="ds4" columnName="dz" />
+<RG class="com.fr.report.cellElement.core.FunctionGrouper"></RG></O>
+<Expand dir="0" />
+</C>
+<C c="11" r="8"></C>
+<C c="0" r="9" rs="2" s="10"><O t="DSColumn"><Attributes dsName="tianchong" columnName="userid" />
+<RG class="com.fr.report.cellElement.core.FunctionGrouper"></RG></O>
+<Expand dir="0" />
+</C>
+<C c="1" r="9" rs="2" s="9"></C>
+<C c="2" r="9" rs="2" s="9"></C>
+<C c="3" r="9" rs="2" s="9"></C>
+<C c="4" r="9" s="9"></C>
+<C c="5" r="9" s="9"><O t="S"><![CDATA[]]></O>
+</C>
+<C c="6" r="9" s="9"></C>
+<C c="7" r="9" s="9"></C>
+<C c="8" r="9" cs="3" rs="2" s="9"><O t="S"><![CDATA[]]></O>
+</C>
+<C c="11" r="9" s="8"></C>
+<C c="4" r="10" s="9"><O t="S"><![CDATA[]]></O>
+</C>
+<C c="5" r="10" s="9"></C>
+<C c="6" r="10" s="9"></C>
+<C c="7" r="10" s="9"></C>
+<C c="0" r="11" rs="3" s="11"><O t="S"><![CDATA[  备注：                                                     ]]></O>
+</C>
+<C c="1" r="11" cs="5" rs="3" s="12"><O t="S"><![CDATA[]]></O>
+</C>
+<C c="6" r="11" cs="6" s="9"><O t="S"><![CDATA[                   用 户 满 意 度 评 价]]></O>
+</C>
+<C c="6" r="12" cs="6" s="13"><O t="S"><![CDATA[ 满  意 □      基本满意 □       不满意 □]]></O>
+</C>
+<C c="6" r="13" cs="6" s="9"><O t="S"><![CDATA[     用户签字：                完成时间：]]></O>
+</C>
+<C c="0" r="14"><O t="D">991.0</O>
+<CellGUIAttr visible="false" ></CellGUIAttr><Expand dir="0" />
+</C>
+<C c="1" r="14"><O t="DSColumn"><Attributes dsName="ds1" columnName="jobtype" />
+<Condition class="com.fr.data.condition.ListCondition"></Condition>
+<RG class="com.fr.report.cellElement.core.FunctionGrouper"></RG><Result><![CDATA[$$$]]></Result></O>
+<CellGUIAttr visible="false" ></CellGUIAttr><Expand dir="0" />
+</C>
+<C c="2" r="14"><O t="S"><![CDATA[]]></O>
+</C>
+<C c="3" r="14"><O t="S"><![CDATA[]]></O>
+</C>
+<C c="4" r="14"></C>
+<C c="5" r="14"></C>
+<C c="6" r="14"></C>
+<C c="7" r="14"></C>
+<C c="8" r="14"></C>
+<C c="9" r="14"></C>
+<C c="10" r="14"></C>
+<C c="11" r="14"></C>
+</CellElementList>
+</Report>
+<StyleList>
+<Style horizontal_alignment="0">
+<FRFont name="楷体" style="1" size="25" />
+<Background name="NullBackground" />
+<Border></Border>
+</Style>
+<Style horizontal_alignment="0">
+<FRFont name="SimSun" style="0" size="13" />
+<Background name="NullBackground" />
+<Border></Border>
+</Style>
+<Style>
+<FRFont name="SimSun" style="0" size="13" />
+<Background name="NullBackground" />
+<Border></Border>
+</Style>
+<Style horizontal_alignment="0">
+<FRFont name="SimSun" style="0" size="12" />
+<Background name="NullBackground" />
+<Border></Border>
+</Style>
+<Style horizontal_alignment="0">
+<FRFont name="SimSun" style="0" size="13" />
+<Background name="NullBackground" />
+<Border><Top style="1" /><Bottom style="1" /><Left style="1" /><Right style="1" /></Border>
+</Style>
+<Style horizontal_alignment="0">
+<Format class="java.text.SimpleDateFormat"><![CDATA[yyyy-MM-dd]]>
+</Format>
+<FRFont name="SimSun" style="0" size="13" />
+<Background name="NullBackground" />
+<Border><Top style="1" /><Bottom style="1" /><Left style="1" /><Right style="1" /></Border>
+</Style>
+<Style horizontal_alignment="0">
+<FRFont name="SimSun" style="1" size="18" />
+<Background name="NullBackground" />
+<Border><Bottom style="1" /><Left style="1" /><Right style="1" /></Border>
+</Style>
+<Style horizontal_alignment="0">
+<FRFont name="SimSun" style="0" size="12" />
+<Background name="NullBackground" />
+<Border><Top style="1" /><Bottom style="1" /><Left style="1" /><Right style="1" /></Border>
+</Style>
+<Style>
+<FRFont name="SimSun" style="0" size="12" />
+<Background name="NullBackground" />
+<Border><Top style="1" /></Border>
+</Style>
+<Style>
+<FRFont name="SimSun" style="0" size="12" />
+<Background name="NullBackground" />
+<Border><Top style="1" /><Bottom style="1" /><Left style="1" /><Right style="1" /></Border>
+</Style>
+<Style>
+<FRFont name="SimSun" style="0" size="12" foreground="-1" />
+<Background name="NullBackground" />
+<Border><Top style="1" /><Bottom style="1" /><Left style="1" /></Border>
+</Style>
+<Style>
+<FRFont name="SimSun" style="0" size="12" />
+<Background name="NullBackground" />
+<Border><Top style="1" /><Bottom style="1" /><Left style="1" /></Border>
+</Style>
+<Style>
+<FRFont name="SimSun" style="0" size="12" />
+<Background name="NullBackground" />
+<Border><Top style="1" /><Bottom style="1" /><Right style="1" /></Border>
+</Style>
+<Style>
+<FRFont name="SimSun" style="0" size="12" />
+<Background name="NullBackground" />
+<Border><Top style="1" /><Left style="1" /><Right style="1" /></Border>
+</Style>
+</StyleList>
+</WorkBook>

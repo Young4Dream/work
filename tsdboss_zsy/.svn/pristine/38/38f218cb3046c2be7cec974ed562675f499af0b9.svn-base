@@ -1,0 +1,110 @@
+###20120613 wenxuming###
+dbsql_route.RouteRemp_queryair_routedefine=select a.routesort,a.devno,b.devname from air_routedefine a, air_device_master b where a.devno\=b.devno and a.routetype\='<routetype>' order by routesort 
+dbsql_route.BMDeviceManager_queryair_QueryDevice=select devno,devname from air_device_master order by devno
+dbsql_route.BMDeviceManager_queryair_QueryArea=select area,area from asys_area order by xuhao
+dbsql_route.BMDeviceManager_queryair_QueryMKJ=select mokuaiju,mokuaiju from mokuaiju order by id
+dbsql_route.BMDeviceManager_queryair_QueryScddbm=select <tablefield> from scddbm where area='<ywarea>' and id=<bmid>
+dbsql_route.BMDeviceManager_querydual=select 1 from dual
+#Route Public
+dbsql_route.GetRouteType=select tvalues,tident from tsd_ini where tsection='RouteType'
+dbsql_route.GetLineMode=select tvalues,tident from tsd_ini where tsection='LineMode'
+#Device Manage 
+dbsql_route.GetObjState=select tvalues,tident from tsd_ini where tsection='PortState'
+dbsql_route.QueryDevice_Master=select devno,devname from air_device_master order by devno
+dbsql_route.QueryDevice_Master1=select devno, devname, levelcount,getMultiValues(trim(air_device_master.routetype),'tsd_ini cn','cn.tident','cn.tvalues','~',' and cn.tsection=''RouteType''','zh') routetype, routetype as routetypeval,getMultiValues(trim(air_device_master.linemode),'tsd_ini cp','cp.tident','cp.tvalues',',',' and cp.tsection=''LineMode''','zh') linemode, memo, devicon from air_device_master where devno='<devid>'
+dbsql_route.QueryDevice_Master2=select a.devno, a.devname, b.tvalues state, a.dh, a.addr, a.mokuaiju, a.memo, a.devicon,a.pdevno, a.ip, a.vlan,c.areaname from (select * from air_device_detail  where devno='<devid>') a left join (select * from tsd_ini where tsection='PortState') b on a.state=b.tident left join sys_servicearea c on a.ywarea=c.id
+
+dbsql_route.QueryDevice_Detail=select devno, devname, state, dh, addr, mokuaiju,c.areaname,tvalues, memo, devicon, pdevno,ip,vlan from (select Rownum R,B.* from (select a.devno, a.devname, b.tvalues state, a.dh, a.addr, a.mokuaiju,c.areaname,d.tvalues, a.devicon, a.pdevno, a.memo ,a.ip, a.vlan from air_device_detail a left join (select * from tsd_ini where tsection='PortState') b on a.state=b.tident left join sys_servicearea c on a.ywarea=c.id left join (select tident,tvalues from tsd_ini where tsection='RouteType') d on d.tident=a.portype where devno like '%<devid>%' and length(devno)=length('<devid>')+6 <tsdOrderBy>)B where Rownum <= <pagerStart>+<rows>)C where C.R > <pagerStart>
+dbsql_route.GetDetailCount=select count(*) from air_device_detail a left join (select * from tsd_ini where tsection='PortState') b on a.state=b.tident left join sys_servicearea c on a.ywarea=c.id left join (select tident,tvalues from tsd_ini where tsection='RouteType') d on a.portype=d.tident where devno like '%<devid>%' and length(devno)=length('<devid>')+6
+
+dbsql_route.QueryDevice_DetailId=select devno,devname  from air_device_detail where devno like '%<devid>%' and length(devno)\=length('<devid>')+6 order by devno
+
+dbsql_route.FuzzyQueryDevDetail=select devno, devname, state, dh, addr, mokuaiju, memo, devicon, pdevno,ip,vlan from (select Rownum R,B.* from (select a.devno, a.devname, b.tvalues state, a.dh, a.addr, a.mokuaiju, a.devicon, a.pdevno, a.memo,a.ip, a.vlan from air_device_detail a left join (select * from tsd_ini where tsection='PortState') b on a.state=b.tident where devno like '%<devid>%' and <cond> and length(devno)=length('<devid>')+6 <tsdOrderBy>)B where Rownum <= <pagerStart>+<rows>)C where C.R > <pagerStart>
+dbsql_route.GetFuzzyDevCount=select count(*) from air_device_detail where devno like '%<devid>%' and <cond> and length(devno)=length('<devid>')+6
+
+#\u5224\u65ad\u7aef\u53e3\u662f\u5426\u5df2\u7ecf\u5b58\u5728
+dbsql_route.DetailExist=select count(*) from air_device_detail where devno like '<devid>%' 
+dbsql_route.DevNoExist_M=select count(devno) from air_device_master where devno = '<devid>'
+dbsql_route.DevNoExist_D=select count(devno) from air_device_detail where devno \= '<devid>'
+dbsql_route.GetMkj=select mokuaiju from mokuaiju order by mokuaiju
+dbsql_route.GetLevelCount=select levelcount,devicon from air_device_master where devno = substr('<devid>',1,6)
+dbsql_route.GetMKJByDevid=select mokuaiju from air_device_detail where devno = '<devid>'
+dbsql_route.GetMkjByYwarea=select id,areaname from sys_servicearea
+#Route Manage
+#dbsql_route.QueryInit=select 'viewOperation',dh,username,userbm,useraddr,regdate,mokuaiju,dhtype,typename,table_route_name,hjlx,tvalues,linenum from (select Rownum R,B.* from (select dh,username,userbm,useraddr,regdate,mokuaiju,dhtype,hjlx,m.tvalues,n.typename,n.table_route_name,linenum from air_users a left join tsd_ini m on a.hjlx=m.tident and m.tsection='RouteType' left join ywsl_type n on a.dhtype=n.typeid where (sysdate - moddate)<7 and <cond> order by moddate desc)B where Rownum <\= <pagerStart>+<rows>) C where C.R > <pagerStart>
+#dbsql_route.GetInitCount=select count(*) from air_users where (sysdate - moddate)<7 and <cond> 
+#dbsql_route.QueryUser=select 'viewOperation',dh,username,userbm,useraddr,regdate,mokuaiju,dhtype,typename,table_route_name,hjlx,tvalues,linenum from (select Rownum R,B.* from (select dh,username,userbm,useraddr,regdate,mokuaiju,dhtype,hjlx,m.tvalues,n.typename,n.table_route_name,linenum from air_users a left join tsd_ini m on a.hjlx=m.tident and m.tsection='RouteType' left join ywsl_type n on a.dhtype=n.typeid where 1\=1 <cond> <tsdOrderBy>)B where Rownum <\= <pagerStart>+<rows>) C where C.R > <pagerStart>
+#dbsql_route.GetUserCount=select count(*) from air_users where 1=1 <cond>
+dbsql_route.QueryInit=select 'viewOperation',dh,phoneacct,internetacct,username,userbm,useraddr,regdate,mokuaiju,dhtype,typename,table_route_name,hjlx,tvalues,linenum from (select Rownum R,B.* from (select * from vw_air_users_dhkd where (sysdate - moddate)<7 and <cond> order by moddate desc)B where Rownum <\= <pagerStart>+<rows>) C where C.R > <pagerStart>
+dbsql_route.GetInitCount=select count(*) from vw_air_users_dhkd where (sysdate - moddate)<7 and <cond> 
+dbsql_route.QueryUser=select 'viewOperation',dh,phoneacct,internetacct,username,userbm,useraddr,regdate,mokuaiju,dhtype,typename,table_route_name,hjlx,tvalues,linenum from (select Rownum R,B.* from (select * from vw_air_users_dhkd where 1\=1 <cond> <tsdOrderBy>)B where Rownum <\= <pagerStart>+<rows>) C where C.R > <pagerStart>
+dbsql_route.GetUserCount=select count(*) from vw_air_users_dhkd where 1=1 <cond>
+dbsql_route.GetRouteLine=select distinct lineno from <tablename> where dh = '<dh>'
+dbsql_route.QueryRoute=select a.routeno as routeno,d.devno id1, d.devname name1,c.devname||'('||e.devname||')' name2,a.portno id3, b.devname name3 from <tablename> a, air_device_detail b, air_device_detail c, air_device_master d, air_device_detail e where a.dh\='<dh>' and a.lineno\=<lineno> and a.portno \= b.devno and substr(a.portno,1, 13) \= c.devno and substr(a.portno,1, 20) \= e.devno and substr(a.portno,1, 6) \= d.devno union SELECT '\u7528\u6237\u5730\u5740',Yhdz,'',100 as routeno FROM ( SELECT A.*, ROWNUM RN FROM (SELECT * FROM yhdang_old where dh\='<dh>'  and opertype \='update' order by opertime desc) A WHERE ROWNUM <\= 1 ) WHERE RN >\= 0 union select 100 as routeno,'1','\u7528\u6237\u5730\u5740',useraddr,'1','' from air_usersbj where dh\='<dh>' and linenum\=<lineno> order by routeno
+#dbsql_route.QueryRoute_tree=select d.devname name1,replace(c.devname||'('||c.ip||')','()','') name2,b.devname name3,a.routeno from <tablename> a, air_device_detail b, air_device_detail c, air_device_master d, air_device_detail e where a.dh\='<dh>' and a.lineno\=<lineno> and a.portno \= b.devno and substr(a.portno,1, 13) \= c.devno and substr(a.portno,1, 20) \= e.devno and substr(a.portno,1, 6) \= d.devno union select '\u7528\u6237\u5730\u5740',useraddr,'',100 as routeno from air_users where dh\='<dh>' and linenum\=<lineno> union select '\u7528\u6237\u5730\u5740',useraddr,'',100 as routeno from air_usersbj where dh\='<dh>' and linenum\=<lineno> order by routeno
+dbsql_route.QueryRoute_tree=select d.devname name1,replace(c.devname||'('||c.ip||')','()','') name2,b.devname name3,a.routeno from <tablename> a, air_device_detail b, air_device_detail c, air_device_master d, air_device_detail e where a.dh\='<dh>' and a.lineno\=<lineno> and a.portno \= b.devno and substr(a.portno,1, 13) \= c.devno and substr(a.portno,1, 20) \= e.devno and substr(a.portno,1, 6) \= d.devno union SELECT '\u7528\u6237\u5730\u5740',Yhdz,'',100 as routeno FROM ( SELECT A.*, ROWNUM RN FROM (SELECT * FROM yhdang_old where dh\='<dh>'  and opertype \='update' order by opertime desc) A WHERE ROWNUM <\= 1 ) WHERE RN >\= 0 union select '\u7528\u6237\u5730\u5740',useraddr,'',100 as routeno from air_usersbj where dh\='<dh>' and linenum\=<lineno> order by routeno
+dbsql_route.QueryRouteForUpdate=select a.routeno,d.devno id1, d.devname name1,c.devname||'('||e.devname||')' name2,a.portno id3, b.devname name3 from <tablename> a, air_device_detail b, air_device_detail c, air_device_master d, air_device_detail e where a.dh\='<dh>' and a.lineno\=<lineno> and a.portno \= b.devno and substr(a.portno,1, 13) \= c.devno and substr(a.portno,1, 20) \= e.devno and substr(a.portno,1, 6) \= d.devno order by a.routeno
+dbsql_route.QueryDevice_Route=select devno,devname from air_device_master where 1=1 <cond> order by devno
+###dbsql_route.QueryRouteDefine=select a.routesort,a.devno,b.devname from air_routedefine a left join air_device_master b on a.devno\=b.devno where a.routetype\='<routetype>' <isModDevice> order by a.routesort
+dbsql_route.QueryRouteDefine=select a.routesort,a.devno,b.devname from air_routedefine a left join air_device_master b on a.devno\=b.devno where a.routetype\='<routetype>' order by a.routesort
+dbsql_route.GetTreeDevice=select devno,devname,devicon from air_device_detail where devno like '%<devid>%' and length(devno)\=length('<devid>')+6 <cond> order by devno
+dbsql_route.QueryUserInfo=SELECT a.UserName,a.UserBM,a.userAddr,a.linkMan,a.linkDh,a.MoKuaiJu,a.Regdate,y.bm1,y.bm2,y.bm3,y.bm4,y.dhgn,y.Bz2,y.ywarea,h.yhxz,h.yhlb,ii.tvalues sflx,f.bz dhzt,y.bz9 lxdh from air_users a left join yhdang y on a.dh\=y.dh left join hthdang h on y.hth\=h.hth left join hwjbdef f on f.hwjb\=y.tjbz left join tsd_ini ii on ii.tsection\='payitem' and ii.tident\=h.sflx where a.dh\='<dh>'
+dbsql_route.QueryDevice_Port=select devno,devname,state,dh from air_device_detail where devno like '<devid>%' and length(devno)\=length('<devid>')+6 and devname like '%<devname>%' and state<>'bad' order by state , devno
+
+dbsql_route.QueryDevicePortFuzz=select devno,devname,state,dh FROM (SELECT ROWNUM R,B.* FROM ( SELECT devno,devname,state,dh  FROM air_device_detail where devno like '<devid>%' and length(devno)\=(select levelcount*7-1 from air_device_master where devno \= substr('<devid>',1,6)) and lower(devname) like lower('<devname>%') and portype\='<portype>' and <state> order by state , devno)B WHERE ROWNUM <\= <pagerStart> + <rows>) C WHERE C.R > <pagerStart>
+dbsql_route.QueryDevicePortFuzzC=select count(*) FROM air_device_detail where devno like '<devid>%' and length(devno)\=(select levelcount*7-1 from air_device_master where devno \= substr('<devid>',1,6))  and portype\='<portype>' and lower(devname) like lower('<devname>%') and <state>
+dbsql_route.QueryDevicePortAccurate=select devno,devname,state,dh FROM (SELECT ROWNUM R,B.* FROM ( SELECT devno,devname,state,dh  FROM air_device_detail where devno like '<devid>%' and length(devno)\=(select levelcount*7-1 from air_device_master where devno \= substr('<devid>',1,6)) and lower(devname)\=lower('<devname>') and <state> order by state , devno)B WHERE ROWNUM <\= <pagerStart> + <rows>) C WHERE C.R > <pagerStart>
+dbsql_route.QueryDevicePortAccurateC=select count(*) FROM air_device_detail where devno like '<devid>%' and length(devno)\=(select levelcount*7-1 from air_device_master where devno \= substr('<devid>',1,6)) and lower(devname)\=lower('<devname>') and <state>
+dbsql_route.onlyShowFree=select TVALUES from tsd_ini where TSECTION='routeBind' and TIDENT='onlyShowFreePort'
+
+dbsql_route.QueryPortCount=select state, count(*) from air_device_detail where devno like '<devid>%' and length(devno) \= <idlen> group by state order by state
+dbsql_rount.QueryMultipl=select tident from tsd_ini where tsection\='Route_Deviceport_Multiplexing' 
+dbsql_route.QueryLinenoCha=select linenum from air_users where dh='<dh>'
+#RouteTemp Manage
+dbsql_route.QueryTemp=select distinct routetype, linemode,'' routetype1, '' linemode1 from air_routedefine order by routetype
+dbsql_route.QueryTempRoute=select a.routesort,a.devno,b.devname from air_routedefine a, air_device_master b where a.devno\=b.devno and a.routetype\='<routetype>' and a.linemode\='<linemode>' order by a.routesort
+
+##
+#dbsql_route.PB.QueryDevice=select 'viewOperation',devno, devname, state, dh, addr, mokuaiju, pdevno, memo, devicon from (select Rownum R,B.* from (select a.devno, a.devname, b.tvalues state, a.dh, a.addr, a.mokuaiju, a.devicon, a.pdevno, a.memo from air_device_detail a left join (select * from tsd_ini where tsection='PortState') b on a.state=b.tident where devno like '%<devid>%' and length(devno)=length('<devid>')+6 <tsdOrderBy>)B where Rownum <= <pagerStart>+<rows>)C where C.R > <pagerStart>
+dbsql_route.PB.QueryDevice=select 'viewOperation',devno, devname, state, dh, addr, mokuaiju, pdevno,ppdevname, memo, devicon from ( select Rownum R,B.* from ( select a.devno, a.devname, b.tvalues state, a.dh, a.addr, a.mokuaiju, a.devicon, a.pdevno,m.ppdevname ,a.memo from air_device_detail a left join (select devno as ppdevno,devname as ppdevname from air_device_detail) m on a.pdevno=m.ppdevno left join (select * from tsd_ini where tsection='PortState' ) b on a.state=b.tident where  devno like '%<devid>%' and length(devno)=length('<devid>')+6 <tsdOrderBy>)B where Rownum <= <pagerStart>+<rows>)C where C.R > <pagerStart>
+dbsql_route.PB.QueryDevicePage=select count(*) from air_device_detail where devno like '%<devid>%' and length(devno)=length('<devid>')+6
+dbsql_route.PB.QueryDevice_Master=select b.devno,b.devname from air_routedefine a left join air_device_master b on a.devno=b.devno  where a.routetype='<routetype>' order by a.routesort
+dbsql_route.PB.QueryDevice_Pre=select devno,devname,devicon from air_device_detail where devno like '%<devid>%' and length(devno)\=length('<devid>')+6 <cond> order by devno
+dbsql_route.PB.QueryPortCount=select state, count(*) from air_device_detail where devno like '<devid>%' and length(devno) \= <idlen> group by state order by state
+dbsql_route.PB.QueryDevice_Port=select devno,devname,pdevno from air_device_detail where devno like '<devid>%' and length(devno)\=length('<devid>')+6 and devname like '%<devname>%' order by devno
+dbsql_route.PB.QueryPreNo=select Devno,devname ,substr('<devno>',0,6) as nDevno from air_device_master where devno =(select devno from air_routedefine where routesort=(select routesort-1 as thesort from air_routedefine where devno=substr('<devno>',0,6) and routetype='<routetype>') and routetype='<routetype>')
+dbsql_route.PB.QueryError=select 'viewOperation',ID,devno,devname,pdevno,pdevname,case breason when '1' then '\u5DF2\u7ED1\u5B9A\u4E0A\u7EA7\u8BBE\u5907' when '2' then '\u4E0A\u7EA7\u8BBE\u5907\u5DF2\u5360\u7528' end as breason,status,bdate,memo,operdate,oper,routetype from (select Rownum R,B.* from ( select k.ID,k.devno,m.devname,k.pdevno,n.devname as pdevname,k.breason,k.status, k.bdate,k.memo,k.operdate,k.oper,k.routetype from air_bind_error k left join air_device_detail m on k.devno\=m.devno left join air_device_detail n on k.pdevno\=n.devno where k.routetype\='<routetype>' and k.status\=0 <tsdOrderBy>)B where Rownum <\= <pagerStart>+<rows>)C where C.R > <pagerStart>
+#dbsql_route.PB.QueryError=select 'viewOperation',ID,devno,pdevno,breason,status,bdate,memo,operdate,oper,routetype from (select Rownum R,B.* from ( select ID,devno,pdevno,breason,status,bdate,memo,operdate,oper,routetype from air_bind_error where routetype='<routetype>' and status=0 <tsdOrderBy> )B where Rownum <= <pagerStart>+<rows>)C where C.R > <pagerStart>
+dbsql_route.PB.QueryErrorPage=select count(*) from air_bind_error where routetype='<routetype>' and status=0
+dbsql_route.PB.UpdateErrStatus=update air_bind_error set status=<status>,operdate=sysdate,oper='<oper>' where id=<ID>
+####RouteManage.jsp start
+dbsql_route.RM.QueryModDevAll=select devno from air_device_master
+dbsql_route.RM.QueryMKJAll=select mokuaiju from mokuaiju
+dbsql_route.RM.QueryRigthsOfscddbm=select viewmokuaijus ,modimokuaijus ,linefields from scddbm where instr('<manArea>' ,area)>0 and bm='<magDepart>'
+dbsql_route.RM.getBindExist=select count(*) from air_device_detail where (devno = '<devno>' and pdevno is not null)  or pdevno = '<devno>'
+dbsql_route.RM.getUserAddr=select useraddr from air_users where dh='<dh>'
+dbsql_route.RM.UpdateUserAddr=update yhdang set yhdz='<useraddr>' where dh='<dh>'
+dbsql_route.RM.getDevMkj=select mokuaiju from air_device_detail where devno='<devno>'
+##bj
+dbsql_route.QueryBj=select 'viewOperation',dh,userid,useraddr,linenum,dhtype from (select Rownum R,B.* from (select dh,userid,useraddr,linenum,dhtype from air_usersbj where 1\=1 <cond> <tsdOrderBy>)B where Rownum <\= <pagerStart>+<rows>) C where C.R > <pagerStart>
+dbsql_route.QueryBjAdd=select dh,useraddr,linenum,dhtype,userid from (select ROWNUM R, B.* from (select dh,useraddr,linenum,dhtype,userid from air_users where dh \='<dh>'  and linenum in (select lineno from air_route_phone where dh \='<dh>')  union select dh,useraddr,linenum,dhtype,userid from air_usersbj  where dh \='<dh>' and userid<>'<userid>'  and linenum in (select lineno from air_route_phone where dh \='<dh>')  <tsdOrderBy>)B where Rownum <\= <pagerStart>+<rows>) C where C.R > <pagerStart>
+dbsql_route.GetRouteLineBj=select distinct lineno from <tablename> where dh \= '<dh>' and lineno\='<linenum>' 
+
+####RouteManage.jsp end
+
+dbsql_route.RM.DgetDocument=select id,dhtype,doctype,dh,docname from air_document where DhType='<DhType>' and Dh='<Dh>'
+dbsql_route.RM.DdelDocument=DELETE FROM air_document WHERE ID=<ID>
+
+##############port query
+dbsql_route.PQ.QueryDevice_Master=select devno,devname from air_device_master order by devno
+#dbsql_route.PQ.QueryPort=select devno ,devname,state,dh,mokuaiju from air_device_detail where devno like '<devno>%' and length(devno)=(7*(select levelcount from air_device_master where devno ='<devno>')-1)
+#dbsql_route.PQ.QueryPortC=select count(*) from air_device_detail where devno like '<devno>%' and length(devno)=(7*(select levelcount from air_device_master where devno ='<devno>')-1)
+
+#############2012-10-29 port query start
+dbsql_route.PQ.PortLen=select (levelcount*7 -1) levellen from air_device_master where devno = '<devid>'
+dbsql_route.PQ.QueryPort=select 'viewOperation',<cols> from (select Rownum R,B.* from (select * from vw_air_device_detail where <queryWhere> <tsdOrderBy>)B where Rownum <\= <pagerStart>+<rows>) C where C.R > <pagerStart>
+dbsql_route.PQ.QueryPortC=select count(*) from vw_air_device_detail where <queryWhere> 
+dbsql_route.PQ.queryRouteLine=select distinct lineno ,dh,'air_route_phone' routeTable from air_route_phone where portno ='<devno>' union select distinct lineno ,dh,'air_route_broadband' routeTable from air_route_broadband where portno ='<devno>' order by routeTable desc
+#############2012-10-29 port query end
+####
+FINAL_route.area_ywsl=select ywarea from area_ywsl order by xuhao

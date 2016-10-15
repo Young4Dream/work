@@ -1,0 +1,173 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<WorkBook>
+<Version>6.2</Version>
+<Report class="com.fr.report.WorkSheet" name="sheet1">
+<TableDataMap>
+<NameTableData name="tsdnums2">
+<TableData class="com.fr.data.impl.DBTableData">
+<Parameters>
+<Parameter>
+<Attributes name="fusearchsql"
+ type="0"
+ shown="true" />
+<O t="S"><![CDATA[]]></O>
+</Parameter>
+</Parameters>
+<Attributes isCache="true" isDiskCache="true" />
+<Connection class="com.fr.data.impl.NameDatabaseConnection">
+<DatabaseName><![CDATA[tsdBilling]]></DatabaseName>
+</Connection><Query><![CDATA[select Dh, Dh_Level, IsKeep, MokuaiJu, Dhlx, Jhj_ID, YwArea, Bz FROM Hmzy_Detail  where [?fusearchsql|?]]]></Query>
+</TableData>
+</NameTableData>
+<NameTableData name="jhj">
+<TableData class="com.fr.data.impl.DBTableData">
+<Parameters>
+</Parameters>
+<Attributes isCache="true" isDiskCache="true" />
+<Connection class="com.fr.data.impl.NameDatabaseConnection">
+<DatabaseName><![CDATA[tsdBilling]]></DatabaseName>
+</Connection><Query><![CDATA[select jhjid,jhjname from JhjID]]></Query>
+</TableData>
+</NameTableData>
+<NameTableData name="hmjb">
+<TableData class="com.fr.data.impl.DBTableData">
+<Parameters>
+</Parameters>
+<Attributes isCache="true" isDiskCache="true" />
+<Connection class="com.fr.data.impl.NameDatabaseConnection">
+<DatabaseName><![CDATA[tsdBilling]]></DatabaseName>
+</Connection><Query><![CDATA[SELECT Hm_Level,Bz FROM Ywsl_HmLevel]]></Query>
+</TableData>
+</NameTableData>
+</TableDataMap>
+<ReportSettings shrinkToFit="false" headerHeight="0.0" footerHeight="0.0">
+<Margin top="0.27" left="0.1968503937007874" bottom="0.27" right="0.1968503937007874" />
+</ReportSettings>
+<ReportPageAttr>
+<HR F="0" T="2" /></ReportPageAttr>
+<ReportParameterAttr>
+<Parameters>
+</Parameters>
+<Attributes showWindow="true" delayPlaying="true" windowPosition="0" userDefineWindow="false" />
+<PWTitle><![CDATA[参数]]></PWTitle>
+</ReportParameterAttr>
+<AutoRecalculate>false</AutoRecalculate>
+<DesignAttributes>
+</DesignAttributes>
+<ReportWebAttr>
+<EmailManager mailHost="" password="___" user="" fromEmailAddress="" />
+<ServerPrinter>
+</ServerPrinter>
+</ReportWebAttr>
+<ReportWriteAttr>
+</ReportWriteAttr>
+<Header reportPageType="0">
+<Background name="NullBackground" />
+<LeftList>
+</LeftList>
+<CenterList>
+</CenterList>
+<RightList>
+</RightList>
+</Header>
+<Footer reportPageType="0">
+<Background name="NullBackground" />
+<LeftList>
+</LeftList>
+<CenterList>
+</CenterList>
+<RightList>
+</RightList>
+</Footer>
+<RowHeight defaultValue="19">
+<![CDATA[19,30,25,25]]>
+</RowHeight>
+<ColumnWidth defaultValue="72">
+<![CDATA[42,72,72,72,97,84,97,109,101]]>
+</ColumnWidth>
+<CellElementList>
+<C c="0" r="1" cs="9" s="0"><O t="S"><![CDATA[号码资源明细]]></O>
+</C>
+<C c="0" r="2" s="1"><O t="S"><![CDATA[序号]]></O>
+</C>
+<C c="1" r="2" s="1"><O t="S"><![CDATA[电话]]></O>
+</C>
+<C c="2" r="2" s="1"><O t="S"><![CDATA[号码级别]]></O>
+</C>
+<C c="3" r="2" s="1"><O t="S"><![CDATA[是否保留]]></O>
+</C>
+<C c="4" r="2" s="1"><O t="S"><![CDATA[模块局]]></O>
+</C>
+<C c="5" r="2" s="1"><O t="S"><![CDATA[电话类型]]></O>
+</C>
+<C c="6" r="2" s="1"><O t="S"><![CDATA[交换机]]></O>
+</C>
+<C c="7" r="2" s="1"><O t="S"><![CDATA[业务区域]]></O>
+</C>
+<C c="8" r="2" s="1"><O t="S"><![CDATA[二级模块局]]></O>
+</C>
+<C c="0" r="3" s="2"><O t="Formula" class="Formula" ><Attributes><![CDATA[=&B4]]></Attributes></O>
+<Expand leftParentDefault="false" left="B4" />
+</C>
+<C c="1" r="3" s="2"><O t="DSColumn"><Attributes dsName="tsdnums2" columnName="Dh" />
+<Condition class="com.fr.data.condition.ListCondition"></Condition>
+<RG class="com.fr.report.cellElement.core.FunctionGrouper"><Attr divideMode="1" /></RG><Result><![CDATA[$$$]]></Result></O>
+<CellGUIAttr autoAdjustRowHeight="1" ></CellGUIAttr><Expand dir="0" leftParentDefault="false" />
+</C>
+<C c="2" r="3" s="2"><O t="DSColumn"><Attributes dsName="hmjb" columnName="Bz" />
+<Condition class="com.fr.data.condition.CommonCondition"><CNAME><![CDATA[Hm_Level]]></CNAME><Compare op="0">
+<AnDSColumn dsName="tsdnums2" columnName="Dh_Level" /></Compare>
+</Condition>
+<RG class="com.fr.report.cellElement.core.FunctionGrouper"></RG><Result><![CDATA[$$$]]></Result></O>
+<CellGUIAttr autoAdjustRowHeight="1" ></CellGUIAttr><Expand dir="0" />
+</C>
+<C c="3" r="3" s="2"><O t="DSColumn"><Attributes dsName="tsdnums2" columnName="IsKeep" />
+<Condition class="com.fr.data.condition.ListCondition"></Condition>
+<RG class="com.fr.report.cellElement.core.FunctionGrouper"></RG><Result><![CDATA[IF(IsKeep=="0","不保留","保留")]]></Result></O>
+<CellGUIAttr autoAdjustRowHeight="1" ></CellGUIAttr><Expand dir="0" />
+</C>
+<C c="4" r="3" s="2"><O t="DSColumn"><Attributes dsName="tsdnums2" columnName="MokuaiJu" />
+<RG class="com.fr.report.cellElement.core.FunctionGrouper"></RG></O>
+<CellGUIAttr autoAdjustRowHeight="1" ></CellGUIAttr><Expand dir="0" />
+</C>
+<C c="5" r="3" s="2"><O t="DSColumn"><Attributes dsName="tsdnums2" columnName="Dhlx" />
+<RG class="com.fr.report.cellElement.core.FunctionGrouper"></RG></O>
+<CellGUIAttr autoAdjustRowHeight="1" ></CellGUIAttr><Expand dir="0" />
+</C>
+<C c="6" r="3" s="2"><O t="DSColumn"><Attributes dsName="jhj" columnName="jhjname" />
+<Condition class="com.fr.data.condition.CommonCondition"><CNAME><![CDATA[jhjid]]></CNAME><Compare op="0">
+<AnDSColumn dsName="tsdnums2" columnName="Jhj_ID" /></Compare>
+</Condition>
+<RG class="com.fr.report.cellElement.core.FunctionGrouper"></RG><Result><![CDATA[$$$]]></Result></O>
+<CellGUIAttr autoAdjustRowHeight="1" ></CellGUIAttr><Expand dir="0" />
+</C>
+<C c="7" r="3" s="2"><O t="DSColumn"><Attributes dsName="tsdnums2" columnName="YwArea" />
+<RG class="com.fr.report.cellElement.core.FunctionGrouper"></RG></O>
+<CellGUIAttr autoAdjustRowHeight="1" ></CellGUIAttr><Expand dir="0" />
+</C>
+<C c="8" r="3" s="2"><O t="DSColumn"><Attributes dsName="tsdnums2" columnName="Bz" />
+<RG class="com.fr.report.cellElement.core.FunctionGrouper"></RG></O>
+<CellGUIAttr autoAdjustRowHeight="1" ></CellGUIAttr><Expand dir="0" />
+</C>
+</CellElementList>
+</Report>
+<StyleList>
+<Style horizontal_alignment="0">
+<FRFont name="SimSun" style="1" size="14" />
+<Background name="NullBackground" />
+<Border></Border>
+</Style>
+<Style horizontal_alignment="0">
+<FRFont name="SimSun" style="1" size="14" />
+<Background name="ColorBackground"
+ color="-1">
+</Background>
+<Border><Top style="1" /><Bottom style="1" /><Left style="1" /><Right style="1" /></Border>
+</Style>
+<Style horizontal_alignment="0">
+<FRFont name="SimSun" style="0" size="13" />
+<Background name="NullBackground" />
+<Border><Top style="1" /><Bottom style="1" /><Left style="1" /><Right style="1" /></Border>
+</Style>
+</StyleList>
+</WorkBook>

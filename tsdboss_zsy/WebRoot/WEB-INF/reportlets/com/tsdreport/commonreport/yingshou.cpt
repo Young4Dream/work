@@ -1,0 +1,496 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<WorkBook xmlVersion="20110221">
+<TableDataMap>
+<TableData name="ds1" class="com.fr.data.impl.DBTableData">
+<Parameters/>
+<Attributes maxMemRowCount="-1"/>
+<Connection class="com.fr.data.impl.NameDatabaseConnection">
+<DatabaseName>
+<![CDATA[tsdBilling]]></DatabaseName>
+</Connection>
+<Query>
+<![CDATA[select hf3+hf10 as fh310 from hfys_hthhf_out]]></Query>
+</TableData>
+<TableData name="ds4" class="com.fr.data.impl.DBTableData">
+<Parameters/>
+<Attributes maxMemRowCount="-1"/>
+<Connection class="com.fr.data.impl.NameDatabaseConnection">
+<DatabaseName>
+<![CDATA[tsdBilling]]></DatabaseName>
+</Connection>
+<Query>
+<![CDATA[select*from hfys_hthhf_out]]></Query>
+</TableData>
+<TableData name="ds5" class="com.fr.data.impl.DBTableData">
+<Parameters/>
+<Attributes maxMemRowCount="-1"/>
+<Connection class="com.fr.data.impl.NameDatabaseConnection">
+<DatabaseName>
+<![CDATA[tsdBilling]]></DatabaseName>
+</Connection>
+<Query>
+<![CDATA[select hf4+hf11 as fh411 from hfys_hthhf_out]]></Query>
+</TableData>
+<TableData name="ds6" class="com.fr.data.impl.DBTableData">
+<Parameters/>
+<Attributes maxMemRowCount="-1"/>
+<Connection class="com.fr.data.impl.NameDatabaseConnection">
+<DatabaseName>
+<![CDATA[tsdBilling]]></DatabaseName>
+</Connection>
+<Query>
+<![CDATA[select hf2+hf5 as fh25 from hfys_hthhf_out]]></Query>
+</TableData>
+</TableDataMap>
+<Report class="com.fr.report.WorkSheet" name="sheet1">
+<ReportPageAttr>
+<HR/>
+<FR/>
+<HC/>
+<FC/>
+</ReportPageAttr>
+<RowHeight defaultValue="723900">
+<![CDATA[723900,723900,723900,723900,723900,723900,723900,723900,723900,723900,723900,723900,723900,723900,723900,723900,723900,723900,723900,723900,723900,723900,723900,723900,723900,723900,723900,723900,723900,723900,723900,723900,723900,723900,723900,723900,723900,723900,723900,723900,723900,723900,723900,723900,723900,723900,723900,723900,723900,723900,723900]]></RowHeight>
+<ColumnWidth defaultValue="2743200">
+<![CDATA[5410200,5334000,5372100,5715000,5981700,5981700,5981700,5638800,10515600,2743200,2743200,2743200,2743200,2743200,2743200,2743200,2743200,2743200,2743200,2743200,2743200]]></ColumnWidth>
+<CellElementList>
+<C c="0" r="0" cs="6" rs="3" s="0">
+<O>
+<![CDATA[首都机场6459局电信收费单]]></O>
+<Expand/>
+</C>
+<C c="0" r="3" s="1">
+<O>
+<![CDATA[票据号码]]></O>
+<Expand/>
+</C>
+<C c="1" r="3" s="1">
+<O t="DSColumn">
+<Attributes dsName="ds4" columnName="OUT_BZ4"/>
+<Complex/>
+<RG class="com.fr.report.cellElement.core.FunctionGrouper"/>
+<Parameters/>
+</O>
+<Expand dir="0"/>
+</C>
+<C c="2" r="3" s="1">
+<O>
+<![CDATA[支票号码]]></O>
+<Expand/>
+</C>
+<C c="3" r="3" s="1">
+<O t="DSColumn">
+<Attributes dsName="ds4" columnName="OUT_BZ9"/>
+<Complex/>
+<RG class="com.fr.report.cellElement.core.FunctionGrouper"/>
+<Parameters/>
+</O>
+<Expand dir="0"/>
+</C>
+<C c="4" r="3" s="1">
+<O>
+<![CDATA[用户代码]]></O>
+<Expand/>
+</C>
+<C c="5" r="3" s="1">
+<O t="DSColumn">
+<Attributes dsName="ds4" columnName="HTH"/>
+<Complex/>
+<RG class="com.fr.report.cellElement.core.FunctionGrouper"/>
+<Parameters/>
+</O>
+<Expand dir="0"/>
+</C>
+<C c="0" r="4" s="1">
+<O>
+<![CDATA[用户名称]]></O>
+<Expand/>
+</C>
+<C c="1" r="4" cs="3" s="1">
+<O t="DSColumn">
+<Attributes dsName="ds4" columnName="BM1"/>
+<Complex/>
+<RG class="com.fr.report.cellElement.core.FunctionGrouper"/>
+<Parameters/>
+</O>
+<Expand dir="0"/>
+</C>
+<C c="4" r="4" s="1">
+<O>
+<![CDATA[付款方式]]></O>
+<Expand/>
+</C>
+<C c="5" r="4" s="1">
+<O t="DSColumn">
+<Attributes dsName="ds4" columnName="OUT_BZ5"/>
+<Complex/>
+<RG class="com.fr.report.cellElement.core.FunctionGrouper"/>
+<Parameters/>
+</O>
+<Expand dir="0"/>
+</C>
+<C c="0" r="5" s="1">
+<O>
+<![CDATA[收费截止月]]></O>
+<Expand/>
+</C>
+<C c="1" r="5" cs="3" s="1">
+<O t="DSColumn">
+<Attributes dsName="ds4" columnName="HZYF"/>
+<Complex/>
+<RG class="com.fr.report.cellElement.core.FunctionGrouper"/>
+<Parameters/>
+</O>
+<Expand dir="0"/>
+</C>
+<C c="4" r="5" s="1">
+<O>
+<![CDATA[缴费类别]]></O>
+<Expand/>
+</C>
+<C c="5" r="5" s="1">
+<O t="DSColumn">
+<Attributes dsName="ds4" columnName="YHXZ"/>
+<Complex/>
+<RG class="com.fr.report.cellElement.core.FunctionGrouper"/>
+<Parameters/>
+</O>
+<Expand dir="0"/>
+</C>
+<C c="0" r="6" s="1">
+<O>
+<![CDATA[合计应收]]></O>
+<Expand/>
+</C>
+<C c="1" r="6" cs="3" s="1">
+<O t="DSColumn">
+<Attributes dsName="ds4" columnName="HEJI"/>
+<Complex/>
+<RG class="com.fr.report.cellElement.core.FunctionGrouper"/>
+<Parameters/>
+</O>
+<Expand dir="0"/>
+</C>
+<C c="4" r="6" s="1">
+<O>
+<![CDATA[缴费日期]]></O>
+<Expand/>
+</C>
+<C c="5" r="6" s="1">
+<O t="DSColumn">
+<Attributes dsName="ds4" columnName="SKR_DATE"/>
+<Complex/>
+<RG class="com.fr.report.cellElement.core.FunctionGrouper"/>
+<Parameters/>
+</O>
+<Expand dir="0"/>
+</C>
+<C c="0" r="7" s="1">
+<O>
+<![CDATA[实际收款（大写）]]></O>
+<Expand/>
+</C>
+<C c="1" r="7" cs="3" s="1">
+<Expand/>
+</C>
+<C c="4" r="7" s="1">
+<O>
+<![CDATA[实际金额（小写）]]></O>
+<Expand/>
+</C>
+<C c="5" r="7" s="1">
+<O t="DSColumn">
+<Attributes dsName="ds4" columnName="BCSS"/>
+<Complex/>
+<RG class="com.fr.report.cellElement.core.FunctionGrouper"/>
+<Parameters/>
+</O>
+<Expand dir="0"/>
+</C>
+<C c="0" r="8" s="1">
+<O>
+<![CDATA[局内计次费]]></O>
+<Expand/>
+</C>
+<C c="1" r="8" s="1">
+<O t="DSColumn">
+<Attributes dsName="ds4" columnName="HF9"/>
+<Complex/>
+<RG class="com.fr.report.cellElement.core.FunctionGrouper"/>
+<Parameters/>
+</O>
+<Expand dir="0"/>
+</C>
+<C c="2" r="8" s="1">
+<O>
+<![CDATA[局内计次费]]></O>
+<Expand/>
+</C>
+<C c="3" r="8" s="1">
+<O t="DSColumn">
+<Attributes dsName="ds4" columnName="HF1"/>
+<Complex/>
+<RG class="com.fr.report.cellElement.core.FunctionGrouper"/>
+<Parameters/>
+</O>
+<Expand dir="0"/>
+</C>
+<C c="4" r="8" s="1">
+<O>
+<![CDATA[上网通话费]]></O>
+<Expand/>
+</C>
+<C c="5" r="8" s="1">
+<O t="DSColumn">
+<Attributes dsName="ds4" columnName="HF6"/>
+<Complex/>
+<RG class="com.fr.report.cellElement.core.FunctionGrouper"/>
+<Parameters/>
+</O>
+<Expand dir="0"/>
+</C>
+<C c="0" r="9" s="1">
+<O>
+<![CDATA[国内长途费]]></O>
+<Expand/>
+</C>
+<C c="1" r="9" s="1">
+<O t="DSColumn">
+<Attributes dsName="ds1" columnName="FH310"/>
+<Complex/>
+<RG class="com.fr.report.cellElement.core.FunctionGrouper"/>
+<Parameters/>
+</O>
+<Expand dir="0"/>
+</C>
+<C c="2" r="9" s="1">
+<O>
+<![CDATA[信息费]]></O>
+<Expand/>
+</C>
+<C c="3" r="9" s="1">
+<O t="DSColumn">
+<Attributes dsName="ds6" columnName="FH25"/>
+<Complex/>
+<RG class="com.fr.report.cellElement.core.FunctionGrouper"/>
+<Parameters/>
+</O>
+<Expand dir="0"/>
+</C>
+<C c="4" r="9" s="1">
+<O>
+<![CDATA[国际长途费]]></O>
+<Expand/>
+</C>
+<C c="5" r="9" s="1">
+<O t="DSColumn">
+<Attributes dsName="ds5" columnName="FH411"/>
+<Complex/>
+<RG class="com.fr.report.cellElement.core.FunctionGrouper"/>
+<Parameters/>
+</O>
+<Expand dir="0"/>
+</C>
+<C c="0" r="10" s="1">
+<O>
+<![CDATA[IP话费]]></O>
+<Expand/>
+</C>
+<C c="1" r="10" s="1">
+<O t="DSColumn">
+<Attributes dsName="ds4" columnName="HF7"/>
+<Complex/>
+<RG class="com.fr.report.cellElement.core.FunctionGrouper"/>
+<Parameters/>
+</O>
+<Expand dir="0"/>
+</C>
+<C c="2" r="10" s="1">
+<O>
+<![CDATA[专线月租]]></O>
+<Expand/>
+</C>
+<C c="3" r="10" s="1">
+<O t="DSColumn">
+<Attributes dsName="ds4" columnName="ZFS5"/>
+<Complex/>
+<RG class="com.fr.report.cellElement.core.FunctionGrouper"/>
+<Parameters/>
+</O>
+<Expand dir="0"/>
+</C>
+<C c="4" r="10" s="1">
+<O>
+<![CDATA[功能费]]></O>
+<Expand/>
+</C>
+<C c="5" r="10" s="1">
+<O t="DSColumn">
+<Attributes dsName="ds4" columnName="ZFS2"/>
+<Complex/>
+<RG class="com.fr.report.cellElement.core.FunctionGrouper"/>
+<Parameters/>
+</O>
+<Expand dir="0"/>
+</C>
+<C c="0" r="11" s="1">
+<O>
+<![CDATA[月租费]]></O>
+<Expand/>
+</C>
+<C c="1" r="11" s="1">
+<O t="DSColumn">
+<Attributes dsName="ds4" columnName="ZFS1"/>
+<Complex/>
+<RG class="com.fr.report.cellElement.core.FunctionGrouper"/>
+<Parameters/>
+</O>
+<Expand dir="0"/>
+</C>
+<C c="2" r="11" s="1">
+<O>
+<![CDATA[港澳台]]></O>
+<Expand/>
+</C>
+<C c="3" r="11" s="1">
+<O t="DSColumn">
+<Attributes dsName="ds4" columnName="HF12"/>
+<Complex/>
+<RG class="com.fr.report.cellElement.core.FunctionGrouper"/>
+<Parameters/>
+</O>
+<Expand dir="0"/>
+</C>
+<C c="4" r="11" s="1">
+<O>
+<![CDATA[上月欠费]]></O>
+<Expand/>
+</C>
+<C c="5" r="11" s="1">
+<O t="DSColumn">
+<Attributes dsName="ds4" columnName="HF13"/>
+<Complex/>
+<RG class="com.fr.report.cellElement.core.FunctionGrouper"/>
+<Parameters/>
+</O>
+<Expand dir="0"/>
+</C>
+<C c="0" r="12" s="1">
+<O>
+<![CDATA[宽带费]]></O>
+<Expand/>
+</C>
+<C c="1" r="12" s="1">
+<O t="DSColumn">
+<Attributes dsName="ds4" columnName="HF14"/>
+<Complex/>
+<RG class="com.fr.report.cellElement.core.FunctionGrouper"/>
+<Parameters/>
+</O>
+<Expand dir="0"/>
+</C>
+<C c="2" r="12" s="1">
+<O>
+<![CDATA[备用字段]]></O>
+<Expand/>
+</C>
+<C c="3" r="12" s="1">
+<Expand/>
+</C>
+<C c="4" r="12" s="1">
+<O>
+<![CDATA[备用字段]]></O>
+<Expand/>
+</C>
+<C c="5" r="12" s="1">
+<Expand/>
+</C>
+<C c="0" r="13" s="1">
+<O>
+<![CDATA[上月余款]]></O>
+<Expand/>
+</C>
+<C c="1" r="13" s="1">
+<O t="DSColumn">
+<Attributes dsName="ds4" columnName="SYYE_YSK"/>
+<Complex/>
+<RG class="com.fr.report.cellElement.core.FunctionGrouper"/>
+<Parameters/>
+</O>
+<Expand dir="0"/>
+</C>
+<C c="2" r="13" s="1">
+<O>
+<![CDATA[本月余额]]></O>
+<Expand/>
+</C>
+<C c="3" r="13" s="1">
+<O t="DSColumn">
+<Attributes dsName="ds4" columnName="BYYE_YSK"/>
+<Complex/>
+<RG class="com.fr.report.cellElement.core.FunctionGrouper"/>
+<Parameters/>
+</O>
+<Expand dir="0"/>
+</C>
+<C c="4" r="13" s="1">
+<O>
+<![CDATA[营业员]]></O>
+<Expand/>
+</C>
+<C c="5" r="13" s="1">
+<O t="DSColumn">
+<Attributes dsName="ds4" columnName="OUT_BZ1"/>
+<Complex/>
+<RG class="com.fr.report.cellElement.core.FunctionGrouper"/>
+<Parameters/>
+</O>
+<Expand dir="0"/>
+</C>
+<C c="0" r="14" cs="6">
+<O>
+<![CDATA[ 注：]]></O>
+<Expand/>
+</C>
+<C c="0" r="15" cs="6">
+<O>
+<![CDATA[     1.自2005年8月开始，计费周期调整为自然月，缴费时间调整为每月10日到月底；]]></O>
+<Expand/>
+</C>
+<C c="0" r="16" cs="6">
+<O>
+<![CDATA[     2.每月2-10日放通知语音，下月1日开始对欠费用户暂停服务。]]></O>
+<Expand/>
+</C>
+</CellElementList>
+<ReportAttrSet>
+<ReportSettings headerHeight="0" footerHeight="0">
+<PaperSetting orientation="1">
+<Margin top="986400" left="2743200" bottom="986400" right="2743200"/>
+</PaperSetting>
+</ReportSettings>
+</ReportAttrSet>
+</Report>
+<StyleList>
+<Style horizontal_alignment="0">
+<FRFont name="SimSun" style="1" size="112"/>
+<Background name="NullBackground"/>
+<Border>
+<Top style="1"/>
+<Bottom style="1"/>
+<Left style="1"/>
+<Right style="1"/>
+</Border>
+</Style>
+<Style>
+<FRFont name="SimSun" style="0" size="72"/>
+<Background name="NullBackground"/>
+<Border>
+<Top style="1"/>
+<Bottom style="1"/>
+<Left style="1"/>
+<Right style="1"/>
+</Border>
+</Style>
+</StyleList>
+</WorkBook>

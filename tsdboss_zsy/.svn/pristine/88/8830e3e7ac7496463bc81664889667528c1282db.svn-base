@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<WorkBook xmlVersion="20100901">
+<TableDataMap>
+<TableData name="档案" class="com.fr.data.impl.DBTableData">
+<Parameters>
+<Parameter>
+<Attributes name="BM1"/>
+<O>
+<![CDATA[%]]></O>
+</Parameter>
+<Parameter>
+<Attributes name="bighth"/>
+<O>
+<![CDATA[%]]></O>
+</Parameter>
+</Parameters>
+<Attributes maxMemRowCount="-1"/>
+<Connection class="com.fr.data.impl.NameDatabaseConnection">
+<DatabaseName>
+<![CDATA[tsdBilling]]></DatabaseName>
+</Connection>
+<Query>
+<![CDATA[select hth ,yhmc,bm1 from hthdang g where g.bm1 like '${bm1}' and g.hth like '%${bighth}%' and g.custtype=1]]></Query>
+</TableData>
+<TableData name="时间" class="com.fr.data.impl.DBTableData">
+<Parameters/>
+<Attributes maxMemRowCount="-1"/>
+<Connection class="com.fr.data.impl.NameDatabaseConnection">
+<DatabaseName>
+<![CDATA[tsdBilling]]></DatabaseName>
+</Connection>
+<Query>
+<![CDATA[select '打印时间：' || to_char(sysdate,'YYYY-MM-DD HH24:MI:SS') TM from dual]]></Query>
+</TableData>
+</TableDataMap>
+<ReportWebAttr>
+<Title>
+<![CDATA[大客户资料]]></Title>
+<Background name="NullBackground"/>
+<CacheValidateTime>
+<![CDATA[0]]></CacheValidateTime>
+</ReportWebAttr>
+<Report class="com.fr.report.WorkSheet" name="sheet1">
+<ReportPageAttr>
+<HR F="2" T="2"/>
+<FR/>
+<HC/>
+<FC/>
+</ReportPageAttr>
+<RowHeight defaultValue="19">
+<![CDATA[42,19,26,26,19,19,19,19,19,19,19,19,19,19,19,19,19,19,19,19,19,19,19,19,19,19,19,19,19,19,19,19,19,19,19,19,19,19,19,19,19,19,19,19,19,19,19,19,19,19,19,19]]></RowHeight>
+<ColumnWidth defaultValue="72">
+<![CDATA[58,197,136,218,72,72,72,72,72,72,72,72,72,72,72,72,72,72,72,72,72,72]]></ColumnWidth>
+<CellElementList>
+<C c="0" r="0" cs="4" s="0">
+<O>
+<![CDATA[大客户资料]]></O>
+<Expand/>
+</C>
+<C c="3" r="1">
+<O t="DSColumn">
+<Attributes dsName="时间" columnName="TM"/>
+<Complex/>
+<RG class="com.fr.report.cellElement.core.FunctionGrouper"/>
+<Parameters/>
+</O>
+<Expand dir="0"/>
+</C>
+<C c="1" r="2" s="1">
+<O>
+<![CDATA[部门]]></O>
+<Expand/>
+</C>
+<C c="2" r="2" s="1">
+<O>
+<![CDATA[大客户号]]></O>
+<Expand/>
+</C>
+<C c="3" r="2" s="1">
+<O>
+<![CDATA[名称]]></O>
+<Expand/>
+</C>
+<C c="1" r="3">
+<O t="DSColumn">
+<Attributes dsName="档案" columnName="BM1"/>
+<Complex/>
+<RG class="com.fr.report.cellElement.core.FunctionGrouper"/>
+<Parameters/>
+</O>
+<Expand dir="0"/>
+</C>
+<C c="2" r="3">
+<O t="DSColumn">
+<Attributes dsName="档案" columnName="HTH"/>
+<Complex/>
+<RG class="com.fr.report.cellElement.core.FunctionGrouper"/>
+<Parameters/>
+</O>
+<Expand dir="0"/>
+</C>
+<C c="3" r="3">
+<O t="DSColumn">
+<Attributes dsName="档案" columnName="YHMC"/>
+<Complex/>
+<RG class="com.fr.report.cellElement.core.FunctionGrouper"/>
+<Parameters/>
+</O>
+<Expand dir="0"/>
+</C>
+</CellElementList>
+<ReportSettings headerHeight="0.0" footerHeight="0.2362204724409449">
+<PaperSetting>
+<Margin top="0.27" left="0.75" bottom="0.27" right="0.75"/>
+</PaperSetting>
+</ReportSettings>
+<Header reportPageType="0">
+<Background name="NullBackground"/>
+<LeftList/>
+<CenterList/>
+<RightList/>
+</Header>
+<Footer reportPageType="0">
+<Background name="NullBackground"/>
+<LeftList/>
+<CenterList/>
+<RightList>
+<HFElement className="com.fr.report.core.headerfooter.TextHFElement">
+<FRFont name="SimSun" style="0" size="12"/>
+<![CDATA[当前第 ]]></HFElement>
+<HFElement className="com.fr.report.core.headerfooter.PageNumberHFElement">
+<FRFont name="SimSun" style="0" size="12"/>
+<![CDATA[1]]></HFElement>
+<HFElement className="com.fr.report.core.headerfooter.TextHFElement">
+<FRFont name="SimSun" style="0" size="12"/>
+<![CDATA[ 页，共 ]]></HFElement>
+<HFElement className="com.fr.report.core.headerfooter.NumberOfPageHFElement">
+<FRFont name="SimSun" style="0" size="12"/>
+<![CDATA[100]]></HFElement>
+<HFElement className="com.fr.report.core.headerfooter.TextHFElement">
+<FRFont name="SimSun" style="0" size="12"/>
+<![CDATA[ 页       ]]></HFElement>
+</RightList>
+</Footer>
+</Report>
+<StyleList>
+<Style horizontal_alignment="0">
+<FRFont name="SimSun" style="1" size="22"/>
+<Background name="NullBackground"/>
+<Border/>
+</Style>
+<Style>
+<FRFont name="SimSun" style="0" size="12"/>
+<Background name="NullBackground"/>
+<Border>
+<Bottom style="1"/>
+</Border>
+</Style>
+</StyleList>
+</WorkBook>

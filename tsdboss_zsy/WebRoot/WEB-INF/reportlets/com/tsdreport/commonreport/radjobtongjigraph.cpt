@@ -1,0 +1,462 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<WorkBook>
+<Version>6.2</Version>
+<Report class="com.fr.report.WorkSheet" name="sheet1">
+<TableDataMap>
+<NameTableData name="当前时间">
+<TableData class="com.fr.data.impl.DBTableData">
+<Parameters>
+</Parameters>
+<Attributes isCache="true" isDiskCache="true" />
+<Connection class="com.fr.data.impl.NameDatabaseConnection">
+<DatabaseName><![CDATA[broadband]]></DatabaseName>
+</Connection><Query><![CDATA[select now() as today;]]></Query>
+</TableData>
+</NameTableData>
+<NameTableData name="数据">
+<TableData class="com.fr.data.impl.DBTableData">
+<Parameters>
+<Parameter>
+<Attributes name="starttime"
+ type="0"
+ shown="true" />
+<O t="S"><![CDATA[201003]]></O>
+</Parameter>
+<Parameter>
+<Attributes name="endtime"
+ type="0"
+ shown="true" />
+<O t="S"><![CDATA[201004]]></O>
+</Parameter>
+</Parameters>
+<Attributes isCache="true" isDiskCache="true" />
+<Connection class="com.fr.data.impl.NameDatabaseConnection">
+<DatabaseName><![CDATA[broadband]]></DatabaseName>
+</Connection><Query><![CDATA[(select  s.sname,j.jobtype,extract(year_month from wgrq) as yf,count(*) from radjob j,radywsl s
+
+ where extract(year_month from wgrq)>='[?starttime|201003?]' and extract(year_month from wgrq)<='[?endtime|201004?]' and j.jobtype=s.bname group by jobtype,yf ) 
+union
+(
+select '故障受理' as sname,'gz' as jobtype,extract(year_month from CompleteDate) as yf,count(*) from radfault  where extract(year_month from CompleteDate)>='[?starttime|201003?]' and extract(year_month from CompleteDate)<='[?endtime|201004?]' group by  yf
+)
+
+]]></Query>
+</TableData>
+</NameTableData>
+<NameTableData name="业务类型">
+<TableData class="com.fr.data.impl.DBTableData">
+<Parameters>
+</Parameters>
+<Attributes isCache="true" isDiskCache="true" />
+<Connection class="com.fr.data.impl.NameDatabaseConnection">
+<DatabaseName><![CDATA[broadband]]></DatabaseName>
+</Connection><Query><![CDATA[(select bname,sname from radywsl)
+union
+(select 'gz' as bname,'故障受理' as sname)]]></Query>
+</TableData>
+</NameTableData>
+</TableDataMap>
+<ReportSettings orientation="1" shrinkToFit="false" headerHeight="0.0" footerHeight="0.0">
+<PaperSize width="39.389" height="55.667" />
+<Margin top="0.27" left="0.7499999999999999" bottom="0.27" right="0.7499999999999999" />
+</ReportSettings>
+<ReportPageAttr>
+</ReportPageAttr>
+<ReportParameterAttr>
+<Parameters>
+<Parameter>
+<Attributes name="业务类型"
+ type="0"
+ shown="true" />
+<O t="S"><![CDATA[]]></O>
+<CellEditorDef class="com.fr.report.cellElement.CheckBoxCellEditorDef"><Attributes allowBlank="false" />
+<Dict class="com.fr.data.impl.TableDataDictionary">
+<TableDataDictAttr keyColumnIndex="2" valueColumnIndex="2">
+<TableData class="com.fr.data.impl.NameTableData">
+<Name><![CDATA[业务类型]]></Name>
+</TableData>
+</TableDataDictAttr>
+</Dict></CellEditorDef>
+</Parameter>
+</Parameters>
+<Attributes showWindow="true" delayPlaying="true" windowPosition="1" userDefineWindow="true" />
+<PWTitle><![CDATA[参数]]></PWTitle>
+<WorkSheet>
+<ReportSettings shrinkToFit="false" headerHeight="0.0" footerHeight="0.0">
+<Margin top="0.27" left="0.75" bottom="0.27" right="0.75" />
+</ReportSettings>
+<ReportParameterAttr>
+<Parameters>
+</Parameters>
+<Attributes showWindow="true" delayPlaying="true" windowPosition="0" userDefineWindow="false" />
+<PWTitle><![CDATA[参数]]></PWTitle>
+</ReportParameterAttr>
+<AutoRecalculate>false</AutoRecalculate>
+<DesignAttributes>
+</DesignAttributes>
+<ReportWebAttr>
+<EmailManager mailHost="" password="___" user="" fromEmailAddress="" />
+<ServerPrinter>
+</ServerPrinter>
+</ReportWebAttr>
+<ReportWriteAttr>
+</ReportWriteAttr>
+<Header reportPageType="0">
+<Background name="NullBackground" />
+<LeftList>
+</LeftList>
+<CenterList>
+</CenterList>
+<RightList>
+</RightList>
+</Header>
+<Footer reportPageType="0">
+<Background name="NullBackground" />
+<LeftList>
+</LeftList>
+<CenterList>
+</CenterList>
+<RightList>
+</RightList>
+</Footer>
+<RowHeight defaultValue="19">
+<![CDATA[26,51,26]]>
+</RowHeight>
+<ColumnWidth defaultValue="72">
+<![CDATA[72,81,91,85,57,91,91]]>
+</ColumnWidth>
+<CellElementList>
+<C c="0" r="0" rs="2" s="0"><O t="S"><![CDATA[报表说明：]]></O>
+</C>
+<C c="1" r="0" cs="7" s="1"><O t="S"><![CDATA[1、此报表根据区域统计某月办理的业务量，并按照分类提供明细。]]></O>
+</C>
+<C c="1" r="1" cs="7" s="2"><O t="S"><![CDATA[2、统计月份输入格式为6位数字。例：统计2010年1月的宽带用户，在统计月份中录入“201001”然后点击查询即可。]]></O>
+</C>
+<C c="2" r="3" s="3"><O t="S"><![CDATA[开始时间：]]></O>
+</C>
+<C c="3" r="3" s="3"><O t="Parameter"><Attributes name="starttime"
+ type="0"
+ shown="true" />
+<O t="S"><![CDATA[201003]]></O>
+</O>
+</C>
+<C c="4" r="3" s="3"></C>
+<C c="5" r="3" s="3"><O t="S"><![CDATA[结束时间：]]></O>
+</C>
+<C c="6" r="3" s="3"><O t="Parameter"><Attributes name="endtime"
+ type="0"
+ shown="true" />
+<O t="S"><![CDATA[201004]]></O>
+</O>
+</C>
+<C c="7" r="3" s="4"></C>
+<C c="2" r="4" s="3"></C>
+<C c="3" r="4" s="3"></C>
+<C c="4" r="4" s="3"></C>
+<C c="5" r="4" s="3"></C>
+<C c="6" r="4" s="3"></C>
+<C c="0" r="5" rs="2" s="5"></C>
+<C c="2" r="5" s="3"><O t="S"><![CDATA[业务类型：]]></O>
+</C>
+<C c="3" r="5" cs="2" s="3"><O t="Parameter"><Attributes name="业务类型"
+ type="0"
+ shown="true" />
+<O t="S"><![CDATA[]]></O>
+<CellEditorDef class="com.fr.report.cellElement.CheckBoxCellEditorDef"><Attributes allowBlank="false" />
+<Dict class="com.fr.data.impl.TableDataDictionary">
+<TableDataDictAttr keyColumnIndex="2" valueColumnIndex="2">
+<TableData class="com.fr.data.impl.NameTableData">
+<Name><![CDATA[业务类型]]></Name>
+</TableData>
+</TableDataDictAttr>
+</Dict></CellEditorDef>
+</O>
+</C>
+<C c="5" r="5" s="3"></C>
+<C c="6" r="5" s="6"><O t="PB" >
+<ParameterButton name="查询" type="0" />
+</O>
+</C>
+</CellElementList>
+</WorkSheet>
+</ReportParameterAttr>
+<AutoRecalculate>false</AutoRecalculate>
+<DesignAttributes>
+</DesignAttributes>
+<ReportWebAttr>
+<EmailManager mailHost="" password="___" user="" fromEmailAddress="" />
+<ServerPrinter>
+</ServerPrinter>
+</ReportWebAttr>
+<ReportWriteAttr>
+</ReportWriteAttr>
+<Header reportPageType="0">
+<Background name="NullBackground" />
+<LeftList>
+</LeftList>
+<CenterList>
+</CenterList>
+<RightList>
+</RightList>
+</Header>
+<Footer reportPageType="0">
+<Background name="NullBackground" />
+<LeftList>
+</LeftList>
+<CenterList>
+</CenterList>
+<RightList>
+</RightList>
+</Footer>
+<RowHeight defaultValue="19">
+<![CDATA[19,19,19,19,19,19,19,19,19,19,19,19,19,19,19,19,19,19,19,19,19,19,35,38,29]]>
+</RowHeight>
+<ColumnWidth defaultValue="72">
+<![CDATA[140,90,136,94,102,100,87]]>
+</ColumnWidth>
+<FloatElementList>
+<com.fr.report.FloatElement>
+<Location column="0" row="0" leftDistance="0" topDistance="0" width="1329.0" height="417.0" />
+<O t="ChartPainter"><Background name="ColorBackground"
+ color="-1">
+</Background>
+<Title>
+<Text>
+<Formula><Attributes><![CDATA[=$starttime+'—'+$endtime+'小区网业务量统计图']]></Attributes></Formula></Text>
+<TextAttributes isVerticalText="0" textDirection="0" rotation="0">
+<Border style="0" color="-16777216" />
+<Background name="NullBackground" />
+<FRFont name="SimSun" style="0" size="28" />
+</TextAttributes>
+</Title>
+<Legend isVisible="true" position="4" legendNum="10" iconBorderColor="-16777216">
+<Border style="1" color="-16777216" />
+<Background name="ColorBackground"
+ color="-1">
+</Background>
+<FRFont name="SimSun" style="0" size="12" />
+</Legend>
+<ChartDescriptor>
+<Style index="0" class="com.fr.chart.style.BarChartStyle">
+<Values isShowValues="true" shownShallow="true">
+<Format class="java.text.DecimalFormat"><![CDATA[#0]]>
+</Format>
+<TextAttributes isVerticalText="0" textDirection="0" rotation="0">
+<Border style="0" color="-16777216" />
+<Background name="NullBackground" />
+<FRFont name="SimSun" style="0" size="12" />
+</TextAttributes>
+</Values>
+<Plot>
+<Border style="1" color="-11355685" />
+<GridLine style="3" color="-11355685" />
+<Background name="ColorBackground"
+ color="-5513489">
+</Background>
+</Plot>
+<CategoryStyle isStacked="false" bgStagger="false" isHorizontal="false">
+<Axis class="com.fr.chart.axis.CategoryAxis" axisLineColor="-16777216" labelVisible="true" stagger="false" isVerticalText="0" textDirection="0" labelRotation="0" tickMarkType="1">
+<Title>
+<Text>
+<O t="S"><![CDATA[]]></O>
+</Text>
+<TextAttributes isVerticalText="0" textDirection="0" rotation="0">
+<Border style="0" color="-16777216" />
+<Background name="NullBackground" />
+<FRFont name="SimSun" style="0" size="12" />
+</TextAttributes>
+</Title>
+<FRFont name="SimSun" style="0" size="12" />
+</Axis>
+<Axis class="com.fr.chart.axis.ValueAxis" axisLineColor="-16777216" labelVisible="true" stagger="false" isVerticalText="0" textDirection="0" labelRotation="0" tickMarkType="1">
+<Title>
+<Text>
+<O t="S"><![CDATA[]]></O>
+</Text>
+<TextAttributes isVerticalText="0" textDirection="0" rotation="0">
+<Border style="0" color="-16777216" />
+<Background name="NullBackground" />
+<FRFont name="SimSun" style="0" size="12" />
+</TextAttributes>
+</Title>
+<FRFont name="SimSun" style="0" size="12" />
+</Axis>
+</CategoryStyle>
+<BarStyle isDrawBorder="true" is3D="true" isCubic3D="false" is3DSimulation="true" isTransparency="false" isCasCade="false" barSpacePecent="0.6" offSetPecent="0.6" borderLineColor="-16777216" /></Style>
+<Color index="0" color="-4176614" />
+<Color index="1" color="-12468447" />
+<Color index="2" color="-14903360" />
+<Color index="3" color="-4550131" />
+<Color index="4" color="-13478908" />
+<Color index="5" color="-7657472" />
+<Color index="6" color="-4164582" />
+<Color index="7" color="-14565521" />
+<Color index="8" color="-14900289" />
+<Color index="9" color="-8930803" />
+<Color index="10" color="-4797692" />
+<Color index="11" color="-6926256" />
+<Color index="12" color="-6513445" />
+<Color index="13" color="-11709051" />
+<Color index="14" color="-3417188" />
+<Color index="15" color="-10192838" />
+<Color index="17" color="-1852844" />
+<Color index="16" color="-1848428" />
+<Color index="19" color="-1862501" />
+<Color index="18" color="-7574220" />
+<Color index="21" color="-5551285" />
+<Color index="20" color="-2858133" />
+<Color index="23" color="-2384684" />
+<Color index="22" color="-8045508" />
+<Color index="25" color="-8567948" />
+<Color index="24" color="-3380116" />
+<Color index="27" color="-4203620" />
+<Color index="26" color="-11514491" />
+<Color index="29" color="-6073469" />
+<Color index="28" color="-8674477" />
+<Color index="31" color="-12936926" />
+<Color index="30" color="-6750071" />
+<Color index="34" color="-7625901" />
+<Color index="35" color="-10192838" />
+<Color index="32" color="-6408907" />
+<Color index="33" color="-4928406" />
+<Color index="38" color="-9145163" />
+<Color index="39" color="-11709051" />
+<Color index="36" color="-1848428" />
+<Color index="37" color="-6513445" />
+<Marker index="0" class="com.fr.chart.style.marker.DiamondFilledMarker" />
+<Marker index="1" class="com.fr.chart.style.marker.StarMarker" />
+<Marker index="2" class="com.fr.chart.style.marker.SquareFilledMarker" />
+<Marker index="3" class="com.fr.chart.style.marker.XMarker" />
+<Marker index="4" class="com.fr.chart.style.marker.TriangleFilledMarker" />
+<Marker index="5" class="com.fr.chart.style.marker.CrossMarker" />
+<Marker index="6" class="com.fr.chart.style.marker.PlusSignMarker" />
+<Marker index="7" class="com.fr.chart.style.marker.CircleFilledMarker" />
+<Marker index="8" class="com.fr.chart.style.marker.MinusSignMarker" />
+<Marker index="9" class="com.fr.chart.style.marker.DiamondMarker" />
+<Marker index="10" class="com.fr.chart.style.marker.SquareMarker" />
+<Marker index="11" class="com.fr.chart.style.marker.TriangleMarker" />
+<Marker index="12" class="com.fr.chart.style.marker.CircleMarker" />
+<HotHyperlink>
+<JavaScript class="com.fr.report.javaScript.ReportletHyperlink"><TargetFrame><![CDATA[_blank]]></TargetFrame>
+<ReportletName extendParameters="false"><![CDATA[/com/tsdreport/subreport/radjobtongjigraphmx.cpt]]></ReportletName>
+<Parameters>
+<Parameter>
+<Attributes name="ywlx"
+ type="10"
+ shown="true" />
+<O t="S"><![CDATA[the-First-List]]></O>
+</Parameter>
+<Parameter>
+<Attributes name="yf"
+ type="10"
+ shown="true" />
+<O t="S"><![CDATA[the-Second-List]]></O>
+</Parameter>
+</Parameters>
+</JavaScript>
+</HotHyperlink>
+</ChartDescriptor>
+<Border style="0" color="-16777216" />
+<ReportDataDefinition>
+<CategoryDefintion value="B23:B23" />
+<SeriesDefinition name="A24:A24" value="B24:B24" />
+<SeriesPos value="1" />
+</ReportDataDefinition>
+</O>
+<Style index="7" /></com.fr.report.FloatElement>
+</FloatElementList>
+<CellElementList>
+<C c="2" r="0"></C>
+<C c="0" r="22" s="8"><O type="BiasTextPainter">
+<IsBackSlash value="false"/>
+<![CDATA[业务类型|月份]]>
+</O>
+
+</C>
+<C c="1" r="22" s="8"><O t="DSColumn"><Attributes dsName="数据" columnName="sname" />
+<Condition class="com.fr.data.condition.CommonCondition"><CNAME><![CDATA[sname]]></CNAME><Compare op="12">
+<Parameter>
+<Attributes name="业务类型"
+ type="0"
+ shown="true" />
+<O t="S"><![CDATA[]]></O>
+<CellEditorDef class="com.fr.report.cellElement.CheckBoxCellEditorDef"><Attributes allowBlank="true" />
+<Dict class="com.fr.data.impl.TableDataDictionary">
+<TableDataDictAttr keyColumnIndex="2" valueColumnIndex="2">
+<TableData class="com.fr.data.impl.NameTableData">
+<Name><![CDATA[业务类型]]></Name>
+</TableData>
+</TableDataDictAttr>
+</Dict></CellEditorDef>
+</Parameter>
+</Compare>
+</Condition>
+<RG class="com.fr.report.cellElement.core.FunctionGrouper"></RG><Result><![CDATA[$$$]]></Result></O>
+<Expand dir="1" />
+</C>
+<C c="0" r="23" s="8"><O t="DSColumn"><Attributes dsName="数据" columnName="yf" />
+<RG class="com.fr.report.cellElement.core.FunctionGrouper"></RG></O>
+<Expand dir="0" />
+</C>
+<C c="1" r="23" s="9"><O t="DSColumn"><Attributes dsName="数据" columnName="count(*)" />
+<RG class="com.fr.report.cellElement.core.FunctionGrouper"></RG></O>
+<Expand dir="0" />
+</C>
+<C c="0" r="24"></C>
+</CellElementList>
+</Report>
+<StyleList>
+<Style horizontal_alignment="4">
+<FRFont name="SimSun" style="1" size="14" />
+<Background name="NullBackground" />
+<Border><Bottom style="1" /></Border>
+</Style>
+<Style>
+<FRFont name="SimSun" style="1" size="14" />
+<Background name="NullBackground" />
+<Border></Border>
+</Style>
+<Style>
+<FRFont name="SimSun" style="1" size="14" />
+<Background name="NullBackground" />
+<Border><Bottom style="1" /></Border>
+</Style>
+<Style>
+<FRFont name="SimSun" style="0" size="15" />
+<Background name="NullBackground" />
+<Border></Border>
+</Style>
+<Style horizontal_alignment="4">
+<FRFont name="SimSun" style="0" size="12" />
+<Background name="NullBackground" />
+<Border></Border>
+</Style>
+<Style horizontal_alignment="4" imageLayout="2">
+<FRFont name="SimSun" style="1" size="14" />
+<Background name="NullBackground" />
+<Border></Border>
+</Style>
+<Style horizontal_alignment="4">
+<FRFont name="SimSun" style="0" size="15" />
+<Background name="NullBackground" />
+<Border></Border>
+</Style>
+<Style>
+<FRFont name="SimSun" style="0" size="12" />
+<Background name="ColorBackground"
+ color="-1">
+</Background>
+<Border><Top style="1" /><Bottom style="1" /><Left style="1" /><Right style="1" /></Border>
+</Style>
+<Style horizontal_alignment="0">
+<FRFont name="SimSun" style="1" size="14" />
+<Background name="NullBackground" />
+<Border><Top style="1" /><Bottom style="1" /><Left style="1" /><Right style="1" /></Border>
+</Style>
+<Style horizontal_alignment="0">
+<FRFont name="SimSun" style="0" size="14" />
+<Background name="NullBackground" />
+<Border><Top style="1" /><Bottom style="1" /><Left style="1" /><Right style="1" /></Border>
+</Style>
+</StyleList>
+</WorkBook>

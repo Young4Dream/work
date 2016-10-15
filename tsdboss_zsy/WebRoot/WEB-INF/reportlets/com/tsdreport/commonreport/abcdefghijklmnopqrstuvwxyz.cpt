@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<WorkBook>
+<Version>6.2</Version>
+<Report class="com.fr.report.WorkSheet" name="Sheet1">
+<TableDataMap>
+<NameTableData name="ds1">
+<TableData class="com.fr.data.impl.DBTableData">
+<Parameters>
+</Parameters>
+<Attributes isCache="true" />
+<Connection class="com.fr.data.impl.NameDatabaseConnection">
+<DatabaseName><![CDATA[FRDemo]]></DatabaseName>
+</Connection><Query><![CDATA[SELECT *
+FROM
+     stuff stuff]]></Query>
+</TableData>
+</NameTableData>
+</TableDataMap>
+<ReportSettings shrinkToFit="true" headerHeight="0.33" footerHeight="0.33">
+<Margin top="0.27" left="0.75" bottom="0.27" right="0.75" />
+</ReportSettings>
+<ReportParameterAttr>
+<Parameters>
+</Parameters>
+<Attributes showWindow="true" delayPlaying="true" windowPosition="0" userDefineWindow="false" />
+<PWTitle><![CDATA[参数]]></PWTitle>
+</ReportParameterAttr>
+<AutoRecalculate>false</AutoRecalculate>
+<DesignAttributes>
+</DesignAttributes>
+<ReportWebAttr>
+<EmailManager mailHost="" password="___" user="" fromEmailAddress="" />
+<ServerPrinter>
+</ServerPrinter>
+</ReportWebAttr>
+<ReportWriteAttr>
+</ReportWriteAttr>
+<RowHeight defaultValue="19">
+<![CDATA[30,19,19,20]]>
+</RowHeight>
+<ColumnWidth defaultValue="72">
+<![CDATA[76,72,67,87,18]]>
+</ColumnWidth>
+<CellElementList>
+<C c="0" r="0" cs="4" s="0"><O t="S"><![CDATA[Employee Infromation Card]]></O>
+<Expand leftParentDefault="false" left="B2" />
+</C>
+<C c="4" r="0"><O t="S"><![CDATA[]]></O>
+<Expand leftParentDefault="false" left="B2" upParentDefault="false" />
+</C>
+<C c="0" r="1" s="1"><O t="S"><![CDATA[Name:]]></O>
+<Expand leftParentDefault="false" left="B2" />
+</C>
+<C c="1" r="1" s="2"><O t="DSColumn"><Attributes dsName="ds1" columnName="Name" />
+<RG class="com.fr.report.cellElement.core.FunctionGrouper"></RG></O>
+<Expand dir="0" />
+</C>
+<C c="2" r="1" cs="2" rs="4" s="3"><O t="S"><![CDATA[Photo]]></O>
+</C>
+<C c="0" r="2" s="1"><O t="S"><![CDATA[Gender:]]></O>
+</C>
+<C c="1" r="2" s="2"><O t="DSColumn"><Attributes dsName="ds1" columnName="Gender" />
+<RG class="com.fr.report.cellElement.core.FunctionGrouper"></RG></O>
+<Expand dir="0" leftParentDefault="false" left="B2" />
+</C>
+<C c="0" r="3" s="1"><O t="S"><![CDATA[Hired for:]]></O>
+</C>
+<C c="1" r="3" s="2"><O t="DSColumn"><Attributes dsName="ds1" columnName="Hire_time" />
+<RG class="com.fr.report.cellElement.core.FunctionGrouper"></RG></O>
+<Expand dir="0" leftParentDefault="false" left="B2" />
+</C>
+<C c="0" r="4" s="1"><O t="S"><![CDATA[Age:]]></O>
+</C>
+<C c="1" r="4" s="2"><O t="DSColumn"><Attributes dsName="ds1" columnName="Age" />
+<RG class="com.fr.report.cellElement.core.FunctionGrouper"></RG></O>
+<Expand dir="0" leftParentDefault="false" left="B2" />
+</C>
+<C c="0" r="5" s="1"><O t="S"><![CDATA[Education:]]></O>
+</C>
+<C c="1" r="5" cs="3" s="2"><O t="DSColumn"><Attributes dsName="ds1" columnName="Education" />
+<RG class="com.fr.report.cellElement.core.FunctionGrouper"></RG></O>
+<Expand dir="0" leftParentDefault="false" left="B2" />
+</C>
+<C c="0" r="6" s="4"><O t="S"><![CDATA[School:]]></O>
+<Expand dir="0" leftParentDefault="false" left="B2" />
+</C>
+<C c="1" r="6" cs="3" s="2"><O t="DSColumn"><Attributes dsName="ds1" columnName="School" />
+<RG class="com.fr.report.cellElement.core.FunctionGrouper"></RG></O>
+<Expand dir="0" leftParentDefault="false" left="B2" />
+</C>
+<C c="0" r="7" s="1"><O t="S"><![CDATA[Home Town:]]></O>
+<Expand leftParentDefault="false" left="B2" />
+</C>
+<C c="1" r="7" s="2"><O t="DSColumn"><Attributes dsName="ds1" columnName="Home_town" />
+<RG class="com.fr.report.cellElement.core.FunctionGrouper"></RG></O>
+<Expand dir="0" leftParentDefault="false" left="B2" />
+</C>
+<C c="2" r="7" s="4"><O t="S"><![CDATA[Major in:]]></O>
+<Expand dir="0" leftParentDefault="false" left="B2" />
+</C>
+<C c="3" r="7" s="2"><O t="DSColumn"><Attributes dsName="ds1" columnName="Major" />
+<RG class="com.fr.report.cellElement.core.FunctionGrouper"></RG></O>
+<Expand dir="0" leftParentDefault="false" left="B2" />
+</C>
+<C c="3" r="8"><O t="S"><![CDATA[]]></O>
+<Expand leftParentDefault="false" left="B2" upParentDefault="false" />
+</C>
+</CellElementList>
+<WorkSheetAttr direction="0" start="0" end="8" maxRowOrColumn="45" />
+</Report>
+<StyleList>
+<Style horizontal_alignment="0">
+<FRFont name="SimSun" style="1" size="18" />
+<Background name="NullBackground" />
+<Border></Border>
+</Style>
+<Style>
+<FRFont name="SimSun" style="1" size="12" />
+<Background name="NullBackground" />
+<Border><Top style="1" /><Bottom style="1" /><Left style="1" /></Border>
+</Style>
+<Style>
+<FRFont name="SimSun" style="0" size="12" />
+<Background name="NullBackground" />
+<Border><Top style="1" /><Bottom style="1" /><Left style="1" /><Right style="1" /></Border>
+</Style>
+<Style horizontal_alignment="0">
+<FRFont name="SimSun" style="0" size="12" />
+<Background name="NullBackground" />
+<Border><Top style="1" /><Bottom style="1" /><Left style="1" /><Right style="1" /></Border>
+</Style>
+<Style>
+<FRFont name="SimSun" style="1" size="12" />
+<Background name="NullBackground" />
+<Border><Top style="1" /><Bottom style="1" /><Left style="1" /><Right style="1" /></Border>
+</Style>
+</StyleList>
+</WorkBook>

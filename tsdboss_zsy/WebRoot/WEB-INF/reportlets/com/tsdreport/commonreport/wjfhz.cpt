@@ -1,0 +1,412 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<WorkBook xmlVersion="20110221">
+<TableDataMap>
+<TableData name="Dy" class="com.fr.data.impl.DBTableData">
+<Parameters>
+<Parameter>
+<Attributes name="mokuaiju"/>
+<O>
+<![CDATA[]]></O>
+</Parameter>
+<Parameter>
+<Attributes name="hzyf"/>
+<O>
+<![CDATA[201101]]></O>
+</Parameter>
+</Parameters>
+<Attributes maxMemRowCount="-1"/>
+<Connection class="com.fr.data.impl.NameDatabaseConnection">
+<DatabaseName>
+<![CDATA[tsdBilling]]></DatabaseName>
+</Connection>
+<Query>
+<![CDATA[select h.bz9,sum(btheji) yjf,sum(znj) znj,count(*) yhs from hthhf,hthdang h where hthhf.hth=h.hth and h.bz9 like '%[?mokuaiju?]A%' and pay_flag='N' and hzyf='[?hzyf|201101?]A'  group by h.bz9 order by h.bz9]]></Query>
+</TableData>
+<TableData name="Sy" class="com.fr.data.impl.DBTableData">
+<Parameters>
+<Parameter>
+<Attributes name="mokuaiju"/>
+<O>
+<![CDATA[]]></O>
+</Parameter>
+<Parameter>
+<Attributes name="hzyf"/>
+<O>
+<![CDATA[201101]]></O>
+</Parameter>
+</Parameters>
+<Attributes maxMemRowCount="-1"/>
+<Connection class="com.fr.data.impl.NameDatabaseConnection">
+<DatabaseName>
+<![CDATA[tsdBilling]]></DatabaseName>
+</Connection>
+<Query>
+<![CDATA[select h.bz9,sum(btheji) yjf,sum(znj) znj,count(*) yhs from hthhf,hthdang h where hthhf.hth=h.hth and h.bz9 like '%[?mokuaiju?]A%' and pay_flag='N' and hzyf=to_char(add_months(to_date('[?hzyf?]A','YYYYMM'),-1),'YYYYMM') group by h.bz9 order by h.bz9
+]]></Query>
+</TableData>
+<TableData name="Dt" class="com.fr.data.impl.DBTableData">
+<Parameters/>
+<Attributes maxMemRowCount="-1"/>
+<Connection class="com.fr.data.impl.NameDatabaseConnection">
+<DatabaseName>
+<![CDATA[tsdBilling]]></DatabaseName>
+</Connection>
+<Query>
+<![CDATA[select to_char(sysdate,'YYYY-MM-DD HH24:MI:SS') Now from dual]]></Query>
+</TableData>
+</TableDataMap>
+<ReportWebAttr>
+<Title>
+<![CDATA[未缴费汇总]]></Title>
+<Background name="NullBackground"/>
+<CacheValidateTime>
+<![CDATA[0]]></CacheValidateTime>
+</ReportWebAttr>
+<Report class="com.fr.report.WorkSheet" name="sheet1">
+<ReportSettings headerHeight="0" footerHeight="0">
+<PaperSetting/>
+</ReportSettings>
+<Header reportPageType="0">
+<Background name="NullBackground"/>
+<LeftList/>
+<CenterList/>
+<RightList/>
+</Header>
+<Footer reportPageType="0">
+<Background name="NullBackground"/>
+<LeftList/>
+<CenterList/>
+<RightList/>
+</Footer>
+<ElementCase class="com.fr.report.SingleBlock">
+<ReportPageAttr>
+<HR/>
+<FR/>
+<HC/>
+<FC/>
+</ReportPageAttr>
+<RowHeight defaultValue="723900">
+<![CDATA[1409700,914400,1066800,1066800,1066800,1066800,952500,1066800,723900,723900,723900,723900]]></RowHeight>
+<ColumnWidth defaultValue="2743200">
+<![CDATA[4572000,4572000,4572000,4572000,4572000,2743200,2743200,2743200,2743200,2743200,2743200]]></ColumnWidth>
+<CellElementList>
+<C c="0" r="0" cs="5" s="0">
+<O>
+<![CDATA[未缴费汇总]]></O>
+<Expand/>
+</C>
+<C c="0" r="1">
+<O t="Formula" class="Formula">
+<Attributes>
+<![CDATA[="账期： " + $hzyf]]></Attributes>
+</O>
+<Expand leftParentDefault="false" left="B2"/>
+</C>
+<C c="1" r="1" cs="2" s="1">
+<O t="DSColumn">
+<Attributes dsName="Dy" columnName="BZ9"/>
+<Complex/>
+<RG class="com.fr.report.cellElement.core.FunctionGrouper"/>
+<Parameters/>
+</O>
+<Expand dir="0"/>
+</C>
+<C c="0" r="2" s="2">
+<Expand/>
+</C>
+<C c="1" r="2" s="3">
+<O>
+<![CDATA[用户数]]></O>
+<Expand dir="0" leftParentDefault="false" left="B2"/>
+</C>
+<C c="2" r="2" s="4">
+<O>
+<![CDATA[话费]]></O>
+<Expand dir="0" leftParentDefault="false" left="B2"/>
+</C>
+<C c="3" r="2" s="4">
+<O>
+<![CDATA[滞纳金]]></O>
+<Expand dir="0" leftParentDefault="false" left="B2"/>
+</C>
+<C c="4" r="2" s="4">
+<O>
+<![CDATA[合计]]></O>
+<Expand dir="0" leftParentDefault="false" left="B2"/>
+</C>
+<C c="0" r="3">
+<O>
+<![CDATA[当月未缴]]></O>
+<Expand dir="0" leftParentDefault="false" left="B2"/>
+</C>
+<C c="1" r="3" s="1">
+<O t="DSColumn">
+<Attributes dsName="Dy" columnName="YHS"/>
+<Complex/>
+<RG class="com.fr.report.cellElement.core.FunctionGrouper"/>
+<Parameters/>
+</O>
+<Expand dir="0" leftParentDefault="false" left="B2"/>
+</C>
+<C c="2" r="3" s="5">
+<O t="DSColumn">
+<Attributes dsName="Dy" columnName="YJF"/>
+<Complex/>
+<RG class="com.fr.report.cellElement.core.FunctionGrouper"/>
+<Parameters/>
+</O>
+<Expand dir="0" leftParentDefault="false" left="B2"/>
+</C>
+<C c="3" r="3" s="5">
+<O t="DSColumn">
+<Attributes dsName="Dy" columnName="ZNJ"/>
+<Complex/>
+<RG class="com.fr.report.cellElement.core.FunctionGrouper"/>
+<Parameters/>
+</O>
+<Expand dir="0" leftParentDefault="false" left="B2"/>
+</C>
+<C c="4" r="3" s="5">
+<O t="Formula" class="Formula">
+<Attributes>
+<![CDATA[=sum(D4, C4)]]></Attributes>
+</O>
+<Expand dir="0" leftParentDefault="false" left="B2"/>
+</C>
+<C c="0" r="4">
+<O>
+<![CDATA[前月未缴]]></O>
+<Expand dir="0" leftParentDefault="false" left="B2"/>
+</C>
+<C c="1" r="4" s="1">
+<O t="DSColumn">
+<Attributes dsName="Sy" columnName="YHS"/>
+<Condition class="com.fr.data.condition.CommonCondition">
+<CNAME>
+<![CDATA[BZ9]]></CNAME>
+<Compare op="0">
+<AnDSColumn dsName="Dy" columnName="BZ9"/>
+</Compare>
+</Condition>
+<Complex/>
+<RG class="com.fr.report.cellElement.core.FunctionGrouper"/>
+<Result>
+<![CDATA[$$$]]></Result>
+<Parameters/>
+</O>
+<Expand dir="0" leftParentDefault="false" left="B2"/>
+</C>
+<C c="2" r="4" s="5">
+<O t="DSColumn">
+<Attributes dsName="Sy" columnName="YJF"/>
+<Condition class="com.fr.data.condition.CommonCondition">
+<CNAME>
+<![CDATA[BZ9]]></CNAME>
+<Compare op="0">
+<AnDSColumn dsName="Dy" columnName="BZ9"/>
+</Compare>
+</Condition>
+<Complex/>
+<RG class="com.fr.report.cellElement.core.FunctionGrouper"/>
+<Result>
+<![CDATA[$$$]]></Result>
+<Parameters/>
+</O>
+<Expand dir="0" leftParentDefault="false" left="B2"/>
+</C>
+<C c="3" r="4" s="5">
+<O t="DSColumn">
+<Attributes dsName="Sy" columnName="ZNJ"/>
+<Condition class="com.fr.data.condition.CommonCondition">
+<CNAME>
+<![CDATA[BZ9]]></CNAME>
+<Compare op="0">
+<AnDSColumn dsName="Dy" columnName="BZ9"/>
+</Compare>
+</Condition>
+<Complex/>
+<RG class="com.fr.report.cellElement.core.FunctionGrouper"/>
+<Result>
+<![CDATA[$$$]]></Result>
+<Parameters/>
+</O>
+<Expand dir="0" leftParentDefault="false" left="B2"/>
+</C>
+<C c="4" r="4" s="5">
+<O t="Formula" class="Formula">
+<Attributes>
+<![CDATA[=sum(C5, D5)]]></Attributes>
+</O>
+<Expand dir="0" leftParentDefault="false" left="B2"/>
+</C>
+<C c="0" r="5" s="6">
+<O>
+<![CDATA[共计]]></O>
+<Expand dir="0" leftParentDefault="false" left="B2"/>
+</C>
+<C c="1" r="5" s="7">
+<O t="Formula" class="Formula">
+<Attributes>
+<![CDATA[=sum(B4, B5)]]></Attributes>
+</O>
+<Expand dir="0" leftParentDefault="false" left="B2"/>
+</C>
+<C c="2" r="5" s="8">
+<O t="Formula" class="Formula">
+<Attributes>
+<![CDATA[=sum(C4, C5)]]></Attributes>
+</O>
+<Expand dir="0" leftParentDefault="false" left="B2"/>
+</C>
+<C c="3" r="5" s="8">
+<O t="Formula" class="Formula">
+<Attributes>
+<![CDATA[=sum(D4, D5)]]></Attributes>
+</O>
+<Expand dir="0" leftParentDefault="false" left="B2"/>
+</C>
+<C c="4" r="5" s="8">
+<O t="Formula" class="Formula">
+<Attributes>
+<![CDATA[=sum(E4, E5)]]></Attributes>
+</O>
+<Expand dir="0" leftParentDefault="false" left="B2"/>
+</C>
+<C c="0" r="7" s="9">
+<O>
+<![CDATA[合计]]></O>
+<Expand leftParentDefault="false"/>
+</C>
+<C c="1" r="7" s="10">
+<O t="Formula" class="Formula">
+<Attributes>
+<![CDATA[=SUM(B6)]]></Attributes>
+</O>
+<Expand dir="0" leftParentDefault="false"/>
+</C>
+<C c="2" r="7" s="11">
+<O t="Formula" class="Formula">
+<Attributes>
+<![CDATA[=SUM(C6)]]></Attributes>
+</O>
+<Expand dir="0" leftParentDefault="false"/>
+</C>
+<C c="3" r="7" s="11">
+<O t="Formula" class="Formula">
+<Attributes>
+<![CDATA[=SUM(D6)]]></Attributes>
+</O>
+<Expand dir="0" leftParentDefault="false"/>
+</C>
+<C c="4" r="7" s="11">
+<O t="Formula" class="Formula">
+<Attributes>
+<![CDATA[=SUM(E6)]]></Attributes>
+</O>
+<Expand dir="0" leftParentDefault="false"/>
+</C>
+<C c="3" r="8" cs="2" s="5">
+<O t="DSColumn">
+<Attributes dsName="Dt" columnName="NOW"/>
+<Condition class="com.fr.data.condition.ListCondition"/>
+<Complex/>
+<RG class="com.fr.report.cellElement.core.FunctionGrouper"/>
+<Result>
+<![CDATA["打印时间："+$$$]]></Result>
+<Parameters/>
+</O>
+<Expand dir="0" leftParentDefault="false"/>
+</C>
+</CellElementList>
+</ElementCase>
+<ReportWriteAttr/>
+</Report>
+<ReportParameterAttr>
+<Attributes showWindow="false" delayPlaying="true" windowPosition="1" align="1"/>
+<PWTitle>
+<![CDATA[参数]]></PWTitle>
+</ReportParameterAttr>
+<StyleList>
+<Style horizontal_alignment="0">
+<FRFont name="SimSun" style="1" size="112"/>
+<Background name="NullBackground"/>
+<Border/>
+</Style>
+<Style horizontal_alignment="0">
+<FRFont name="SimSun" style="0" size="72"/>
+<Background name="NullBackground"/>
+<Border/>
+</Style>
+<Style>
+<FRFont name="SimSun" style="0" size="72"/>
+<Background name="NullBackground"/>
+<Border>
+<Top style="1"/>
+<Bottom style="1"/>
+</Border>
+</Style>
+<Style horizontal_alignment="0">
+<FRFont name="SimSun" style="0" size="72"/>
+<Background name="NullBackground"/>
+<Border>
+<Top style="1"/>
+<Bottom style="1"/>
+</Border>
+</Style>
+<Style horizontal_alignment="4">
+<FRFont name="SimSun" style="0" size="72"/>
+<Background name="NullBackground"/>
+<Border>
+<Top style="1"/>
+<Bottom style="1"/>
+</Border>
+</Style>
+<Style horizontal_alignment="4">
+<FRFont name="SimSun" style="0" size="72"/>
+<Background name="NullBackground"/>
+<Border/>
+</Style>
+<Style>
+<FRFont name="SimSun" style="0" size="72"/>
+<Background name="NullBackground"/>
+<Border>
+<Top style="1"/>
+</Border>
+</Style>
+<Style horizontal_alignment="0">
+<FRFont name="SimSun" style="0" size="72"/>
+<Background name="NullBackground"/>
+<Border>
+<Top style="1"/>
+</Border>
+</Style>
+<Style horizontal_alignment="4">
+<FRFont name="SimSun" style="0" size="72"/>
+<Background name="NullBackground"/>
+<Border>
+<Top style="1"/>
+</Border>
+</Style>
+<Style>
+<FRFont name="SimSun" style="1" size="80"/>
+<Background name="NullBackground"/>
+<Border>
+<Bottom style="1"/>
+</Border>
+</Style>
+<Style horizontal_alignment="0">
+<FRFont name="SimSun" style="1" size="72"/>
+<Background name="NullBackground"/>
+<Border>
+<Bottom style="1"/>
+</Border>
+</Style>
+<Style horizontal_alignment="4">
+<FRFont name="SimSun" style="1" size="72"/>
+<Background name="NullBackground"/>
+<Border>
+<Bottom style="1"/>
+</Border>
+</Style>
+</StyleList>
+</WorkBook>

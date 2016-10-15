@@ -1,0 +1,1373 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<WorkBook xmlVersion="20120203" releaseVersion="7.0.0">
+<TableDataMap>
+<TableData name="jobinfo" class="com.fr.data.impl.DBTableData">
+<Parameters>
+<Parameter>
+<Attributes name="id" isAutoInc="false"/>
+<O>
+<![CDATA[21601]]></O>
+</Parameter>
+</Parameters>
+<Attributes maxMemRowCount="-1"/>
+<Connection class="com.fr.data.impl.NameDatabaseConnection">
+<DatabaseName>
+<![CDATA[tsdBilling]]></DatabaseName>
+</Connection>
+<Query>
+<![CDATA[select a.id,a.xdh,a.sgnr,a.xdz as ydz, a.value8,a.bm1,a.hth,a.sgrq,a.xdz,a.linkman,a.lxdh,a.value10,a.jlry,a.pgrq,b.showname,a.dhgn,
+a.reprinttimesofjob,h.bz8,h.bz9,a.linkman,a.lxdh,a.ywarea,h.yhmc from tsd.teljob a,ywsl_code b,hthdang h where a.sgnr=b.ywlx   and a.hth =h.hth  and a.id in ([?id|?]A)]]></Query>
+</TableData>
+<TableData name="username" class="com.fr.data.impl.DBTableData">
+<Parameters/>
+<Attributes maxMemRowCount="-1"/>
+<Connection class="com.fr.data.impl.NameDatabaseConnection">
+<DatabaseName>
+<![CDATA[tsdBilling]]></DatabaseName>
+</Connection>
+<Query>
+<![CDATA[select username,userid from sys_user]]></Query>
+</TableData>
+<TableData name="oldlineinfo" class="com.fr.data.impl.DBTableData">
+<Parameters>
+<Parameter>
+<Attributes name="id" isAutoInc="false"/>
+<O>
+<![CDATA[22372]]></O>
+</Parameter>
+</Parameters>
+<Attributes maxMemRowCount="-1"/>
+<Connection class="com.fr.data.impl.NameDatabaseConnection">
+<DatabaseName>
+<![CDATA[tsdBilling]]></DatabaseName>
+</Connection>
+<Query>
+<![CDATA[select a.*,
+ CASE 
+ WHEN instr(D1,'内配线')>0 THEN substr(D1,instr(D1,':')+1,length(D1)) 
+ WHEN instr(D2,'内配线')>0 THEN substr(D2,instr(D2,':')+1,length(D2)) 
+ WHEN instr(D3,'内配线')>0 THEN substr(D3,instr(D3,':')+1,length(D3))  
+ WHEN instr(D4,'内配线')>0 THEN substr(D4,instr(D4,':')+1,length(D4))  
+ WHEN instr(D5,'内配线')>0 THEN substr(D5,instr(D5,':')+1,length(D5)) 
+ ELSE '' end  内配线序,
+ CASE 
+ WHEN instr(D1,'外配线序')>0 THEN substr(D1,instr(D1,':')+1,length(D1)) 
+ WHEN instr(D2,'外配线序')>0 THEN substr(D2,instr(D2,':')+1,length(D2))
+ WHEN instr(D3,'外配线序')>0 THEN substr(D3,instr(D3,':')+1,length(D3))   
+ WHEN instr(D4,'外配线序')>0 THEN substr(D4,instr(D4,':')+1,length(D4)) 
+ WHEN instr(D5,'外配线序')>0 THEN substr(D5,instr(D5,':')+1,length(D5)) 
+ ELSE '' end 外配线序,
+  CASE 
+ WHEN instr(D1,'配线箱')>0 THEN substr(D1,instr(D1,':')+1,length(D1))
+ WHEN instr(D2,'配线箱')>0 THEN substr(D2,instr(D2,':')+1,length(D2)) 
+ WHEN instr(D3,'配线箱')>0 THEN substr(D3,instr(D3,':')+1,length(D3)) 
+ WHEN instr(D4,'配线箱')>0 THEN substr(D4,instr(D4,':')+1,length(D4)) 
+ WHEN instr(D5,'配线箱')>0 THEN substr(D5,instr(D5,':')+1,length(D5))  
+ ELSE '' end 配线箱,
+   CASE 
+ WHEN instr(D1,'层箱')>0 THEN substr(D1,instr(D1,':')+1,length(D1)) 
+ WHEN instr(D2,'层箱')>0 THEN substr(D2,instr(D2,':')+1,length(D2)) 
+ WHEN instr(D3,'层箱')>0 THEN substr(D3,instr(D3,':')+1,length(D3)) 
+ WHEN instr(D4,'层箱')>0 THEN substr(D4,instr(D4,':')+1,length(D4)) 
+ WHEN instr(D5,'层箱')>0 THEN substr(D5,instr(D5,':')+1,length(D5))   
+ ELSE '' end 层箱,
+    CASE 
+ WHEN instr(D1,'分线箱')>0 THEN substr(D1,instr(D1,':')+1,length(D1))  
+ WHEN instr(D2,'分线箱')>0 THEN substr(D2,instr(D2,':')+1,length(D2))
+ WHEN instr(D3,'分线箱')>0 THEN substr(D3,instr(D3,':')+1,length(D3))
+ WHEN instr(D4,'分线箱')>0 THEN substr(D4,instr(D4,':')+1,length(D4)) 
+ WHEN instr(D5,'分线箱')>0 THEN substr(D5,instr(D5,':')+1,length(D5)) 
+ ELSE '' end 分线箱, value2 from
+(select distinct xdh,ydz as xdz,f_get_split_part(value2,'-->',1) D1,f_get_split_part(value2,'-->',2) D2,f_get_split_part(value2,'-->',3) D3,
+f_get_split_part(value2,'-->',4) D4,f_get_split_part(value2,'-->',5) D5 ,id, value2 from teljob where id in ([?id|?]A)) a
+
+]]></Query>
+</TableData>
+<TableData name="newlineinfo" class="com.fr.data.impl.DBTableData">
+<Parameters>
+<Parameter>
+<Attributes name="id" isAutoInc="false"/>
+<O>
+<![CDATA[22372]]></O>
+</Parameter>
+</Parameters>
+<Attributes maxMemRowCount="-1"/>
+<Connection class="com.fr.data.impl.NameDatabaseConnection">
+<DatabaseName>
+<![CDATA[tsdBilling]]></DatabaseName>
+</Connection>
+<Query>
+<![CDATA[select id, xdh,xdz useraddr,value30,value27,
+ CASE 
+ WHEN instr(D1,'内配线')>0 THEN substr(D1,instr(D1,':')+1,length(D1)) 
+ WHEN instr(D2,'内配线')>0 THEN substr(D2,instr(D2,':')+1,length(D2)) 
+ WHEN instr(D3,'内配线')>0 THEN substr(D3,instr(D3,':')+1,length(D3))  
+ WHEN instr(D4,'内配线')>0 THEN substr(D4,instr(D4,':')+1,length(D4))  
+ WHEN instr(D5,'内配线')>0 THEN substr(D5,instr(D5,':')+1,length(D5)) 
+ ELSE '' end  内配线序,
+ CASE 
+ WHEN instr(D1,'外配线序')>0 THEN substr(D1,instr(D1,':')+1,length(D1)) 
+ WHEN instr(D2,'外配线序')>0 THEN substr(D2,instr(D2,':')+1,length(D2))
+ WHEN instr(D3,'外配线序')>0 THEN substr(D3,instr(D3,':')+1,length(D3))   
+ WHEN instr(D4,'外配线序')>0 THEN substr(D4,instr(D4,':')+1,length(D4)) 
+ WHEN instr(D5,'外配线序')>0 THEN substr(D5,instr(D5,':')+1,length(D5)) 
+ ELSE '' end 外配线序,
+  CASE 
+ WHEN instr(D1,'配线箱')>0 THEN substr(D1,instr(D1,':')+1,length(D1))
+ WHEN instr(D2,'配线箱')>0 THEN substr(D2,instr(D2,':')+1,length(D2)) 
+ WHEN instr(D3,'配线箱')>0 THEN substr(D3,instr(D3,':')+1,length(D3)) 
+ WHEN instr(D4,'配线箱')>0 THEN substr(D4,instr(D4,':')+1,length(D4)) 
+ WHEN instr(D5,'配线箱')>0 THEN substr(D5,instr(D5,':')+1,length(D5))  
+ ELSE '' end 配线箱,
+   CASE 
+ WHEN instr(D1,'层箱')>0 THEN substr(D1,instr(D1,':')+1,length(D1)) 
+ WHEN instr(D2,'层箱')>0 THEN substr(D2,instr(D2,':')+1,length(D2)) 
+ WHEN instr(D3,'层箱')>0 THEN substr(D3,instr(D3,':')+1,length(D3)) 
+ WHEN instr(D4,'层箱')>0 THEN substr(D4,instr(D4,':')+1,length(D4)) 
+ WHEN instr(D5,'层箱')>0 THEN substr(D5,instr(D5,':')+1,length(D5))   
+ ELSE '' end 层箱,
+    CASE 
+ WHEN instr(D1,'分线箱')>0 THEN substr(D1,instr(D1,':')+1,length(D1))  
+ WHEN instr(D2,'分线箱')>0 THEN substr(D2,instr(D2,':')+1,length(D2))
+ WHEN instr(D3,'分线箱')>0 THEN substr(D3,instr(D3,':')+1,length(D3))
+ WHEN instr(D4,'分线箱')>0 THEN substr(D4,instr(D4,':')+1,length(D4)) 
+ WHEN instr(D5,'分线箱')>0 THEN substr(D5,instr(D5,':')+1,length(D5)) 
+ ELSE '' end 分线箱 
+ ,line_userid from(
+select * from (
+select t.*,row_number() over(partition by xdh order by xdh) rn from (
+select distinct b.xdz,b.xdh,a.value30,f_get_split_part(a.value30,'-->',1) D1,f_get_split_part(a.value30,'-->',2) D2,f_get_split_part(a.value30,'-->',3) D3,
+f_get_split_part(a.value30,'-->',4) D4,f_get_split_part(a.value30,'-->',5) D5,nvl(value27,0) value27 ,line_userid,b.id
+from air_line a,teljob b
+where a.dh=b.xdh and b.id in ([?id|?]A) order by a.line_userid desc,value27 desc) t )where rn=1)]]></Query>
+</TableData>
+<TableData name="printdate" class="com.fr.data.impl.DBTableData">
+<Parameters/>
+<Attributes maxMemRowCount="-1"/>
+<Connection class="com.fr.data.impl.NameDatabaseConnection">
+<DatabaseName>
+<![CDATA[tsdBilling]]></DatabaseName>
+</Connection>
+<Query>
+<![CDATA[select sysdate from dual]]></Query>
+</TableData>
+<TableData name="tianchong" class="com.fr.data.impl.DBTableData">
+<Parameters>
+<Parameter>
+<Attributes name="id" isAutoInc="false"/>
+<O>
+<![CDATA[21601]]></O>
+</Parameter>
+</Parameters>
+<Attributes maxMemRowCount="-1"/>
+<Connection class="com.fr.data.impl.NameDatabaseConnection">
+<DatabaseName>
+<![CDATA[tsdBilling]]></DatabaseName>
+</Connection>
+<Query>
+<![CDATA[select * from sys_user where rownum<=(
+
+select case  
+ when (select count(*) from teljob where id in (23073,23072,23059,23058,23057,23056)) <6 
+      then (6-(select count(*) from teljob where id in (23073,23072,23059,23058,23057,23056)))
+
+ when (6-mod((select count(*) from teljob where id in (23073,23072,23059,23058,23057,23056)),6))=6
+      then 0
+ else  6-mod((select count(*) from teljob where id in (23073,23072,23059,23058,23057,23056)),6) 
+ 
+ end from dual
+
+ )]]></Query>
+</TableData>
+<TableData name="bz" class="com.fr.data.impl.DBTableData">
+<Parameters>
+<Parameter>
+<Attributes name="id" isAutoInc="false"/>
+<O>
+<![CDATA[21601]]></O>
+</Parameter>
+</Parameters>
+<Attributes maxMemRowCount="-1"/>
+<Connection class="com.fr.data.impl.NameDatabaseConnection">
+<DatabaseName>
+<![CDATA[tsdBilling]]></DatabaseName>
+</Connection>
+<Query>
+<![CDATA[(select zwbz,area from  teljob where id in ([?id|?]A) and area not like '丰和园小区')  union all
+ (select '\n1.丰和园小区私人用户对应号线格式：分光器-托盘-ONU端口号-MAC地址\n\n2.丰和园小区对公用户对应号线格式: MAC地址-ONU端口号-局线-分线箱\n\n\n\n\n\n\n\n','丰和园小区'  from  dual where (select count(*) from (select area from (select case when area like '丰和园小区' then '丰和园小区' else area end as area from  teljob where id in ([?id|?]A)) group by area))=1 and (select area from (select case when area like '丰和园小区' then '丰和园小区' else area end as area from  teljob where id in ([?id|?]A)) group by area) like '丰和园小区')
+]]></Query>
+</TableData>
+<TableData name="ds1" class="com.fr.data.impl.DBTableData">
+<Parameters>
+<Parameter>
+<Attributes name="id" isAutoInc="false"/>
+<O>
+<![CDATA[1]]></O>
+</Parameter>
+</Parameters>
+<Attributes maxMemRowCount="-1"/>
+<Connection class="com.fr.data.impl.NameDatabaseConnection">
+<DatabaseName>
+<![CDATA[tsdBilling]]></DatabaseName>
+</Connection>
+<Query>
+<![CDATA[select b.pl_id
+from teljob a,pl_users b
+where a.id in (${id}) and a.sgrq=b.create_time]]></Query>
+</TableData>
+</TableDataMap>
+<ReportWebAttr>
+<ServerPrinter/>
+<WebPageContent>
+<ToolBars>
+<ToolBarManager>
+<Location>
+<Embed position="1"/>
+</Location>
+<ToolBar>
+<Widget class="com.fr.report.web.ui.impl.page.First">
+<WidgetAttr/>
+<Text>
+<![CDATA[${i18n('ReportServerP-First')}]]></Text>
+<IconName>
+<![CDATA[first]]></IconName>
+</Widget>
+<Widget class="com.fr.report.web.ui.impl.page.Previous">
+<WidgetAttr/>
+<Text>
+<![CDATA[${i18n('ReportServerP-Previous')}]]></Text>
+<IconName>
+<![CDATA[previous]]></IconName>
+</Widget>
+<Widget class="com.fr.report.web.ui.impl.page.PageNavi">
+<WidgetAttr/>
+</Widget>
+<Widget class="com.fr.report.web.ui.impl.page.Next">
+<WidgetAttr/>
+<Text>
+<![CDATA[${i18n('ReportServerP-Next')}]]></Text>
+<IconName>
+<![CDATA[next]]></IconName>
+</Widget>
+<Widget class="com.fr.report.web.ui.impl.page.Last">
+<WidgetAttr/>
+<Text>
+<![CDATA[${i18n('ReportServerP-Last')}]]></Text>
+<IconName>
+<![CDATA[last]]></IconName>
+</Widget>
+<Widget class="com.fr.report.web.ui.impl.Export">
+<WidgetAttr/>
+<Text>
+<![CDATA[${i18n('Export')}]]></Text>
+<IconName>
+<![CDATA[export]]></IconName>
+<Buttons pdf="true" excelP="true" excelO="true" excelS="true" word="true" image="true"/>
+</Widget>
+<Widget class="com.fr.report.web.ui.impl.PDFPrint">
+<WidgetAttr/>
+<Text>
+<![CDATA[${i18n('Utils-Print[Client]A')}]]></Text>
+<IconName>
+<![CDATA[pdfprint]]></IconName>
+</Widget>
+</ToolBar>
+</ToolBarManager>
+</ToolBars>
+<WebPage isPage="false" isShowAsImage="false" isAutoScale="false" isTDHeavy="false"/>
+</WebPageContent>
+</ReportWebAttr>
+<Report class="com.fr.report.WorkSheet" name="sheet1">
+<ReportPageAttr>
+<HR F="0" T="8"/>
+<FR F="11" T="15"/>
+<HC/>
+<FC/>
+</ReportPageAttr>
+<RowHeight defaultValue="723900">
+<![CDATA[304800,1485900,0,1224000,720000,720000,720000,1008000,1104900,864000,864000,838200,0,419100,838200,1257300,723900,723900,723900,723900,2971800,723900]]></RowHeight>
+<ColumnWidth defaultValue="2743200">
+<![CDATA[609600,2400300,457200,2400300,1714500,7162800,2857500,2857500,4572000,1524000,1333500,1790700,2171700,1905000,3505200,2743200]]></ColumnWidth>
+<CellElementList>
+<C c="0" r="0">
+<CellGUIAttr/>
+<CellPageAttr/>
+<HighlightList>
+<Highlight class="com.fr.report.highlight.DefaultHighlight">
+<Condition class="com.fr.data.condition.ListCondition"/>
+<HighlightAction class="com.fr.report.highlight.ColWidthHighlightAction"/>
+</Highlight>
+</HighlightList>
+<Expand/>
+</C>
+<C c="1" r="0">
+<CellGUIAttr/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="11" r="0">
+<O>
+<![CDATA[]]></O>
+<Expand/>
+</C>
+<C c="0" r="1">
+<CellGUIAttr/>
+<CellPageAttr/>
+<HighlightList>
+<Highlight class="com.fr.report.highlight.DefaultHighlight">
+<Condition class="com.fr.data.condition.ListCondition"/>
+<HighlightAction class="com.fr.report.highlight.ColWidthHighlightAction"/>
+</Highlight>
+</HighlightList>
+<Expand/>
+</C>
+<C c="1" r="1" cs="13" s="0">
+<O t="Formula" class="Formula">
+<Attributes>
+<![CDATA[=if(find("专线", B10) > 0, "专 线 业 务 派 工 单", "电 话 业 务 派 工 单")]]></Attributes>
+</O>
+<CellGUIAttr/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="1" r="2" s="1">
+<CellGUIAttr/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="2" r="2" s="1">
+<Expand/>
+</C>
+<C c="3" r="2" s="1">
+<O t="DSColumn">
+<Attributes dsName="ds1" columnName="PL_ID"/>
+<Complex/>
+<RG class="com.fr.report.cellElement.core.FunctionGrouper"/>
+<Parameters/>
+</O>
+<CellGUIAttr/>
+<CellPageAttr/>
+<Expand dir="0"/>
+</C>
+<C c="4" r="2" s="1">
+<O t="DSColumn">
+<Attributes dsName="jobinfo" columnName="XDH"/>
+<Complex/>
+<RG class="com.fr.report.cellElement.core.FunctionGrouper"/>
+<Parameters/>
+</O>
+<CellGUIAttr/>
+<CellPageAttr/>
+<Expand dir="0"/>
+</C>
+<C c="5" r="2" s="1">
+<Expand/>
+</C>
+<C c="0" r="3">
+<CellGUIAttr/>
+<CellPageAttr/>
+<HighlightList>
+<Highlight class="com.fr.report.highlight.DefaultHighlight">
+<Condition class="com.fr.data.condition.ListCondition"/>
+<HighlightAction class="com.fr.report.highlight.ColWidthHighlightAction"/>
+</Highlight>
+</HighlightList>
+<Expand/>
+</C>
+<C c="1" r="3" cs="2" s="2">
+<O>
+<![CDATA[编  号：]]></O>
+<CellGUIAttr/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="3" r="3" cs="3" s="3">
+<O t="DSColumn">
+<Attributes dsName="jobinfo" columnName="value8"/>
+<Condition class="com.fr.data.condition.ListCondition"/>
+<Complex/>
+<RG class="com.fr.report.cellElement.core.SummaryGrouper">
+<FN>
+<![CDATA[com.fr.data.util.function.MaxFunction]]></FN>
+</RG>
+<Result>
+<![CDATA[$$$]]></Result>
+<Parameters/>
+</O>
+<CellGUIAttr/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="6" r="3" s="2">
+<Expand/>
+</C>
+<C c="7" r="3" s="2">
+<Expand/>
+</C>
+<C c="8" r="3" s="2">
+<Expand/>
+</C>
+<C c="9" r="3" cs="2" s="2">
+<O>
+<![CDATA[日  期：]]></O>
+<Expand/>
+</C>
+<C c="11" r="3" cs="3" s="2">
+<O t="DSColumn">
+<Attributes dsName="printdate" columnName="sysdate"/>
+<Condition class="com.fr.data.condition.ListCondition"/>
+<Complex/>
+<RG class="com.fr.report.cellElement.core.SummaryGrouper">
+<FN>
+<![CDATA[com.fr.data.util.function.MaxFunction]]></FN>
+</RG>
+<Result>
+<![CDATA[$$$]]></Result>
+<Parameters/>
+</O>
+<Expand/>
+</C>
+<C c="0" r="4">
+<CellGUIAttr/>
+<CellPageAttr/>
+<HighlightList>
+<Highlight class="com.fr.report.highlight.DefaultHighlight">
+<Condition class="com.fr.data.condition.ListCondition"/>
+<HighlightAction class="com.fr.report.highlight.ColWidthHighlightAction"/>
+</Highlight>
+</HighlightList>
+<Expand/>
+</C>
+<C c="1" r="4" cs="2" s="4">
+<O>
+<![CDATA[单位名称]]></O>
+<CellGUIAttr/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="3" r="4" cs="3" s="5">
+<O t="DSColumn">
+<Attributes dsName="jobinfo" columnName="YHMC"/>
+<Complex/>
+<RG class="com.fr.report.cellElement.core.SummaryGrouper">
+<FN>
+<![CDATA[com.fr.data.util.function.MaxFunction]]></FN>
+</RG>
+<Parameters/>
+</O>
+<CellGUIAttr/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="6" r="4" s="4">
+<O>
+<![CDATA[合同号]]></O>
+<Expand/>
+</C>
+<C c="7" r="4" cs="2" s="4">
+<O t="DSColumn">
+<Attributes dsName="jobinfo" columnName="hth"/>
+<Condition class="com.fr.data.condition.ListCondition"/>
+<Complex/>
+<RG class="com.fr.report.cellElement.core.SummaryGrouper">
+<FN>
+<![CDATA[com.fr.data.util.function.MaxFunction]]></FN>
+</RG>
+<Result>
+<![CDATA[$$$]]></Result>
+<Parameters/>
+</O>
+<Expand/>
+</C>
+<C c="9" r="4" cs="2" s="4">
+<O>
+<![CDATA[申报时间]]></O>
+<CellGUIAttr/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="11" r="4" cs="3" s="4">
+<O t="DSColumn">
+<Attributes dsName="jobinfo" columnName="sgrq"/>
+<Condition class="com.fr.data.condition.ListCondition"/>
+<Complex/>
+<RG class="com.fr.report.cellElement.core.SummaryGrouper">
+<FN>
+<![CDATA[com.fr.data.util.function.MinFunction]]></FN>
+</RG>
+<Result>
+<![CDATA[$$$]]></Result>
+<Parameters/>
+</O>
+<CellGUIAttr/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="0" r="5">
+<CellGUIAttr/>
+<CellPageAttr/>
+<HighlightList>
+<Highlight class="com.fr.report.highlight.DefaultHighlight">
+<Condition class="com.fr.data.condition.ListCondition"/>
+<HighlightAction class="com.fr.report.highlight.ColWidthHighlightAction"/>
+</Highlight>
+</HighlightList>
+<Expand/>
+</C>
+<C c="1" r="5" cs="2" s="4">
+<O>
+<![CDATA[用户地址]]></O>
+<CellGUIAttr/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="3" r="5" cs="3" s="6">
+<O t="DSColumn">
+<Attributes dsName="jobinfo" columnName="xdz"/>
+<Condition class="com.fr.data.condition.ListCondition"/>
+<Complex/>
+<RG class="com.fr.report.cellElement.core.SummaryGrouper">
+<FN>
+<![CDATA[com.fr.data.util.function.MaxFunction]]></FN>
+</RG>
+<Result>
+<![CDATA[$$$]]></Result>
+<Parameters/>
+</O>
+<CellGUIAttr/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="6" r="5" s="4">
+<O>
+<![CDATA[联系人]]></O>
+<Expand/>
+</C>
+<C c="7" r="5" cs="2" s="4">
+<O t="DSColumn">
+<Attributes dsName="jobinfo" columnName="LINKMAN"/>
+<Complex/>
+<RG class="com.fr.report.cellElement.core.SummaryGrouper">
+<FN>
+<![CDATA[com.fr.data.util.function.MaxFunction]]></FN>
+</RG>
+<Parameters/>
+</O>
+<CellGUIAttr/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="9" r="5" cs="2" s="4">
+<O>
+<![CDATA[联系电话]]></O>
+<CellGUIAttr/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="11" r="5" cs="3" s="4">
+<O t="DSColumn">
+<Attributes dsName="jobinfo" columnName="LXDH"/>
+<Complex/>
+<RG class="com.fr.report.cellElement.core.SummaryGrouper">
+<FN>
+<![CDATA[com.fr.data.util.function.MaxFunction]]></FN>
+</RG>
+<Parameters/>
+</O>
+<CellGUIAttr/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="0" r="6">
+<CellGUIAttr/>
+<CellPageAttr/>
+<HighlightList>
+<Highlight class="com.fr.report.highlight.DefaultHighlight">
+<Condition class="com.fr.data.condition.ListCondition"/>
+<HighlightAction class="com.fr.report.highlight.ColWidthHighlightAction"/>
+</Highlight>
+</HighlightList>
+<Expand/>
+</C>
+<C c="1" r="6" cs="2" s="4">
+<O>
+<![CDATA[现场服务]]></O>
+<CellGUIAttr/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="3" r="6" cs="3" s="5">
+<O t="DSColumn">
+<Attributes dsName="jobinfo" columnName="value10"/>
+<Condition class="com.fr.data.condition.ListCondition"/>
+<Complex/>
+<RG class="com.fr.report.cellElement.core.SummaryGrouper">
+<FN>
+<![CDATA[com.fr.data.util.function.MaxFunction]]></FN>
+</RG>
+<Result>
+<![CDATA[$$$]]></Result>
+<Parameters/>
+</O>
+<CellGUIAttr/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="6" r="6" s="4">
+<O>
+<![CDATA[签发人]]></O>
+<CellGUIAttr/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="7" r="6" cs="2" s="4">
+<O t="DSColumn">
+<Attributes dsName="username" columnName="username"/>
+<Condition class="com.fr.data.condition.CommonCondition">
+<CNUMBER>
+<![CDATA[0]]></CNUMBER>
+<CNAME>
+<![CDATA[userid]]></CNAME>
+<Compare op="0">
+<AnDSColumn dsName="jobinfo" columnName="jlry"/>
+</Compare>
+</Condition>
+<Complex/>
+<RG class="com.fr.report.cellElement.core.SummaryGrouper">
+<FN>
+<![CDATA[com.fr.data.util.function.MaxFunction]]></FN>
+</RG>
+<Result>
+<![CDATA[$$$]]></Result>
+<Parameters/>
+</O>
+<CellGUIAttr/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="9" r="6" cs="2" s="4">
+<O>
+<![CDATA[派工时间]]></O>
+<Expand/>
+</C>
+<C c="11" r="6" cs="3" s="4">
+<O t="DSColumn">
+<Attributes dsName="jobinfo" columnName="pgrq"/>
+<Condition class="com.fr.data.condition.ListCondition"/>
+<Complex/>
+<RG class="com.fr.report.cellElement.core.SummaryGrouper">
+<FN>
+<![CDATA[com.fr.data.util.function.MaxFunction]]></FN>
+</RG>
+<Result>
+<![CDATA[$$$]]></Result>
+<Parameters/>
+</O>
+<CellGUIAttr/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="0" r="7">
+<CellGUIAttr/>
+<CellPageAttr/>
+<HighlightList>
+<Highlight class="com.fr.report.highlight.DefaultHighlight">
+<Condition class="com.fr.data.condition.ListCondition"/>
+<HighlightAction class="com.fr.report.highlight.ColWidthHighlightAction"/>
+</Highlight>
+</HighlightList>
+<Expand/>
+</C>
+<C c="1" r="7" cs="13" s="7">
+<O>
+<![CDATA[电话号线资料]]></O>
+<CellGUIAttr/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="0" r="8">
+<HighlightList>
+<Highlight class="com.fr.report.highlight.DefaultHighlight">
+<Condition class="com.fr.data.condition.ListCondition"/>
+<HighlightAction class="com.fr.report.highlight.ColWidthHighlightAction"/>
+</Highlight>
+</HighlightList>
+<Expand/>
+</C>
+<C c="1" r="8" s="4">
+<O>
+<![CDATA[申请业务]]></O>
+<CellGUIAttr/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="2" r="8" cs="2" s="8">
+<O t="Formula" class="Formula">
+<Attributes>
+<![CDATA[=if(find("专线", B10) > 0, "专线号码", "电话号码")]]></Attributes>
+</O>
+<CellGUIAttr/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="4" r="8" s="9">
+<O>
+<![CDATA[号线]]></O>
+<CellGUIAttr/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="5" r="8" s="4">
+<O>
+<![CDATA[装机地址]]></O>
+<CellGUIAttr/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="6" r="8" cs="6" s="10">
+<O>
+<![CDATA[号线资料]]></O>
+<CellGUIAttr/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="12" r="8" s="11">
+<O>
+<![CDATA[权限]]></O>
+<CellGUIAttr/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="13" r="8" s="4">
+<O>
+<![CDATA[购机数]]></O>
+<CellGUIAttr/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="0" r="9" rs="2" s="12">
+<O t="DSColumn">
+<Attributes dsName="jobinfo" columnName="id"/>
+<Complex/>
+<RG class="com.fr.report.cellElement.core.FunctionGrouper"/>
+<Parameters/>
+</O>
+<CellGUIAttr/>
+<CellPageAttr/>
+<HighlightList>
+<Highlight class="com.fr.report.highlight.DefaultHighlight">
+<Condition class="com.fr.data.condition.ListCondition"/>
+<HighlightAction class="com.fr.report.highlight.ColWidthHighlightAction"/>
+</Highlight>
+</HighlightList>
+<Expand dir="0"/>
+</C>
+<C c="1" r="9" rs="2" s="4">
+<O t="DSColumn">
+<Attributes dsName="jobinfo" columnName="showname"/>
+<Condition class="com.fr.data.condition.ListCondition"/>
+<Complex/>
+<RG class="com.fr.report.cellElement.core.FunctionGrouper"/>
+<Result>
+<![CDATA[$$$]]></Result>
+<Parameters/>
+</O>
+<CellGUIAttr/>
+<CellPageAttr/>
+<Expand dir="0"/>
+</C>
+<C c="2" r="9" cs="2" rs="2" s="8">
+<O t="DSColumn">
+<Attributes dsName="jobinfo" columnName="XDH"/>
+<Complex/>
+<RG class="com.fr.report.cellElement.core.FunctionGrouper"/>
+<Parameters/>
+</O>
+<CellGUIAttr/>
+<CellPageAttr/>
+<Expand dir="0"/>
+</C>
+<C c="4" r="9" s="11">
+<O>
+<![CDATA[原]]></O>
+<CellGUIAttr/>
+<CellPageAttr/>
+<Expand dir="0" leftParentDefault="false" left="C10"/>
+</C>
+<C c="5" r="9" s="4">
+<O t="DSColumn">
+<Attributes dsName="oldlineinfo" columnName="xdz"/>
+<Condition class="com.fr.data.condition.ListCondition">
+<JoinCondition join="0">
+<Condition class="com.fr.data.condition.CommonCondition">
+<CNUMBER>
+<![CDATA[0]]></CNUMBER>
+<CNAME>
+<![CDATA[xdh]]></CNAME>
+<Compare op="0">
+<ColumnRow column="2" row="9"/>
+</Compare>
+</Condition>
+</JoinCondition>
+<JoinCondition join="0">
+<Condition class="com.fr.data.condition.CommonCondition">
+<CNUMBER>
+<![CDATA[0]]></CNUMBER>
+<CNAME>
+<![CDATA[id]]></CNAME>
+<Compare op="0">
+<ColumnRow column="0" row="9"/>
+</Compare>
+</Condition>
+</JoinCondition>
+</Condition>
+<Complex/>
+<RG class="com.fr.report.cellElement.core.FunctionGrouper"/>
+<Result>
+<![CDATA[$$$]]></Result>
+<Parameters/>
+</O>
+<CellGUIAttr/>
+<CellPageAttr/>
+<Expand dir="0"/>
+</C>
+<C c="6" r="9" cs="6" s="8">
+<O t="DSColumn">
+<Attributes dsName="oldlineinfo" columnName="VALUE2"/>
+<Condition class="com.fr.data.condition.ListCondition"/>
+<Complex/>
+<RG class="com.fr.report.cellElement.core.FunctionGrouper"/>
+<Result>
+<![CDATA[$$$]]></Result>
+<Parameters/>
+</O>
+<CellGUIAttr/>
+<CellPageAttr/>
+<Expand dir="0"/>
+</C>
+<C c="12" r="9" rs="2" s="11">
+<O t="DSColumn">
+<Attributes dsName="jobinfo" columnName="dhgn"/>
+<Complex/>
+<RG class="com.fr.report.cellElement.core.FunctionGrouper"/>
+<Parameters/>
+</O>
+<CellGUIAttr/>
+<CellPageAttr/>
+<Expand dir="0" leftParentDefault="false" left="C10"/>
+</C>
+<C c="13" r="9" rs="2" s="13">
+<O t="DSColumn">
+<Attributes dsName="jobinfo" columnName="reprinttimesofjob"/>
+<Condition class="com.fr.data.condition.ListCondition"/>
+<Complex/>
+<RG class="com.fr.report.cellElement.core.FunctionGrouper"/>
+<Result>
+<![CDATA[$$$]]></Result>
+<Parameters/>
+</O>
+<CellGUIAttr/>
+<CellPageAttr/>
+<Expand dir="0" leftParentDefault="false" left="M10"/>
+</C>
+<C c="4" r="10" s="11">
+<O>
+<![CDATA[新]]></O>
+<CellGUIAttr/>
+<CellPageAttr/>
+<Expand dir="0" leftParentDefault="false" left="C11"/>
+</C>
+<C c="5" r="10" s="4">
+<O t="DSColumn">
+<Attributes dsName="newlineinfo" columnName="useraddr"/>
+<Condition class="com.fr.data.condition.CommonCondition">
+<CNUMBER>
+<![CDATA[0]]></CNUMBER>
+<CNAME>
+<![CDATA[xdh]]></CNAME>
+<Compare op="0">
+<ColumnRow column="2" row="9"/>
+</Compare>
+</Condition>
+<Complex/>
+<RG class="com.fr.report.cellElement.core.FunctionGrouper"/>
+<Parameters/>
+</O>
+<CellGUIAttr/>
+<CellPageAttr/>
+<Expand dir="0"/>
+</C>
+<C c="6" r="10" cs="6" s="8">
+<O t="DSColumn">
+<Attributes dsName="newlineinfo" columnName="VALUE30"/>
+<Condition class="com.fr.data.condition.ListCondition"/>
+<Complex/>
+<RG class="com.fr.report.cellElement.core.FunctionGrouper"/>
+<Result>
+<![CDATA[$$$]]></Result>
+<Parameters/>
+</O>
+<CellGUIAttr/>
+<CellPageAttr/>
+<Expand dir="0"/>
+</C>
+<C c="0" r="11">
+<CellGUIAttr/>
+<CellPageAttr/>
+<HighlightList>
+<Highlight class="com.fr.report.highlight.DefaultHighlight">
+<Condition class="com.fr.data.condition.ListCondition"/>
+<HighlightAction class="com.fr.report.highlight.ColWidthHighlightAction"/>
+</Highlight>
+</HighlightList>
+<Expand/>
+</C>
+<C c="1" r="11" cs="4" s="14">
+<O>
+<![CDATA[备  注：]]></O>
+<CellGUIAttr/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="5" r="11" s="15">
+<O>
+<![CDATA[用户意见及建议：]]></O>
+<CellGUIAttr/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="6" r="11" s="16">
+<CellGUIAttr/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="7" r="11" s="17">
+<Expand/>
+</C>
+<C c="8" r="11" cs="6" s="18">
+<O>
+<![CDATA[用户满意度评价]]></O>
+<CellGUIAttr/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="0" r="12">
+<CellGUIAttr/>
+<CellPageAttr/>
+<HighlightList>
+<Highlight class="com.fr.report.highlight.DefaultHighlight">
+<Condition class="com.fr.data.condition.ListCondition"/>
+<HighlightAction class="com.fr.report.highlight.ColWidthHighlightAction"/>
+</Highlight>
+</HighlightList>
+<Expand/>
+</C>
+<C c="1" r="12" s="19">
+<CellGUIAttr/>
+<CellPageAttr/>
+<Expand dir="0"/>
+</C>
+<C c="2" r="12">
+<Expand/>
+</C>
+<C c="3" r="12">
+<Expand/>
+</C>
+<C c="4" r="12">
+<CellGUIAttr/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="5" r="12" s="20">
+<CellGUIAttr/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="6" r="12">
+<CellGUIAttr/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="7" r="12">
+<Expand/>
+</C>
+<C c="8" r="12" s="20">
+<CellGUIAttr/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="9" r="12">
+<Expand/>
+</C>
+<C c="10" r="12">
+<Expand/>
+</C>
+<C c="11" r="12">
+<Expand/>
+</C>
+<C c="12" r="12">
+<Expand/>
+</C>
+<C c="13" r="12">
+<Expand/>
+</C>
+<C c="0" r="13">
+<HighlightList>
+<Highlight class="com.fr.report.highlight.DefaultHighlight">
+<Condition class="com.fr.data.condition.ListCondition"/>
+<HighlightAction class="com.fr.report.highlight.ColWidthHighlightAction"/>
+</Highlight>
+</HighlightList>
+<Expand/>
+</C>
+<C c="1" r="13" s="20">
+<CellGUIAttr/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="2" r="13">
+<Expand/>
+</C>
+<C c="3" r="13">
+<Expand/>
+</C>
+<C c="4" r="13">
+<Expand/>
+</C>
+<C c="5" r="13" s="20">
+<CellGUIAttr/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="6" r="13">
+<CellGUIAttr/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="7" r="13">
+<CellGUIAttr/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="8" r="13" cs="6" rs="2" s="4">
+<O>
+<![CDATA[满  意 □          基本满意 □          不满意 □]]></O>
+<CellGUIAttr/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="0" r="14">
+<HighlightList>
+<Highlight class="com.fr.report.highlight.DefaultHighlight">
+<Condition class="com.fr.data.condition.ListCondition"/>
+<HighlightAction class="com.fr.report.highlight.ColWidthHighlightAction"/>
+</Highlight>
+</HighlightList>
+<Expand/>
+</C>
+<C c="1" r="14" s="20">
+<CellGUIAttr/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="2" r="14">
+<Expand/>
+</C>
+<C c="3" r="14">
+<Expand/>
+</C>
+<C c="4" r="14">
+<CellGUIAttr/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="5" r="14" s="20">
+<CellGUIAttr/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="6" r="14">
+<Expand/>
+</C>
+<C c="7" r="14">
+<CellGUIAttr/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="0" r="15">
+<HighlightList>
+<Highlight class="com.fr.report.highlight.DefaultHighlight">
+<Condition class="com.fr.data.condition.ListCondition"/>
+<HighlightAction class="com.fr.report.highlight.ColWidthHighlightAction"/>
+</Highlight>
+</HighlightList>
+<Expand/>
+</C>
+<C c="1" r="15" s="21">
+<CellGUIAttr/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="2" r="15" s="22">
+<CellGUIAttr/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="3" r="15" s="22">
+<CellGUIAttr/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="4" r="15" s="22">
+<CellGUIAttr/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="5" r="15" s="21">
+<CellGUIAttr/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="6" r="15" s="22">
+<CellGUIAttr/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="7" r="15" s="22">
+<CellGUIAttr/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="8" r="15" cs="6" s="23">
+<O>
+<![CDATA[ 用户签名：                完成时间:]]></O>
+<CellGUIAttr/>
+<CellPageAttr/>
+<Expand/>
+</C>
+</CellElementList>
+<ReportAttrSet>
+<ReportSettings headerHeight="0" footerHeight="0">
+<PaperSetting orientation="1">
+<PaperSize width="26208000" height="37008000"/>
+<Margin top="554400" left="1879200" bottom="554400" right="1303200"/>
+</PaperSetting>
+</ReportSettings>
+<Header reportPageType="0">
+<Background name="NullBackground"/>
+<LeftList/>
+<CenterList/>
+<RightList/>
+</Header>
+<Footer reportPageType="0">
+<Background name="NullBackground"/>
+<LeftList/>
+<CenterList/>
+<RightList/>
+</Footer>
+</ReportAttrSet>
+<ReportWriteAttr/>
+</Report>
+<ReportParameterAttr>
+<Attributes showWindow="true" delayPlaying="true" windowPosition="1" align="1"/>
+<PWTitle>
+<![CDATA[参数]]></PWTitle>
+</ReportParameterAttr>
+<StyleList>
+<Style horizontal_alignment="0" imageLayout="1">
+<FRFont name="SimSun" style="1" size="132"/>
+<Background name="NullBackground"/>
+<Border/>
+</Style>
+<Style imageLayout="1">
+<FRFont name="SimSun" style="0" size="72" foreground="-1"/>
+<Background name="NullBackground"/>
+<Border/>
+</Style>
+<Style horizontal_alignment="0" imageLayout="1">
+<FRFont name="SimSun" style="0" size="76"/>
+<Background name="NullBackground"/>
+<Border/>
+</Style>
+<Style imageLayout="1">
+<FRFont name="SimSun" style="0" size="76"/>
+<Background name="NullBackground"/>
+<Border/>
+</Style>
+<Style horizontal_alignment="0" imageLayout="1">
+<FRFont name="SimSun" style="0" size="76"/>
+<Background name="NullBackground"/>
+<Border>
+<Top style="1"/>
+<Bottom style="1"/>
+<Left style="1"/>
+<Right style="1"/>
+</Border>
+</Style>
+<Style imageLayout="1">
+<FRFont name="SimSun" style="0" size="76"/>
+<Background name="NullBackground"/>
+<Border>
+<Top style="1"/>
+<Bottom style="1"/>
+<Left style="1"/>
+<Right style="1"/>
+</Border>
+</Style>
+<Style horizontal_alignment="2" imageLayout="1">
+<FRFont name="SimSun" style="0" size="76"/>
+<Background name="NullBackground"/>
+<Border>
+<Top style="1"/>
+<Bottom style="1"/>
+<Left style="1"/>
+<Right style="1"/>
+</Border>
+</Style>
+<Style horizontal_alignment="0" imageLayout="1">
+<FRFont name="SimSun" style="1" size="96"/>
+<Background name="NullBackground"/>
+<Border>
+<Top style="1"/>
+<Bottom style="1"/>
+<Left style="1"/>
+<Right style="1"/>
+</Border>
+</Style>
+<Style horizontal_alignment="0" imageLayout="1">
+<FRFont name="SimSun" style="0" size="76"/>
+<Background name="NullBackground"/>
+<Border>
+<Top style="1"/>
+<Bottom style="1"/>
+<Left style="1"/>
+<Right style="8"/>
+</Border>
+</Style>
+<Style horizontal_alignment="0" imageLayout="1">
+<FRFont name="SimSun" style="0" size="76"/>
+<Background name="NullBackground"/>
+<Border>
+<Top style="1"/>
+<Bottom style="1"/>
+<Left color="-1"/>
+<Right style="1"/>
+</Border>
+</Style>
+<Style horizontal_alignment="0" imageLayout="1">
+<FRFont name="SimSun" style="0" size="76"/>
+<Background name="NullBackground"/>
+<Border>
+<Right style="8"/>
+</Border>
+</Style>
+<Style horizontal_alignment="0" imageLayout="1">
+<FRFont name="SimSun" style="0" size="76"/>
+<Background name="NullBackground"/>
+<Border>
+<Top style="1"/>
+<Bottom style="1"/>
+<Right style="1"/>
+</Border>
+</Style>
+<Style imageLayout="1">
+<FRFont name="SimSun" style="0" size="72" foreground="-65536"/>
+<Background name="NullBackground"/>
+<Border/>
+</Style>
+<Style horizontal_alignment="0" imageLayout="1">
+<Format class="java.text.DecimalFormat">
+<![CDATA[#0]]></Format>
+<FRFont name="SimSun" style="0" size="76"/>
+<Background name="NullBackground"/>
+<Border>
+<Top style="1"/>
+<Bottom style="1"/>
+<Left style="1"/>
+<Right style="1"/>
+</Border>
+</Style>
+<Style imageLayout="1">
+<FRFont name="SimSun" style="1" size="84"/>
+<Background name="NullBackground"/>
+<Border>
+<Top style="1"/>
+<Bottom color="-1"/>
+<Left style="1"/>
+<Right style="1"/>
+</Border>
+</Style>
+<Style imageLayout="1">
+<FRFont name="SimSun" style="1" size="88"/>
+<Background name="NullBackground"/>
+<Border>
+<Left style="1"/>
+</Border>
+</Style>
+<Style imageLayout="1">
+<FRFont name="SimSun" style="0" size="72"/>
+<Background name="NullBackground"/>
+<Border>
+<Top style="1"/>
+</Border>
+</Style>
+<Style imageLayout="1">
+<FRFont name="SimSun" style="0" size="72"/>
+<Background name="NullBackground"/>
+<Border>
+<Top style="1"/>
+<Right style="1"/>
+</Border>
+</Style>
+<Style horizontal_alignment="0" imageLayout="1">
+<FRFont name="SimSun" style="1" size="88"/>
+<Background name="NullBackground"/>
+<Border>
+<Top style="1"/>
+<Bottom style="1"/>
+<Left style="1"/>
+<Right style="1"/>
+</Border>
+</Style>
+<Style imageLayout="1">
+<FRFont name="SimSun" style="0" size="76"/>
+<Background name="NullBackground"/>
+<Border>
+<Top color="-1"/>
+<Left style="1"/>
+</Border>
+</Style>
+<Style imageLayout="1">
+<FRFont name="SimSun" style="0" size="72"/>
+<Background name="NullBackground"/>
+<Border>
+<Left style="1"/>
+</Border>
+</Style>
+<Style imageLayout="1">
+<FRFont name="SimSun" style="0" size="72"/>
+<Background name="NullBackground"/>
+<Border>
+<Bottom style="1"/>
+<Left style="1"/>
+</Border>
+</Style>
+<Style imageLayout="1">
+<FRFont name="SimSun" style="0" size="72"/>
+<Background name="NullBackground"/>
+<Border>
+<Bottom style="1"/>
+</Border>
+</Style>
+<Style horizontal_alignment="2" imageLayout="1">
+<FRFont name="SimSun" style="0" size="72"/>
+<Background name="NullBackground"/>
+<Border>
+<Top style="1"/>
+<Bottom style="1"/>
+<Left style="1"/>
+<Right style="1"/>
+</Border>
+</Style>
+</StyleList>
+</WorkBook>

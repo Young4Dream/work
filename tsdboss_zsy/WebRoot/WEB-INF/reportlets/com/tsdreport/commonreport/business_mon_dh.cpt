@@ -1,0 +1,1385 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<WorkBook xmlVersion="20120203" releaseVersion="7.0.0">
+<TableDataMap>
+<TableData name="ywzh_tj" class="com.fr.data.impl.DBTableData">
+<Parameters>
+<Parameter>
+<Attributes name="querytime" isAutoInc="false"/>
+<O>
+<![CDATA[201610]]></O>
+</Parameter>
+</Parameters>
+<Attributes maxMemRowCount="-1"/>
+<Connection class="com.fr.data.impl.NameDatabaseConnection">
+<DatabaseName>
+<![CDATA[tsdBilling]]></DatabaseName>
+</Connection>
+<Query>
+<![CDATA[select * from ywzh_tj where cntmonth='[?querytime|201208?]A' and jx<>'宽带网络' order by orderid,jx]]></Query>
+</TableData>
+<TableData name="dhsl6209" class="com.fr.data.impl.DBTableData">
+<Parameters>
+<Parameter>
+<Attributes name="querytime" isAutoInc="false"/>
+<O>
+<![CDATA[201508]]></O>
+</Parameter>
+</Parameters>
+<Attributes maxMemRowCount="-1"/>
+<Connection class="com.fr.data.impl.NameDatabaseConnection">
+<DatabaseName>
+<![CDATA[tsdBilling]]></DatabaseName>
+</Connection>
+<Query>
+<![CDATA[select sum(b.dhsl) from ywzh_tj b where b.ywarea in('石油大厦','六铺炕','太阳宫','科技园','金融街') and b.jx='6209' and b.cntmonth='[?querytime|201208?]A']]></Query>
+</TableData>
+</TableDataMap>
+<ReportWebAttr>
+<ServerPrinter/>
+</ReportWebAttr>
+<Report class="com.fr.report.WorkSheet" name="sheet1">
+<ReportPageAttr>
+<HR/>
+<FR/>
+<HC/>
+<FC/>
+</ReportPageAttr>
+<RowHeight defaultValue="723900">
+<![CDATA[990600,723900,762000,762000,762000,762000,762000,762000,762000,762000,762000,685800,2705100,838200,838200,838200,838200,838200,838200,838200,838200,838200,838200,838200,838200,838200,838200,723900,723900,723900,723900,723900,723900,723900,723900,1143000,723900]]></RowHeight>
+<ColumnWidth defaultValue="2743200">
+<![CDATA[2667000,2743200,2667000,2667000,2933700,2933700,2933700,2743200,2743200,2743200,2743200,2933700,2933700,2933700,2933700,5448300,3238500,3619500,3581400,2743200]]></ColumnWidth>
+<CellElementList>
+<C c="0" r="0" cs="16" s="0">
+<O>
+<![CDATA[电话业务量统计月报]]></O>
+<CellGUIAttr/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="16" r="0">
+<O t="DSColumn">
+<Attributes dsName="dhsl6209" columnName="sum"/>
+<Condition class="com.fr.data.condition.ListCondition"/>
+<Complex/>
+<RG class="com.fr.report.cellElement.core.FunctionGrouper"/>
+<Result>
+<![CDATA[$$$]]></Result>
+<Parameters/>
+</O>
+<CellGUIAttr previewContent="false"/>
+<CellPageAttr/>
+<Expand dir="0"/>
+</C>
+<C c="0" r="1" cs="16" s="1">
+<O t="Formula" class="Formula">
+<Attributes>
+<![CDATA[=CONCATENATE("(", LEFT($querytime, 4), " 年 ", RIGHT($querytime, 2), " 月", ")")]]></Attributes>
+</O>
+<Expand/>
+</C>
+<C c="16" r="1">
+<O t="DSColumn">
+<Attributes dsName="ywzh_tj" columnName="dhsl"/>
+<Condition class="com.fr.data.condition.CommonCondition">
+<CNUMBER>
+<![CDATA[0]]></CNUMBER>
+<CNAME>
+<![CDATA[ywarea]]></CNAME>
+<Compare op="0">
+<O>
+<![CDATA[生产专网]]></O>
+</Compare>
+</Condition>
+<Complex/>
+<RG class="com.fr.report.cellElement.core.SummaryGrouper">
+<FN>
+<![CDATA[com.fr.data.util.function.SumFunction]]></FN>
+</RG>
+<Result>
+<![CDATA[$$$]]></Result>
+<Parameters/>
+</O>
+<CellGUIAttr previewContent="false"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="0" r="2" rs="2" s="2">
+<O>
+<![CDATA[电话属性]]></O>
+<CellGUIAttr/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="1" r="2" rs="2" s="2">
+<O>
+<![CDATA[服务区域]]></O>
+<Expand/>
+</C>
+<C c="2" r="2" cs="2" s="2">
+<O>
+<![CDATA[电话数量]]></O>
+<CellGUIAttr/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="4" r="2" cs="9" s="2">
+<O>
+<![CDATA[月业务受理量]]></O>
+<CellGUIAttr/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="13" r="2" cs="2" s="2">
+<O>
+<![CDATA[工单数量]]></O>
+<Expand/>
+</C>
+<C c="15" r="2" rs="2" s="2">
+<O>
+<![CDATA[备注]]></O>
+<Expand/>
+</C>
+<C c="2" r="3" s="2">
+<O>
+<![CDATA[局向]]></O>
+<Expand/>
+</C>
+<C c="3" r="3" s="2">
+<O>
+<![CDATA[数量]]></O>
+<Expand/>
+</C>
+<C c="4" r="3" s="3">
+<O>
+<![CDATA[装机]]></O>
+<Expand/>
+</C>
+<C c="5" r="3" s="2">
+<O>
+<![CDATA[移机]]></O>
+<Expand/>
+</C>
+<C c="6" r="3" s="2">
+<O>
+<![CDATA[拆机]]></O>
+<CellGUIAttr/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="7" r="3" s="2">
+<O>
+<![CDATA[过户]]></O>
+<CellGUIAttr/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="8" r="3" s="2">
+<O>
+<![CDATA[改号]]></O>
+<CellGUIAttr/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="9" r="3" s="2">
+<O>
+<![CDATA[购机]]></O>
+<CellGUIAttr/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="10" r="3" s="2">
+<O>
+<![CDATA[同振]]></O>
+<CellGUIAttr/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="11" r="3" s="2">
+<O>
+<![CDATA[功能]]></O>
+<CellGUIAttr/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="12" r="3" s="2">
+<O>
+<![CDATA[故障处理]]></O>
+<Expand/>
+</C>
+<C c="13" r="3" s="2">
+<O>
+<![CDATA[业务受理]]></O>
+<Expand/>
+</C>
+<C c="14" r="3" s="2">
+<O>
+<![CDATA[故障处理]]></O>
+<Expand/>
+</C>
+<C c="0" r="4" rs="2" s="2">
+<O t="DSColumn">
+<Attributes dsName="ywzh_tj" columnName="yhlb"/>
+<Complex/>
+<RG class="com.fr.report.cellElement.core.FunctionGrouper"/>
+<Parameters/>
+</O>
+<CellGUIAttr/>
+<CellPageAttr/>
+<Expand dir="0"/>
+</C>
+<C c="1" r="4" rs="2" s="2">
+<O t="DSColumn">
+<Attributes dsName="ywzh_tj" columnName="ywarea"/>
+<Complex/>
+<RG class="com.fr.report.cellElement.core.FunctionGrouper"/>
+<Parameters/>
+</O>
+<CellGUIAttr/>
+<CellPageAttr/>
+<Expand dir="0"/>
+</C>
+<C c="2" r="4" s="2">
+<O t="DSColumn">
+<Attributes dsName="ywzh_tj" columnName="jx"/>
+<Condition class="com.fr.data.condition.ListCondition"/>
+<Complex/>
+<RG class="com.fr.report.cellElement.core.FunctionGrouper"/>
+<Result>
+<![CDATA[$$$]]></Result>
+<Parameters/>
+</O>
+<CellGUIAttr printZeroValue="false"/>
+<CellPageAttr/>
+<Expand dir="0"/>
+</C>
+<C c="3" r="4" s="2">
+<O t="DSColumn">
+<Attributes dsName="ywzh_tj" columnName="DHSL"/>
+<Complex/>
+<RG class="com.fr.report.cellElement.core.FunctionGrouper"/>
+<Parameters/>
+</O>
+<CellGUIAttr printZeroValue="false"/>
+<CellPageAttr/>
+<Expand dir="0"/>
+</C>
+<C c="4" r="4" s="2">
+<O t="DSColumn">
+<Attributes dsName="ywzh_tj" columnName="zj"/>
+<Condition class="com.fr.data.condition.ListCondition"/>
+<Complex/>
+<RG class="com.fr.report.cellElement.core.SummaryGrouper">
+<FN>
+<![CDATA[com.fr.data.util.function.SumFunction]]></FN>
+</RG>
+<Result>
+<![CDATA[IF($$$ == 0,'',$$$)]]></Result>
+<Parameters/>
+</O>
+<CellGUIAttr printZeroValue="false"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="5" r="4" s="2">
+<O t="DSColumn">
+<Attributes dsName="ywzh_tj" columnName="yj"/>
+<Condition class="com.fr.data.condition.ListCondition"/>
+<Complex/>
+<RG class="com.fr.report.cellElement.core.SummaryGrouper">
+<FN>
+<![CDATA[com.fr.data.util.function.SumFunction]]></FN>
+</RG>
+<Result>
+<![CDATA[IF($$$ == 0,'',$$$)]]></Result>
+<Parameters/>
+</O>
+<CellGUIAttr printZeroValue="false"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="6" r="4" s="2">
+<O t="DSColumn">
+<Attributes dsName="ywzh_tj" columnName="cj"/>
+<Condition class="com.fr.data.condition.ListCondition"/>
+<Complex/>
+<RG class="com.fr.report.cellElement.core.SummaryGrouper">
+<FN>
+<![CDATA[com.fr.data.util.function.SumFunction]]></FN>
+</RG>
+<Result>
+<![CDATA[IF($$$ == 0,'',$$$)]]></Result>
+<Parameters/>
+</O>
+<CellGUIAttr printZeroValue="false"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="7" r="4" s="4">
+<O t="DSColumn">
+<Attributes dsName="ywzh_tj" columnName="GUOHU"/>
+<Complex/>
+<RG class="com.fr.report.cellElement.core.SummaryGrouper">
+<FN>
+<![CDATA[com.fr.data.util.function.SumFunction]]></FN>
+</RG>
+<Result>
+<![CDATA[IF($$$ == 0,'',$$$)]]></Result>
+<Parameters/>
+</O>
+<CellGUIAttr/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="8" r="4" s="4">
+<O t="DSColumn">
+<Attributes dsName="ywzh_tj" columnName="GAIHAO"/>
+<Complex/>
+<RG class="com.fr.report.cellElement.core.SummaryGrouper">
+<FN>
+<![CDATA[com.fr.data.util.function.SumFunction]]></FN>
+</RG>
+<Result>
+<![CDATA[IF($$$ == 0,'',$$$)]]></Result>
+<Parameters/>
+</O>
+<CellGUIAttr/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="9" r="4" s="4">
+<O t="DSColumn">
+<Attributes dsName="ywzh_tj" columnName="GJ"/>
+<Complex/>
+<RG class="com.fr.report.cellElement.core.SummaryGrouper">
+<FN>
+<![CDATA[com.fr.data.util.function.SumFunction]]></FN>
+</RG>
+<Result>
+<![CDATA[IF($$$ == 0,'',$$$)]]></Result>
+<Parameters/>
+</O>
+<CellGUIAttr/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="10" r="4" s="4">
+<O t="DSColumn">
+<Attributes dsName="ywzh_tj" columnName="TZ"/>
+<Complex/>
+<RG class="com.fr.report.cellElement.core.SummaryGrouper">
+<FN>
+<![CDATA[com.fr.data.util.function.SumFunction]]></FN>
+</RG>
+<Result>
+<![CDATA[IF($$$ == 0,'',$$$)]]></Result>
+<Parameters/>
+</O>
+<CellGUIAttr/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="11" r="4" s="2">
+<O t="DSColumn">
+<Attributes dsName="ywzh_tj" columnName="GN"/>
+<Condition class="com.fr.data.condition.ListCondition"/>
+<Complex/>
+<RG class="com.fr.report.cellElement.core.SummaryGrouper">
+<FN>
+<![CDATA[com.fr.data.util.function.SumFunction]]></FN>
+</RG>
+<Result>
+<![CDATA[IF($$$ == 0,'',$$$)]]></Result>
+<Parameters/>
+</O>
+<CellGUIAttr printZeroValue="false"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="12" r="4" s="2">
+<O t="DSColumn">
+<Attributes dsName="ywzh_tj" columnName="gzcl"/>
+<Condition class="com.fr.data.condition.ListCondition"/>
+<Complex/>
+<RG class="com.fr.report.cellElement.core.SummaryGrouper">
+<FN>
+<![CDATA[com.fr.data.util.function.SumFunction]]></FN>
+</RG>
+<Result>
+<![CDATA[IF($$$ == 0,'',$$$)]]></Result>
+<Parameters/>
+</O>
+<CellGUIAttr printZeroValue="false"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="13" r="4" s="2">
+<O t="DSColumn">
+<Attributes dsName="ywzh_tj" columnName="PGSL"/>
+<Condition class="com.fr.data.condition.ListCondition"/>
+<Complex/>
+<RG class="com.fr.report.cellElement.core.SummaryGrouper">
+<FN>
+<![CDATA[com.fr.data.util.function.SumFunction]]></FN>
+</RG>
+<Result>
+<![CDATA[IF($$$ == 0,'',$$$)]]></Result>
+<Parameters/>
+</O>
+<CellGUIAttr printZeroValue="false"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="14" r="4" s="2">
+<O t="DSColumn">
+<Attributes dsName="ywzh_tj" columnName="gzcl"/>
+<Condition class="com.fr.data.condition.ListCondition"/>
+<Complex/>
+<RG class="com.fr.report.cellElement.core.SummaryGrouper">
+<FN>
+<![CDATA[com.fr.data.util.function.SumFunction]]></FN>
+</RG>
+<Result>
+<![CDATA[IF($$$ == 0,'',$$$)]]></Result>
+<Parameters/>
+</O>
+<CellGUIAttr printZeroValue="false"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="15" r="4" rs="2" s="5">
+<CellGUIAttr/>
+<CellPageAttr/>
+<Expand leftParentDefault="false" left="B5"/>
+</C>
+<C c="2" r="5" s="6">
+<O>
+<![CDATA[小计：]]></O>
+<CellGUIAttr printBackground="false" printZeroValue="false"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="3" r="5" s="7">
+<O t="Formula" class="Formula">
+<Attributes>
+<![CDATA[=IF(SUM(D5) = 0, "", SUM(D5))]]></Attributes>
+</O>
+<CellGUIAttr printBackground="false" printZeroValue="false"/>
+<CellPageAttr/>
+<Expand dir="0"/>
+</C>
+<C c="4" r="5" s="7">
+<O t="Formula" class="Formula">
+<Attributes>
+<![CDATA[=if(SUM(E5) = 0, "", SUM(E5))]]></Attributes>
+</O>
+<CellGUIAttr printBackground="false" printZeroValue="false"/>
+<CellPageAttr/>
+<Expand dir="0" leftParentDefault="false" left="B5"/>
+</C>
+<C c="5" r="5" s="7">
+<O t="Formula" class="Formula">
+<Attributes>
+<![CDATA[=if(SUM(F5) = 0, "", SUM(F5))]]></Attributes>
+</O>
+<CellGUIAttr printBackground="false" printZeroValue="false"/>
+<CellPageAttr/>
+<Expand dir="0" leftParentDefault="false" left="B5"/>
+</C>
+<C c="6" r="5" s="7">
+<O t="Formula" class="Formula">
+<Attributes>
+<![CDATA[=if(SUM(G5) = 0, "", SUM(G5))]]></Attributes>
+</O>
+<CellGUIAttr printBackground="false" printZeroValue="false"/>
+<CellPageAttr/>
+<Expand dir="0" leftParentDefault="false" left="B5"/>
+</C>
+<C c="7" r="5" s="7">
+<O t="Formula" class="Formula">
+<Attributes>
+<![CDATA[=if(SUM(H5) = 0, "", SUM(H5))]]></Attributes>
+</O>
+<CellGUIAttr/>
+<CellPageAttr/>
+<Expand leftParentDefault="false" left="B5"/>
+</C>
+<C c="8" r="5" s="7">
+<O t="Formula" class="Formula">
+<Attributes>
+<![CDATA[=if(SUM(I5) = 0, "", SUM(I5))]]></Attributes>
+</O>
+<CellGUIAttr/>
+<CellPageAttr/>
+<Expand leftParentDefault="false" left="B5"/>
+</C>
+<C c="9" r="5" s="7">
+<O t="Formula" class="Formula">
+<Attributes>
+<![CDATA[=if(SUM(J5) = 0, "", SUM(J5))]]></Attributes>
+</O>
+<CellGUIAttr/>
+<CellPageAttr/>
+<Expand leftParentDefault="false" left="B5"/>
+</C>
+<C c="10" r="5" s="7">
+<O t="Formula" class="Formula">
+<Attributes>
+<![CDATA[=if(SUM(K5) = 0, "", SUM(K5))]]></Attributes>
+</O>
+<CellGUIAttr/>
+<CellPageAttr/>
+<Expand leftParentDefault="false" left="B5"/>
+</C>
+<C c="11" r="5" s="7">
+<O t="Formula" class="Formula">
+<Attributes>
+<![CDATA[=if(SUM(L5) = 0, "", SUM(L5))]]></Attributes>
+</O>
+<CellGUIAttr printBackground="false" printZeroValue="false"/>
+<CellPageAttr/>
+<Expand dir="0" leftParentDefault="false" left="B5"/>
+</C>
+<C c="12" r="5" s="7">
+<O t="Formula" class="Formula">
+<Attributes>
+<![CDATA[=if(SUM(M5) = 0, "", SUM(M5))]]></Attributes>
+</O>
+<CellGUIAttr printBackground="false" printZeroValue="false"/>
+<Expand dir="0" leftParentDefault="false" left="B5"/>
+</C>
+<C c="13" r="5" s="7">
+<O t="Formula" class="Formula">
+<Attributes>
+<![CDATA[=if(sum(N5) = 0, "", sum(N5))]]></Attributes>
+</O>
+<CellGUIAttr printBackground="false" printZeroValue="false"/>
+<CellPageAttr/>
+<Expand leftParentDefault="false" left="B5"/>
+</C>
+<C c="14" r="5" s="7">
+<O t="Formula" class="Formula">
+<Attributes>
+<![CDATA[=if(sum(O5) = 0, "", sum(O5))]]></Attributes>
+</O>
+<CellGUIAttr printBackground="false" printZeroValue="false"/>
+<Expand leftParentDefault="false" left="B5"/>
+</C>
+<C c="0" r="6" cs="4" s="8">
+<O>
+<![CDATA[月业务受理量合计：]]></O>
+<CellGUIAttr printBackground="false" printZeroValue="false"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="4" r="6" s="9">
+<O t="Formula" class="Formula">
+<Attributes>
+<![CDATA[=if(sum(E6) = 0, "", sum(E6))]]></Attributes>
+</O>
+<CellGUIAttr/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="5" r="6" s="10">
+<O t="Formula" class="Formula">
+<Attributes>
+<![CDATA[=if(sum(F6) = 0, "", sum(F6))]]></Attributes>
+</O>
+<CellGUIAttr printBackground="false" printZeroValue="false"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="6" r="6" s="10">
+<O t="Formula" class="Formula">
+<Attributes>
+<![CDATA[=if(sum(G6) = 0, "", sum(G6))]]></Attributes>
+</O>
+<CellGUIAttr printBackground="false" printZeroValue="false"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="7" r="6" s="10">
+<O t="Formula" class="Formula">
+<Attributes>
+<![CDATA[=if(sum(H6) = 0, "", sum(H6))]]></Attributes>
+</O>
+<CellGUIAttr/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="8" r="6" s="10">
+<O t="Formula" class="Formula">
+<Attributes>
+<![CDATA[=if(sum(I6) = 0, "", sum(I6))]]></Attributes>
+</O>
+<CellGUIAttr/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="9" r="6" s="10">
+<O t="Formula" class="Formula">
+<Attributes>
+<![CDATA[=if(sum(J6) = 0, "", sum(J6))]]></Attributes>
+</O>
+<CellGUIAttr/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="10" r="6" s="10">
+<O t="Formula" class="Formula">
+<Attributes>
+<![CDATA[=if(sum(K6) = 0, "", sum(K6))]]></Attributes>
+</O>
+<CellGUIAttr/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="11" r="6" s="10">
+<O t="Formula" class="Formula">
+<Attributes>
+<![CDATA[=if(sum(L6) = 0, "", sum(L6))]]></Attributes>
+</O>
+<CellGUIAttr printBackground="false" printZeroValue="false"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="12" r="6" s="10">
+<O t="Formula" class="Formula">
+<Attributes>
+<![CDATA[=if(sum(M6) = 0, "", sum(M6))]]></Attributes>
+</O>
+<CellGUIAttr printBackground="false" printZeroValue="false"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="13" r="6" s="7">
+<O t="Formula" class="Formula">
+<Attributes>
+<![CDATA[=if(sum(N6) = 0, "", sum(N6))]]></Attributes>
+</O>
+<CellGUIAttr/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="14" r="6" s="10">
+<O t="Formula" class="Formula">
+<Attributes>
+<![CDATA[=if(sum(O6) = 0, "", sum(O6))]]></Attributes>
+</O>
+<CellGUIAttr printBackground="false" printZeroValue="false"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="15" r="6" s="11">
+<Expand/>
+</C>
+<C c="0" r="7" cs="15" s="12">
+<O>
+<![CDATA[各局向电话数量汇总]]></O>
+<CellGUIAttr/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="15" r="7" rs="4" s="11">
+<Expand/>
+</C>
+<C c="0" r="8" cs="4" s="2">
+<O>
+<![CDATA[电话总数]]></O>
+<Expand/>
+</C>
+<C c="4" r="8" cs="11" s="3">
+<O>
+<![CDATA[各局向电话总数]]></O>
+<CellGUIAttr/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="0" r="9" cs="2" s="2">
+<O>
+<![CDATA[合计]]></O>
+<CellGUIAttr/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="2" r="9" s="2">
+<O>
+<![CDATA[办公]]></O>
+<CellGUIAttr/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="3" r="9" s="5">
+<O>
+<![CDATA[个人]]></O>
+<Expand/>
+</C>
+<C c="4" r="9" s="5">
+<O>
+<![CDATA[6209局]]></O>
+<CellGUIAttr/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="5" r="9" s="5">
+<O>
+<![CDATA[5998局]]></O>
+<CellGUIAttr/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="6" r="9" s="2">
+<O>
+<![CDATA[6206局]]></O>
+<CellGUIAttr/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="7" r="9" s="2">
+<O>
+<![CDATA[6359局]]></O>
+<CellGUIAttr/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="8" r="9" s="2">
+<O>
+<![CDATA[8016局]]></O>
+<Expand/>
+</C>
+<C c="9" r="9" cs="6" s="5">
+<O>
+<![CDATA[其他局]]></O>
+<CellGUIAttr/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="0" r="10" cs="2" s="13">
+<O t="Formula" class="Formula">
+<Attributes>
+<![CDATA[=if(sum(D6) = 0, "", sum(D6))]]></Attributes>
+</O>
+<CellGUIAttr/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="2" r="10" s="2">
+<O t="Formula" class="Formula">
+<Attributes>
+<![CDATA[=A11 - D11]]></Attributes>
+</O>
+<CellGUIAttr printZeroValue="false"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="3" r="10" s="2">
+<O t="DSColumn">
+<Attributes dsName="ywzh_tj" columnName="dhsl"/>
+<Condition class="com.fr.data.condition.CommonCondition">
+<CNUMBER>
+<![CDATA[4]]></CNUMBER>
+<CNAME>
+<![CDATA[YHLB]]></CNAME>
+<Compare op="0">
+<O>
+<![CDATA[个人]]></O>
+</Compare>
+</Condition>
+<Complex reselect="true"/>
+<RG class="com.fr.report.cellElement.core.SummaryGrouper">
+<FN>
+<![CDATA[com.fr.data.util.function.SumFunction]]></FN>
+</RG>
+<Result>
+<![CDATA[IF($$$ == 0,'',$$$)]]></Result>
+<Parameters/>
+</O>
+<CellGUIAttr/>
+<CellPageAttr/>
+<Expand leftParentDefault="false" upParentDefault="false"/>
+</C>
+<C c="4" r="10" s="2">
+<O t="DSColumn">
+<Attributes dsName="ywzh_tj" columnName="dhsl"/>
+<Condition class="com.fr.data.condition.CommonCondition">
+<CNUMBER>
+<![CDATA[3]]></CNUMBER>
+<CNAME>
+<![CDATA[YWAREA]]></CNAME>
+<Compare op="0">
+<O>
+<![CDATA[专网]]></O>
+</Compare>
+</Condition>
+<Complex/>
+<RG class="com.fr.report.cellElement.core.SummaryGrouper">
+<FN>
+<![CDATA[com.fr.data.util.function.SumFunction]]></FN>
+</RG>
+<Result>
+<![CDATA[$$$]]></Result>
+<Parameters/>
+</O>
+<CellGUIAttr printZeroValue="false"/>
+<CellPageAttr/>
+<Expand leftParentDefault="false" upParentDefault="false"/>
+</C>
+<C c="5" r="10" s="2">
+<O t="DSColumn">
+<Attributes dsName="ywzh_tj" columnName="dhsl"/>
+<Condition class="com.fr.data.condition.CommonCondition">
+<CNUMBER>
+<![CDATA[0]]></CNUMBER>
+<CNAME>
+<![CDATA[jx]]></CNAME>
+<Compare op="0">
+<O>
+<![CDATA[5998]]></O>
+</Compare>
+</Condition>
+<Complex/>
+<RG class="com.fr.report.cellElement.core.SummaryGrouper">
+<FN>
+<![CDATA[com.fr.data.util.function.SumFunction]]></FN>
+</RG>
+<Result>
+<![CDATA[IF($$$ == 0,'',$$$)]]></Result>
+<Parameters/>
+</O>
+<CellGUIAttr/>
+<CellPageAttr/>
+<Expand leftParentDefault="false" upParentDefault="false"/>
+</C>
+<C c="6" r="10" s="2">
+<O t="DSColumn">
+<Attributes dsName="ywzh_tj" columnName="dhsl"/>
+<Condition class="com.fr.data.condition.CommonCondition">
+<CNUMBER>
+<![CDATA[0]]></CNUMBER>
+<CNAME>
+<![CDATA[jx]]></CNAME>
+<Compare op="0">
+<O>
+<![CDATA[6206]]></O>
+</Compare>
+</Condition>
+<Complex/>
+<RG class="com.fr.report.cellElement.core.SummaryGrouper">
+<FN>
+<![CDATA[com.fr.data.util.function.SumFunction]]></FN>
+</RG>
+<Result>
+<![CDATA[IF($$$ == 0,'',$$$)]]></Result>
+<Parameters/>
+</O>
+<CellGUIAttr printZeroValue="false"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="7" r="10" s="2">
+<O t="DSColumn">
+<Attributes dsName="ywzh_tj" columnName="dhsl"/>
+<Condition class="com.fr.data.condition.CommonCondition">
+<CNUMBER>
+<![CDATA[0]]></CNUMBER>
+<CNAME>
+<![CDATA[jx]]></CNAME>
+<Compare op="0">
+<O>
+<![CDATA[6359]]></O>
+</Compare>
+</Condition>
+<Complex/>
+<RG class="com.fr.report.cellElement.core.SummaryGrouper">
+<FN>
+<![CDATA[com.fr.data.util.function.SumFunction]]></FN>
+</RG>
+<Result>
+<![CDATA[IF($$$ == 0,'',$$$)]]></Result>
+<Parameters/>
+</O>
+<CellGUIAttr printZeroValue="false"/>
+<CellPageAttr/>
+<Expand leftParentDefault="false"/>
+</C>
+<C c="8" r="10" s="2">
+<O t="DSColumn">
+<Attributes dsName="ywzh_tj" columnName="dhsl"/>
+<Condition class="com.fr.data.condition.CommonCondition">
+<CNUMBER>
+<![CDATA[0]]></CNUMBER>
+<CNAME>
+<![CDATA[jx]]></CNAME>
+<Compare op="0">
+<O>
+<![CDATA[8016]]></O>
+</Compare>
+</Condition>
+<Complex/>
+<RG class="com.fr.report.cellElement.core.SummaryGrouper">
+<FN>
+<![CDATA[com.fr.data.util.function.SumFunction]]></FN>
+</RG>
+<Result>
+<![CDATA[IF($$$ == 0,'',$$$)]]></Result>
+<Parameters/>
+</O>
+<CellGUIAttr printZeroValue="false"/>
+<CellPageAttr/>
+<Expand leftParentDefault="false"/>
+</C>
+<C c="9" r="10" cs="6" s="2">
+<O t="DSColumn">
+<Attributes dsName="ywzh_tj" columnName="dhsl"/>
+<Condition class="com.fr.data.condition.CommonCondition">
+<CNUMBER>
+<![CDATA[0]]></CNUMBER>
+<CNAME>
+<![CDATA[jx]]></CNAME>
+<Compare op="0">
+<O>
+<![CDATA[其他]]></O>
+</Compare>
+</Condition>
+<Complex/>
+<RG class="com.fr.report.cellElement.core.SummaryGrouper">
+<FN>
+<![CDATA[com.fr.data.util.function.SumFunction]]></FN>
+</RG>
+<Result>
+<![CDATA[IF($$$ == 0,'',$$$)]]></Result>
+<Parameters/>
+</O>
+<CellGUIAttr printZeroValue="false"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="0" r="11" cs="3" s="1">
+<O>
+<![CDATA[科室、通信站负责人：]]></O>
+<CellGUIAttr/>
+<CellPageAttr pageAfterRow="true"/>
+<Expand/>
+</C>
+<C c="3" r="11" s="1">
+<O>
+<![CDATA[]]></O>
+<Expand/>
+</C>
+<C c="5" r="11" s="1">
+<O>
+<![CDATA[]]></O>
+<CellGUIAttr/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="6" r="11" s="1">
+<O>
+<![CDATA[]]></O>
+<Expand/>
+</C>
+<C c="11" r="11" s="1">
+<O>
+<![CDATA[]]></O>
+<CellGUIAttr/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="12" r="11" s="1">
+<O>
+<![CDATA[]]></O>
+<Expand/>
+</C>
+<C c="14" r="11" s="1">
+<O>
+<![CDATA[制表人:]]></O>
+<CellGUIAttr/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="15" r="11" s="1">
+<O>
+<![CDATA[]]></O>
+<Expand/>
+</C>
+<C c="0" r="12" cs="15" s="14">
+<O>
+<![CDATA[统计月报说明]]></O>
+<CellGUIAttr/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="0" r="13" cs="15" s="15">
+<O>
+<![CDATA[一、统计月报是对通信处每月发生的电话、网络业务受理量和用户服务满意度进行统计，并对电话、网络数量进行汇总]]></O>
+<CellGUIAttr/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="15" r="13" s="15">
+<CellGUIAttr/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="0" r="14" cs="15" s="15">
+<O>
+<![CDATA[二、月报中部分数据说明：]]></O>
+<CellGUIAttr/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="15" r="14" s="15">
+<CellGUIAttr/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="0" r="15" cs="15" s="15">
+<O>
+<![CDATA[    1、生产专网中在京单位电话总数=东直门6209+ 六铺炕6209+ 太阳宫6209+ 科技园6209+ 金融街6209+ 其他在京6209]]></O>
+<CellGUIAttr/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="15" r="15" s="15">
+<Expand/>
+</C>
+<C c="0" r="16" cs="15" s="15">
+<O>
+<![CDATA[    2、汇总中6209局电话总数 = 在京单位6209 + 京外单位6209 + 海外公司6209]]></O>
+<CellGUIAttr/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="15" r="16" s="15">
+<Expand/>
+</C>
+<C c="0" r="17" cs="15" s="15">
+<O>
+<![CDATA[    3、汇总中办公电话总数 = 5998局总数 + 6209局总数 + 6206局总数 + 6359局总数 + 8016局总数 + 其他局总数]]></O>
+<CellGUIAttr/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="15" r="17" s="15">
+<Expand/>
+</C>
+<C c="0" r="18" cs="15" s="15">
+<O>
+<![CDATA[    4、电话、网络汇总中6359局电话总数=太阳宫6359办公电话数 + 丰和园小区6359个人电话数]]></O>
+<CellGUIAttr/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="15" r="18" s="15">
+<Expand/>
+</C>
+<C c="0" r="19" cs="15" s="15">
+<O>
+<![CDATA[    5、专网同振电话全部归属到东直门，其他方向不再计数:]]></O>
+<CellGUIAttr/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="15" r="19" s="15">
+<Expand/>
+</C>
+<C c="0" r="20" cs="15" s="15">
+<O>
+<![CDATA[       东直门 - 六铺炕同振7部]]></O>
+<CellGUIAttr/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="15" r="20" s="15">
+<Expand/>
+</C>
+<C c="0" r="21" cs="15" s="15">
+<O>
+<![CDATA[       东直门 - 昆仑同振1部]]></O>
+<CellGUIAttr/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="15" r="21" s="15">
+<CellGUIAttr/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="0" r="22" cs="15" s="15">
+<O>
+<![CDATA[       东直门 - 官园同振1部]]></O>
+<CellGUIAttr/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="15" r="22" s="15">
+<Expand/>
+</C>
+<C c="0" r="23" cs="15" s="15">
+<O>
+<![CDATA[       东直门 - 科技园同振1部]]></O>
+<CellGUIAttr/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="15" r="23" s="15">
+<Expand/>
+</C>
+<C c="0" r="24" cs="15" s="15">
+<O>
+<![CDATA[三、月报中各项数据来源于各科、区域每月统计报送的数据。]]></O>
+<CellGUIAttr/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="15" r="24" s="15">
+<Expand/>
+</C>
+<C c="0" r="25" cs="15" s="15">
+<O>
+<![CDATA[四、月业务受理量合计中装机量=东直门装机量 + 六铺炕装机量 + 太阳宫装机量 + 科技园装机量 + 丰和园装机量（含网]]></O>
+<CellGUIAttr/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="15" r="25" s="15">
+<Expand/>
+</C>
+<C c="0" r="26" cs="15" s="15">
+<O>
+<![CDATA[络） + 海外专网装机量]]></O>
+<CellGUIAttr/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="15" r="26" s="15">
+<Expand/>
+</C>
+</CellElementList>
+<ReportAttrSet>
+<ReportSettings headerHeight="0" footerHeight="0">
+<PaperSetting orientation="1">
+<PaperSize width="60452812" height="85547606"/>
+<Margin top="411552" left="1303200" bottom="411552" right="1303200"/>
+</PaperSetting>
+</ReportSettings>
+<Header reportPageType="0">
+<Background name="NullBackground"/>
+<LeftList/>
+<CenterList/>
+<RightList/>
+</Header>
+<Footer reportPageType="0">
+<Background name="NullBackground"/>
+<LeftList/>
+<CenterList/>
+<RightList/>
+</Footer>
+</ReportAttrSet>
+<ReportWriteAttr/>
+</Report>
+<ReportParameterAttr>
+<Attributes showWindow="true" delayPlaying="true" windowPosition="1" align="1"/>
+<PWTitle>
+<![CDATA[参数]]></PWTitle>
+<ParameterUI class="com.fr.report.parameter.FormParameterUI">
+<DesignAttr width="800" height="200"/>
+<Layout class="com.fr.form.ui.container.WAbsoluteLayout">
+<WidgetName name="para"/>
+<WidgetAttr/>
+<Widget class="com.fr.form.ui.container.WAbsoluteLayout$BoundsWidget">
+<InnerWidget class="com.fr.form.ui.Label">
+<WidgetName name="Labelquerytime"/>
+<WidgetAttr/>
+<LabelAttr textalign="0" autoline="true"/>
+<widgetValue>
+<O>
+<![CDATA[querytime:]]></O>
+</widgetValue>
+</InnerWidget>
+<BoundsAttr x="50" y="25" width="80" height="21"/>
+</Widget>
+<Widget class="com.fr.form.ui.container.WAbsoluteLayout$BoundsWidget">
+<InnerWidget class="com.fr.form.ui.EditorHolder">
+<WidgetName name="querytime"/>
+<WidgetAttr/>
+</InnerWidget>
+<BoundsAttr x="130" y="25" width="80" height="21"/>
+</Widget>
+<Widget class="com.fr.form.ui.container.WAbsoluteLayout$BoundsWidget">
+<InnerWidget class="com.fr.form.ui.FreeButton">
+<Listener event="click">
+<JavaScript class="com.fr.base.js.JavaScriptImpl">
+<Parameters/>
+<Content>
+<![CDATA[this.disable();]]></Content>
+</JavaScript>
+</Listener>
+<Listener event="click">
+<JavaScript class="com.fr.base.js.JavaScriptImpl">
+<Parameters/>
+<Content>
+<![CDATA[if (this.options.form != null && $.isFunction(this.options.form.formSubmit)) {
+	this.options.form.formSubmit({
+	url : "${servletURL}?op=fr_dialog&cmd=parameters_d&sessionID=${sessionID}",
+	asyn : true,
+	callback : function(res, status) {_g().loadContentPane();}}				
+	);
+	var self = this;
+	_g().once("afterload", function() {
+		self.enable();
+	})
+}]]></Content>
+</JavaScript>
+</Listener>
+<WidgetName name="Search"/>
+<WidgetAttr/>
+<Text>
+<![CDATA[查询]]></Text>
+<Hotkeys>
+<![CDATA[enter]]></Hotkeys>
+</InnerWidget>
+<BoundsAttr x="230" y="25" width="80" height="21"/>
+</Widget>
+<LCAttr vgap="0" hgap="0"/>
+</Layout>
+</ParameterUI>
+<Parameter>
+<Attributes name="querytime" isAutoInc="false"/>
+<O>
+<![CDATA[201208]]></O>
+</Parameter>
+</ReportParameterAttr>
+<StyleList>
+<Style horizontal_alignment="0" imageLayout="1">
+<FRFont name="SimSun" style="1" size="132"/>
+<Background name="NullBackground"/>
+<Border/>
+</Style>
+<Style horizontal_alignment="0" imageLayout="1">
+<FRFont name="SimSun" style="0" size="84"/>
+<Background name="NullBackground"/>
+<Border/>
+</Style>
+<Style horizontal_alignment="0" imageLayout="1">
+<FRFont name="SimSun" style="0" size="84"/>
+<Background name="NullBackground"/>
+<Border>
+<Top style="1"/>
+<Bottom style="1"/>
+<Left style="1"/>
+<Right style="1"/>
+</Border>
+</Style>
+<Style horizontal_alignment="0" imageLayout="1">
+<FRFont name="SimSun" style="0" size="72"/>
+<Background name="NullBackground"/>
+<Border/>
+</Style>
+<Style imageLayout="1">
+<FRFont name="SimSun" style="0" size="80"/>
+<Background name="NullBackground"/>
+<Border>
+<Top style="1"/>
+<Bottom style="1"/>
+<Left style="1"/>
+<Right style="1"/>
+</Border>
+</Style>
+<Style horizontal_alignment="0" imageLayout="1">
+<FRFont name="SimSun" style="0" size="72"/>
+<Background name="NullBackground"/>
+<Border>
+<Top style="1"/>
+<Bottom style="1"/>
+<Left style="1"/>
+<Right style="1"/>
+</Border>
+</Style>
+<Style horizontal_alignment="4" imageLayout="1">
+<FRFont name="SimSun" style="0" size="84"/>
+<Background name="ColorBackground" color="-4144960"/>
+<Border>
+<Top style="1"/>
+<Bottom style="1"/>
+<Left style="1"/>
+<Right style="1"/>
+</Border>
+</Style>
+<Style horizontal_alignment="0" imageLayout="1">
+<FRFont name="SimSun" style="0" size="84"/>
+<Background name="ColorBackground" color="-4144960"/>
+<Border>
+<Top style="1"/>
+<Bottom style="1"/>
+<Left style="1"/>
+<Right style="1"/>
+</Border>
+</Style>
+<Style horizontal_alignment="4" imageLayout="1">
+<FRFont name="SimSun" style="0" size="84"/>
+<Background name="ColorBackground" color="-3355393"/>
+<Border>
+<Top style="1"/>
+<Bottom style="1"/>
+<Left style="1"/>
+<Right style="1"/>
+</Border>
+</Style>
+<Style horizontal_alignment="0" imageLayout="1">
+<FRFont name="SimSun" style="0" size="84"/>
+<Background name="ColorBackground" color="-3355393"/>
+<Border/>
+</Style>
+<Style horizontal_alignment="0" imageLayout="1">
+<FRFont name="SimSun" style="0" size="84"/>
+<Background name="ColorBackground" color="-3355393"/>
+<Border>
+<Top style="1"/>
+<Bottom style="1"/>
+<Left style="1"/>
+<Right style="1"/>
+</Border>
+</Style>
+<Style imageLayout="1">
+<FRFont name="SimSun" style="0" size="72"/>
+<Background name="NullBackground"/>
+<Border>
+<Top style="1"/>
+<Bottom style="1"/>
+<Left style="1"/>
+<Right style="1"/>
+</Border>
+</Style>
+<Style horizontal_alignment="0" imageLayout="1">
+<FRFont name="SimSun" style="1" size="88"/>
+<Background name="NullBackground"/>
+<Border>
+<Top style="1"/>
+<Bottom style="1"/>
+<Left style="1"/>
+<Right style="1"/>
+</Border>
+</Style>
+<Style horizontal_alignment="0" imageLayout="1">
+<FRFont name="SimSun" style="0" size="84"/>
+<Background name="ColorBackground" color="-1"/>
+<Border>
+<Top style="1"/>
+<Bottom style="1"/>
+<Left style="1"/>
+<Right style="1"/>
+</Border>
+</Style>
+<Style horizontal_alignment="0" imageLayout="1">
+<FRFont name="SimSun" style="0" size="120"/>
+<Background name="NullBackground"/>
+<Border/>
+</Style>
+<Style imageLayout="1">
+<FRFont name="SimSun" style="0" size="84"/>
+<Background name="NullBackground"/>
+<Border/>
+</Style>
+</StyleList>
+</WorkBook>

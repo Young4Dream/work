@@ -1,0 +1,404 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<WorkBook>
+<Version>6.2</Version>
+<Report class="com.fr.report.WorkSheet" name="sheet1">
+<TableDataMap>
+<NameTableData name="teljob">
+<TableData class="com.fr.data.impl.DBTableData">
+<Parameters>
+<Parameter>
+<Attributes name="JobID"
+ type="0"
+ shown="true" />
+<O t="S"><![CDATA[]]></O>
+</Parameter>
+</Parameters>
+<Attributes isCache="true" isDiskCache="true" />
+<Connection class="com.fr.data.impl.NameDatabaseConnection">
+<DatabaseName><![CDATA[tsdReport]]></DatabaseName>
+</Connection><Query><![CDATA[select t.Lsh,t.xdh,t.Area,t.Jlry,t.Sgnr,t.Sgrq,t.Dhlx,t.Yhxz,t.linkman,t.lxdh,y.Hth,y.Yhmc,y.Bm1,y.Bm2,y.Bm3,y.Bm4,y.Bz6,y.Bz7,y.Yhdz,y.Reg_Date,y.Dhgn,y.MokuaiJu,y.YwArea,y.mima,y.Hwjb1,y.AdjustSheduleNo,y.CallSheduleNo,y.Mfjb,h.CallPayType from teljob t ,tsdbilling.telcount2009billing.dbo.yhdang y, tsdbilling.telcount2009billing.dbo.hthdang h where t.id='[?JobID|?]' and t.hth=y.hth and y.hth=h.hth
+
+
+]]></Query>
+</TableData>
+</NameTableData>
+<NameTableData name="user">
+<TableData class="com.fr.data.impl.DBTableData">
+<Parameters>
+</Parameters>
+<Attributes isCache="true" isDiskCache="true" />
+<Connection class="com.fr.data.impl.NameDatabaseConnection">
+<DatabaseName><![CDATA[tsdBilling]]></DatabaseName>
+</Connection><Query><![CDATA[select userid,username from sys_user]]></Query>
+</TableData>
+</NameTableData>
+<NameTableData name="attachfee">
+<TableData class="com.fr.data.impl.DBTableData">
+<Parameters>
+<Parameter>
+<Attributes name="JobID"
+ type="0"
+ shown="true" />
+<O t="S"><![CDATA[33]]></O>
+<CellEditorDef class="com.fr.report.cellElement.TextCellEditorDef"><Attributes allowBlank="true" />
+<Attr multiLine="false" /></CellEditorDef>
+</Parameter>
+</Parameters>
+<Attributes isCache="true" isDiskCache="true" />
+<Connection class="com.fr.data.impl.NameDatabaseConnection">
+<DatabaseName><![CDATA[tsdBilling]]></DatabaseName>
+</Connection><Query><![CDATA[reportzf '[?JobID|?]']]></Query>
+</TableData>
+</NameTableData>
+<NameTableData name="hwjb">
+<TableData class="com.fr.data.impl.DBTableData">
+<Parameters>
+</Parameters>
+<Attributes isCache="true" isDiskCache="true" />
+<Connection class="com.fr.data.impl.NameDatabaseConnection">
+<DatabaseName><![CDATA[tsdBilling]]></DatabaseName>
+</Connection><Query><![CDATA[select * from hwjb]]></Query>
+</TableData>
+</NameTableData>
+</TableDataMap>
+<ReportSettings shrinkToFit="false" headerHeight="0.0" footerHeight="0.0">
+<Margin top="0.3093700787401575" left="0.39566929133858275" bottom="0.27" right="0.986220472440945" />
+</ReportSettings>
+<ReportPageAttr>
+</ReportPageAttr>
+<ReportParameterAttr>
+<Parameters>
+</Parameters>
+<Attributes showWindow="true" delayPlaying="true" windowPosition="0" userDefineWindow="false" />
+<PWTitle><![CDATA[参数]]></PWTitle>
+</ReportParameterAttr>
+<AutoRecalculate>false</AutoRecalculate>
+<DesignAttributes>
+</DesignAttributes>
+<ReportWebAttr>
+<EmailManager mailHost="" password="___" user="" fromEmailAddress="" />
+<ServerPrinter>
+</ServerPrinter>
+<ToolbarManager showToolbar="true" specifiedToolbar="true" toolbarPosition="1" isIconVisible="true" isTextVisible="true" isShowPageSetup="false" isShowFlashPrint="true" isShowPDFPrint="false" isShowAppletPrint="false" isShowPDF="false" isShowExcel="false" isShowPrint="false" isShowExport="true" isShowEmail="false">
+<firstIconObject path="/com/fr/web/images/first.png">
+</firstIconObject>
+<previousIconObject path="/com/fr/web/images/previous.png">
+</previousIconObject>
+<nextIconObject path="/com/fr/web/images/next.png">
+</nextIconObject>
+<lastIconObject path="/com/fr/web/images/last.png">
+</lastIconObject>
+<pageSetupIconObject path="/com/fr/web/images/pageSetup.png">
+</pageSetupIconObject>
+<flashPrintIconObject path="/com/fr/web/images/flashPrint.png">
+</flashPrintIconObject>
+<pdfPrintIconObject path="/com/fr/web/images/pdfPrint.png">
+</pdfPrintIconObject>
+<appletPrintIconObject path="/com/fr/web/images/pdfPrint.png">
+</appletPrintIconObject>
+<pdfIconObject path="/com/fr/web/images/pdf.png">
+</pdfIconObject>
+<printIconObject path="/com/fr/web/images/serverPrint.png">
+</printIconObject>
+<exportIconObject path="/com/fr/web/images/export.png">
+</exportIconObject>
+<emailIconObject path="/com/fr/web/images/email.png">
+</emailIconObject>
+</ToolbarManager>
+</ReportWebAttr>
+<ReportWriteAttr>
+</ReportWriteAttr>
+<Header reportPageType="0">
+<Background name="NullBackground" />
+<LeftList>
+</LeftList>
+<CenterList>
+</CenterList>
+<RightList>
+</RightList>
+</Header>
+<Footer reportPageType="0">
+<Background name="NullBackground" />
+<LeftList>
+</LeftList>
+<CenterList>
+</CenterList>
+<RightList>
+</RightList>
+</Footer>
+<RowHeight defaultValue="19">
+<![CDATA[28,32,28,28,28,28,28,28,28,28,31,22,29,28,28]]>
+</RowHeight>
+<ColumnWidth defaultValue="72">
+<![CDATA[75,10,70,61,46,30,62,35,103,62,83]]>
+</ColumnWidth>
+<CellElementList>
+<C c="0" r="0" cs="11" s="0"><O t="S"><![CDATA[青海石油通信公司电话业务受理单]]></O>
+</C>
+<C c="0" r="1" cs="2" s="1"><O t="S"><![CDATA[业务类型：]]></O>
+</C>
+<C c="2" r="1" cs="2" s="2"><O t="DSColumn"><Attributes dsName="teljob" columnName="Sgnr" />
+<RG class="com.fr.report.cellElement.core.FunctionGrouper"></RG></O>
+<Expand dir="0" />
+</C>
+<C c="4" r="1" s="3"></C>
+<C c="5" r="1" cs="3" s="1"><O t="S"><![CDATA[流水号：]]></O>
+<Expand dir="0" />
+</C>
+<C c="8" r="1" cs="3" s="2"><O t="DSColumn"><Attributes dsName="teljob" columnName="Lsh" />
+<RG class="com.fr.report.cellElement.core.FunctionGrouper"></RG></O>
+<Expand dir="0" />
+</C>
+<C c="0" r="2" s="4"><O t="S"><![CDATA[合同号]]></O>
+</C>
+<C c="1" r="2" cs="2" s="5"><O t="DSColumn"><Attributes dsName="teljob" columnName="Hth" />
+<RG class="com.fr.report.cellElement.core.FunctionGrouper"></RG></O>
+<Expand dir="0" />
+</C>
+<C c="3" r="2" s="4"><O t="S"><![CDATA[电　话]]></O>
+</C>
+<C c="4" r="2" cs="2" s="5"><O t="DSColumn"><Attributes dsName="teljob" columnName="xdh" />
+<RG class="com.fr.report.cellElement.core.FunctionGrouper"></RG></O>
+<Expand dir="0" />
+</C>
+<C c="6" r="2" s="6"></C>
+<C c="7" r="2" s="7"></C>
+<C c="8" r="2" s="7"></C>
+<C c="9" r="2" s="7"></C>
+<C c="10" r="2" s="8"></C>
+<C c="0" r="3" s="4"><O t="S"><![CDATA[姓　名]]></O>
+</C>
+<C c="1" r="3" cs="2" s="5"><O t="DSColumn"><Attributes dsName="teljob" columnName="Yhmc" />
+<RG class="com.fr.report.cellElement.core.FunctionGrouper"></RG></O>
+<Expand dir="0" />
+</C>
+<C c="3" r="3" s="4"><O t="S"><![CDATA[用户类别]]></O>
+</C>
+<C c="4" r="3" cs="2" s="9"><O t="DSColumn"><Attributes dsName="teljob" columnName="Dhlx" />
+<RG class="com.fr.report.cellElement.core.FunctionGrouper"></RG></O>
+<Expand dir="0" />
+</C>
+<C c="6" r="3" s="10"></C>
+<C c="7" r="3"></C>
+<C c="8" r="3"></C>
+<C c="9" r="3"></C>
+<C c="10" r="3" s="11"></C>
+<C c="0" r="4" s="4"><O t="S"><![CDATA[装机地址]]></O>
+</C>
+<C c="1" r="4" cs="5" s="5"><O t="DSColumn"><Attributes dsName="teljob" columnName="Yhdz" />
+<RG class="com.fr.report.cellElement.core.FunctionGrouper"></RG></O>
+<Expand dir="0" />
+</C>
+<C c="6" r="4" s="10"></C>
+<C c="7" r="4"></C>
+<C c="8" r="4" cs="2" rs="4" s="12"><O t="S"><![CDATA[     身份证复印件]]></O>
+</C>
+<C c="10" r="4" s="11"></C>
+<C c="0" r="5" s="4"><O t="S"><![CDATA[一级部门]]></O>
+</C>
+<C c="1" r="5" cs="5" s="5"><O t="DSColumn"><Attributes dsName="teljob" columnName="Bm1" />
+<RG class="com.fr.report.cellElement.core.FunctionGrouper"></RG></O>
+<Expand dir="0" />
+</C>
+<C c="6" r="5" s="10"></C>
+<C c="7" r="5"></C>
+<C c="10" r="5" s="11"></C>
+<C c="0" r="6" s="4"><O t="S"><![CDATA[二级部门]]></O>
+</C>
+<C c="1" r="6" cs="5" s="5"><O t="DSColumn"><Attributes dsName="teljob" columnName="Bm2" />
+<RG class="com.fr.report.cellElement.core.FunctionGrouper"></RG></O>
+<Expand dir="0" />
+</C>
+<C c="6" r="6" s="10"></C>
+<C c="7" r="6"></C>
+<C c="10" r="6" s="11"></C>
+<C c="0" r="7" s="4"><O t="S"><![CDATA[三级部门]]></O>
+</C>
+<C c="1" r="7" cs="5" s="5"><O t="DSColumn"><Attributes dsName="teljob" columnName="Bm3" />
+<RG class="com.fr.report.cellElement.core.FunctionGrouper"></RG></O>
+<Expand dir="0" />
+</C>
+<C c="6" r="7" s="10"></C>
+<C c="7" r="7"></C>
+<C c="10" r="7" s="11"></C>
+<C c="0" r="8" s="4"><O t="S"><![CDATA[四级部门]]></O>
+</C>
+<C c="1" r="8" cs="5" s="5"><O t="DSColumn"><Attributes dsName="teljob" columnName="Bm4" />
+<RG class="com.fr.report.cellElement.core.FunctionGrouper"></RG></O>
+<Expand dir="0" />
+</C>
+<C c="6" r="8" s="13"></C>
+<C c="7" r="8" s="14"></C>
+<C c="8" r="8" s="14"></C>
+<C c="9" r="8" s="14"></C>
+<C c="10" r="8" s="15"></C>
+<C c="0" r="9" s="4"><O t="S"><![CDATA[用户性质]]></O>
+</C>
+<C c="1" r="9" cs="5" s="5"><O t="DSColumn"><Attributes dsName="teljob" columnName="Yhxz" />
+<RG class="com.fr.report.cellElement.core.FunctionGrouper"></RG></O>
+<Expand dir="0" />
+</C>
+<C c="6" r="9" s="4"><O t="S"><![CDATA[联系电话]]></O>
+</C>
+<C c="7" r="9" cs="2" s="5"><O t="DSColumn"><Attributes dsName="teljob" columnName="lxdh" />
+<RG class="com.fr.report.cellElement.core.FunctionGrouper"></RG></O>
+<Expand dir="0" />
+</C>
+<C c="9" r="9" s="4"><O t="S"><![CDATA[联 系 人]]></O>
+</C>
+<C c="10" r="9" s="5"><O t="DSColumn"><Attributes dsName="teljob" columnName="linkman" />
+<RG class="com.fr.report.cellElement.core.FunctionGrouper"></RG></O>
+<Expand dir="0" />
+</C>
+<C c="0" r="10" cs="11" rs="2" s="5"><O t="DSColumn"><Attributes dsName="attachfee" columnName="zf" />
+<RG class="com.fr.report.cellElement.core.FunctionGrouper"></RG></O>
+<Expand dir="0" />
+</C>
+<C c="0" r="12" s="4"><O t="S"><![CDATA[催缴策略]]></O>
+</C>
+<C c="1" r="12" cs="2" s="5"><O t="DSColumn"><Attributes dsName="teljob" columnName="CallSheduleNo" />
+<RG class="com.fr.report.cellElement.core.FunctionGrouper"></RG></O>
+<Expand dir="0" />
+</C>
+<C c="3" r="12" s="4"><O t="S"><![CDATA[调级策略]]></O>
+</C>
+<C c="4" r="12" cs="2" s="5"><O t="DSColumn"><Attributes dsName="teljob" columnName="AdjustSheduleNo" />
+<RG class="com.fr.report.cellElement.core.FunctionGrouper"></RG></O>
+<Expand dir="0" />
+</C>
+<C c="6" r="12" s="4"><O t="S"><![CDATA[电话功能]]></O>
+</C>
+<C c="7" r="12" cs="2" s="5"><O t="DSColumn"><Attributes dsName="hwjb" columnName="Bz" />
+<Condition class="com.fr.data.condition.CommonCondition"><CNAME><![CDATA[Hwjb]]></CNAME><Compare op="0">
+<AnDSColumn dsName="teljob" columnName="Hwjb1" /></Compare>
+</Condition>
+<RG class="com.fr.report.cellElement.core.FunctionGrouper"></RG><Result><![CDATA[$$$]]></Result></O>
+<Expand dir="0" />
+</C>
+<C c="9" r="12" s="4"><O t="S"><![CDATA[模块局]]></O>
+</C>
+<C c="10" r="12" s="5"><O t="DSColumn"><Attributes dsName="teljob" columnName="MokuaiJu" />
+<RG class="com.fr.report.cellElement.core.FunctionGrouper"></RG></O>
+<Expand dir="0" />
+</C>
+<C c="0" r="13" s="4"><O t="S"><![CDATA[受理地点]]></O>
+</C>
+<C c="1" r="13" cs="2" s="5"><O t="DSColumn"><Attributes dsName="teljob" columnName="Area" />
+<RG class="com.fr.report.cellElement.core.FunctionGrouper"></RG></O>
+<Expand dir="0" />
+</C>
+<C c="3" r="13" s="4"><O t="S"><![CDATA[受理人]]></O>
+</C>
+<C c="4" r="13" cs="2" s="5"><O t="DSColumn"><Attributes dsName="user" columnName="username" />
+<Condition class="com.fr.data.condition.CommonCondition"><CNAME><![CDATA[userid]]></CNAME><Compare op="0">
+<AnDSColumn dsName="teljob" columnName="Jlry" /></Compare>
+</Condition>
+<RG class="com.fr.report.cellElement.core.FunctionGrouper"></RG><Result><![CDATA[$$$]]></Result></O>
+<Expand dir="0" />
+</C>
+<C c="6" r="13" s="4"><O t="S"><![CDATA[受理时间]]></O>
+</C>
+<C c="7" r="13" cs="2" s="5"><O t="DSColumn"><Attributes dsName="teljob" columnName="Sgrq" />
+<RG class="com.fr.report.cellElement.core.FunctionGrouper"></RG></O>
+<Expand dir="0" />
+</C>
+<C c="9" r="13" s="4"><O t="S"><![CDATA[客户签字]]></O>
+</C>
+<C c="10" r="13" s="5"><Expand dir="0" />
+</C>
+<C c="0" r="14" cs="3" s="16"><O t="S"><![CDATA[本票据未盖章无效]]></O>
+</C>
+<C c="3" r="14" cs="8"><Expand dir="0" />
+<CellWriteAttr>
+</CellWriteAttr>
+</C>
+</CellElementList>
+</Report>
+<StyleList>
+<Style horizontal_alignment="0">
+<FRFont name="SimSun" style="0" size="20" />
+<Background name="NullBackground" />
+<Border></Border>
+</Style>
+<Style horizontal_alignment="4" vertical_alignment="3" imageLayout="2">
+<FRFont name="SimSun" style="0" size="14" />
+<Background name="NullBackground" />
+<Border></Border>
+</Style>
+<Style vertical_alignment="3" imageLayout="2">
+<FRFont name="SimSun" style="0" size="13" />
+<Background name="NullBackground" />
+<Border></Border>
+</Style>
+<Style vertical_alignment="3" imageLayout="2">
+<FRFont name="SimSun" style="0" size="14" />
+<Background name="NullBackground" />
+<Border></Border>
+</Style>
+<Style horizontal_alignment="0">
+<FRFont name="SimSun" style="0" size="14" />
+<Background name="NullBackground" />
+<Border><Top style="1" /><Bottom style="1" /><Left style="1" /><Right style="1" /></Border>
+</Style>
+<Style>
+<FRFont name="SimSun" style="0" size="14" />
+<Background name="NullBackground" />
+<Border><Top style="1" /><Bottom style="1" /><Left style="1" /><Right style="1" /></Border>
+</Style>
+<Style>
+<FRFont name="SimSun" style="0" size="12" />
+<Background name="NullBackground" />
+<Border><Top style="1" /><Left style="1" /></Border>
+</Style>
+<Style>
+<FRFont name="SimSun" style="0" size="12" />
+<Background name="NullBackground" />
+<Border><Top style="1" /></Border>
+</Style>
+<Style>
+<FRFont name="SimSun" style="0" size="12" />
+<Background name="NullBackground" />
+<Border><Top style="1" /><Right style="1" /></Border>
+</Style>
+<Style>
+<FRFont name="SimSun" style="0" size="14" />
+<Background name="NullBackground" />
+<Border><Bottom style="1" /></Border>
+</Style>
+<Style>
+<FRFont name="SimSun" style="0" size="12" />
+<Background name="NullBackground" />
+<Border><Left style="1" /></Border>
+</Style>
+<Style>
+<FRFont name="SimSun" style="0" size="12" />
+<Background name="NullBackground" />
+<Border><Right style="1" /></Border>
+</Style>
+<Style horizontal_alignment="0">
+<FRFont name="SimSun" style="0" size="12" />
+<Background name="NullBackground" />
+<Border></Border>
+</Style>
+<Style>
+<FRFont name="SimSun" style="0" size="12" />
+<Background name="NullBackground" />
+<Border><Bottom style="1" /><Left style="1" /></Border>
+</Style>
+<Style>
+<FRFont name="SimSun" style="0" size="12" />
+<Background name="NullBackground" />
+<Border><Bottom style="1" /></Border>
+</Style>
+<Style>
+<FRFont name="SimSun" style="0" size="12" />
+<Background name="NullBackground" />
+<Border><Bottom style="1" /><Right style="1" /></Border>
+</Style>
+<Style>
+<FRFont name="SimSun" style="0" size="13" />
+<Background name="NullBackground" />
+<Border></Border>
+</Style>
+</StyleList>
+</WorkBook>

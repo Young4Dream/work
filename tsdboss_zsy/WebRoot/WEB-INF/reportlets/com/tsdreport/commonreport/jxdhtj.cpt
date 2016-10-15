@@ -1,0 +1,896 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<WorkBook xmlVersion="20120203" releaseVersion="7.0.0">
+<TableDataMap>
+<TableData name="ds1" class="com.fr.data.impl.DBTableData">
+<Parameters>
+<Parameter>
+<Attributes name="countMonth" isAutoInc="false"/>
+<O>
+<![CDATA[201610]]></O>
+</Parameter>
+</Parameters>
+<Attributes maxMemRowCount="-1"/>
+<Connection class="com.fr.data.impl.NameDatabaseConnection">
+<DatabaseName>
+<![CDATA[tsdBilling]]></DatabaseName>
+</Connection>
+<Query>
+<![CDATA[select substr(cmonth,5,2) cm, a.*  from dhtj a where substr(cmonth,1,4)=substr('${countMonth}',1,4) order by yhlb,jx]]></Query>
+</TableData>
+</TableDataMap>
+<ReportWebAttr>
+<ServerPrinter/>
+</ReportWebAttr>
+<Report class="com.fr.report.WorkSheet" name="sheet1">
+<ReportPageAttr>
+<HR/>
+<FR/>
+<HC/>
+<FC/>
+</ReportPageAttr>
+<RowHeight defaultValue="723900">
+<![CDATA[1714500,762000,762000,762000,723900,723900,723900,723900,723900,723900]]></RowHeight>
+<ColumnWidth defaultValue="2743200">
+<![CDATA[2590800,4000500,3048000,1656000,1656000,1656000,1656000,1656000,1656000,1656000,1656000,1656000,1656000,1656000,1656000,5029200,2743200]]></ColumnWidth>
+<CellElementList>
+<C c="0" r="0" cs="16" s="0">
+<O t="Formula" class="Formula">
+<Attributes>
+<![CDATA[=left($countMonth, 4) + "年在用电话统计表"]]></Attributes>
+</O>
+<CellGUIAttr/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="0" r="1" cs="16" s="1">
+<O t="Formula" class="Formula">
+<Attributes>
+<![CDATA[=CONCATENATE("统计月份：  ", $countMonth)]]></Attributes>
+</O>
+<CellGUIAttr/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="0" r="2" rs="2" s="2">
+<O>
+<![CDATA[电话属性]]></O>
+<CellGUIAttr/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="1" r="2" rs="2" s="2">
+<O>
+<![CDATA[业务区域]]></O>
+<CellGUIAttr/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="2" r="2" rs="2" s="2">
+<O>
+<![CDATA[局向]]></O>
+<CellGUIAttr/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="3" r="2" cs="12" s="2">
+<O>
+<![CDATA[月电话数]]></O>
+<CellGUIAttr/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="15" r="2" rs="2" s="2">
+<O>
+<![CDATA[备注]]></O>
+<CellGUIAttr/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="3" r="3" s="2">
+<O>
+<![CDATA[一月]]></O>
+<CellGUIAttr/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="4" r="3" s="2">
+<O>
+<![CDATA[二月]]></O>
+<CellGUIAttr/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="5" r="3" s="2">
+<O>
+<![CDATA[三月]]></O>
+<CellGUIAttr/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="6" r="3" s="2">
+<O>
+<![CDATA[四月]]></O>
+<CellGUIAttr/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="7" r="3" s="2">
+<O>
+<![CDATA[五月]]></O>
+<CellGUIAttr/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="8" r="3" s="2">
+<O>
+<![CDATA[六月]]></O>
+<CellGUIAttr/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="9" r="3" s="2">
+<O>
+<![CDATA[七月]]></O>
+<CellGUIAttr/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="10" r="3" s="2">
+<O>
+<![CDATA[八月]]></O>
+<CellGUIAttr/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="11" r="3" s="2">
+<O>
+<![CDATA[九月]]></O>
+<CellGUIAttr/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="12" r="3" s="2">
+<O>
+<![CDATA[十月]]></O>
+<CellGUIAttr/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="13" r="3" s="2">
+<O>
+<![CDATA[十一月]]></O>
+<CellGUIAttr/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="14" r="3" s="2">
+<O>
+<![CDATA[十二月]]></O>
+<CellGUIAttr/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="0" r="4" rs="2" s="2">
+<O t="DSColumn">
+<Attributes dsName="ds1" columnName="YHLB"/>
+<Condition class="com.fr.data.condition.ListCondition"/>
+<Complex/>
+<RG class="com.fr.report.cellElement.core.FunctionGrouper"/>
+<Parameters/>
+</O>
+<CellGUIAttr/>
+<CellPageAttr/>
+<Expand dir="0"/>
+</C>
+<C c="1" r="4" rs="2" s="2">
+<O t="DSColumn">
+<Attributes dsName="ds1" columnName="AREAS"/>
+<Complex/>
+<RG class="com.fr.report.cellElement.core.FunctionGrouper"/>
+<Parameters/>
+</O>
+<CellGUIAttr/>
+<CellPageAttr/>
+<Expand dir="0"/>
+</C>
+<C c="2" r="4" s="2">
+<O t="DSColumn">
+<Attributes dsName="ds1" columnName="JX"/>
+<Complex order="1"/>
+<RG class="com.fr.report.cellElement.core.FunctionGrouper"/>
+<Result>
+<![CDATA[$$$]]></Result>
+<Parameters/>
+</O>
+<CellGUIAttr/>
+<CellPageAttr/>
+<Expand dir="0"/>
+</C>
+<C c="3" r="4" s="2">
+<O t="DSColumn">
+<Attributes dsName="ds1" columnName="DH"/>
+<Condition class="com.fr.data.condition.ListCondition">
+<JoinCondition join="0">
+<Condition class="com.fr.data.condition.CommonCondition">
+<CNUMBER>
+<![CDATA[1]]></CNUMBER>
+<CNAME>
+<![CDATA[CM]]></CNAME>
+<Compare op="0">
+<O>
+<![CDATA[01]]></O>
+</Compare>
+</Condition>
+</JoinCondition>
+</Condition>
+<Complex/>
+<RG class="com.fr.report.cellElement.core.SummaryGrouper">
+<FN>
+<![CDATA[com.fr.data.util.function.CountFunction]]></FN>
+</RG>
+<Result>
+<![CDATA[if($$$=0,"",$$$)]]></Result>
+<Parameters/>
+</O>
+<CellGUIAttr/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="4" r="4" s="2">
+<O t="DSColumn">
+<Attributes dsName="ds1" columnName="DH"/>
+<Condition class="com.fr.data.condition.ListCondition">
+<JoinCondition join="0">
+<Condition class="com.fr.data.condition.CommonCondition">
+<CNUMBER>
+<![CDATA[1]]></CNUMBER>
+<CNAME>
+<![CDATA[CM]]></CNAME>
+<Compare op="0">
+<O>
+<![CDATA[02]]></O>
+</Compare>
+</Condition>
+</JoinCondition>
+</Condition>
+<Complex/>
+<RG class="com.fr.report.cellElement.core.SummaryGrouper">
+<FN>
+<![CDATA[com.fr.data.util.function.CountFunction]]></FN>
+</RG>
+<Result>
+<![CDATA[if($$$=0,"",$$$)]]></Result>
+<Parameters/>
+</O>
+<CellGUIAttr/>
+<CellPageAttr/>
+<Expand leftParentDefault="false" left="C5"/>
+</C>
+<C c="5" r="4" s="2">
+<O t="DSColumn">
+<Attributes dsName="ds1" columnName="DH"/>
+<Condition class="com.fr.data.condition.ListCondition">
+<JoinCondition join="0">
+<Condition class="com.fr.data.condition.CommonCondition">
+<CNUMBER>
+<![CDATA[1]]></CNUMBER>
+<CNAME>
+<![CDATA[CM]]></CNAME>
+<Compare op="0">
+<O>
+<![CDATA[03]]></O>
+</Compare>
+</Condition>
+</JoinCondition>
+</Condition>
+<Complex/>
+<RG class="com.fr.report.cellElement.core.SummaryGrouper">
+<FN>
+<![CDATA[com.fr.data.util.function.CountFunction]]></FN>
+</RG>
+<Result>
+<![CDATA[if($$$=0,"",$$$)]]></Result>
+<Parameters/>
+</O>
+<CellGUIAttr/>
+<CellPageAttr/>
+<Expand leftParentDefault="false" left="C5"/>
+</C>
+<C c="6" r="4" s="2">
+<O t="DSColumn">
+<Attributes dsName="ds1" columnName="DH"/>
+<Condition class="com.fr.data.condition.ListCondition">
+<JoinCondition join="0">
+<Condition class="com.fr.data.condition.CommonCondition">
+<CNUMBER>
+<![CDATA[1]]></CNUMBER>
+<CNAME>
+<![CDATA[CM]]></CNAME>
+<Compare op="0">
+<O>
+<![CDATA[04]]></O>
+</Compare>
+</Condition>
+</JoinCondition>
+</Condition>
+<Complex/>
+<RG class="com.fr.report.cellElement.core.SummaryGrouper">
+<FN>
+<![CDATA[com.fr.data.util.function.CountFunction]]></FN>
+</RG>
+<Result>
+<![CDATA[if($$$=0,"",$$$)]]></Result>
+<Parameters/>
+</O>
+<CellGUIAttr/>
+<CellPageAttr/>
+<Expand leftParentDefault="false" left="C5"/>
+</C>
+<C c="7" r="4" s="2">
+<O t="DSColumn">
+<Attributes dsName="ds1" columnName="DH"/>
+<Condition class="com.fr.data.condition.ListCondition">
+<JoinCondition join="0">
+<Condition class="com.fr.data.condition.CommonCondition">
+<CNUMBER>
+<![CDATA[1]]></CNUMBER>
+<CNAME>
+<![CDATA[CM]]></CNAME>
+<Compare op="0">
+<O>
+<![CDATA[05]]></O>
+</Compare>
+</Condition>
+</JoinCondition>
+</Condition>
+<Complex/>
+<RG class="com.fr.report.cellElement.core.SummaryGrouper">
+<FN>
+<![CDATA[com.fr.data.util.function.CountFunction]]></FN>
+</RG>
+<Result>
+<![CDATA[if($$$=0,"",$$$)]]></Result>
+<Parameters/>
+</O>
+<CellGUIAttr/>
+<CellPageAttr/>
+<Expand leftParentDefault="false" left="C5"/>
+</C>
+<C c="8" r="4" s="2">
+<O t="DSColumn">
+<Attributes dsName="ds1" columnName="DH"/>
+<Condition class="com.fr.data.condition.ListCondition">
+<JoinCondition join="0">
+<Condition class="com.fr.data.condition.CommonCondition">
+<CNUMBER>
+<![CDATA[1]]></CNUMBER>
+<CNAME>
+<![CDATA[CM]]></CNAME>
+<Compare op="0">
+<O>
+<![CDATA[06]]></O>
+</Compare>
+</Condition>
+</JoinCondition>
+</Condition>
+<Complex/>
+<RG class="com.fr.report.cellElement.core.SummaryGrouper">
+<FN>
+<![CDATA[com.fr.data.util.function.CountFunction]]></FN>
+</RG>
+<Result>
+<![CDATA[if($$$=0,"",$$$)]]></Result>
+<Parameters/>
+</O>
+<CellGUIAttr/>
+<CellPageAttr/>
+<Expand leftParentDefault="false" left="C5"/>
+</C>
+<C c="9" r="4" s="2">
+<O t="DSColumn">
+<Attributes dsName="ds1" columnName="DH"/>
+<Condition class="com.fr.data.condition.ListCondition">
+<JoinCondition join="0">
+<Condition class="com.fr.data.condition.CommonCondition">
+<CNUMBER>
+<![CDATA[1]]></CNUMBER>
+<CNAME>
+<![CDATA[CM]]></CNAME>
+<Compare op="0">
+<O>
+<![CDATA[07]]></O>
+</Compare>
+</Condition>
+</JoinCondition>
+</Condition>
+<Complex/>
+<RG class="com.fr.report.cellElement.core.SummaryGrouper">
+<FN>
+<![CDATA[com.fr.data.util.function.CountFunction]]></FN>
+</RG>
+<Result>
+<![CDATA[if($$$=0,"",$$$)]]></Result>
+<Parameters/>
+</O>
+<CellGUIAttr/>
+<CellPageAttr/>
+<Expand leftParentDefault="false" left="C5"/>
+</C>
+<C c="10" r="4" s="2">
+<O t="DSColumn">
+<Attributes dsName="ds1" columnName="DH"/>
+<Condition class="com.fr.data.condition.ListCondition">
+<JoinCondition join="0">
+<Condition class="com.fr.data.condition.CommonCondition">
+<CNUMBER>
+<![CDATA[1]]></CNUMBER>
+<CNAME>
+<![CDATA[CM]]></CNAME>
+<Compare op="0">
+<O>
+<![CDATA[08]]></O>
+</Compare>
+</Condition>
+</JoinCondition>
+</Condition>
+<Complex/>
+<RG class="com.fr.report.cellElement.core.SummaryGrouper">
+<FN>
+<![CDATA[com.fr.data.util.function.CountFunction]]></FN>
+</RG>
+<Result>
+<![CDATA[if($$$=0,"",$$$)]]></Result>
+<Parameters/>
+</O>
+<CellGUIAttr/>
+<CellPageAttr/>
+<Expand leftParentDefault="false" left="C5"/>
+</C>
+<C c="11" r="4" s="2">
+<O t="DSColumn">
+<Attributes dsName="ds1" columnName="DH"/>
+<Condition class="com.fr.data.condition.ListCondition">
+<JoinCondition join="0">
+<Condition class="com.fr.data.condition.CommonCondition">
+<CNUMBER>
+<![CDATA[1]]></CNUMBER>
+<CNAME>
+<![CDATA[CM]]></CNAME>
+<Compare op="0">
+<O>
+<![CDATA[09]]></O>
+</Compare>
+</Condition>
+</JoinCondition>
+</Condition>
+<Complex/>
+<RG class="com.fr.report.cellElement.core.SummaryGrouper">
+<FN>
+<![CDATA[com.fr.data.util.function.CountFunction]]></FN>
+</RG>
+<Result>
+<![CDATA[if($$$=0,"",$$$)]]></Result>
+<Parameters/>
+</O>
+<CellGUIAttr/>
+<CellPageAttr/>
+<Expand leftParentDefault="false" left="C5"/>
+</C>
+<C c="12" r="4" s="2">
+<O t="DSColumn">
+<Attributes dsName="ds1" columnName="DH"/>
+<Condition class="com.fr.data.condition.ListCondition">
+<JoinCondition join="0">
+<Condition class="com.fr.data.condition.CommonCondition">
+<CNUMBER>
+<![CDATA[1]]></CNUMBER>
+<CNAME>
+<![CDATA[CM]]></CNAME>
+<Compare op="0">
+<O>
+<![CDATA[10]]></O>
+</Compare>
+</Condition>
+</JoinCondition>
+</Condition>
+<Complex/>
+<RG class="com.fr.report.cellElement.core.SummaryGrouper">
+<FN>
+<![CDATA[com.fr.data.util.function.CountFunction]]></FN>
+</RG>
+<Result>
+<![CDATA[if($$$=0,"",$$$)]]></Result>
+<Parameters/>
+</O>
+<CellGUIAttr/>
+<CellPageAttr/>
+<Expand leftParentDefault="false" left="C5"/>
+</C>
+<C c="13" r="4" s="2">
+<O t="DSColumn">
+<Attributes dsName="ds1" columnName="DH"/>
+<Condition class="com.fr.data.condition.ListCondition">
+<JoinCondition join="0">
+<Condition class="com.fr.data.condition.CommonCondition">
+<CNUMBER>
+<![CDATA[1]]></CNUMBER>
+<CNAME>
+<![CDATA[CM]]></CNAME>
+<Compare op="0">
+<O>
+<![CDATA[11]]></O>
+</Compare>
+</Condition>
+</JoinCondition>
+</Condition>
+<Complex/>
+<RG class="com.fr.report.cellElement.core.SummaryGrouper">
+<FN>
+<![CDATA[com.fr.data.util.function.CountFunction]]></FN>
+</RG>
+<Result>
+<![CDATA[if($$$=0,"",$$$)]]></Result>
+<Parameters/>
+</O>
+<CellGUIAttr/>
+<CellPageAttr/>
+<Expand leftParentDefault="false" left="C5"/>
+</C>
+<C c="14" r="4" s="2">
+<O t="DSColumn">
+<Attributes dsName="ds1" columnName="DH"/>
+<Condition class="com.fr.data.condition.ListCondition">
+<JoinCondition join="0">
+<Condition class="com.fr.data.condition.CommonCondition">
+<CNUMBER>
+<![CDATA[1]]></CNUMBER>
+<CNAME>
+<![CDATA[CM]]></CNAME>
+<Compare op="0">
+<O>
+<![CDATA[12]]></O>
+</Compare>
+</Condition>
+</JoinCondition>
+</Condition>
+<Complex/>
+<RG class="com.fr.report.cellElement.core.SummaryGrouper">
+<FN>
+<![CDATA[com.fr.data.util.function.CountFunction]]></FN>
+</RG>
+<Result>
+<![CDATA[if($$$=0,"",$$$)]]></Result>
+<Parameters/>
+</O>
+<CellGUIAttr/>
+<CellPageAttr/>
+<Expand leftParentDefault="false" left="C5"/>
+</C>
+<C c="15" r="4" rs="2" s="2">
+<CellGUIAttr/>
+<CellPageAttr/>
+<Expand leftParentDefault="false" left="B5"/>
+</C>
+<C c="2" r="5" s="3">
+<O>
+<![CDATA[小计：]]></O>
+<CellGUIAttr/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="3" r="5" s="4">
+<O t="Formula" class="Formula">
+<Attributes>
+<![CDATA[=if(sum(d5)=0,"",sum(d5))]]></Attributes>
+</O>
+<CellGUIAttr/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="4" r="5" s="4">
+<O t="Formula" class="Formula">
+<Attributes>
+<![CDATA[=if(sum(E5)=0,"",sum(E5))]]></Attributes>
+</O>
+<CellGUIAttr/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="5" r="5" s="4">
+<O t="Formula" class="Formula">
+<Attributes>
+<![CDATA[=if(sum(F5)=0,"",sum(F5))]]></Attributes>
+</O>
+<Expand/>
+</C>
+<C c="6" r="5" s="4">
+<O t="Formula" class="Formula">
+<Attributes>
+<![CDATA[=if(sum(G5)=0,"",sum(G5))]]></Attributes>
+</O>
+<Expand/>
+</C>
+<C c="7" r="5" s="4">
+<O t="Formula" class="Formula">
+<Attributes>
+<![CDATA[=if(sum(H5)=0,"",sum(H5))]]></Attributes>
+</O>
+<Expand/>
+</C>
+<C c="8" r="5" s="4">
+<O t="Formula" class="Formula">
+<Attributes>
+<![CDATA[=if(sum(I5)=0,"",sum(I5))]]></Attributes>
+</O>
+<Expand/>
+</C>
+<C c="9" r="5" s="4">
+<O t="Formula" class="Formula">
+<Attributes>
+<![CDATA[=if(sum(J5)=0,"",sum(J5))]]></Attributes>
+</O>
+<Expand/>
+</C>
+<C c="10" r="5" s="4">
+<O t="Formula" class="Formula">
+<Attributes>
+<![CDATA[=if(sum(K5)=0,"",sum(K5))]]></Attributes>
+</O>
+<Expand/>
+</C>
+<C c="11" r="5" s="4">
+<O t="Formula" class="Formula">
+<Attributes>
+<![CDATA[=if(sum(L5)=0,"",sum(L5))]]></Attributes>
+</O>
+<Expand/>
+</C>
+<C c="12" r="5" s="4">
+<O t="Formula" class="Formula">
+<Attributes>
+<![CDATA[=if(sum(M5)=0,"",sum(M5))]]></Attributes>
+</O>
+<Expand/>
+</C>
+<C c="13" r="5" s="4">
+<O t="Formula" class="Formula">
+<Attributes>
+<![CDATA[=if(sum(N5)=0,"",sum(N5))]]></Attributes>
+</O>
+<Expand/>
+</C>
+<C c="14" r="5" s="4">
+<O t="Formula" class="Formula">
+<Attributes>
+<![CDATA[=if(sum(O5)=0,"",sum(O5))]]></Attributes>
+</O>
+<Expand/>
+</C>
+<C c="0" r="6" cs="3" s="2">
+<O>
+<![CDATA[月在用电话合计：]]></O>
+<CellGUIAttr/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="3" r="6" s="4">
+<O t="Formula" class="Formula">
+<Attributes>
+<![CDATA[=if(sum(D6)=0,"",sum(D6))]]></Attributes>
+</O>
+<CellGUIAttr/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="4" r="6" s="4">
+<O t="Formula" class="Formula">
+<Attributes>
+<![CDATA[=if(sum(E6)=0,"",sum(E6))]]></Attributes>
+</O>
+<Expand/>
+</C>
+<C c="5" r="6" s="4">
+<O t="Formula" class="Formula">
+<Attributes>
+<![CDATA[=if(sum(F6)=0,"",sum(F6))]]></Attributes>
+</O>
+<Expand/>
+</C>
+<C c="6" r="6" s="4">
+<O t="Formula" class="Formula">
+<Attributes>
+<![CDATA[=if(sum(G6)=0,"",sum(G6))]]></Attributes>
+</O>
+<Expand/>
+</C>
+<C c="7" r="6" s="4">
+<O t="Formula" class="Formula">
+<Attributes>
+<![CDATA[=if(sum(H6)=0,"",sum(H6))]]></Attributes>
+</O>
+<Expand/>
+</C>
+<C c="8" r="6" s="4">
+<O t="Formula" class="Formula">
+<Attributes>
+<![CDATA[=if(sum(I6)=0,"",sum(I6))]]></Attributes>
+</O>
+<Expand/>
+</C>
+<C c="9" r="6" s="4">
+<O t="Formula" class="Formula">
+<Attributes>
+<![CDATA[=if(sum(J6)=0,"",sum(J6))]]></Attributes>
+</O>
+<Expand/>
+</C>
+<C c="10" r="6" s="4">
+<O t="Formula" class="Formula">
+<Attributes>
+<![CDATA[=if(sum(K6)=0,"",sum(K6))]]></Attributes>
+</O>
+<Expand/>
+</C>
+<C c="11" r="6" s="4">
+<O t="Formula" class="Formula">
+<Attributes>
+<![CDATA[=if(sum(L6)=0,"",sum(L6))]]></Attributes>
+</O>
+<Expand/>
+</C>
+<C c="12" r="6" s="4">
+<O t="Formula" class="Formula">
+<Attributes>
+<![CDATA[=if(sum(M6)=0,"",sum(M6))]]></Attributes>
+</O>
+<Expand/>
+</C>
+<C c="13" r="6" s="4">
+<O t="Formula" class="Formula">
+<Attributes>
+<![CDATA[=if(sum(N6)=0,"",sum(N6))]]></Attributes>
+</O>
+<Expand/>
+</C>
+<C c="14" r="6" s="4">
+<O t="Formula" class="Formula">
+<Attributes>
+<![CDATA[=if(sum(O6)=0,"",sum(O6))]]></Attributes>
+</O>
+<Expand/>
+</C>
+<C c="15" r="6" s="2">
+<CellGUIAttr/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="0" r="7" s="1">
+<CellGUIAttr/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="1" r="7" s="1">
+<CellGUIAttr/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="2" r="7" s="1">
+<Expand/>
+</C>
+<C c="15" r="7" s="1">
+<Expand/>
+</C>
+<C c="15" r="8">
+<CellGUIAttr/>
+<CellPageAttr/>
+<Expand/>
+</C>
+</CellElementList>
+<ReportAttrSet>
+<ReportSettings headerHeight="0" footerHeight="0">
+<PaperSetting>
+<PaperSize width="42768316" height="60482073"/>
+<Margin top="987552" left="2743199" bottom="987552" right="2743199"/>
+</PaperSetting>
+</ReportSettings>
+<Header reportPageType="0">
+<Background name="NullBackground"/>
+<LeftList/>
+<CenterList/>
+<RightList/>
+</Header>
+<Footer reportPageType="0">
+<Background name="NullBackground"/>
+<LeftList/>
+<CenterList/>
+<RightList/>
+</Footer>
+</ReportAttrSet>
+<ReportWriteAttr/>
+</Report>
+<ReportParameterAttr>
+<Attributes showWindow="true" delayPlaying="true" windowPosition="1" align="1"/>
+<PWTitle>
+<![CDATA[参数]]></PWTitle>
+<ParameterUI class="com.fr.report.parameter.FormParameterUI">
+<DesignAttr width="800" height="200"/>
+<Layout class="com.fr.form.ui.container.WAbsoluteLayout">
+<WidgetName name="para"/>
+<WidgetAttr/>
+<Widget class="com.fr.form.ui.container.WAbsoluteLayout$BoundsWidget">
+<InnerWidget class="com.fr.form.ui.Label">
+<WidgetName name="LabelcountMonth"/>
+<WidgetAttr/>
+<LabelAttr textalign="0" autoline="true"/>
+<widgetValue>
+<O>
+<![CDATA[countMonth:]]></O>
+</widgetValue>
+</InnerWidget>
+<BoundsAttr x="50" y="25" width="80" height="21"/>
+</Widget>
+<Widget class="com.fr.form.ui.container.WAbsoluteLayout$BoundsWidget">
+<InnerWidget class="com.fr.form.ui.EditorHolder">
+<WidgetName name="countMonth"/>
+<WidgetAttr/>
+</InnerWidget>
+<BoundsAttr x="130" y="25" width="80" height="21"/>
+</Widget>
+<Widget class="com.fr.form.ui.container.WAbsoluteLayout$BoundsWidget">
+<InnerWidget class="com.fr.report.web.ui.impl.form.FormSubmitButton">
+<WidgetName name="Search"/>
+<WidgetAttr/>
+<Text>
+<![CDATA[查询]]></Text>
+<Hotkeys>
+<![CDATA[enter]]></Hotkeys>
+</InnerWidget>
+<BoundsAttr x="560" y="25" width="80" height="21"/>
+</Widget>
+<LCAttr vgap="0" hgap="0"/>
+</Layout>
+</ParameterUI>
+</ReportParameterAttr>
+<StyleList>
+<Style horizontal_alignment="0" imageLayout="1">
+<FRFont name="SimSun" style="1" size="144"/>
+<Background name="NullBackground"/>
+<Border/>
+</Style>
+<Style horizontal_alignment="0" imageLayout="1">
+<FRFont name="SimSun" style="0" size="72"/>
+<Background name="NullBackground"/>
+<Border/>
+</Style>
+<Style horizontal_alignment="0" imageLayout="1">
+<FRFont name="SimSun" style="0" size="72"/>
+<Background name="NullBackground"/>
+<Border>
+<Top style="1"/>
+<Bottom style="1"/>
+<Left style="1"/>
+<Right style="1"/>
+</Border>
+</Style>
+<Style horizontal_alignment="0" imageLayout="1">
+<FRFont name="SimSun" style="0" size="72"/>
+<Background name="ColorBackground" color="-1"/>
+<Border>
+<Top style="1"/>
+<Bottom style="1"/>
+<Left style="1"/>
+<Right style="1"/>
+</Border>
+</Style>
+<Style horizontal_alignment="0" imageLayout="1">
+<FRFont name="SimSun" style="0" size="72"/>
+<Background name="ColorBackground" color="-6697729"/>
+<Border>
+<Top style="1"/>
+<Bottom style="1"/>
+<Left style="1"/>
+<Right style="1"/>
+</Border>
+</Style>
+</StyleList>
+</WorkBook>

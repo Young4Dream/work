@@ -1,0 +1,272 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<WorkBook>
+<Version>6.2</Version>
+<Report class="com.fr.report.WorkSheet" name="sheet1">
+<TableDataMap>
+<NameTableData name="teljobflowquery">
+<TableData class="com.fr.data.impl.DBTableData">
+<Parameters>
+<Parameter>
+<Attributes name="JobID"
+ type="0"
+ shown="true" />
+<O t="S"><![CDATA[]]></O>
+</Parameter>
+</Parameters>
+<Attributes isCache="true" isDiskCache="true" />
+<Connection class="com.fr.data.impl.NameDatabaseConnection">
+<DatabaseName><![CDATA[broadband]]></DatabaseName>
+</Connection><Query><![CDATA[select *from radjobflow where JobID='[?JobID|?]' order by jobid,pgid]]></Query>
+</TableData>
+</NameTableData>
+<NameTableData name="sys_user">
+<TableData class="com.fr.data.impl.DBTableData">
+<Parameters>
+</Parameters>
+<Attributes isCache="true" isDiskCache="true" />
+<Connection class="com.fr.data.impl.NameDatabaseConnection">
+<DatabaseName><![CDATA[tsdBilling]]></DatabaseName>
+</Connection><Query><![CDATA[select userid,username from sys_user]]></Query>
+</TableData>
+</NameTableData>
+<NameTableData name="now">
+<TableData class="com.fr.data.impl.DBTableData">
+<Parameters>
+</Parameters>
+<Attributes isCache="true" isDiskCache="true" />
+<Connection class="com.fr.data.impl.NameDatabaseConnection">
+<DatabaseName><![CDATA[broadband]]></DatabaseName>
+</Connection><Query><![CDATA[select now();]]></Query>
+</TableData>
+</NameTableData>
+</TableDataMap>
+<ReportSettings orientation="1" shrinkToFit="false" headerHeight="0.0" footerHeight="0.0">
+<PaperSize width="16.528" height="23.389" />
+<Margin top="0.27" left="0.1968503937007874" bottom="0.27" right="0.1968503937007874" />
+</ReportSettings>
+<ReportPageAttr>
+<HR F="0" T="1" /></ReportPageAttr>
+<ReportParameterAttr>
+<Parameters>
+</Parameters>
+<Attributes showWindow="false" delayPlaying="true" windowPosition="1" userDefineWindow="true" />
+<PWTitle><![CDATA[参数]]></PWTitle>
+<WorkSheet>
+<ReportSettings shrinkToFit="false" headerHeight="0.0" footerHeight="0.0">
+<Margin top="0.27" left="0.75" bottom="0.27" right="0.75" />
+</ReportSettings>
+<ReportParameterAttr>
+<Parameters>
+</Parameters>
+<Attributes showWindow="true" delayPlaying="true" windowPosition="0" userDefineWindow="false" />
+<PWTitle><![CDATA[参数]]></PWTitle>
+</ReportParameterAttr>
+<AutoRecalculate>false</AutoRecalculate>
+<DesignAttributes>
+</DesignAttributes>
+<ReportWebAttr>
+<EmailManager mailHost="" password="___" user="" fromEmailAddress="" />
+<ServerPrinter>
+</ServerPrinter>
+</ReportWebAttr>
+<ReportWriteAttr>
+</ReportWriteAttr>
+<Header reportPageType="0">
+<Background name="NullBackground" />
+<LeftList>
+</LeftList>
+<CenterList>
+</CenterList>
+<RightList>
+</RightList>
+</Header>
+<Footer reportPageType="0">
+<Background name="NullBackground" />
+<LeftList>
+</LeftList>
+<CenterList>
+</CenterList>
+<RightList>
+</RightList>
+</Footer>
+<RowHeight defaultValue="19">
+<![CDATA[]]>
+</RowHeight>
+<ColumnWidth defaultValue="72">
+<![CDATA[83,91,90,55,26,45,100]]>
+</ColumnWidth>
+<CellElementList>
+</CellElementList>
+</WorkSheet>
+</ReportParameterAttr>
+<AutoRecalculate>false</AutoRecalculate>
+<DesignAttributes>
+</DesignAttributes>
+<ReportWebAttr>
+<EmailManager mailHost="" password="___" user="" fromEmailAddress="" />
+<ServerPrinter>
+</ServerPrinter>
+</ReportWebAttr>
+<ReportWriteAttr>
+</ReportWriteAttr>
+<Header reportPageType="0">
+<Background name="NullBackground" />
+<LeftList>
+</LeftList>
+<CenterList>
+</CenterList>
+<RightList>
+</RightList>
+</Header>
+<Footer reportPageType="0">
+<Background name="NullBackground" />
+<LeftList>
+</LeftList>
+<CenterList>
+</CenterList>
+<RightList>
+</RightList>
+</Footer>
+<RowHeight defaultValue="19">
+<![CDATA[40,30,28,28]]>
+</RowHeight>
+<ColumnWidth defaultValue="72">
+<![CDATA[40,60,85,80,70,70,65,70,70,65,58,70,120,120,70,70]]>
+</ColumnWidth>
+<CellElementList>
+<C c="0" r="0" cs="16" s="0"><O t="S"><![CDATA[宽带工单查询]]></O>
+</C>
+<C c="0" r="1" s="1"><O t="S"><![CDATA[序号]]></O>
+</C>
+<C c="1" r="1" s="1"><O t="S"><![CDATA[工单号]]></O>
+</C>
+<C c="2" r="1" s="1"><O t="S"><![CDATA[流程序号]]></O>
+</C>
+<C c="3" r="1" s="1"><O t="S"><![CDATA[发送人员]]></O>
+</C>
+<C c="4" r="1" s="1"><O t="S"><![CDATA[发送部门]]></O>
+</C>
+<C c="5" r="1" s="1"><O t="S"><![CDATA[发送时间]]></O>
+</C>
+<C c="6" r="1" s="1"><O t="S"><![CDATA[接收人员]]></O>
+</C>
+<C c="7" r="1" s="1"><O t="S"><![CDATA[接收部门]]></O>
+</C>
+<C c="8" r="1" s="1"><O t="S"><![CDATA[接收时间]]></O>
+</C>
+<C c="9" r="1" s="1"><O t="S"><![CDATA[是否已接收]]></O>
+</C>
+<C c="10" r="1" s="1"><O t="S"><![CDATA[是否完成]]></O>
+</C>
+<C c="11" r="1" s="1"><O t="S"><![CDATA[预警时间]]></O>
+</C>
+<C c="12" r="1" s="1"><O t="S"><![CDATA[部门超时时间]]></O>
+</C>
+<C c="13" r="1" s="1"><O t="S"><![CDATA[工单超时时间]]></O>
+</C>
+<C c="14" r="1" s="1"><O t="S"><![CDATA[完成人员]]></O>
+</C>
+<C c="15" r="1" s="1"><O t="S"><![CDATA[完成时间]]></O>
+</C>
+<C c="0" r="2" s="1"><O t="Formula" class="Formula" ><Attributes><![CDATA[=&B3]]></Attributes></O>
+<Expand dir="0" leftParentDefault="false" left="B3" />
+</C>
+<C c="1" r="2" s="1"><O t="DSColumn"><Attributes dsName="teljobflowquery" columnName="jobid" />
+<Condition class="com.fr.data.condition.ListCondition"></Condition>
+<RG class="com.fr.report.cellElement.core.FunctionGrouper"><Attr divideMode="1" /></RG><Result><![CDATA[$$$]]></Result></O>
+<Expand dir="0" leftParentDefault="false" />
+</C>
+<C c="2" r="2" s="1"><O t="DSColumn"><Attributes dsName="teljobflowquery" columnName="PgID" />
+<RG class="com.fr.report.cellElement.core.FunctionGrouper"></RG></O>
+<Expand dir="0" />
+</C>
+<C c="3" r="2" s="1"><O t="DSColumn"><Attributes dsName="sys_user" columnName="username" />
+<Condition class="com.fr.data.condition.CommonCondition"><CNAME><![CDATA[userid]]></CNAME><Compare op="0">
+<AnDSColumn dsName="teljobflowquery" columnName="Fsry" /></Compare>
+</Condition>
+<RG class="com.fr.report.cellElement.core.FunctionGrouper"></RG><Result><![CDATA[$$$]]></Result></O>
+<Expand dir="0" />
+</C>
+<C c="4" r="2" s="1"><O t="DSColumn"><Attributes dsName="teljobflowquery" columnName="Fsbm" />
+<RG class="com.fr.report.cellElement.core.FunctionGrouper"></RG></O>
+<Expand dir="0" />
+</C>
+<C c="5" r="2" s="1"><O t="DSColumn"><Attributes dsName="teljobflowquery" columnName="Fsrq" />
+<RG class="com.fr.report.cellElement.core.FunctionGrouper"></RG></O>
+<Expand dir="0" />
+</C>
+<C c="6" r="2" s="1"><O t="DSColumn"><Attributes dsName="sys_user" columnName="username" />
+<Condition class="com.fr.data.condition.CommonCondition"><CNAME><![CDATA[userid]]></CNAME><Compare op="0">
+<AnDSColumn dsName="teljobflowquery" columnName="Ry" /></Compare>
+</Condition>
+<RG class="com.fr.report.cellElement.core.FunctionGrouper"></RG><Result><![CDATA[$$$]]></Result></O>
+<Expand dir="0" />
+</C>
+<C c="7" r="2" s="1"><O t="DSColumn"><Attributes dsName="teljobflowquery" columnName="Bm" />
+<RG class="com.fr.report.cellElement.core.FunctionGrouper"></RG></O>
+<Expand dir="0" />
+</C>
+<C c="8" r="2" s="1"><O t="DSColumn"><Attributes dsName="teljobflowquery" columnName="OperTime" />
+<RG class="com.fr.report.cellElement.core.FunctionGrouper"></RG></O>
+<Expand dir="0" />
+</C>
+<C c="9" r="2" s="1"><O t="DSColumn"><Attributes dsName="teljobflowquery" columnName="Rw" />
+<Condition class="com.fr.data.condition.ListCondition"></Condition>
+<RG class="com.fr.report.cellElement.core.FunctionGrouper"></RG><Result><![CDATA[IF(Rw=="Y","已接收","未接收")]]></Result></O>
+<Expand dir="0" />
+</C>
+<C c="10" r="2" s="1"><O t="DSColumn"><Attributes dsName="teljobflowquery" columnName="Wcqk" />
+<Condition class="com.fr.data.condition.ListCondition"></Condition>
+<RG class="com.fr.report.cellElement.core.FunctionGrouper"></RG><Result><![CDATA[IF(Wcqk=="Y","已完成","未完成")]]></Result></O>
+<Expand dir="0" />
+</C>
+<C c="11" r="2" s="1"><O t="DSColumn"><Attributes dsName="teljobflowquery" columnName="dtwaringtime" />
+<RG class="com.fr.report.cellElement.core.FunctionGrouper"></RG></O>
+<Expand dir="0" />
+</C>
+<C c="12" r="2" s="1"><O t="DSColumn"><Attributes dsName="teljobflowquery" columnName="dttimeout" />
+<RG class="com.fr.report.cellElement.core.FunctionGrouper"></RG></O>
+<Expand dir="0" />
+</C>
+<C c="13" r="2" s="1"><O t="DSColumn"><Attributes dsName="teljobflowquery" columnName="dtjobtimeout" />
+<RG class="com.fr.report.cellElement.core.FunctionGrouper"></RG></O>
+<Expand dir="0" />
+</C>
+<C c="14" r="2" s="1"><O t="DSColumn"><Attributes dsName="teljobflowquery" columnName="Wcry" />
+<RG class="com.fr.report.cellElement.core.FunctionGrouper"></RG></O>
+<Expand dir="0" />
+</C>
+<C c="15" r="2" s="1"><O t="DSColumn"><Attributes dsName="teljobflowquery" columnName="Wcrq" />
+<RG class="com.fr.report.cellElement.core.FunctionGrouper"></RG></O>
+<Expand dir="0" />
+</C>
+<C c="1" r="3" s="2"><O t="S"><![CDATA[统计人：]]></O>
+</C>
+<C c="2" r="3" cs="3"><O t="Formula" class="Formula" ><Attributes><![CDATA[=$username]]></Attributes></O>
+</C>
+<C c="13" r="3" s="2"><O t="S"><![CDATA[统计时间：]]></O>
+</C>
+<C c="14" r="3" cs="2"><O t="DSColumn"><Attributes dsName="now" columnName="now()" />
+<RG class="com.fr.report.cellElement.core.FunctionGrouper"></RG></O>
+<Expand dir="0" />
+</C>
+</CellElementList>
+</Report>
+<StyleList>
+<Style horizontal_alignment="0">
+<FRFont name="SimSun" style="1" size="18" />
+<Background name="NullBackground" />
+<Border></Border>
+</Style>
+<Style horizontal_alignment="0">
+<FRFont name="SimSun" style="0" size="12" />
+<Background name="NullBackground" />
+<Border><Top style="1" /><Bottom style="1" /><Left style="1" /><Right style="1" /></Border>
+</Style>
+<Style horizontal_alignment="4">
+<FRFont name="SimSun" style="0" size="12" />
+<Background name="NullBackground" />
+<Border></Border>
+</Style>
+</StyleList>
+</WorkBook>

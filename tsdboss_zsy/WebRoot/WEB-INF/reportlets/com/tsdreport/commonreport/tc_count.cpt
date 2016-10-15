@@ -1,0 +1,508 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<WorkBook>
+<Version>6.2</Version>
+<Report class="com.fr.report.WorkSheet" name="sheet1">
+<TableDataMap>
+<NameTableData name="E家套餐统计">
+<TableData class="com.fr.data.impl.DBTableData">
+<Parameters>
+<Parameter>
+<Attributes name="hzyf"
+ type="0"
+ shown="true" />
+<O t="S"><![CDATA[]]></O>
+</Parameter>
+<Parameter>
+<Attributes name="userid"
+ type="0"
+ shown="true" />
+<O t="S"><![CDATA[]]></O>
+</Parameter>
+<Parameter>
+<Attributes name="uarea"
+ type="0"
+ shown="true" />
+<O t="S"><![CDATA[]]></O>
+<CellEditorDef class="com.fr.report.cellElement.ComboBoxCellEditorDef"><Attributes allowBlank="true" />
+<Dict class="com.fr.data.impl.DatabaseDictionary">
+<DBDictAttr tableName="Area_Ywsl" keyColumnIndex="2" valueColumnIndex="2"/>
+<Connection class="com.fr.data.impl.NameDatabaseConnection">
+<DatabaseName><![CDATA[tsdBilling]]></DatabaseName>
+</Connection></Dict></CellEditorDef>
+</Parameter>
+</Parameters>
+<Attributes isCache="true" isDiskCache="true" />
+<Connection class="com.fr.data.impl.NameDatabaseConnection">
+<DatabaseName><![CDATA[tsdBilling]]></DatabaseName>
+</Connection><Query><![CDATA[exec tc_count '[?hzyf|?]','[?userid|?]','[?uarea|?]']]></Query>
+</TableData>
+</NameTableData>
+</TableDataMap>
+<ReportSettings shrinkToFit="false" headerHeight="0.0" footerHeight="0.0">
+<Margin top="0.27" left="0.7499999999999999" bottom="0.27" right="0.7499999999999999" />
+</ReportSettings>
+<ReportPageAttr>
+<HR F="0" T="2" /></ReportPageAttr>
+<ReportParameterAttr>
+<Parameters>
+</Parameters>
+<Attributes showWindow="true" delayPlaying="true" windowPosition="1" userDefineWindow="true" />
+<PWTitle><![CDATA[参数]]></PWTitle>
+<WorkSheet>
+<ReportSettings shrinkToFit="false" headerHeight="0.0" footerHeight="0.0">
+<Margin top="0.27" left="0.75" bottom="0.27" right="0.75" />
+</ReportSettings>
+<ReportParameterAttr>
+<Parameters>
+</Parameters>
+<Attributes showWindow="true" delayPlaying="true" windowPosition="0" userDefineWindow="false" />
+<PWTitle><![CDATA[参数]]></PWTitle>
+</ReportParameterAttr>
+<AutoRecalculate>false</AutoRecalculate>
+<DesignAttributes>
+</DesignAttributes>
+<ReportWebAttr>
+<EmailManager mailHost="" password="___" user="" fromEmailAddress="" />
+<ServerPrinter>
+</ServerPrinter>
+</ReportWebAttr>
+<ReportWriteAttr>
+</ReportWriteAttr>
+<Header reportPageType="0">
+<Background name="NullBackground" />
+<LeftList>
+</LeftList>
+<CenterList>
+</CenterList>
+<RightList>
+</RightList>
+</Header>
+<Footer reportPageType="0">
+<Background name="NullBackground" />
+<LeftList>
+</LeftList>
+<CenterList>
+</CenterList>
+<RightList>
+</RightList>
+</Footer>
+<RowHeight defaultValue="19">
+<![CDATA[19,32,51,19,25]]>
+</RowHeight>
+<ColumnWidth defaultValue="72">
+<![CDATA[83,69,92,29,72,123,32]]>
+</ColumnWidth>
+<CellElementList>
+<C c="0" r="1" rs="2" s="0"><O t="S"><![CDATA[报表说明：]]></O>
+</C>
+<C c="1" r="1" cs="6" s="1"><O t="S"><![CDATA[1、此报表用于统计某月套餐捆绑号码，并按照分类提供明细。]]></O>
+</C>
+<C c="1" r="2" cs="6" s="2"><O t="S"><![CDATA[2、统计月份输入格式为6位数字。例：统计2010年1月的宽带用户，在统计月份中录入“201001”然后点击查询即可。]]></O>
+</C>
+<C c="1" r="4" s="3"><O t="S"><![CDATA[统计月份：]]></O>
+</C>
+<C c="2" r="4"><O t="PR" >
+<ParameterRef name="hzyf" />
+</O>
+</C>
+<C c="4" r="4"><O t="S"><![CDATA[用户区域：]]></O>
+</C>
+<C c="5" r="4"><O t="PR" >
+<ParameterRef name="uarea" />
+</O>
+</C>
+<C c="7" r="4"><O t="PB" >
+<ParameterButton name="查询" type="0" />
+</O>
+</C>
+</CellElementList>
+</WorkSheet>
+</ReportParameterAttr>
+<AutoRecalculate>false</AutoRecalculate>
+<DesignAttributes>
+</DesignAttributes>
+<ReportWebAttr>
+<EmailManager mailHost="" password="___" user="" fromEmailAddress="" />
+<ServerPrinter>
+</ServerPrinter>
+</ReportWebAttr>
+<ReportWriteAttr>
+</ReportWriteAttr>
+<Header reportPageType="0">
+<Background name="NullBackground" />
+<LeftList>
+</LeftList>
+<CenterList>
+</CenterList>
+<RightList>
+</RightList>
+</Header>
+<Footer reportPageType="0">
+<Background name="NullBackground" />
+<LeftList>
+</LeftList>
+<CenterList>
+</CenterList>
+<RightList>
+</RightList>
+</Footer>
+<RowHeight defaultValue="19">
+<![CDATA[40,25,30,25,25,25,25,25,25,25,25,25]]>
+</RowHeight>
+<ColumnWidth defaultValue="72">
+<![CDATA[72,98,130,103]]>
+</ColumnWidth>
+<CellElementList>
+<C c="1" r="0" cs="3" s="4"><O t="S"><![CDATA[套餐捆绑号码统计]]></O>
+</C>
+<C c="1" r="1" cs="2"><O t="Formula" class="Formula" ><Attributes><![CDATA[="统计月份："+$hzyf]]></Attributes></O>
+</C>
+<C c="0" r="2" s="5"></C>
+<C c="1" r="2" s="6"><O t="S"><![CDATA[区域]]></O>
+</C>
+<C c="2" r="2" s="6"><O t="S"><![CDATA[套餐名称]]></O>
+</C>
+<C c="3" r="2" s="6"><O t="S"><![CDATA[捆绑手机数]]></O>
+</C>
+<C c="4" r="2" s="5"></C>
+<C c="1" r="3" rs="7" s="7"><O t="DSColumn"><Attributes dsName="E家套餐统计" columnName="area" />
+<RG class="com.fr.report.cellElement.core.FunctionGrouper"></RG></O>
+<Expand dir="0" />
+</C>
+<C c="2" r="3" s="7"><O t="S"><![CDATA[套餐包一（私费）]]></O>
+</C>
+<C c="3" r="3" s="7"><O t="DSColumn"><Attributes dsName="E家套餐统计" columnName="tcs1" />
+<RG class="com.fr.report.cellElement.core.FunctionGrouper"></RG></O>
+<NameJavaScriptGroup>
+<NameJavaScript name="套餐1">
+<JavaScript class="com.fr.report.javaScript.ReportletHyperlink"><TargetFrame><![CDATA[_blank]]></TargetFrame>
+<ReportletName extendParameters="false"><![CDATA[/com/tsdreport/commonreport/tc1_count_mingxi.cpt]]></ReportletName>
+<Parameters>
+<Parameter>
+<Attributes name="param_hzyf"
+ type="7"
+ shown="true" />
+<O t="Formula" class="Formula" ><Attributes><![CDATA[=if($hzyf=="","1=1","convert(varchar(6),a.createdate,112)="+$hzyf)]]></Attributes></O>
+</Parameter>
+<Parameter>
+<Attributes name="uarea"
+ type="7"
+ shown="true" />
+<O t="Formula" class="Formula" ><Attributes><![CDATA[=b4]]></Attributes></O>
+</Parameter>
+<Parameter>
+<Attributes name="pkid"
+ type="0"
+ shown="true" />
+<O t="S"><![CDATA[10]]></O>
+</Parameter>
+<Parameter>
+<Attributes name="tcname"
+ type="7"
+ shown="true" />
+<O t="Formula" class="Formula" ><Attributes><![CDATA[=c4]]></Attributes></O>
+</Parameter>
+</Parameters>
+</JavaScript>
+</NameJavaScript>
+</NameJavaScriptGroup>
+<Expand dir="0" />
+</C>
+<C c="2" r="4" s="7"><O t="S"><![CDATA[套餐包二（私费）]]></O>
+</C>
+<C c="3" r="4" s="7"><O t="DSColumn"><Attributes dsName="E家套餐统计" columnName="tcs2" />
+<RG class="com.fr.report.cellElement.core.FunctionGrouper"></RG></O>
+<NameJavaScriptGroup>
+<NameJavaScript name="套餐2">
+<JavaScript class="com.fr.report.javaScript.ReportletHyperlink"><TargetFrame><![CDATA[_blank]]></TargetFrame>
+<ReportletName extendParameters="false"><![CDATA[/com/tsdreport/commonreport/tc2_count_mingxi.cpt]]></ReportletName>
+<Parameters>
+<Parameter>
+<Attributes name="param_hzyf"
+ type="7"
+ shown="true" />
+<O t="Formula" class="Formula" ><Attributes><![CDATA[=if($hzyf=="","1=1","convert(varchar(6),a.createdate,112)="+$hzyf)]]></Attributes></O>
+</Parameter>
+<Parameter>
+<Attributes name="uarea"
+ type="7"
+ shown="true" />
+<O t="Formula" class="Formula" ><Attributes><![CDATA[=b4]]></Attributes></O>
+</Parameter>
+<Parameter>
+<Attributes name="pkid"
+ type="0"
+ shown="true" />
+<O t="S"><![CDATA[11]]></O>
+</Parameter>
+<Parameter>
+<Attributes name="tcname"
+ type="7"
+ shown="true" />
+<O t="Formula" class="Formula" ><Attributes><![CDATA[=c5]]></Attributes></O>
+</Parameter>
+</Parameters>
+</JavaScript>
+</NameJavaScript>
+</NameJavaScriptGroup>
+<Expand dir="0" />
+</C>
+<C c="2" r="5" s="7"><O t="S"><![CDATA[套餐包三（私费）]]></O>
+</C>
+<C c="3" r="5" s="7"><O t="DSColumn"><Attributes dsName="E家套餐统计" columnName="tcs3" />
+<RG class="com.fr.report.cellElement.core.FunctionGrouper"></RG></O>
+<NameJavaScriptGroup>
+<NameJavaScript name="套餐3">
+<JavaScript class="com.fr.report.javaScript.ReportletHyperlink"><TargetFrame><![CDATA[_blank]]></TargetFrame>
+<ReportletName extendParameters="false"><![CDATA[/com/tsdreport/commonreport/tc3_count_mingxi.cpt]]></ReportletName>
+<Parameters>
+<Parameter>
+<Attributes name="param_hzyf"
+ type="7"
+ shown="true" />
+<O t="Formula" class="Formula" ><Attributes><![CDATA[=if($hzyf=="","1=1","convert(varchar(6),a.createdate,112)="+$hzyf)]]></Attributes></O>
+</Parameter>
+<Parameter>
+<Attributes name="uarea"
+ type="7"
+ shown="true" />
+<O t="Formula" class="Formula" ><Attributes><![CDATA[=b4]]></Attributes></O>
+</Parameter>
+<Parameter>
+<Attributes name="tcname"
+ type="7"
+ shown="true" />
+<O t="Formula" class="Formula" ><Attributes><![CDATA[=c6]]></Attributes></O>
+</Parameter>
+<Parameter>
+<Attributes name="pkid"
+ type="0"
+ shown="true" />
+<O t="S"><![CDATA[12]]></O>
+</Parameter>
+</Parameters>
+</JavaScript>
+</NameJavaScript>
+</NameJavaScriptGroup>
+<Expand dir="0" />
+</C>
+<C c="2" r="6" s="7"><O t="S"><![CDATA[套餐包一（公费）]]></O>
+</C>
+<C c="3" r="6" s="7"><O t="DSColumn"><Attributes dsName="E家套餐统计" columnName="tcg1" />
+<RG class="com.fr.report.cellElement.core.FunctionGrouper"></RG></O>
+<NameJavaScriptGroup>
+<NameJavaScript name="套餐1">
+<JavaScript class="com.fr.report.javaScript.ReportletHyperlink"><TargetFrame><![CDATA[_blank]]></TargetFrame>
+<ReportletName extendParameters="false"><![CDATA[/com/tsdreport/commonreport/tc1_count_mingxi.cpt]]></ReportletName>
+<Parameters>
+<Parameter>
+<Attributes name="param_hzyf"
+ type="7"
+ shown="true" />
+<O t="Formula" class="Formula" ><Attributes><![CDATA[=if($hzyf=="","1=1","convert(varchar(6),a.createdate,112)="+$hzyf)]]></Attributes></O>
+</Parameter>
+<Parameter>
+<Attributes name="tcname"
+ type="7"
+ shown="true" />
+<O t="Formula" class="Formula" ><Attributes><![CDATA[=c7]]></Attributes></O>
+</Parameter>
+<Parameter>
+<Attributes name="uarea"
+ type="7"
+ shown="true" />
+<O t="Formula" class="Formula" ><Attributes><![CDATA[=b4]]></Attributes></O>
+</Parameter>
+<Parameter>
+<Attributes name="pkid"
+ type="0"
+ shown="true" />
+<O t="S"><![CDATA[13]]></O>
+</Parameter>
+</Parameters>
+</JavaScript>
+</NameJavaScript>
+</NameJavaScriptGroup>
+<Expand dir="0" />
+</C>
+<C c="2" r="7" s="7"><O t="S"><![CDATA[套餐包二（公费）]]></O>
+</C>
+<C c="3" r="7" s="7"><O t="DSColumn"><Attributes dsName="E家套餐统计" columnName="tcg2" />
+<RG class="com.fr.report.cellElement.core.FunctionGrouper"></RG></O>
+<NameJavaScriptGroup>
+<NameJavaScript name="套餐公费2">
+<JavaScript class="com.fr.report.javaScript.ReportletHyperlink"><TargetFrame><![CDATA[_blank]]></TargetFrame>
+<ReportletName extendParameters="false"><![CDATA[/com/tsdreport/commonreport/tc2_count_mingxi.cpt]]></ReportletName>
+<Parameters>
+<Parameter>
+<Attributes name="uarea"
+ type="7"
+ shown="true" />
+<O t="Formula" class="Formula" ><Attributes><![CDATA[=b4]]></Attributes></O>
+</Parameter>
+<Parameter>
+<Attributes name="tcname"
+ type="7"
+ shown="true" />
+<O t="Formula" class="Formula" ><Attributes><![CDATA[=c8]]></Attributes></O>
+</Parameter>
+<Parameter>
+<Attributes name="pkid"
+ type="0"
+ shown="true" />
+<O t="S"><![CDATA[14]]></O>
+</Parameter>
+<Parameter>
+<Attributes name="param_hzyf"
+ type="7"
+ shown="true" />
+<O t="Formula" class="Formula" ><Attributes><![CDATA[=if($hzyf=="","1=1","convert(varchar(6),a.createdate,112)="+$hzyf)]]></Attributes></O>
+</Parameter>
+</Parameters>
+</JavaScript>
+</NameJavaScript>
+</NameJavaScriptGroup>
+<Expand dir="0" />
+</C>
+<C c="2" r="8" s="7"><O t="S"><![CDATA[套餐包三（公费）]]></O>
+</C>
+<C c="3" r="8" s="7"><O t="DSColumn"><Attributes dsName="E家套餐统计" columnName="tcg3" />
+<RG class="com.fr.report.cellElement.core.FunctionGrouper"></RG></O>
+<NameJavaScriptGroup>
+<NameJavaScript name="套餐公费3">
+<JavaScript class="com.fr.report.javaScript.ReportletHyperlink"><TargetFrame><![CDATA[_blank]]></TargetFrame>
+<ReportletName extendParameters="false"><![CDATA[/com/tsdreport/commonreport/tc3_count_mingxi.cpt]]></ReportletName>
+<Parameters>
+<Parameter>
+<Attributes name="tcname"
+ type="7"
+ shown="true" />
+<O t="Formula" class="Formula" ><Attributes><![CDATA[=c9]]></Attributes></O>
+</Parameter>
+<Parameter>
+<Attributes name="param_hzyf"
+ type="7"
+ shown="true" />
+<O t="Formula" class="Formula" ><Attributes><![CDATA[=if($hzyf=="","1=1","convert(varchar(6),a.createdate,112)="+$hzyf)]]></Attributes></O>
+</Parameter>
+<Parameter>
+<Attributes name="pkid"
+ type="0"
+ shown="true" />
+<O t="S"><![CDATA[15]]></O>
+</Parameter>
+<Parameter>
+<Attributes name="uarea"
+ type="7"
+ shown="true" />
+<O t="Formula" class="Formula" ><Attributes><![CDATA[=b4]]></Attributes></O>
+</Parameter>
+</Parameters>
+</JavaScript>
+</NameJavaScript>
+</NameJavaScriptGroup>
+<Expand dir="0" />
+</C>
+<C c="2" r="9" s="8"><O t="S"><![CDATA[小计]]></O>
+</C>
+<C c="3" r="9" s="8"><O t="Formula" class="Formula" ><Attributes><![CDATA[=sum(d4,d5,d6,d7,d8,d9)]]></Attributes></O>
+<NameJavaScriptGroup>
+<NameJavaScript name="套餐小计明细">
+<JavaScript class="com.fr.report.javaScript.ReportletHyperlink"><TargetFrame><![CDATA[_blank]]></TargetFrame>
+<ReportletName extendParameters="false"><![CDATA[/com/tsdreport/commonreport/tcxj_count_mingxi.cpt]]></ReportletName>
+<Parameters>
+<Parameter>
+<Attributes name="uarea"
+ type="7"
+ shown="true" />
+<O t="Formula" class="Formula" ><Attributes><![CDATA[=b4]]></Attributes></O>
+</Parameter>
+<Parameter>
+<Attributes name="param_hzyf"
+ type="7"
+ shown="true" />
+<O t="Formula" class="Formula" ><Attributes><![CDATA[=if($hzyf=="","1=1","convert(varchar(6),a.createdate,112)="+$hzyf)]]></Attributes></O>
+</Parameter>
+</Parameters>
+</JavaScript>
+</NameJavaScript>
+</NameJavaScriptGroup>
+</C>
+<C c="1" r="10" cs="2" s="9"><O t="S"><![CDATA[合计]]></O>
+</C>
+<C c="3" r="10" s="9"><O t="Formula" class="Formula" ><Attributes><![CDATA[=sum(d10)]]></Attributes></O>
+<NameJavaScriptGroup>
+<NameJavaScript name="套餐合计明细">
+<JavaScript class="com.fr.report.javaScript.ReportletHyperlink"><TargetFrame><![CDATA[_blank]]></TargetFrame>
+<ReportletName extendParameters="false"><![CDATA[/com/tsdreport/commonreport/tchj_count_mingxi.cpt]]></ReportletName>
+<Parameters>
+<Parameter>
+<Attributes name="param_hzyf"
+ type="7"
+ shown="true" />
+<O t="Formula" class="Formula" ><Attributes><![CDATA[=if($hzyf=="","1=1","convert(varchar(6),a.createdate,112)="+$hzyf)]]></Attributes></O>
+</Parameter>
+</Parameters>
+</JavaScript>
+</NameJavaScript>
+</NameJavaScriptGroup>
+</C>
+<C c="1" r="11" s="3"><O t="Formula" class="Formula" ><Attributes><![CDATA[="统计人员："+$username]]></Attributes></O>
+</C>
+<C c="2" r="11" cs="2" s="3"><O t="Formula" class="Formula" ><Attributes><![CDATA[="        统计时间："+FORMAT(TODAY(),"yyyy-MM-dd HH:mm:ss")]]></Attributes></O>
+</C>
+</CellElementList>
+</Report>
+<StyleList>
+<Style horizontal_alignment="4">
+<FRFont name="SimSun" style="1" size="14" />
+<Background name="NullBackground" />
+<Border><Bottom style="1" /></Border>
+</Style>
+<Style>
+<FRFont name="SimSun" style="1" size="14" />
+<Background name="NullBackground" />
+<Border></Border>
+</Style>
+<Style>
+<FRFont name="SimSun" style="1" size="14" />
+<Background name="NullBackground" />
+<Border><Bottom style="1" /></Border>
+</Style>
+<Style>
+<FRFont name="SimSun" style="0" size="13" />
+<Background name="NullBackground" />
+<Border></Border>
+</Style>
+<Style horizontal_alignment="0">
+<FRFont name="SimSun" style="1" size="18" />
+<Background name="NullBackground" />
+<Border></Border>
+</Style>
+<Style horizontal_alignment="0">
+<FRFont name="SimSun" style="1" size="15" />
+<Background name="NullBackground" />
+<Border></Border>
+</Style>
+<Style horizontal_alignment="0">
+<FRFont name="SimSun" style="1" size="15" />
+<Background name="NullBackground" />
+<Border><Top style="1" /><Bottom style="1" /><Left style="1" /><Right style="1" /></Border>
+</Style>
+<Style horizontal_alignment="0">
+<FRFont name="SimSun" style="0" size="13" />
+<Background name="NullBackground" />
+<Border><Top style="1" /><Bottom style="1" /><Left style="1" /><Right style="1" /></Border>
+</Style>
+<Style horizontal_alignment="0">
+<FRFont name="SimSun" style="1" size="13" />
+<Background name="NullBackground" />
+<Border><Top style="1" /><Bottom style="1" /><Left style="1" /><Right style="1" /></Border>
+</Style>
+<Style horizontal_alignment="0">
+<FRFont name="SimSun" style="1" size="14" />
+<Background name="NullBackground" />
+<Border><Top style="1" /><Bottom style="1" /><Left style="1" /><Right style="1" /></Border>
+</Style>
+</StyleList>
+</WorkBook>

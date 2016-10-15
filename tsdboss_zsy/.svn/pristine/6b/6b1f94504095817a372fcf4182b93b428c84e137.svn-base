@@ -1,0 +1,13 @@
+		.td_label{
+			text-align:right;
+			width:95px;
+			color:#333333;
+			padding-right:5px;
+			/*background:#f7f7f7;
+			border-bottom:1px solid #dddddd;*/
+		}
+		.td_value{				
+			width: 160px;
+			padding-right:10px;
+			/*border-bottom:1px solid #dddddd;*/ 
+		}		

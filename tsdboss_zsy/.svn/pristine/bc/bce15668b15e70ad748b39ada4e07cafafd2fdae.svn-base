@@ -1,0 +1,679 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<WorkBook xmlVersion="20100901">
+<TableDataMap>
+<TableData name="HUIZONG" class="com.fr.data.impl.DBTableData">
+<Parameters>
+<Parameter>
+<Attributes name="userid"/>
+<O>
+<![CDATA[ak01]]></O>
+</Parameter>
+</Parameters>
+<Attributes maxMemRowCount="-1"/>
+<Connection class="com.fr.data.impl.NameDatabaseConnection">
+<DatabaseName>
+<![CDATA[tsdBilling]]></DatabaseName>
+</Connection>
+<Query>
+<![CDATA[select userid ,hth,
+       dh,
+       hf,
+       hzyf,
+       hthmc, 
+       dhmc yhmc,
+       yz as yzf,
+       xyw as xywf,
+       sh as shf,
+        gnct,
+        gjct,
+        zwct,
+       zxf,
+        tcf,
+        yhf
+  from tbl_pr_ghdetail z
+ where z.userid='${userid}' order by hth,dh]]></Query>
+</TableData>
+<TableData name="HTHDANG" class="com.fr.data.impl.DBTableData">
+<Parameters/>
+<Attributes maxMemRowCount="-1"/>
+<Connection class="com.fr.data.impl.NameDatabaseConnection">
+<DatabaseName>
+<![CDATA[tsdBilling]]></DatabaseName>
+</Connection>
+<Query>
+<![CDATA[SELECT Y.HTH,Y.YHMC FROM HTHDANG Y , HUIZONG Z WHERE Y.HTH=Z.HTH and 1<>1]]></Query>
+</TableData>
+<TableData name="Dtnow" class="com.fr.data.impl.DBTableData">
+<Parameters/>
+<Attributes maxMemRowCount="-1"/>
+<Connection class="com.fr.data.impl.NameDatabaseConnection">
+<DatabaseName>
+<![CDATA[tsdBilling]]></DatabaseName>
+</Connection>
+<Query>
+<![CDATA[select to_char(sysdate,'YYYY-MM-DD HH24:MI:SS') dtnow from dual]]></Query>
+</TableData>
+</TableDataMap>
+<ReportWebAttr>
+<Title>
+<![CDATA[公费电话明细]]></Title>
+<Background name="NullBackground"/>
+<CacheValidateTime>
+<![CDATA[0]]></CacheValidateTime>
+</ReportWebAttr>
+<Report class="com.fr.report.WorkSheet" name="sheet1">
+<ReportPageAttr>
+<HR F="0" T="5"/>
+<FR/>
+<HC/>
+<FC/>
+</ReportPageAttr>
+<RowHeight defaultValue="19">
+<![CDATA[19,19,2,11,22,22,24,7,19,2,19,19,22,19]]></RowHeight>
+<ColumnWidth defaultValue="72">
+<![CDATA[68,99,57,64,53,55,48,58,52,52,47,57,54,72]]></ColumnWidth>
+<CellElementList>
+<C c="0" r="0" cs="13" rs="2" s="0">
+<O>
+<![CDATA[公 费 话 费 明 细]]></O>
+<Expand/>
+</C>
+<C c="0" r="4" s="1">
+<O>
+<![CDATA[帐号]]></O>
+<Expand leftParentDefault="false" left="B5"/>
+</C>
+<C c="1" r="4" cs="2">
+<O t="DSColumn">
+<Attributes dsName="HUIZONG" columnName="HTH"/>
+<Condition class="com.fr.data.condition.ListCondition"/>
+<Complex/>
+<RG class="com.fr.report.cellElement.core.FunctionGrouper"/>
+<Result>
+<![CDATA[$$$]]></Result>
+<Parameters/>
+</O>
+<Expand dir="0"/>
+</C>
+<C c="3" r="4" cs="2" s="1">
+<O>
+<![CDATA[帐户名称]]></O>
+<Expand leftParentDefault="false" left="B5"/>
+</C>
+<C c="5" r="4" cs="4">
+<O t="DSColumn">
+<Attributes dsName="HUIZONG" columnName="HTHMC"/>
+<Complex/>
+<RG class="com.fr.report.cellElement.core.FunctionGrouper"/>
+<Parameters/>
+</O>
+<Expand dir="0"/>
+</C>
+<C c="9" r="4" s="1">
+<O>
+<![CDATA[打印日期]]></O>
+<Expand leftParentDefault="false"/>
+</C>
+<C c="10" r="4" cs="3" s="1">
+<O t="DSColumn">
+<Attributes dsName="Dtnow" columnName="DTNOW"/>
+<Complex/>
+<RG class="com.fr.report.cellElement.core.FunctionGrouper"/>
+<Parameters/>
+</O>
+<Expand dir="0"/>
+</C>
+<C c="0" r="5" s="2">
+<O>
+<![CDATA[电话号码]]></O>
+<Expand leftParentDefault="false" left="B5"/>
+</C>
+<C c="1" r="5" s="2">
+<O>
+<![CDATA[用户名称]]></O>
+<Expand leftParentDefault="false" left="B5"/>
+</C>
+<C c="2" r="5" s="2">
+<O>
+<![CDATA[月份]]></O>
+<Expand leftParentDefault="false" left="B5"/>
+</C>
+<C c="3" r="5" s="2">
+<O>
+<![CDATA[本期话费]]></O>
+<Expand leftParentDefault="false" left="B5"/>
+</C>
+<C c="4" r="5" s="2">
+<O>
+<![CDATA[月租费]]></O>
+<Expand leftParentDefault="false" left="B5"/>
+</C>
+<C c="5" r="5" s="2">
+<O>
+<![CDATA[新业务费]]></O>
+<Expand leftParentDefault="false" left="B5"/>
+</C>
+<C c="6" r="5" s="2">
+<O>
+<![CDATA[市话费]]></O>
+<Expand leftParentDefault="false" left="B5"/>
+</C>
+<C c="7" r="5" s="2">
+<O>
+<![CDATA[国内长途]]></O>
+<Expand leftParentDefault="false" left="B5"/>
+</C>
+<C c="8" r="5" s="2">
+<O>
+<![CDATA[国际长途]]></O>
+<Expand leftParentDefault="false" left="B5"/>
+</C>
+<C c="9" r="5" s="2">
+<O>
+<![CDATA[专网长途]]></O>
+<Expand leftParentDefault="false" left="B5"/>
+</C>
+<C c="10" r="5" s="2">
+<O>
+<![CDATA[专线费]]></O>
+<Expand leftParentDefault="false" left="B5"/>
+</C>
+<C c="11" r="5" s="2">
+<O>
+<![CDATA[套餐费]]></O>
+<Expand leftParentDefault="false" left="B5"/>
+</C>
+<C c="12" r="5" s="2">
+<O>
+<![CDATA[优惠费]]></O>
+<Expand leftParentDefault="false" left="B5"/>
+</C>
+<C c="0" r="6" s="1">
+<O t="DSColumn">
+<Attributes dsName="HUIZONG" columnName="DH"/>
+<Condition class="com.fr.data.condition.ListCondition"/>
+<Complex/>
+<RG class="com.fr.report.cellElement.core.FunctionGrouper">
+<Attr divideMode="1"/>
+</RG>
+<Result>
+<![CDATA[$$$]]></Result>
+<Parameters/>
+</O>
+<Expand dir="0" leftParentDefault="false" left="B5"/>
+</C>
+<C c="1" r="6" s="1">
+<O t="DSColumn">
+<Attributes dsName="HUIZONG" columnName="YHMC"/>
+<Condition class="com.fr.data.condition.ListCondition"/>
+<Complex/>
+<RG class="com.fr.report.cellElement.core.FunctionGrouper">
+<Attr divideMode="1"/>
+</RG>
+<Result>
+<![CDATA[$$$]]></Result>
+<Parameters/>
+</O>
+<Expand dir="0"/>
+</C>
+<C c="2" r="6" s="1">
+<O t="DSColumn">
+<Attributes dsName="HUIZONG" columnName="HZYF"/>
+<Condition class="com.fr.data.condition.ListCondition"/>
+<Complex/>
+<RG class="com.fr.report.cellElement.core.FunctionGrouper">
+<Attr divideMode="1"/>
+</RG>
+<Result>
+<![CDATA[$$$]]></Result>
+<Parameters/>
+</O>
+<Expand dir="0"/>
+</C>
+<C c="3" r="6" s="1">
+<O t="DSColumn">
+<Attributes dsName="HUIZONG" columnName="HF"/>
+<Condition class="com.fr.data.condition.ListCondition"/>
+<Complex/>
+<RG class="com.fr.report.cellElement.core.FunctionGrouper">
+<Attr divideMode="1"/>
+</RG>
+<Result>
+<![CDATA[$$$]]></Result>
+<Parameters/>
+</O>
+<Expand dir="0"/>
+</C>
+<C c="4" r="6" s="1">
+<O t="DSColumn">
+<Attributes dsName="HUIZONG" columnName="YZF"/>
+<Condition class="com.fr.data.condition.ListCondition"/>
+<Complex/>
+<RG class="com.fr.report.cellElement.core.FunctionGrouper">
+<Attr divideMode="1"/>
+</RG>
+<Result>
+<![CDATA[$$$]]></Result>
+<Parameters/>
+</O>
+<Expand dir="0"/>
+</C>
+<C c="5" r="6" s="1">
+<O t="DSColumn">
+<Attributes dsName="HUIZONG" columnName="XYWF"/>
+<Condition class="com.fr.data.condition.ListCondition"/>
+<Complex/>
+<RG class="com.fr.report.cellElement.core.FunctionGrouper">
+<Attr divideMode="1"/>
+</RG>
+<Result>
+<![CDATA[$$$]]></Result>
+<Parameters/>
+</O>
+<Expand dir="0"/>
+</C>
+<C c="6" r="6" s="1">
+<O t="DSColumn">
+<Attributes dsName="HUIZONG" columnName="SHF"/>
+<Condition class="com.fr.data.condition.ListCondition"/>
+<Complex/>
+<RG class="com.fr.report.cellElement.core.FunctionGrouper">
+<Attr divideMode="1"/>
+</RG>
+<Result>
+<![CDATA[$$$]]></Result>
+<Parameters/>
+</O>
+<Expand dir="0"/>
+</C>
+<C c="7" r="6" s="1">
+<O t="DSColumn">
+<Attributes dsName="HUIZONG" columnName="GNCT"/>
+<Condition class="com.fr.data.condition.ListCondition"/>
+<Complex/>
+<RG class="com.fr.report.cellElement.core.FunctionGrouper">
+<Attr divideMode="1"/>
+</RG>
+<Result>
+<![CDATA[$$$]]></Result>
+<Parameters/>
+</O>
+<Expand dir="0"/>
+</C>
+<C c="8" r="6" s="1">
+<O t="DSColumn">
+<Attributes dsName="HUIZONG" columnName="GJCT"/>
+<Condition class="com.fr.data.condition.ListCondition"/>
+<Complex/>
+<RG class="com.fr.report.cellElement.core.FunctionGrouper">
+<Attr divideMode="1"/>
+</RG>
+<Result>
+<![CDATA[$$$]]></Result>
+<Parameters/>
+</O>
+<Expand dir="0"/>
+</C>
+<C c="9" r="6" s="1">
+<O t="DSColumn">
+<Attributes dsName="HUIZONG" columnName="ZWCT"/>
+<Condition class="com.fr.data.condition.ListCondition"/>
+<Complex/>
+<RG class="com.fr.report.cellElement.core.FunctionGrouper">
+<Attr divideMode="1"/>
+</RG>
+<Result>
+<![CDATA[$$$]]></Result>
+<Parameters/>
+</O>
+<Expand dir="0"/>
+</C>
+<C c="10" r="6" s="1">
+<O t="DSColumn">
+<Attributes dsName="HUIZONG" columnName="ZXF"/>
+<Condition class="com.fr.data.condition.ListCondition"/>
+<Complex/>
+<RG class="com.fr.report.cellElement.core.FunctionGrouper">
+<Attr divideMode="1"/>
+</RG>
+<Result>
+<![CDATA[$$$]]></Result>
+<Parameters/>
+</O>
+<Expand dir="0"/>
+</C>
+<C c="11" r="6" s="1">
+<O t="DSColumn">
+<Attributes dsName="HUIZONG" columnName="TCF"/>
+<Condition class="com.fr.data.condition.ListCondition"/>
+<Complex/>
+<RG class="com.fr.report.cellElement.core.FunctionGrouper">
+<Attr divideMode="1"/>
+</RG>
+<Result>
+<![CDATA[$$$]]></Result>
+<Parameters/>
+</O>
+<Expand dir="0"/>
+</C>
+<C c="12" r="6" s="1">
+<O t="DSColumn">
+<Attributes dsName="HUIZONG" columnName="YHF"/>
+<Condition class="com.fr.data.condition.ListCondition"/>
+<Complex/>
+<RG class="com.fr.report.cellElement.core.FunctionGrouper">
+<Attr divideMode="1"/>
+</RG>
+<Result>
+<![CDATA[$$$]]></Result>
+<Parameters/>
+</O>
+<Expand dir="0"/>
+</C>
+<C c="0" r="7" s="3">
+<Expand/>
+</C>
+<C c="1" r="7" s="3">
+<Expand/>
+</C>
+<C c="2" r="7" s="3">
+<Expand/>
+</C>
+<C c="3" r="7" s="3">
+<Expand/>
+</C>
+<C c="4" r="7" s="3">
+<Expand/>
+</C>
+<C c="5" r="7" s="3">
+<Expand/>
+</C>
+<C c="6" r="7" s="3">
+<Expand/>
+</C>
+<C c="7" r="7" s="3">
+<Expand/>
+</C>
+<C c="8" r="7" s="3">
+<O>
+<![CDATA[]]></O>
+<Expand/>
+</C>
+<C c="9" r="7" s="3">
+<Expand/>
+</C>
+<C c="10" r="7" s="3">
+<Expand/>
+</C>
+<C c="11" r="7" s="3">
+<Expand/>
+</C>
+<C c="12" r="7" s="3">
+<Expand/>
+</C>
+<C c="0" r="8" s="1">
+<O>
+<![CDATA[小计]]></O>
+<Expand/>
+</C>
+<C c="3" r="8" s="1">
+<O t="Formula" class="Formula">
+<Attributes>
+<![CDATA[=sum(D7)]]></Attributes>
+</O>
+<Expand leftParentDefault="false" left="B5"/>
+</C>
+<C c="4" r="8" s="1">
+<O t="Formula" class="Formula">
+<Attributes>
+<![CDATA[=sum(E7)]]></Attributes>
+</O>
+<Expand leftParentDefault="false" left="B5"/>
+</C>
+<C c="5" r="8" s="1">
+<O t="Formula" class="Formula">
+<Attributes>
+<![CDATA[=sum(F7)]]></Attributes>
+</O>
+<Expand leftParentDefault="false" left="B5"/>
+</C>
+<C c="6" r="8" s="1">
+<O t="Formula" class="Formula">
+<Attributes>
+<![CDATA[=sum(G7)]]></Attributes>
+</O>
+<Expand leftParentDefault="false" left="B5"/>
+</C>
+<C c="7" r="8" s="1">
+<O t="Formula" class="Formula">
+<Attributes>
+<![CDATA[=sum(H7)]]></Attributes>
+</O>
+<Expand leftParentDefault="false" left="B5"/>
+</C>
+<C c="8" r="8" s="1">
+<O t="Formula" class="Formula">
+<Attributes>
+<![CDATA[=sum(I7)]]></Attributes>
+</O>
+<Expand leftParentDefault="false" left="B5"/>
+</C>
+<C c="9" r="8" s="1">
+<O t="Formula" class="Formula">
+<Attributes>
+<![CDATA[=sum(J7)]]></Attributes>
+</O>
+<Expand leftParentDefault="false" left="B5"/>
+</C>
+<C c="10" r="8" s="1">
+<O t="Formula" class="Formula">
+<Attributes>
+<![CDATA[=sum(K7)]]></Attributes>
+</O>
+<Expand leftParentDefault="false" left="B5"/>
+</C>
+<C c="11" r="8" s="1">
+<O t="Formula" class="Formula">
+<Attributes>
+<![CDATA[=sum(L7)]]></Attributes>
+</O>
+<Expand leftParentDefault="false" left="B5"/>
+</C>
+<C c="12" r="8" s="1">
+<O t="Formula" class="Formula">
+<Attributes>
+<![CDATA[=sum(M7)]]></Attributes>
+</O>
+<Expand leftParentDefault="false" left="B5"/>
+</C>
+<C c="1" r="10" s="4">
+<O>
+<![CDATA[电话数]]></O>
+<Expand/>
+</C>
+<C c="2" r="10">
+<O t="Formula" class="Formula">
+<Attributes>
+<![CDATA[=COUNT(B7)]]></Attributes>
+</O>
+<Expand leftParentDefault="false" left="B5"/>
+</C>
+<C c="0" r="11" s="5">
+<O>
+<![CDATA[空白]]></O>
+<Expand leftParentDefault="false" left="B5"/>
+</C>
+<C c="0" r="12" s="1">
+<O>
+<![CDATA[总计]]></O>
+<Expand leftParentDefault="false"/>
+</C>
+<C c="1" r="12" s="4">
+<O>
+<![CDATA[电话总数]]></O>
+<Expand/>
+</C>
+<C c="2" r="12">
+<O t="Formula" class="Formula">
+<Attributes>
+<![CDATA[=sum(C11)]]></Attributes>
+</O>
+<Expand leftParentDefault="false"/>
+</C>
+<C c="3" r="12" s="1">
+<O t="Formula" class="Formula">
+<Attributes>
+<![CDATA[=sum(D9)]]></Attributes>
+</O>
+<Expand leftParentDefault="false"/>
+</C>
+<C c="4" r="12" s="1">
+<O t="Formula" class="Formula">
+<Attributes>
+<![CDATA[=sum(E9)]]></Attributes>
+</O>
+<Expand leftParentDefault="false"/>
+</C>
+<C c="5" r="12" s="1">
+<O t="Formula" class="Formula">
+<Attributes>
+<![CDATA[=sum(F9)]]></Attributes>
+</O>
+<Expand leftParentDefault="false"/>
+</C>
+<C c="6" r="12" s="1">
+<O t="Formula" class="Formula">
+<Attributes>
+<![CDATA[=sum(G9)]]></Attributes>
+</O>
+<Expand leftParentDefault="false"/>
+</C>
+<C c="7" r="12" s="1">
+<O t="Formula" class="Formula">
+<Attributes>
+<![CDATA[=sum(H9)]]></Attributes>
+</O>
+<Expand leftParentDefault="false"/>
+</C>
+<C c="8" r="12" s="1">
+<O t="Formula" class="Formula">
+<Attributes>
+<![CDATA[=sum(I9)]]></Attributes>
+</O>
+<Expand leftParentDefault="false"/>
+</C>
+<C c="9" r="12" s="1">
+<O t="Formula" class="Formula">
+<Attributes>
+<![CDATA[=sum(J9)]]></Attributes>
+</O>
+<Expand leftParentDefault="false"/>
+</C>
+<C c="10" r="12" s="1">
+<O t="Formula" class="Formula">
+<Attributes>
+<![CDATA[=sum(K9)]]></Attributes>
+</O>
+<Expand leftParentDefault="false"/>
+</C>
+<C c="11" r="12" s="1">
+<O t="Formula" class="Formula">
+<Attributes>
+<![CDATA[=sum(L9)]]></Attributes>
+</O>
+<Expand leftParentDefault="false"/>
+</C>
+<C c="12" r="12" s="1">
+<O t="Formula" class="Formula">
+<Attributes>
+<![CDATA[=sum(M9)]]></Attributes>
+</O>
+<Expand leftParentDefault="false"/>
+</C>
+</CellElementList>
+<ReportSettings headerHeight="0.0" footerHeight="0.2362204724409449">
+<PaperSetting>
+<Margin top="0.27" left="0.07874015748031496" bottom="0.27" right="0.07874015748031496"/>
+</PaperSetting>
+</ReportSettings>
+<Footer reportPageType="0">
+<Background name="NullBackground"/>
+<LeftList>
+<HFElement className="com.fr.report.core.headerfooter.DateHFElement">
+<FRFont name="SimSun" style="0" size="12"/>
+<Format class="java.text.SimpleDateFormat">
+<![CDATA[yyyy-MM-dd]]></Format>
+</HFElement>
+<HFElement className="com.fr.report.core.headerfooter.TextHFElement">
+<FRFont name="SimSun" style="0" size="12"/>
+<![CDATA[  ]]></HFElement>
+<HFElement className="com.fr.report.core.headerfooter.TimeHFElement">
+<FRFont name="SimSun" style="0" size="12"/>
+<Format class="java.text.SimpleDateFormat">
+<![CDATA[HH:mm:ss]]></Format>
+</HFElement>
+</LeftList>
+<CenterList/>
+<RightList>
+<HFElement className="com.fr.report.core.headerfooter.TextHFElement">
+<FRFont name="SimSun" style="0" size="12"/>
+<![CDATA[共]]></HFElement>
+<HFElement className="com.fr.report.core.headerfooter.NumberOfPageHFElement">
+<FRFont name="SimSun" style="0" size="12"/>
+<![CDATA[100]]></HFElement>
+<HFElement className="com.fr.report.core.headerfooter.TextHFElement">
+<FRFont name="SimSun" style="0" size="12"/>
+<![CDATA[页,当前]]></HFElement>
+<HFElement className="com.fr.report.core.headerfooter.PageNumberHFElement">
+<FRFont name="SimSun" style="0" size="12"/>
+<![CDATA[1]]></HFElement>
+<HFElement className="com.fr.report.core.headerfooter.TextHFElement">
+<FRFont name="SimSun" style="0" size="12"/>
+<![CDATA[页]]></HFElement>
+</RightList>
+</Footer>
+<ReportWriteAttr/>
+</Report>
+<ReportParameterAttr>
+<Attributes showWindow="false" delayPlaying="true" windowPosition="0" align="1"/>
+<PWTitle>
+<![CDATA[参数]]></PWTitle>
+</ReportParameterAttr>
+<StyleList>
+<Style horizontal_alignment="0">
+<FRFont name="SimSun" style="0" size="20"/>
+<Background name="NullBackground"/>
+<Border/>
+</Style>
+<Style horizontal_alignment="0">
+<FRFont name="SimSun" style="0" size="12"/>
+<Background name="NullBackground"/>
+<Border/>
+</Style>
+<Style horizontal_alignment="0">
+<FRFont name="SimSun" style="0" size="12"/>
+<Background name="NullBackground"/>
+<Border>
+<Top style="1"/>
+<Bottom style="1"/>
+</Border>
+</Style>
+<Style>
+<FRFont name="SimSun" style="0" size="12"/>
+<Background name="NullBackground"/>
+<Border>
+<Bottom style="1"/>
+</Border>
+</Style>
+<Style horizontal_alignment="4">
+<FRFont name="SimSun" style="0" size="12"/>
+<Background name="NullBackground"/>
+<Border/>
+</Style>
+<Style>
+<FRFont name="SimSun" style="0" size="12" foreground="-1"/>
+<Background name="NullBackground"/>
+<Border/>
+</Style>
+</StyleList>
+</WorkBook>

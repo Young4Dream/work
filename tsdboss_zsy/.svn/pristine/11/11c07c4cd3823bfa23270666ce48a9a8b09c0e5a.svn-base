@@ -1,0 +1,245 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<WorkBook>
+<Version>6.2</Version>
+<Report class="com.fr.report.WorkSheet" name="sheet1">
+<TableDataMap>
+<NameTableData name="ds1">
+<TableData class="com.fr.data.impl.DBTableData">
+<Parameters>
+<Parameter>
+<Attributes name="fusearchsql"
+ type="0"
+ shown="true" />
+<O t="S"><![CDATA[1=1]]></O>
+</Parameter>
+</Parameters>
+<Attributes isCache="true" isDiskCache="true" />
+<Connection class="com.fr.data.impl.NameDatabaseConnection">
+<DatabaseName><![CDATA[tsdBilling]]></DatabaseName>
+</Connection><Query><![CDATA[select opertime as "OperTime",operarea as "OperArea",opersysname as "OperSysName",operid as "username",opertype as "OperType",operresult as "OperResult",hth as "Hth",dh as "Dh",yhmc as "Yhmc",bm1 as "Bm1",yhxz as "Yhxz",yhlb as "Yhlb",sflx as "Sflx",area as "Area",yhdz as "Yhdz",HthMfjb as "HthMfjb",HthDjjb as "HthDjjb",DjHth as "DjHth",Dhsl as "Dhsl" from Hthdang_old   where [?fusearchsql|?]]]></Query>
+</TableData>
+</NameTableData>
+<NameTableData name="userid">
+<TableData class="com.fr.data.impl.DBTableData">
+<Parameters>
+</Parameters>
+<Attributes isCache="true" isDiskCache="true" />
+<Connection class="com.fr.data.impl.NameDatabaseConnection">
+<DatabaseName><![CDATA[tsdBilling]]></DatabaseName>
+</Connection><Query><![CDATA[select userid as "userid",username as "username" from sys_user]]></Query>
+</TableData>
+</NameTableData>
+</TableDataMap>
+<ReportSettings orientation="1" shrinkToFit="false" headerHeight="0.0" footerHeight="0.0">
+<PaperSize width="11.693" height="16.536" />
+<Margin top="0.27" left="0.1968503937007874" bottom="0.27" right="0.1968503937007874" />
+</ReportSettings>
+<ReportPageAttr>
+<HR F="0" T="1" /></ReportPageAttr>
+<ReportParameterAttr>
+<Parameters>
+</Parameters>
+<Attributes showWindow="true" delayPlaying="true" windowPosition="0" userDefineWindow="false" />
+<PWTitle><![CDATA[参数]]></PWTitle>
+</ReportParameterAttr>
+<AutoRecalculate>false</AutoRecalculate>
+<DesignAttributes>
+</DesignAttributes>
+<ReportWebAttr>
+<EmailManager mailHost="" password="___" user="" fromEmailAddress="" />
+<ServerPrinter>
+</ServerPrinter>
+</ReportWebAttr>
+<ReportWriteAttr>
+</ReportWriteAttr>
+<Header reportPageType="0">
+<Background name="NullBackground" />
+<LeftList>
+</LeftList>
+<CenterList>
+</CenterList>
+<RightList>
+</RightList>
+</Header>
+<Footer reportPageType="0">
+<Background name="NullBackground" />
+<LeftList>
+<HFElement className="TextHFElement">
+<FRFont name="SimSun" style="0" size="12" />
+<![CDATA[打印日期：]]>
+</HFElement>
+<HFElement className="DateHFElement">
+<FRFont name="SimSun" style="0" size="12" />
+<Format class="java.text.SimpleDateFormat"><![CDATA[yyyy-MM-dd]]>
+</Format>
+</HFElement>
+</LeftList>
+<CenterList>
+<HFElement className="TextHFElement">
+<FRFont name="SimSun" style="0" size="12" />
+<![CDATA[制表人：尤红玉]]>
+</HFElement>
+</CenterList>
+<RightList>
+<HFElement className="TextHFElement">
+<FRFont name="SimSun" style="0" size="12" />
+<![CDATA[第]]>
+</HFElement>
+<HFElement className="PageNumberHFElement">
+<FRFont name="SimSun" style="0" size="12" />
+<![CDATA[1]]>
+</HFElement>
+<HFElement className="TextHFElement">
+<FRFont name="SimSun" style="0" size="12" />
+<![CDATA[页]]>
+</HFElement>
+</RightList>
+</Footer>
+<RowHeight defaultValue="19">
+<![CDATA[36,30,32]]>
+</RowHeight>
+<ColumnWidth defaultValue="72">
+<![CDATA[41,88,67,72,81,72,72,72,72,72,151,72,72,72,68,110,72,72,79]]>
+</ColumnWidth>
+<CellElementList>
+<C c="0" r="0" cs="9" s="0"><O t="S"><![CDATA[合同号档案日志表]]></O>
+</C>
+<C c="9" r="0" s="0"></C>
+<C c="10" r="0" s="0"></C>
+<C c="11" r="0" s="0"></C>
+<C c="12" r="0" s="0"></C>
+<C c="13" r="0" s="0"></C>
+<C c="14" r="0" s="0"></C>
+<C c="15" r="0" s="0"></C>
+<C c="16" r="0" s="0"></C>
+<C c="17" r="0" s="0"></C>
+<C c="18" r="0" s="0"></C>
+<C c="19" r="0" s="0"></C>
+<C c="0" r="1" s="1"><O t="S"><![CDATA[序号]]></O>
+</C>
+<C c="1" r="1" s="1"><O t="S"><![CDATA[操作时间]]></O>
+</C>
+<C c="2" r="1" s="1"><O t="S"><![CDATA[操作地点]]></O>
+</C>
+<C c="3" r="1" s="1"><O t="S"><![CDATA[操作软件]]></O>
+</C>
+<C c="4" r="1" s="1"><O t="S"><![CDATA[操作员工号]]></O>
+</C>
+<C c="5" r="1" s="1"><O t="S"><![CDATA[操作类型]]></O>
+</C>
+<C c="6" r="1" s="1"><O t="S"><![CDATA[操作结果]]></O>
+</C>
+<C c="7" r="1" s="1"><O t="S"><![CDATA[合同号]]></O>
+</C>
+<C c="8" r="1" s="1"><O t="S"><![CDATA[电话]]></O>
+</C>
+<C c="9" r="1" s="1"><O t="S"><![CDATA[用户名称]]></O>
+</C>
+<C c="10" r="1" s="1"><O t="S"><![CDATA[一级部门]]></O>
+</C>
+<C c="11" r="1" s="1"><O t="S"><![CDATA[用户性质]]></O>
+</C>
+<C c="12" r="1" s="1"><O t="S"><![CDATA[用户类别]]></O>
+</C>
+<C c="13" r="1" s="1"><O t="S"><![CDATA[收费类型]]></O>
+</C>
+<C c="14" r="1" s="1"><O t="S"><![CDATA[收费地点]]></O>
+</C>
+<C c="15" r="1" s="1"><O t="S"><![CDATA[用户地址]]></O>
+</C>
+<C c="16" r="1" s="1"><O t="S"><![CDATA[补贴类别]]></O>
+</C>
+<C c="17" r="1" s="1"><O t="S"><![CDATA[代缴类别]]></O>
+</C>
+<C c="18" r="1" s="1"><O t="S"><![CDATA[代缴合同号]]></O>
+</C>
+<C c="19" r="1" s="1"><O t="S"><![CDATA[电话数量]]></O>
+</C>
+<C c="0" r="2" s="2"><O t="Formula" class="Formula" ><Attributes><![CDATA[=&B3]]></Attributes></O>
+<Expand leftParentDefault="false" left="B3" />
+</C>
+<C c="1" r="2" s="2"><O t="DSColumn"><Attributes dsName="ds1" columnName="OperTime" />
+<Condition class="com.fr.data.condition.ListCondition"></Condition>
+<RG class="com.fr.report.cellElement.core.FunctionGrouper"><Attr divideMode="1" /></RG><Result><![CDATA[$$$]]></Result></O>
+<Expand dir="0" />
+</C>
+<C c="2" r="2" s="2"><O t="DSColumn"><Attributes dsName="ds1" columnName="OperArea" />
+<RG class="com.fr.report.cellElement.core.FunctionGrouper"></RG></O>
+</C>
+<C c="3" r="2" s="2"><O t="DSColumn"><Attributes dsName="ds1" columnName="OperSysName" />
+<RG class="com.fr.report.cellElement.core.FunctionGrouper"></RG></O>
+</C>
+<C c="4" r="2" s="2"><O t="DSColumn"><Attributes dsName="userid" columnName="username" />
+<Condition class="com.fr.data.condition.CommonCondition"><CNAME><![CDATA[userid]]></CNAME><Compare op="0">
+<AnDSColumn dsName="ds1" columnName="username" /></Compare>
+</Condition>
+<RG class="com.fr.report.cellElement.core.FunctionGrouper"></RG><Result><![CDATA[$$$]]></Result></O>
+<Expand dir="0" />
+</C>
+<C c="5" r="2" s="2"><O t="DSColumn"><Attributes dsName="ds1" columnName="OperType" />
+<RG class="com.fr.report.cellElement.core.FunctionGrouper"></RG></O>
+</C>
+<C c="6" r="2" s="2"><O t="DSColumn"><Attributes dsName="ds1" columnName="OperResult" />
+<RG class="com.fr.report.cellElement.core.FunctionGrouper"></RG></O>
+</C>
+<C c="7" r="2" s="2"><O t="DSColumn"><Attributes dsName="ds1" columnName="Hth" />
+<RG class="com.fr.report.cellElement.core.FunctionGrouper"></RG></O>
+</C>
+<C c="8" r="2" s="2"><O t="DSColumn"><Attributes dsName="ds1" columnName="Dh" />
+<RG class="com.fr.report.cellElement.core.FunctionGrouper"></RG></O>
+</C>
+<C c="9" r="2" s="2"><O t="DSColumn"><Attributes dsName="ds1" columnName="Yhmc" />
+<RG class="com.fr.report.cellElement.core.FunctionGrouper"></RG></O>
+</C>
+<C c="10" r="2" s="2"><O t="DSColumn"><Attributes dsName="ds1" columnName="Bm1" />
+<RG class="com.fr.report.cellElement.core.FunctionGrouper"></RG></O>
+</C>
+<C c="11" r="2" s="2"><O t="DSColumn"><Attributes dsName="ds1" columnName="Yhxz" />
+<RG class="com.fr.report.cellElement.core.FunctionGrouper"></RG></O>
+</C>
+<C c="12" r="2" s="2"><O t="DSColumn"><Attributes dsName="ds1" columnName="Yhlb" />
+<RG class="com.fr.report.cellElement.core.FunctionGrouper"></RG></O>
+</C>
+<C c="13" r="2" s="2"><O t="DSColumn"><Attributes dsName="ds1" columnName="Sflx" />
+<RG class="com.fr.report.cellElement.core.FunctionGrouper"></RG></O>
+</C>
+<C c="14" r="2" s="2"><O t="DSColumn"><Attributes dsName="ds1" columnName="Area" />
+<RG class="com.fr.report.cellElement.core.FunctionGrouper"></RG></O>
+</C>
+<C c="15" r="2" s="2"><O t="DSColumn"><Attributes dsName="ds1" columnName="Yhdz" />
+<RG class="com.fr.report.cellElement.core.FunctionGrouper"></RG></O>
+</C>
+<C c="16" r="2" s="2"><O t="DSColumn"><Attributes dsName="ds1" columnName="HthMfjb" />
+<RG class="com.fr.report.cellElement.core.FunctionGrouper"></RG></O>
+</C>
+<C c="17" r="2" s="2"><O t="DSColumn"><Attributes dsName="ds1" columnName="HthDjjb" />
+<RG class="com.fr.report.cellElement.core.FunctionGrouper"></RG></O>
+</C>
+<C c="18" r="2" s="2"><O t="DSColumn"><Attributes dsName="ds1" columnName="DjHth" />
+<RG class="com.fr.report.cellElement.core.FunctionGrouper"></RG></O>
+<CellWriteAttr>
+</CellWriteAttr>
+</C>
+<C c="19" r="2" s="2"><O t="DSColumn"><Attributes dsName="ds1" columnName="Dhsl" />
+<RG class="com.fr.report.cellElement.core.FunctionGrouper"></RG></O>
+</C>
+</CellElementList>
+</Report>
+<StyleList>
+<Style horizontal_alignment="0">
+<FRFont name="SimSun" style="1" size="18" />
+<Background name="NullBackground" />
+<Border></Border>
+</Style>
+<Style horizontal_alignment="0">
+<FRFont name="SimSun" style="1" size="14" />
+<Background name="NullBackground" />
+<Border><Top style="1" /><Bottom style="1" /><Left style="1" /><Right style="1" /></Border>
+</Style>
+<Style horizontal_alignment="0">
+<FRFont name="SimSun" style="0" size="12" />
+<Background name="NullBackground" />
+<Border><Top style="1" /><Bottom style="1" /><Left style="1" /><Right style="1" /></Border>
+</Style>
+</StyleList>
+</WorkBook>

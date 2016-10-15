@@ -1,0 +1,215 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<WorkBook>
+<Version>6.2</Version>
+<Report class="com.fr.report.WorkSheet" name="sheet1">
+<ReportSettings shrinkToFit="false" headerHeight="0.0" footerHeight="0.0">
+<Margin top="0.27" left="0.75" bottom="0.27" right="0.75" />
+</ReportSettings>
+<ReportParameterAttr>
+<Parameters>
+</Parameters>
+<Attributes showWindow="true" delayPlaying="true" windowPosition="0" userDefineWindow="false" />
+<PWTitle><![CDATA[参数]]></PWTitle>
+</ReportParameterAttr>
+<AutoRecalculate>false</AutoRecalculate>
+<DesignAttributes>
+</DesignAttributes>
+<ReportWebAttr>
+<EmailManager mailHost="" password="___" user="" fromEmailAddress="" />
+<ServerPrinter>
+</ServerPrinter>
+</ReportWebAttr>
+<ReportWriteAttr>
+</ReportWriteAttr>
+<RowHeight defaultValue="19">
+<![CDATA[19,19,19,36,30,19,19,30]]>
+</RowHeight>
+<ColumnWidth defaultValue="72">
+<![CDATA[]]>
+</ColumnWidth>
+<CellElementList>
+<C c="0" r="0" cs="8" rs="2" s="0"><O t="S"><![CDATA[青海油田宽带改号数据单]]></O>
+</C>
+<C c="0" r="2" s="1"><O t="S"><![CDATA[计费规则]]></O>
+</C>
+<C c="1" r="2" s="2"><O t="DSColumn"><Attributes dsName="ds1" columnName="iFeeType" />
+<RG class="com.fr.report.cellElement.core.FunctionGrouper"></RG></O>
+<Expand dir="0" />
+</C>
+<C c="2" r="2" s="1"><O t="S"><![CDATA[余额]]></O>
+</C>
+<C c="3" r="2" s="2"><O t="DSColumn"><Attributes dsName="ds1" columnName="RemainFee" />
+<RG class="com.fr.report.cellElement.core.FunctionGrouper"></RG></O>
+<Expand dir="0" />
+</C>
+<C c="4" r="2" s="1"><O t="S"><![CDATA[付费类型]]></O>
+</C>
+<C c="5" r="2" s="2"><O t="DSColumn"><Attributes dsName="ds1" columnName="PayType" />
+<RG class="com.fr.report.cellElement.core.FunctionGrouper"></RG></O>
+<Expand dir="0" />
+</C>
+<C c="6" r="2" s="1"><O t="S"><![CDATA[用户状态]]></O>
+</C>
+<C c="7" r="2" s="2"><O t="DSColumn"><Attributes dsName="ds1" columnName="iStatus" />
+<RG class="com.fr.report.cellElement.core.FunctionGrouper"></RG></O>
+<Expand dir="0" />
+</C>
+<C c="0" r="3" s="1"><O t="S"><![CDATA[用户帐号]]></O>
+</C>
+<C c="1" r="3" s="2"><O t="DSColumn"><Attributes dsName="ds1" columnName="UserName" />
+<RG class="com.fr.report.cellElement.core.FunctionGrouper"></RG></O>
+<Expand dir="0" />
+</C>
+<C c="2" r="3" s="1"><O t="S"><![CDATA[用户姓名]]></O>
+</C>
+<C c="3" r="3" s="2"><O t="DSColumn"><Attributes dsName="ds1" columnName="sRealName" />
+<RG class="com.fr.report.cellElement.core.FunctionGrouper"></RG></O>
+<Expand dir="0" />
+</C>
+<C c="4" r="3" s="1"><O t="S"><![CDATA[部门]]></O>
+</C>
+<C c="5" r="3" s="2"><O t="DSColumn"><Attributes dsName="ds1" columnName="sBm" />
+<RG class="com.fr.report.cellElement.core.FunctionGrouper"></RG></O>
+<Expand dir="0" />
+</C>
+<C c="6" r="3" s="1"><O t="S"><![CDATA[用户地址]]></O>
+</C>
+<C c="7" r="3" s="2"><O t="DSColumn"><Attributes dsName="ds1" columnName="sAddress" />
+<RG class="com.fr.report.cellElement.core.FunctionGrouper"></RG></O>
+<Expand dir="0" />
+</C>
+<C c="0" r="4" s="1"><O t="S"><![CDATA[开户日期     ]]></O>
+</C>
+<C c="1" r="4" s="2"><O t="DSColumn"><Attributes dsName="ds1" columnName="sRegDate" />
+<RG class="com.fr.report.cellElement.core.FunctionGrouper"></RG></O>
+<Expand dir="0" />
+</C>
+<C c="2" r="4" s="1"><O t="S"><![CDATA[移动电话]]></O>
+</C>
+<C c="3" r="4" s="2"><O t="DSColumn"><Attributes dsName="ds1" columnName="mobile" />
+<RG class="com.fr.report.cellElement.core.FunctionGrouper"></RG></O>
+<Expand dir="0" />
+</C>
+<C c="4" r="4" s="1"><O t="S"><![CDATA[邮政编码]]></O>
+</C>
+<C c="5" r="4" s="2"><O t="DSColumn"><Attributes dsName="ds1" columnName="UserName1" />
+<RG class="com.fr.report.cellElement.core.FunctionGrouper"></RG></O>
+<Expand dir="0" />
+</C>
+<C c="6" r="4" s="1"><O t="S"><![CDATA[证件类型]]></O>
+</C>
+<C c="7" r="4" s="2"><O t="DSColumn"><Attributes dsName="ds1" columnName="idcard" />
+<RG class="com.fr.report.cellElement.core.FunctionGrouper"></RG></O>
+<Expand dir="0" />
+</C>
+<C c="0" r="5" s="1"><O t="S"><![CDATA[证件号码]]></O>
+</C>
+<C c="1" r="5" s="2"><O t="DSColumn"><Attributes dsName="ds1" columnName="idtype" />
+<RG class="com.fr.report.cellElement.core.FunctionGrouper"></RG></O>
+<Expand dir="0" />
+</C>
+<C c="2" r="5" s="1"><O t="S"><![CDATA[端口号]]></O>
+</C>
+<C c="3" r="5" s="3"><O t="DSColumn"><Attributes dsName="ds1" columnName="sDh2" />
+<RG class="com.fr.report.cellElement.core.FunctionGrouper"></RG></O>
+<Expand dir="0" />
+</C>
+<C c="4" r="5" s="1"><O t="S"><![CDATA[用户类型]]></O>
+</C>
+<C c="5" r="5" s="2"><O t="DSColumn"><Attributes dsName="ds1" columnName="sDh1" />
+<RG class="com.fr.report.cellElement.core.FunctionGrouper"></RG></O>
+<Expand dir="0" />
+</C>
+<C c="6" r="5" s="1"><O t="S"><![CDATA[联系人]]></O>
+</C>
+<C c="7" r="5" s="2"><O t="DSColumn"><Attributes dsName="ds1" columnName="linkman" />
+<RG class="com.fr.report.cellElement.core.FunctionGrouper"></RG></O>
+<Expand dir="0" />
+</C>
+<C c="0" r="6" s="1"><O t="S"><![CDATA[联系电话]]></O>
+</C>
+<C c="1" r="6" s="2"><O t="DSColumn"><Attributes dsName="ds1" columnName="linkphone" />
+<RG class="com.fr.report.cellElement.core.FunctionGrouper"></RG></O>
+<Expand dir="0" />
+</C>
+<C c="2" r="6" s="1"><O t="S"><![CDATA[电话]]></O>
+</C>
+<C c="3" r="6" s="2"><O t="DSColumn"><Attributes dsName="ds1" columnName="sDh" />
+<RG class="com.fr.report.cellElement.core.FunctionGrouper"></RG></O>
+<Expand dir="0" />
+</C>
+<C c="4" r="6" s="1"><O t="S"><![CDATA[同时在线数]]></O>
+</C>
+<C c="5" r="6" s="2"><O t="DSColumn"><Attributes dsName="ds1" columnName="iSimultaneous" />
+<RG class="com.fr.report.cellElement.core.FunctionGrouper"></RG></O>
+<Expand dir="0" />
+</C>
+<C c="6" r="6" s="1"><O t="S"><![CDATA[带宽]]></O>
+</C>
+<C c="7" r="6" s="2"><O t="DSColumn"><Attributes dsName="ds1" columnName="speed" />
+<RG class="com.fr.report.cellElement.core.FunctionGrouper"></RG></O>
+<Expand dir="0" />
+</C>
+<C c="0" r="7" s="1"><O t="S"><![CDATA[账户有效起始时间]]></O>
+</C>
+<C c="1" r="7" s="2"><O t="DSColumn"><Attributes dsName="ds1" columnName="AcctStartTime" />
+<RG class="com.fr.report.cellElement.core.FunctionGrouper"></RG></O>
+<Expand dir="0" />
+</C>
+<C c="2" r="7" s="1"><O t="S"><![CDATA[账户有效截止时间]]></O>
+</C>
+<C c="3" r="7" s="3"><O t="DSColumn"><Attributes dsName="ds1" columnName="AcctStopTime" />
+<RG class="com.fr.report.cellElement.core.FunctionGrouper"></RG></O>
+<Expand dir="0" />
+</C>
+<C c="4" r="7" s="1"><O t="S"><![CDATA[绑定IP]]></O>
+</C>
+<C c="5" r="7" s="2"><O t="DSColumn"><Attributes dsName="ds1" columnName="ipaddr" />
+<RG class="com.fr.report.cellElement.core.FunctionGrouper"></RG></O>
+<Expand dir="0" />
+</C>
+<C c="6" r="7" s="1"><O t="S"><![CDATA[绑定VLANIP]]></O>
+</C>
+<C c="7" r="7" s="2"><O t="DSColumn"><Attributes dsName="ds1" columnName="vlanid" />
+<RG class="com.fr.report.cellElement.core.FunctionGrouper"></RG></O>
+<Expand dir="0" />
+</C>
+<C c="0" r="8" s="1"><O t="S"><![CDATA[是否绑定]]></O>
+</C>
+<C c="1" r="8" s="2"><O t="DSColumn"><Attributes dsName="ds1" columnName="iMacAutoBand" />
+<RG class="com.fr.report.cellElement.core.FunctionGrouper"></RG></O>
+<Expand dir="0" />
+</C>
+<C c="2" r="8" s="1"><O t="S"><![CDATA[杂费类型]]></O>
+</C>
+<C c="3" r="8" s="2"></C>
+<C c="4" r="8" s="1"><O t="S"><![CDATA[杂费合计]]></O>
+</C>
+<C c="5" r="8" s="2"></C>
+<C c="6" r="8" s="2"></C>
+<C c="7" r="8" s="2"></C>
+</CellElementList>
+</Report>
+<StyleList>
+<Style horizontal_alignment="0">
+<FRFont name="宋体" style="1" size="18" foreground="-65536" />
+<Background name="NullBackground" />
+<Border></Border>
+</Style>
+<Style>
+<FRFont name="SimSun" style="0" size="12" foreground="-16724737" />
+<Background name="NullBackground" />
+<Border><Top style="1" /><Bottom style="1" /><Left style="1" /><Right style="1" /></Border>
+</Style>
+<Style>
+<FRFont name="SimSun" style="0" size="12" />
+<Background name="NullBackground" />
+<Border><Top style="1" /><Bottom style="1" /><Left style="1" /><Right style="1" /></Border>
+</Style>
+<Style>
+<FRFont name="宋体" style="0" size="12" />
+<Background name="NullBackground" />
+<Border><Top style="1" /><Bottom style="1" /><Left style="1" /><Right style="1" /></Border>
+</Style>
+</StyleList>
+</WorkBook>

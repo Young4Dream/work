@@ -1,0 +1,1 @@
+patch.yxx=select LinkMan,Hth,Sgnr,Xdz,Sgrq from teljob where XDH='<dh>'

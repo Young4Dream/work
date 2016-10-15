@@ -1,0 +1,48 @@
+﻿###20120613 wenxuming###
+dbsql_route.RouteRemp_queryair_routedefine=select a.routesort,a.devno,b.devname from air_routedefine a, air_device_master b where a.devno\=b.devno and a.routetype\='<routetype>' order by routesort 
+dbsql_route.BMDeviceManager_queryair_QueryDevice=select devno,devname from air_device_master order by devno
+dbsql_route.BMDeviceManager_queryair_QueryArea=select area,area from asys_area order by xuhao
+dbsql_route.BMDeviceManager_queryair_QueryScddbm=select <tablefield> from scddbm where area='<ywarea>' and id=<bmid>
+dbsql_route.BMDeviceManager_querydual=select 1 from dual
+#Route Public
+dbsql_route.GetRouteType=select tvalues,tident from tsd_ini where tsection='RouteType'
+dbsql_route.GetLineMode=select tvalues,tident from tsd_ini where tsection='LineMode'
+#Device Manage 
+dbsql_route.GetObjState=select tvalues,tident from tsd_ini where tsection='PortState'
+dbsql_route.QueryDevice_Master=select devno,devname from air_device_master order by devno
+dbsql_route.QueryDevice_Master1=select devno, devname, levelcount, b.tvalues routetype, c.tvalues linemode, memo, devicon from air_device_master a, tsd_ini b,tsd_ini c where a.routetype=b.tident and b.tsection='RouteType' and a.linemode=c.tident and c.tsection='LineMode' and devno='<devid>'
+dbsql_route.QueryDevice_Master2=select a.devno, a.devname, b.tvalues state, a.dh, a.addr, a.mokuaiju, a.memo, a.devicon from (select * from air_device_detail  where devno='<devid>') a left join (select * from tsd_ini where tsection='PortState') b on a.state=b.tident
+dbsql_route.QueryDevice_Detail=select devno, devname, state, dh, addr, mokuaiju, memo, devicon, pdevno from (select Rownum R,B.* from (select a.devno, a.devname, b.tvalues state, a.dh, a.addr, a.mokuaiju, a.devicon, a.pdevno, a.memo from air_device_detail a left join (select * from tsd_ini where tsection='PortState') b on a.state=b.tident where devno like '%<devid>%' and length(devno)=length('<devid>')+6 <tsdOrderBy>)B where Rownum <= <pagerStart>+<rows>)C where C.R > <pagerStart>
+dbsql_route.GetDetailCount=select count(*) from air_device_detail where devno like '%<devid>%' and length(devno)=length('<devid>')+6
+dbsql_route.QueryDevice_DetailId=select devno,devname  from air_device_detail where devno like '%<devid>%' and length(devno)\=length('<devid>')+6 order by devno
+#判断端口是否已经存在
+dbsql_route.DetailExist=select count(*) from air_device_detail where devno like '<devid>%' 
+dbsql_route.DevNoExist_M=select count(devno) from air_device_master where devno = '<devid>'
+dbsql_route.DevNoExist_D=select count(devno) from air_device_detail where devno \= '<devid>'
+dbsql_route.GetMkj=select mokuaiju from mokuaiju order by mokuaiju
+dbsql_route.GetLevelCount=select levelcount,devicon from air_device_master where devno = substr('<devid>',1,6)
+dbsql_route.GetMKJ=select mokuaiju from air_device_detail where devno = '<devid>'
+#Route Manage
+dbsql_route.QueryUser=select dh,username,userbm,useraddr,regdate,mokuaiju,dhtype,hjlx from (select Rownum R,B.* from (select dh,username,userbm,useraddr,regdate,mokuaiju,dhtype,hjlx from air_users where 1\=1 <cond> <tsdOrderBy>)B where Rownum <\= <pagerStart>+<rows>) C where C.R > <pagerStart>
+dbsql_route.GetUserCount=select count(*) from air_users where 1=1 <cond>
+dbsql_route.GetRouteLine=select distinct lineno from <tablename> where dh = '<dh>'
+dbsql_route.QueryRoute=select a.routeno,d.devno id1, d.devname name1,c.devname||'('||e.devname||')' name2,a.portno id3, b.devname name3 from <tablename> a, air_device_detail b, air_device_detail c, air_device_master d, air_device_detail e where a.dh\='<dh>' and a.lineno\=<lineno> and a.portno \= b.devno and substr(a.portno,1, 13) \= c.devno and substr(a.portno,1, 20) \= e.devno and substr(a.portno,1, 6) \= d.devno order by a.routeno
+dbsql_route.QueryDevice_Route=select devno,devname from air_device_master where 1=1 <cond> order by devno
+dbsql_route.QueryRouteDefine=select a.routesort,a.devno,b.devname from air_routedefine a, air_device_master b where a.devno\=b.devno and a.routetype\='<routetype>' and a.linemode\='<linemode>'
+dbsql_route.GetTreeDevice=select devno,devname,devicon from air_device_detail where devno like '%<devid>%' and length(devno)\=length('<devid>')+6 <cond> order by devno
+dbsql_route.QueryUserInfo=SELECT a.UserName,a.UserBM,a.userAddr,a.linkMan,a.linkDh,a.MoKuaiJu,a.Regdate,y.bm1,y.bm2,y.bm3,y.bm4,y.dhgn,y.Bz2,y.ywarea,h.yhxz,h.yhlb,ii.tvalues sflx,f.bz dhzt,y.bz9 lxdh from air_users a left join yhdang y on a.dh\=y.dh left join hthdang h on y.hth\=h.hth left join hwjbdef f on f.hwjb\=y.tjbz left join tsd_ini ii on ii.tsection\='payitem' and ii.tident\=h.sflx where a.dh\='<dh>'
+dbsql_route.QueryDevice_Port=select devno,devname,state,dh from air_device_detail where devno like '<devid>%' and length(devno)\=length('<devid>')+6 order by devno
+dbsql_route.QueryPortCount=select state, count(*) from air_device_detail where devno like '<devid>%' and length(devno) \= <idlen> group by state order by state
+dbsql_rount.QueryMultipl=select tident from tsd_ini where tsection='Route_Deviceport_Multiplexing' 
+#RouteTemp Manage
+dbsql_route.QueryTemp=select distinct routetype, linemode,'' routetype1, '' linemode1 from air_routedefine order by routetype
+dbsql_route.QueryTempRoute=select a.routesort,a.devno,b.devname from air_routedefine a, air_device_master b where a.devno\=b.devno and a.routetype\='<routetype>' and a.linemode\='<linemode>' order by a.routesort
+
+##
+dbsql_route.PB.QueryDevice=select 'viewOperation',devno, devname, state, dh, addr, mokuaiju, pdevno, memo, devicon from (select Rownum R,B.* from (select a.devno, a.devname, b.tvalues state, a.dh, a.addr, a.mokuaiju, a.devicon, a.pdevno, a.memo from air_device_detail a left join (select * from tsd_ini where tsection='PortState') b on a.state=b.tident where devno like '%<devid>%' and length(devno)=length('<devid>')+6 <tsdOrderBy>)B where Rownum <= <pagerStart>+<rows>)C where C.R > <pagerStart>
+dbsql_route.PB.QueryDevicePage=select count(*) from air_device_detail where devno like '%<devid>%' and length(devno)=length('<devid>')+6
+dbsql_route.PB.QueryDevice_Master=select b.devno,b.devname from air_routedefine a left join air_device_master b on a.devno=b.devno  where a.routetype='<routetype>' order by a.routesort
+dbsql_route.PB.QueryDevice_Pre=select devno,devname,devicon from air_device_detail where devno like '%<devid>%' and length(devno)\=length('<devid>')+6 <cond> order by devno
+dbsql_route.PB.QueryPortCount=select state, count(*) from air_device_detail where devno like '<devid>%' and length(devno) \= <idlen> group by state order by state
+dbsql_route.PB.QueryDevice_Port=select devno,devname,pdevno from air_device_detail where devno like '<devid>%' and length(devno)\=length('<devid>')+6 order by devno
+dbsql_route.PB.QueryPreNo=select Devno,devname ,substr('<devno>',0,6) as nDevno from air_device_master where devno =(select devno from air_routedefine where routesort=(select routesort-1 as thesort from air_routedefine where devno=substr('<devno>',0,6) and routetype='<routetype>') and routetype='<routetype>')

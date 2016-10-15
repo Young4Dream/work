@@ -1,0 +1,184 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<WorkBook>
+<Version>6.2</Version>
+<Report class="com.fr.report.WorkSheet" name="sheet1">
+<TableDataMap>
+<NameTableData name="testtype">
+<TableData class="com.fr.data.impl.DBTableData">
+<Parameters>
+<Parameter>
+<Attributes name="starttime"
+ type="0"
+ shown="true" />
+<O t="S"><![CDATA[2010-01-01]]></O>
+<CellEditorDef class="com.fr.report.cellElement.DateCellEditorDef"><Attributes allowBlank="true" />
+<Attribute format="yyyy-MM-dd" />
+</CellEditorDef>
+</Parameter>
+<Parameter>
+<Attributes name="endtime"
+ type="0"
+ shown="true" />
+<O t="S"><![CDATA[2010-12-30]]></O>
+<CellEditorDef class="com.fr.report.cellElement.DateCellEditorDef"><Attributes allowBlank="true" />
+<Attribute format="yyyy-MM-dd" />
+</CellEditorDef>
+</Parameter>
+<Parameter>
+<Attributes name="type"
+ type="0"
+ shown="true" />
+<O t="S"><![CDATA[1]]></O>
+<CellEditorDef class="com.fr.report.cellElement.ComboBoxCellEditorDef"><Attributes allowBlank="true" />
+<Dict class="com.fr.data.impl.CustomDictionary">
+<CustomDictAttr>
+<Dict key="1:I" value="按时间段"/>
+<Dict key="2:I" value="最近一周"/>
+<Dict key="3:I" value="最近一个月"/>
+</CustomDictAttr>
+</Dict></CellEditorDef>
+</Parameter>
+</Parameters>
+<Attributes isCache="true" isDiskCache="true" />
+<Connection class="com.fr.data.impl.NameDatabaseConnection">
+<DatabaseName><![CDATA[oracle]]></DatabaseName>
+</Connection><Query><![CDATA[select  testtype,count(*) from t112_pxsg where Sgrq > to_date('[?starttime|2010-01-01?]','YYYY-MM-DD') and Sgrq < to_date('[?endtime|2010-12-30?]','YYYY-MM-DD') and testtype is not null and 1=[?type|1?] group by testtype
+union select  testtype,count(*) from t112_pxsg where Sgrq >sysdate-7 and Sgrq<= sysdate and testtype is not null and 2=[?type|1?]  group by testtype
+union  select  testtype,count(*) from t112_pxsg where Sgrq > add_months(sysdate,-1) and Sgrq<= sysdate and testtype is not null and 3=[?type|1?]  group by testtype]]></Query>
+</TableData>
+</NameTableData>
+</TableDataMap>
+<ReportSettings shrinkToFit="false" headerHeight="0.0" footerHeight="0.0">
+<Margin top="0.27" left="0.75" bottom="0.27" right="0.75" />
+</ReportSettings>
+<ReportParameterAttr>
+<Parameters>
+</Parameters>
+<Attributes showWindow="true" delayPlaying="true" windowPosition="1" userDefineWindow="true" />
+<PWTitle><![CDATA[参数]]></PWTitle>
+<WorkSheet>
+<ReportSettings shrinkToFit="false" headerHeight="0.0" footerHeight="0.0">
+<Margin top="0.27" left="0.75" bottom="0.27" right="0.75" />
+</ReportSettings>
+<ReportParameterAttr>
+<Parameters>
+</Parameters>
+<Attributes showWindow="true" delayPlaying="true" windowPosition="0" userDefineWindow="false" />
+<PWTitle><![CDATA[参数]]></PWTitle>
+</ReportParameterAttr>
+<AutoRecalculate>false</AutoRecalculate>
+<DesignAttributes>
+</DesignAttributes>
+<ReportWebAttr>
+<EmailManager mailHost="" password="___" user="" fromEmailAddress="" />
+<ServerPrinter>
+</ServerPrinter>
+</ReportWebAttr>
+<ReportWriteAttr>
+</ReportWriteAttr>
+<Header reportPageType="0">
+<Background name="NullBackground" />
+<LeftList>
+</LeftList>
+<CenterList>
+</CenterList>
+<RightList>
+</RightList>
+</Header>
+<Footer reportPageType="0">
+<Background name="NullBackground" />
+<LeftList>
+</LeftList>
+<CenterList>
+</CenterList>
+<RightList>
+</RightList>
+</Footer>
+<RowHeight defaultValue="19">
+<![CDATA[]]>
+</RowHeight>
+<ColumnWidth defaultValue="72">
+<![CDATA[72,64,92,76,116,1,15,67,107]]>
+</ColumnWidth>
+<CellElementList>
+<C c="1" r="1"><O t="S"><![CDATA[查询类型：]]></O>
+</C>
+<C c="2" r="1"><O t="PR" >
+<ParameterRef name="type" />
+</O>
+</C>
+<C c="3" r="1" s="0"><O t="S"><![CDATA[开始时间：]]></O>
+</C>
+<C c="4" r="1"><O t="PR" >
+<ParameterRef name="starttime" />
+</O>
+</C>
+<C c="7" r="1"><O t="S"><![CDATA[截止日期：]]></O>
+</C>
+<C c="8" r="1"><O t="PR" >
+<ParameterRef name="endtime" />
+</O>
+</C>
+<C c="9" r="1"><O t="PB" >
+<ParameterButton name="查询" type="0" />
+</O>
+</C>
+</CellElementList>
+</WorkSheet>
+</ReportParameterAttr>
+<AutoRecalculate>false</AutoRecalculate>
+<DesignAttributes>
+</DesignAttributes>
+<ReportWebAttr>
+<EmailManager mailHost="" password="___" user="" fromEmailAddress="" />
+<ServerPrinter>
+</ServerPrinter>
+</ReportWebAttr>
+<ReportWriteAttr>
+</ReportWriteAttr>
+<RowHeight defaultValue="19">
+<![CDATA[]]>
+</RowHeight>
+<ColumnWidth defaultValue="72">
+<![CDATA[72,433]]>
+</ColumnWidth>
+<CellElementList>
+<C c="0" r="0" cs="3" s="1"><O t="S"><![CDATA[根据测试结果统计]]></O>
+</C>
+<C c="0" r="1" s="2"><O t="S"><![CDATA[序号]]></O>
+</C>
+<C c="1" r="1" s="2"><O t="S"><![CDATA[测试结果]]></O>
+</C>
+<C c="2" r="1" s="2"><O t="S"><![CDATA[统计]]></O>
+</C>
+<C c="0" r="2" s="2"><O t="Formula" class="Formula" ><Attributes><![CDATA[=&B3]]></Attributes></O>
+<Expand leftParentDefault="false" left="B3" />
+</C>
+<C c="1" r="2" s="2"><O t="DSColumn"><Attributes dsName="testtype" columnName="TESTTYPE" />
+<Condition class="com.fr.data.condition.ListCondition"></Condition>
+<RG class="com.fr.report.cellElement.core.FunctionGrouper"><Attr divideMode="1" /></RG><Result><![CDATA[$$$]]></Result></O>
+<Expand dir="0" />
+</C>
+<C c="2" r="2" s="2"><O t="DSColumn"><Attributes dsName="testtype" columnName="COUNT(*)" />
+<RG class="com.fr.report.cellElement.core.FunctionGrouper"></RG></O>
+</C>
+</CellElementList>
+</Report>
+<StyleList>
+<Style horizontal_alignment="4">
+<FRFont name="SimSun" style="0" size="12" />
+<Background name="NullBackground" />
+<Border></Border>
+</Style>
+<Style horizontal_alignment="0">
+<FRFont name="SimSun" style="1" size="14" />
+<Background name="NullBackground" />
+<Border></Border>
+</Style>
+<Style>
+<FRFont name="SimSun" style="0" size="12" />
+<Background name="NullBackground" />
+<Border><Top style="1" /><Bottom style="1" /><Left style="1" /><Right style="1" /></Border>
+</Style>
+</StyleList>
+</WorkBook>

@@ -1,0 +1,202 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<WorkBook>
+<Version>6.2</Version>
+<Report class="com.fr.report.WorkSheet" name="sheet1">
+<TableDataMap>
+<NameTableData name="allcount">
+<TableData class="com.fr.data.impl.DBTableData">
+<Parameters>
+<Parameter>
+<Attributes name="cCardNostart"
+ type="0"
+ shown="true" />
+<O t="S"><![CDATA[]]></O>
+</Parameter>
+<Parameter>
+<Attributes name="cCardNoend"
+ type="0"
+ shown="true" />
+<O t="S"><![CDATA[]]></O>
+</Parameter>
+</Parameters>
+<Attributes isCache="true" isDiskCache="true" />
+<Connection class="com.fr.data.impl.NameDatabaseConnection">
+<DatabaseName><![CDATA[tsdBilling]]></DatabaseName>
+</Connection><Query><![CDATA[select Count(*) TotalCard,isnull(sum(mCash),0) mCash from TBL_CardNo where  cCardNo>=[?cCardNostart|?] and cCardNo<=[?cCardNoend|?]]]></Query>
+</TableData>
+</NameTableData>
+<NameTableData name="usecount">
+<TableData class="com.fr.data.impl.DBTableData">
+<Parameters>
+<Parameter>
+<Attributes name="cCardNostart"
+ type="0"
+ shown="true" />
+<O t="S"><![CDATA[]]></O>
+</Parameter>
+<Parameter>
+<Attributes name="cCardNoend"
+ type="0"
+ shown="true" />
+<O t="S"><![CDATA[]]></O>
+</Parameter>
+</Parameters>
+<Attributes isCache="true" isDiskCache="true" />
+<Connection class="com.fr.data.impl.NameDatabaseConnection">
+<DatabaseName><![CDATA[tsdBilling]]></DatabaseName>
+</Connection><Query><![CDATA[select Count(*) UseCard,isnull(sum(mCash),0) mCash from TBL_CardNo where cIsUse='1' and  cCardNo>=[?cCardNostart|?] and cCardNo<=[?cCardNoend|?]]]></Query>
+</TableData>
+</NameTableData>
+<NameTableData name="unusecount">
+<TableData class="com.fr.data.impl.DBTableData">
+<Parameters>
+<Parameter>
+<Attributes name="cCardNostart"
+ type="0"
+ shown="true" />
+<O t="S"><![CDATA[]]></O>
+</Parameter>
+<Parameter>
+<Attributes name="cCardNoend"
+ type="0"
+ shown="true" />
+<O t="S"><![CDATA[]]></O>
+</Parameter>
+</Parameters>
+<Attributes isCache="true" isDiskCache="true" />
+<Connection class="com.fr.data.impl.NameDatabaseConnection">
+<DatabaseName><![CDATA[tsdBilling]]></DatabaseName>
+</Connection><Query><![CDATA[select Count(*) UnUseCard,isnull(sum(mCash),0) mCash from TBL_CardNo where cIsUse='0' and  cCardNo>=[?cCardNostart|?] and cCardNo<=[?cCardNoend|?]]]></Query>
+</TableData>
+</NameTableData>
+</TableDataMap>
+<ReportSettings shrinkToFit="false" headerHeight="0.0" footerHeight="0.0">
+<Margin top="0.27" left="0.7499999999999999" bottom="0.27" right="0.7499999999999999" />
+</ReportSettings>
+<ReportPageAttr>
+</ReportPageAttr>
+<ReportParameterAttr>
+<Parameters>
+</Parameters>
+<Attributes showWindow="true" delayPlaying="true" windowPosition="0" userDefineWindow="false" />
+<PWTitle><![CDATA[参数]]></PWTitle>
+</ReportParameterAttr>
+<AutoRecalculate>false</AutoRecalculate>
+<DesignAttributes>
+</DesignAttributes>
+<ReportWebAttr>
+<EmailManager mailHost="" password="___" user="" fromEmailAddress="" />
+<ServerPrinter>
+</ServerPrinter>
+</ReportWebAttr>
+<ReportWriteAttr>
+</ReportWriteAttr>
+<Footer reportPageType="0">
+<Background name="NullBackground" />
+<LeftList>
+<HFElement className="TextHFElement">
+<FRFont name="SimSun" style="0" size="12" />
+<![CDATA[打印日期：]]>
+</HFElement>
+<HFElement className="DateHFElement">
+<FRFont name="SimSun" style="0" size="12" />
+<Format class="java.text.SimpleDateFormat"><![CDATA[yyyy-MM-dd]]>
+</Format>
+</HFElement>
+</LeftList>
+<CenterList>
+<HFElement className="TextHFElement">
+<FRFont name="SimSun" style="0" size="12" />
+<![CDATA[制表人：尤红玉]]>
+</HFElement>
+</CenterList>
+<RightList>
+</RightList>
+</Footer>
+<RowHeight defaultValue="19">
+<![CDATA[38]]>
+</RowHeight>
+<ColumnWidth defaultValue="72">
+<![CDATA[158,158,158,158]]>
+</ColumnWidth>
+<CellElementList>
+<C c="0" r="0" cs="4" s="0"><O t="S"><![CDATA[电话卡使用情况统计]]></O>
+</C>
+<C c="0" r="1" s="1"><O t="S"><![CDATA[电话卡总数]]></O>
+</C>
+<C c="1" r="1" s="1"><O t="DSColumn"><Attributes dsName="allcount" columnName="TotalCard" />
+<RG class="com.fr.report.cellElement.core.FunctionGrouper"></RG></O>
+</C>
+<C c="2" r="1" s="1"><O t="S"><![CDATA[金额]]></O>
+</C>
+<C c="3" r="1" s="1"><O t="DSColumn"><Attributes dsName="allcount" columnName="mCash" />
+<RG class="com.fr.report.cellElement.core.FunctionGrouper"></RG></O>
+</C>
+<C c="0" r="2" s="1"><O t="S"><![CDATA[使用卡总数]]></O>
+</C>
+<C c="1" r="2" s="1"><O t="DSColumn"><Attributes dsName="usecount" columnName="UseCard" />
+<RG class="com.fr.report.cellElement.core.FunctionGrouper"></RG></O>
+</C>
+<C c="2" r="2" s="1"><O t="S"><![CDATA[金额]]></O>
+</C>
+<C c="3" r="2" s="1"><O t="DSColumn"><Attributes dsName="usecount" columnName="mCash" />
+<RG class="com.fr.report.cellElement.core.FunctionGrouper"></RG></O>
+</C>
+<C c="0" r="3" s="1"><O t="S"><![CDATA[未用卡总数]]></O>
+</C>
+<C c="1" r="3" s="1"><O t="DSColumn"><Attributes dsName="unusecount" columnName="UnUseCard" />
+<RG class="com.fr.report.cellElement.core.FunctionGrouper"></RG></O>
+</C>
+<C c="2" r="3" s="1"><O t="S"><![CDATA[金额]]></O>
+</C>
+<C c="3" r="3" s="1"><O t="DSColumn"><Attributes dsName="unusecount" columnName="mCash" />
+<RG class="com.fr.report.cellElement.core.FunctionGrouper"></RG></O>
+</C>
+<C c="0" r="4" s="1"><O t="S"><![CDATA[使用率]]></O>
+</C>
+<C c="1" r="4" s="2"><O t="Formula" class="Formula" ><Attributes><![CDATA[=B3/B2]]></Attributes></O>
+<CellWriteAttr>
+</CellWriteAttr>
+</C>
+<C c="2" r="4" s="1"><O t="S"><![CDATA[占用率]]></O>
+</C>
+<C c="3" r="4" s="2"><O t="Formula" class="Formula" ><Attributes><![CDATA[=D3/D2]]></Attributes></O>
+</C>
+<C c="0" r="5" s="3"></C>
+<C c="1" r="5" s="3"></C>
+<C c="2" r="5" s="3"></C>
+<C c="3" r="5" s="4"></C>
+<C c="2" r="18"></C>
+</CellElementList>
+</Report>
+<StyleList>
+<Style horizontal_alignment="0">
+<FRFont name="SimSun" style="0" size="24" />
+<Background name="NullBackground" />
+<Border><Bottom style="1" /></Border>
+</Style>
+<Style horizontal_alignment="0">
+<FRFont name="SimSun" style="0" size="12" />
+<Background name="NullBackground" />
+<Border></Border>
+</Style>
+<Style horizontal_alignment="0">
+<Format class="java.text.DecimalFormat"><![CDATA[#0.00%]]>
+</Format>
+<FRFont name="SimSun" style="0" size="12" />
+<Background name="NullBackground" />
+<Border></Border>
+</Style>
+<Style horizontal_alignment="0">
+<FRFont name="SimSun" style="0" size="12" />
+<Background name="NullBackground" />
+<Border><Top color="-1"
+ /><Bottom style="1" /></Border>
+</Style>
+<Style horizontal_alignment="0">
+<FRFont name="SimSun" style="0" size="12" />
+<Background name="NullBackground" />
+<Border><Bottom style="1" /></Border>
+</Style>
+</StyleList>
+</WorkBook>

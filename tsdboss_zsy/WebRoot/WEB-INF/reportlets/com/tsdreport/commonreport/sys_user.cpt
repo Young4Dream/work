@@ -1,0 +1,272 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<WorkBook>
+<Version>6.2</Version>
+<Report class="com.fr.report.WorkSheet" name="sheet1">
+<TableDataMap>
+<NameTableData name="sys_user">
+<TableData class="com.fr.data.impl.DBTableData">
+<Parameters>
+<Parameter>
+<Attributes name="fusearchsql"
+ type="0"
+ shown="true" />
+<O t="S"><![CDATA[]]></O>
+</Parameter>
+</Parameters>
+<Attributes isCache="true" isDiskCache="true" />
+<Connection class="com.fr.data.impl.NameDatabaseConnection">
+<DatabaseName><![CDATA[tsdBilling]]></DatabaseName>
+</Connection><Query><![CDATA[select userid as "userid",username as "username",groupid as "groupid",departname  as "departname",linktel as "linktel",email as "email",userarea as "userarea",canloginip as "canloginip",limitlogin as "limitlogin",Last_login as "Last_login" from sys_user where [?fusearchsql|1=1?] order by userarea,userid ]]></Query>
+</TableData>
+</NameTableData>
+</TableDataMap>
+<ReportSettings orientation="1" shrinkToFit="false" headerHeight="0.0" footerHeight="0.0">
+<PaperSize width="29.52755905511811" height="15.748031496062993" />
+<Margin top="0.27" left="0.7499999999999999" bottom="0.27" right="0.7499999999999999" />
+</ReportSettings>
+<ReportPageAttr>
+<HR F="0" T="1" /></ReportPageAttr>
+<ReportParameterAttr>
+<Parameters>
+</Parameters>
+<Attributes showWindow="true" delayPlaying="true" windowPosition="0" userDefineWindow="false" />
+<PWTitle><![CDATA[参数]]></PWTitle>
+</ReportParameterAttr>
+<AutoRecalculate>false</AutoRecalculate>
+<DesignAttributes>
+</DesignAttributes>
+<ReportWebAttr>
+<EmailManager mailHost="" password="___" user="" fromEmailAddress="" />
+<ServerPrinter>
+</ServerPrinter>
+</ReportWebAttr>
+<ReportWriteAttr>
+</ReportWriteAttr>
+<Header reportPageType="0">
+<Background name="NullBackground" />
+<LeftList>
+</LeftList>
+<CenterList>
+</CenterList>
+<RightList>
+</RightList>
+</Header>
+<Footer reportPageType="0">
+<Background name="NullBackground" />
+<LeftList>
+</LeftList>
+<CenterList>
+</CenterList>
+<RightList>
+</RightList>
+</Footer>
+<RowHeight defaultValue="19">
+<![CDATA[40,25,30]]>
+</RowHeight>
+<ColumnWidth defaultValue="72">
+<![CDATA[52,53,89,100,145,110,140,242,239,0,116,172]]>
+</ColumnWidth>
+<CellElementList>
+<C c="0" r="0" cs="12" s="0"><O t="S"><![CDATA[系统工号列表]]></O>
+</C>
+<C c="0" r="1" s="1"><O t="S"><![CDATA[序号]]></O>
+</C>
+<C c="1" r="1" s="2"><O t="S"><![CDATA[工号]]></O>
+</C>
+<C c="2" r="1" s="1"><O t="S"><![CDATA[用户名称]]></O>
+</C>
+<C c="3" r="1" s="1"><O t="S"><![CDATA[所在权限组]]></O>
+</C>
+<C c="4" r="1" s="1"><O t="S"><![CDATA[所在部门]]></O>
+</C>
+<C c="5" r="1" s="1"><O t="S"><![CDATA[联系电话]]></O>
+</C>
+<C c="6" r="1" s="1"><O t="S"><![CDATA[邮箱]]></O>
+</C>
+<C c="7" r="1" s="1"><O t="S"><![CDATA[管理区域]]></O>
+</C>
+<C c="8" r="1" s="1"><O t="S"><![CDATA[可登陆IP]]></O>
+</C>
+<C c="9" r="1" s="3"></C>
+<C c="10" r="1" s="1"><O t="S"><![CDATA[限制登录]]></O>
+</C>
+<C c="11" r="1" s="1"><O t="S"><![CDATA[登陆时间]]></O>
+</C>
+<C c="0" r="2" s="4"><O t="Formula" class="Formula" ><Attributes><![CDATA[=&B3]]></Attributes></O>
+<Expand dir="0" leftParentDefault="false" left="B3" />
+</C>
+<C c="1" r="2" s="4"><O t="DSColumn"><Attributes dsName="sys_user" columnName="userid" />
+<Condition class="com.fr.data.condition.ListCondition"></Condition>
+<RG class="com.fr.report.cellElement.core.FunctionGrouper"><Attr divideMode="1" /></RG><Result><![CDATA[$$$]]></Result></O>
+<Expand dir="0" leftParentDefault="false" />
+<CellWriteAttr>
+</CellWriteAttr>
+</C>
+<C c="2" r="2" s="4"><O t="DSColumn"><Attributes dsName="sys_user" columnName="username" />
+<Condition class="com.fr.data.condition.ListCondition"></Condition>
+<RG class="com.fr.report.cellElement.core.FunctionGrouper"><Attr divideMode="1" /></RG><Result><![CDATA[$$$]]></Result></O>
+<Expand dir="0" />
+</C>
+<C c="3" r="2" s="4"><O t="DSColumn"><Attributes dsName="sys_user" columnName="groupid" />
+<RG class="com.fr.report.cellElement.core.FunctionGrouper"></RG></O>
+<Expand dir="0" />
+</C>
+<C c="4" r="2" s="4"><O t="DSColumn"><Attributes dsName="sys_user" columnName="departname" />
+<Condition class="com.fr.data.condition.ListCondition"></Condition>
+<RG class="com.fr.report.cellElement.core.FunctionGrouper"><Attr divideMode="1" /></RG><Result><![CDATA[$$$]]></Result></O>
+<Expand dir="0" />
+</C>
+<C c="5" r="2" s="5"><O t="DSColumn"><Attributes dsName="sys_user" columnName="linktel" />
+<RG class="com.fr.report.cellElement.core.FunctionGrouper"></RG></O>
+<Expand dir="0" />
+</C>
+<C c="6" r="2" s="4"><O t="DSColumn"><Attributes dsName="sys_user" columnName="email" />
+<Condition class="com.fr.data.condition.ListCondition"></Condition>
+<RG class="com.fr.report.cellElement.core.FunctionGrouper"><Attr divideMode="1" /></RG><Result><![CDATA[$$$]]></Result></O>
+<Expand dir="0" />
+</C>
+<C c="7" r="2" s="4"><O t="DSColumn"><Attributes dsName="sys_user" columnName="userarea" />
+<Condition class="com.fr.data.condition.ListCondition"></Condition>
+<RG class="com.fr.report.cellElement.core.FunctionGrouper"><Attr divideMode="1" /></RG><Result><![CDATA[$$$]]></Result></O>
+<Expand dir="0" />
+</C>
+<C c="8" r="2" s="4"><O t="DSColumn"><Attributes dsName="sys_user" columnName="canloginip" />
+<Condition class="com.fr.data.condition.ListCondition"></Condition>
+<RG class="com.fr.report.cellElement.core.FunctionGrouper"><Attr divideMode="1" /></RG><Result><![CDATA[$$$]]></Result></O>
+<Expand dir="0" />
+</C>
+<C c="9" r="2" s="6"></C>
+<C c="10" r="2" s="4"><O t="DSColumn"><Attributes dsName="sys_user" columnName="limitlogin" />
+<Condition class="com.fr.data.condition.ListCondition"></Condition>
+<RG class="com.fr.report.cellElement.core.FunctionGrouper"><Attr divideMode="1" /></RG><Result><![CDATA[IF(limitlogin=='true','是','否')]]></Result></O>
+<Expand dir="0" />
+</C>
+<C c="11" r="2" s="4"><O t="DSColumn"><Attributes dsName="sys_user" columnName="Last_login" />
+<RG class="com.fr.report.cellElement.core.FunctionGrouper"></RG></O>
+<Expand dir="0" />
+</C>
+<C c="1" r="3" s="7"></C>
+<C c="2" r="3" s="7"></C>
+<C c="3" r="3" s="7"></C>
+<C c="4" r="3" s="7"></C>
+<C c="5" r="3" s="7"></C>
+<C c="6" r="3" s="7"></C>
+<C c="7" r="3" s="7"></C>
+<C c="8" r="3" s="7"></C>
+<C c="9" r="3" s="8"></C>
+<C c="1" r="4" s="7"></C>
+<C c="2" r="4" s="7"></C>
+<C c="3" r="4" s="7"></C>
+<C c="4" r="4" s="7"></C>
+<C c="5" r="4" s="7"></C>
+<C c="6" r="4" s="7"></C>
+<C c="7" r="4" s="7"></C>
+<C c="8" r="4" s="7"></C>
+<C c="9" r="4" s="8"></C>
+<C c="1" r="5" s="7"></C>
+<C c="2" r="5" s="7"></C>
+<C c="3" r="5" s="7"></C>
+<C c="4" r="5" s="7"></C>
+<C c="5" r="5" s="7"></C>
+<C c="6" r="5" s="7"></C>
+<C c="7" r="5" s="7"></C>
+<C c="8" r="5" s="7"></C>
+<C c="9" r="5" s="8"></C>
+<C c="1" r="6" s="7"></C>
+<C c="2" r="6" s="7"></C>
+<C c="3" r="6" s="7"></C>
+<C c="4" r="6" s="7"></C>
+<C c="5" r="6" s="7"></C>
+<C c="6" r="6" s="7"></C>
+<C c="7" r="6" s="7"></C>
+<C c="8" r="6" s="7"></C>
+<C c="9" r="6" s="8"></C>
+<C c="1" r="7" s="7"></C>
+<C c="2" r="7" s="7"></C>
+<C c="3" r="7" s="7"></C>
+<C c="4" r="7" s="7"></C>
+<C c="5" r="7" s="7"></C>
+<C c="6" r="7" s="7"></C>
+<C c="7" r="7" s="7"></C>
+<C c="8" r="7" s="7"></C>
+<C c="9" r="7" s="8"></C>
+<C c="1" r="8" s="7"></C>
+<C c="2" r="8" s="7"></C>
+<C c="3" r="8" s="7"></C>
+<C c="4" r="8" s="7"></C>
+<C c="5" r="8" s="7"></C>
+<C c="6" r="8" s="7"></C>
+<C c="7" r="8" s="7"></C>
+<C c="8" r="8" s="7"></C>
+<C c="9" r="8" s="8"></C>
+<C c="1" r="9" s="7"></C>
+<C c="2" r="9" s="7"></C>
+<C c="3" r="9" s="7"></C>
+<C c="4" r="9" s="7"></C>
+<C c="5" r="9" s="7"></C>
+<C c="6" r="9" s="7"></C>
+<C c="7" r="9" s="7"></C>
+<C c="8" r="9" s="7"></C>
+<C c="9" r="9" s="8"></C>
+</CellElementList>
+</Report>
+<StyleList>
+<Style horizontal_alignment="0">
+<FRFont name="SimSun" style="1" size="18" />
+<Background name="NullBackground" />
+<Border></Border>
+</Style>
+<Style horizontal_alignment="0">
+<FRFont name="SimSun" style="1" size="14" />
+<Background name="NullBackground" />
+<Border><Top style="1" /><Bottom style="1" /><Left style="1" /><Right style="1" /></Border>
+</Style>
+<Style horizontal_alignment="0">
+<FRFont name="SimSun" style="1" size="14" />
+<Background name="ColorBackground"
+ color="-1">
+</Background>
+<Border><Top style="1" /><Bottom style="1" /><Left style="1" /><Right style="1" /></Border>
+</Style>
+<Style horizontal_alignment="0">
+<FRFont name="SimSun" style="1" size="14" />
+<Background name="ColorBackground"
+ color="-52">
+</Background>
+<Border><Top style="1" /><Bottom style="1" /><Left style="1" /><Right style="1" /></Border>
+</Style>
+<Style horizontal_alignment="0">
+<FRFont name="SimSun" style="0" size="13" />
+<Background name="NullBackground" />
+<Border><Top style="1" /><Bottom style="1" /><Left style="1" /><Right style="1" /></Border>
+</Style>
+<Style horizontal_alignment="0">
+<FRFont name="SimSun" style="0" size="13" />
+<Background name="ColorBackground"
+ color="-1">
+</Background>
+<Border><Top style="1" /><Bottom style="1" /><Left style="1" /><Right style="1" /></Border>
+</Style>
+<Style horizontal_alignment="0">
+<FRFont name="SimSun" style="0" size="13" />
+<Background name="ColorBackground"
+ color="-52">
+</Background>
+<Border></Border>
+</Style>
+<Style>
+<FRFont name="SimSun" style="0" size="12" />
+<Background name="ColorBackground"
+ color="-1">
+</Background>
+<Border></Border>
+</Style>
+<Style>
+<FRFont name="SimSun" style="0" size="12" />
+<Background name="ColorBackground"
+ color="-52">
+</Background>
+<Border></Border>
+</Style>
+</StyleList>
+</WorkBook>

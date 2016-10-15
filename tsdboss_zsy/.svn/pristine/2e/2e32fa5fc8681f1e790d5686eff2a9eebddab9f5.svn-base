@@ -1,0 +1,285 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<WorkBook>
+<Version>6.2</Version>
+<Report class="com.fr.report.WorkSheet" name="sheet1">
+<TableDataMap>
+<NameTableData name="为完工工单">
+<TableData class="com.fr.data.impl.DBTableData">
+<Parameters>
+<Parameter>
+<Attributes name="工号"
+ type="0"
+ shown="true" />
+<O t="S"><![CDATA[]]></O>
+</Parameter>
+<Parameter>
+<Attributes name="账号"
+ type="0"
+ shown="true" />
+<O t="S"><![CDATA[]]></O>
+</Parameter>
+</Parameters>
+<Attributes isCache="true" isDiskCache="true" />
+<Connection class="com.fr.data.impl.NameDatabaseConnection">
+<DatabaseName><![CDATA[broadband]]></DatabaseName>
+</Connection><Query><![CDATA[select username,jobrectime,userid,srealname,mqbm,jobtype from radjob where iscomplete='N' and userid  like concat('%','[?工号|?]','%') and username like concat('%','[?账号|?]','%');]]></Query>
+</TableData>
+</NameTableData>
+<NameTableData name="工单类型">
+<TableData class="com.fr.data.impl.DBTableData">
+<Parameters>
+</Parameters>
+<Attributes isCache="true" isDiskCache="true" />
+<Connection class="com.fr.data.impl.NameDatabaseConnection">
+<DatabaseName><![CDATA[broadband]]></DatabaseName>
+</Connection><Query><![CDATA[SELECT bname,sname FROM radywsl r;]]></Query>
+</TableData>
+</NameTableData>
+<NameTableData name="工号">
+<TableData class="com.fr.data.impl.DBTableData">
+<Parameters>
+</Parameters>
+<Attributes isCache="true" isDiskCache="true" />
+<Connection class="com.fr.data.impl.NameDatabaseConnection">
+<DatabaseName><![CDATA[tsdBilling]]></DatabaseName>
+</Connection><Query><![CDATA[select userid,username from sys_user]]></Query>
+</TableData>
+</NameTableData>
+</TableDataMap>
+<DictMap>
+<NameDictionary name="数据查询1">
+<Dictionary class="com.fr.data.impl.TableDataDictionary">
+<TableDataDictAttr keyColumnIndex="1" valueColumnIndex="2">
+<TableData class="com.fr.data.impl.NameTableData">
+<Name><![CDATA[工号]]></Name>
+</TableData>
+</TableDataDictAttr>
+</Dictionary>
+</NameDictionary>
+</DictMap>
+<ReportSettings orientation="1" shrinkToFit="false" headerHeight="0.0" footerHeight="0.0">
+<Margin top="0.27" left="0.7499999999999999" bottom="0.27" right="0.7499999999999999" />
+</ReportSettings>
+<ReportPageAttr>
+</ReportPageAttr>
+<ReportParameterAttr>
+<Parameters>
+</Parameters>
+<Attributes showWindow="true" delayPlaying="true" windowPosition="1" userDefineWindow="true" />
+<PWTitle><![CDATA[参数]]></PWTitle>
+<WorkSheet>
+<ReportSettings shrinkToFit="false" headerHeight="0.0" footerHeight="0.0">
+<Margin top="0.27" left="0.75" bottom="0.27" right="0.75" />
+</ReportSettings>
+<ReportParameterAttr>
+<Parameters>
+</Parameters>
+<Attributes showWindow="true" delayPlaying="true" windowPosition="0" userDefineWindow="false" />
+<PWTitle><![CDATA[参数]]></PWTitle>
+</ReportParameterAttr>
+<AutoRecalculate>false</AutoRecalculate>
+<DesignAttributes>
+</DesignAttributes>
+<ReportWebAttr>
+<EmailManager mailHost="" password="___" user="" fromEmailAddress="" />
+<ServerPrinter>
+</ServerPrinter>
+</ReportWebAttr>
+<ReportWriteAttr>
+</ReportWriteAttr>
+<Header reportPageType="0">
+<Background name="NullBackground" />
+<LeftList>
+</LeftList>
+<CenterList>
+</CenterList>
+<RightList>
+</RightList>
+</Header>
+<Footer reportPageType="0">
+<Background name="NullBackground" />
+<LeftList>
+</LeftList>
+<CenterList>
+</CenterList>
+<RightList>
+</RightList>
+</Footer>
+<RowHeight defaultValue="19">
+<![CDATA[32,19,23,19,19,30]]>
+</RowHeight>
+<ColumnWidth defaultValue="72">
+<![CDATA[72,85,85,9,69,119,26,78]]>
+</ColumnWidth>
+<CellElementList>
+<C c="1" r="0" rs="3" s="0"><O t="S"><![CDATA[报表说明：]]></O>
+</C>
+<C c="2" r="0" cs="6" s="1"><O t="S"><![CDATA[报表用于查询未完工工单的当前部门；]]></O>
+</C>
+<C c="2" r="1" cs="6" s="1"><O t="S"><![CDATA[可以按工号或者账号查询；]]></O>
+</C>
+<C c="2" r="2" cs="6" s="2"><O t="S"><![CDATA[查看所有未完工工单直接点击查询按钮]]></O>
+</C>
+<C c="1" r="5" s="3"><O t="S"><![CDATA[工号：]]></O>
+</C>
+<C c="2" r="5" s="4"><O t="PR" >
+<ParameterRef name="工号" />
+</O>
+</C>
+<C c="3" r="5" s="4"></C>
+<C c="4" r="5" s="3"><O t="S"><![CDATA[账号：]]></O>
+</C>
+<C c="5" r="5" s="4"><O t="PR" >
+<ParameterRef name="账号" />
+</O>
+</C>
+<C c="6" r="5" s="5"></C>
+<C c="7" r="5" s="5"><O t="PB" >
+<ParameterButton name="查询" type="0" />
+</O>
+</C>
+</CellElementList>
+</WorkSheet>
+</ReportParameterAttr>
+<AutoRecalculate>false</AutoRecalculate>
+<DesignAttributes>
+</DesignAttributes>
+<ReportWebAttr>
+<EmailManager mailHost="" password="___" user="" fromEmailAddress="" />
+<ServerPrinter>
+</ServerPrinter>
+</ReportWebAttr>
+<ReportWriteAttr>
+</ReportWriteAttr>
+<Header reportPageType="0">
+<Background name="NullBackground" />
+<LeftList>
+</LeftList>
+<CenterList>
+</CenterList>
+<RightList>
+</RightList>
+</Header>
+<Footer reportPageType="0">
+<Background name="NullBackground" />
+<LeftList>
+</LeftList>
+<CenterList>
+</CenterList>
+<RightList>
+</RightList>
+</Footer>
+<RowHeight defaultValue="19">
+<![CDATA[52,28,30]]>
+</RowHeight>
+<ColumnWidth defaultValue="72">
+<![CDATA[57,117,81,133,135,87,153]]>
+</ColumnWidth>
+<CellElementList>
+<C c="1" r="0" cs="6" s="6"><O t="S"><![CDATA[未完工工单查询]]></O>
+</C>
+<C c="0" r="1" s="7"><O t="S"><![CDATA[序号]]></O>
+</C>
+<C c="1" r="1" s="7"><O t="S"><![CDATA[账号]]></O>
+</C>
+<C c="2" r="1" s="7"><O t="S"><![CDATA[姓名]]></O>
+</C>
+<C c="3" r="1" s="7"><O t="S"><![CDATA[工单类型]]></O>
+</C>
+<C c="4" r="1" s="7"><O t="S"><![CDATA[目前部门]]></O>
+</C>
+<C c="5" r="1" s="7"><O t="S"><![CDATA[受理工号]]></O>
+</C>
+<C c="6" r="1" s="7"><O t="S"><![CDATA[受理时间]]></O>
+</C>
+<C c="0" r="2" s="7"><O t="Formula" class="Formula" ><Attributes><![CDATA[=&B3]]></Attributes></O>
+<Expand dir="0" leftParentDefault="false" left="B3" />
+</C>
+<C c="1" r="2" s="7"><O t="DSColumn"><Attributes dsName="为完工工单" columnName="username" />
+<RG class="com.fr.report.cellElement.core.FunctionGrouper"></RG></O>
+<Expand dir="0" leftParentDefault="false" upParentDefault="false" />
+</C>
+<C c="2" r="2" s="7"><O t="DSColumn"><Attributes dsName="为完工工单" columnName="srealname" />
+<RG class="com.fr.report.cellElement.core.FunctionGrouper"></RG></O>
+<Expand dir="0" />
+</C>
+<C c="3" r="2" s="7"><O t="DSColumn"><Attributes dsName="为完工工单" columnName="jobtype" />
+<RG class="com.fr.report.cellElement.core.FunctionGrouper"></RG></O>
+<Present class="com.fr.report.cellElement.DictPresent"><Dict class="com.fr.data.impl.TableDataDictionary">
+<TableDataDictAttr keyColumnIndex="1" valueColumnIndex="2">
+<TableData class="com.fr.data.impl.NameTableData">
+<Name><![CDATA[工单类型]]></Name>
+</TableData>
+</TableDataDictAttr>
+</Dict></Present><Expand dir="0" />
+</C>
+<C c="4" r="2" s="7"><O t="DSColumn"><Attributes dsName="为完工工单" columnName="mqbm" />
+<RG class="com.fr.report.cellElement.core.FunctionGrouper"></RG></O>
+<Expand dir="0" />
+</C>
+<C c="5" r="2" s="7"><O t="DSColumn"><Attributes dsName="为完工工单" columnName="userid" />
+<RG class="com.fr.report.cellElement.core.FunctionGrouper"></RG></O>
+<Present class="com.fr.report.cellElement.DictPresent"><Dict class="com.fr.data.impl.TableDataDictionary">
+<TableDataDictAttr keyColumnIndex="1" valueColumnIndex="2">
+<TableData class="com.fr.data.impl.NameTableData">
+<Name><![CDATA[工号]]></Name>
+</TableData>
+</TableDataDictAttr>
+</Dict></Present><Expand dir="0" />
+</C>
+<C c="6" r="2" s="8"><O t="DSColumn"><Attributes dsName="为完工工单" columnName="jobrectime" />
+<RG class="com.fr.report.cellElement.core.FunctionGrouper"></RG></O>
+<Expand dir="0" />
+</C>
+</CellElementList>
+</Report>
+<StyleList>
+<Style>
+<FRFont name="SimSun" style="1" size="14" />
+<Background name="NullBackground" />
+<Border><Bottom style="1" /></Border>
+</Style>
+<Style>
+<FRFont name="SimSun" style="1" size="14" />
+<Background name="NullBackground" />
+<Border></Border>
+</Style>
+<Style>
+<FRFont name="SimSun" style="1" size="12" />
+<Background name="NullBackground" />
+<Border><Bottom style="1" /></Border>
+</Style>
+<Style horizontal_alignment="4" imageLayout="2">
+<FRFont name="SimSun" style="0" size="16" />
+<Background name="NullBackground" />
+<Border></Border>
+</Style>
+<Style imageLayout="2">
+<FRFont name="SimSun" style="0" size="16" />
+<Background name="NullBackground" />
+<Border></Border>
+</Style>
+<Style imageLayout="2">
+<FRFont name="SimSun" style="0" size="12" />
+<Background name="NullBackground" />
+<Border></Border>
+</Style>
+<Style horizontal_alignment="0">
+<FRFont name="SimSun" style="0" size="26" />
+<Background name="NullBackground" />
+<Border></Border>
+</Style>
+<Style horizontal_alignment="0">
+<FRFont name="SimSun" style="0" size="14" />
+<Background name="NullBackground" />
+<Border><Top style="1" /><Bottom style="1" /><Left style="1" /><Right style="1" /></Border>
+</Style>
+<Style horizontal_alignment="0">
+<Format class="java.text.SimpleDateFormat"><![CDATA[yyyy-M-d H:mm]]>
+</Format>
+<FRFont name="SimSun" style="0" size="14" />
+<Background name="NullBackground" />
+<Border><Top style="1" /><Bottom style="1" /><Left style="1" /><Right style="1" /></Border>
+</Style>
+</StyleList>
+</WorkBook>

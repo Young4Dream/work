@@ -1,0 +1,222 @@
+/**********************************************************************************
+**          *******         ******  *******     **       *****                   **  
+**             *            *          *       ** **     *    *                  **
+**             *   ******   ******     *      **   **    *****                   ** 
+**             *                 *     *     ** *** **   *  *                    **
+**             *            ******     *    **       **  *    *                  **
+**                                                                               **               
+** name:    "style/css/telephone/charge/charge_phone.css"                        **
+** version: v10.1                                                                ** 
+** author:  lvkui                                                                **
+** date:    2011-7-22                                                            **
+** desc:                                                         **
+**         "WebRoot/WEB-INF/template/telephone/charge/charge_phone.jsp"          **
+** modify:                                                                       ** 
+***********************************************************************************/
+
+#chooseBox {
+	padding-bottom: 30px;
+}
+
+#chooseForJF,#chooseForFJ {
+	width: 80px;
+}
+
+.tsdbutton {
+	margin: 2px;
+	padding: 2px 18px 2px 18px;
+	height: 24px;
+}
+
+.tsdbtn {
+	line-height: 28px;
+	padding: 2px 12px 2px 12px;
+	height: 28px;
+	margin-top: 4px;
+	margin-left: 5px;
+	background: url(../../../images/public/buttonbg.jpg) repeat-x;
+	border: #CCCCCC 1px solid;
+	cursor: pointer;
+}
+
+label {
+	float: left;
+	text-align: left;
+	margin-left: 10px;
+	width: 80px;
+	line-height: 28px;
+}
+
+.inputbox {
+	margin-left: 20px;
+	background: url(../../../images/public/inputText_bg.jpg) repeat-x;
+	width: 180px;
+	border: #999999 solid 1px;
+	text-align: left;
+	color: #000000;
+	font-size: 16px;
+	font-weight: bold;
+	height: 22px;
+	line-height: 22px;
+}
+
+/*Ʊ��*/
+#ghFP {
+	padding-top: 0px;
+	padding-bottom: 5px;
+	padding-left: 10px;
+}
+
+#multiHthDetail,#commonHthYfDetail{
+	display:none;
+}
+
+#multiHthDetail h6,#commonHthYfDetail h6{
+	cursor:pointer;
+}
+
+#multiHthDetail td,#commonHthYfDetail td{
+	background-color: #ffffff;
+	line-height: 22px;
+	border:#CCC 1px solid;
+}
+
+.ghInfo {
+	text-align: left;
+	border: #eeeeee 1px solid;
+}
+
+.ghInfo td{
+	background-color: #ffffff;
+	line-height: 22px;
+}
+
+.bolder {
+	font-weight: bold;
+}
+
+#ghuserInfoPanelTabRight table,#ghuserInfoPanelTabRight,#ghuserInfoPanelTab {
+	text-align: left;
+	border: #eeeeee 1px solid;
+}
+
+#ghuserInfoPanelTabRight table td,#ghuserInfoPanelTabRight td,#ghuserInfoPanelTab td {
+	background-color: #ffffff;
+	line-height: 22px;
+}
+
+#ghuiJf,#ghuiJob,#ghuiGNB,#ghuiCTC,#ghuiKF,#ghuiLTC,#ghuiGDF {
+	cursor: pointer;
+}
+
+#ghInfoTitle {
+	text-align: center;
+	width: 620px;
+	height: 28px;
+	font-weight: bold;
+	font-size: 16px;
+	line-height: 18px;
+}
+
+#ghYHYE,#ghYHYE span {
+	color: #F00;
+	font-size:14px;
+}
+
+.neirong .midd #grid table {
+	line-height: 18px;
+}
+
+#bu_muser a {
+	font-weight: bold;
+}
+
+.btns,#ghButtons {
+	width: 100%;
+	float: left; *
+	float: none;
+	height: 36px;
+	background: url(../../../images/public/buttonsbg.jpg) repeat-x;
+	border-top: #CCCCCC 1px solid;
+	border-bottom: #CCCCCC 1px solid;
+}
+.ghHthDrpt{
+	width:90px;
+}
+#ghMultiHthDetTab_Container{
+	max-height:156px;
+	height:156px;
+	width:502px;
+	overflow-y:auto;
+	border: 1px solid #CCCFCF;
+}
+#ghMultiHthDetTab td{
+	width:480px;
+	height:auto;
+}
+#ghMultiHthDetTab td input{
+	float:left;
+	width:20px;
+	height:20px;
+}
+#ghMultiHthDetTab td span{
+	line-height:12px;
+	display:block;
+	float:left;
+	width:450px;
+	cursor:pointer;
+	white-space:break-word;
+	*height:auto;
+	*line-height:20px;  /*FF Hack*/
+}
+
+.hidePayType{
+	display:none;
+}
+
+.ghInfo td{line-height:27px;}
+
+.multi_help_afont {
+	margin-left: 2px;
+	margin-top: 5px;
+	display: block;
+	color: red;
+	border: 1px solid #CCCFCF;
+}
+.multi_help_afont_img {
+	margin-left: 3px;
+	margin-right: 3px; 
+	height : 14px;
+	width: 16px;
+	display: inline;
+	background-image: url(../../../images/public/help2.png);
+	height: 14px;
+}
+
+#multiHths{
+		height: 23px;
+		width:659px;
+		margin-top:0px;
+		padding-left:20px;
+		text-align: 20px;
+		background:#EEEEEE;
+		border:1px solid #DDDBDB;
+		display: none;
+	}
+.multiHthSpan{
+		font-size:16px;
+		font-weight:bold;
+		margin-right:20px;		
+		height: 25px;
+		line-height:25px;
+		cursor:hand;		
+	}
+.multiHthSpan_sel{
+		font-size:16px;
+		font-weight:bold;
+		margin-right:20px;		
+		height: 25px;
+		line-height:25px;
+		color:red;
+		cursor:hand;
+	}

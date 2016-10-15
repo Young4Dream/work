@@ -1,0 +1,17 @@
+*{
+	padding:0;
+	margin:0;
+	}
+body{
+	font-family: verdana;
+	}
+.main-inner {
+	width: 900px;
+	height: 440px;
+	overflow: visible;
+	margin: 0 auto;
+	position: relative;
+	/*border:1px solid #f0f;*/
+	background:url(../../images/skin_0/login_pic/bg1.gif) no-repeat;
+	clear: both
+}

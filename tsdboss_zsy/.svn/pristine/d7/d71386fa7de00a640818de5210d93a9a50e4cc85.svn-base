@@ -1,0 +1,4 @@
+db_driver=oracle.jdbc.driver.OracleDriver
+db_url=jdbc\:oracle\:thin\:@192.168.44.161\:1521\:tsdboss
+db_username=tsd_xif
+db_password=tsd2010psw

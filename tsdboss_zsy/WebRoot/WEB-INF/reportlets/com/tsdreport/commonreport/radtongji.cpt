@@ -1,0 +1,301 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<WorkBook>
+<Version>6.2</Version>
+<Report class="com.fr.report.WorkSheet" name="sheet1">
+<TableDataMap>
+<NameTableData name="宽带统计">
+<TableData class="com.fr.data.impl.DBTableData">
+<Parameters>
+<Parameter>
+<Attributes name="yf"
+ type="0"
+ shown="true" />
+<O t="S"><![CDATA[]]></O>
+</Parameter>
+<Parameter>
+<Attributes name="yhlx"
+ type="0"
+ shown="true" />
+<O t="S"><![CDATA[1]]></O>
+<CellEditorDef class="com.fr.report.cellElement.ComboBoxCellEditorDef"><Attributes allowBlank="false" />
+<Dict class="com.fr.data.impl.CustomDictionary">
+<CustomDictAttr>
+<Dict key="1:I" value="私费用户"/>
+<Dict key="2,4" value="公费用户"/>
+</CustomDictAttr>
+</Dict></CellEditorDef>
+</Parameter>
+</Parameters>
+<Attributes isCache="true" isDiskCache="true" />
+<Connection class="com.fr.data.impl.NameDatabaseConnection">
+<DatabaseName><![CDATA[broadband]]></DatabaseName>
+</Connection><Query><![CDATA[select t.feename,count(*) as num from radhuizong h,tbl_IspList t where h.hzyf='[?yf|?]' and h.UserType in ([?yhlx|?]) and h.iFeeType= t.FeeCode group by h.iFeeType
+]]></Query>
+</TableData>
+</NameTableData>
+<NameTableData name="当前时间">
+<TableData class="com.fr.data.impl.DBTableData">
+<Parameters>
+</Parameters>
+<Attributes isCache="true" isDiskCache="true" />
+<Connection class="com.fr.data.impl.NameDatabaseConnection">
+<DatabaseName><![CDATA[broadband]]></DatabaseName>
+</Connection><Query><![CDATA[select now() as today;]]></Query>
+</TableData>
+</NameTableData>
+</TableDataMap>
+<ReportSettings shrinkToFit="false" headerHeight="0.0" footerHeight="0.0">
+<Margin top="0.27" left="0.75" bottom="0.27" right="0.75" />
+</ReportSettings>
+<ReportParameterAttr>
+<Parameters>
+</Parameters>
+<Attributes showWindow="true" delayPlaying="true" windowPosition="1" userDefineWindow="true" />
+<PWTitle><![CDATA[参数]]></PWTitle>
+<WorkSheet>
+<ReportSettings shrinkToFit="false" headerHeight="0.0" footerHeight="0.0">
+<Margin top="0.27" left="0.75" bottom="0.27" right="0.75" />
+</ReportSettings>
+<ReportParameterAttr>
+<Parameters>
+</Parameters>
+<Attributes showWindow="true" delayPlaying="true" windowPosition="0" userDefineWindow="false" />
+<PWTitle><![CDATA[参数]]></PWTitle>
+</ReportParameterAttr>
+<AutoRecalculate>false</AutoRecalculate>
+<DesignAttributes>
+</DesignAttributes>
+<ReportWebAttr>
+<EmailManager mailHost="" password="___" user="" fromEmailAddress="" />
+<ServerPrinter>
+</ServerPrinter>
+</ReportWebAttr>
+<ReportWriteAttr>
+</ReportWriteAttr>
+<Header reportPageType="0">
+<Background name="NullBackground" />
+<LeftList>
+</LeftList>
+<CenterList>
+</CenterList>
+<RightList>
+</RightList>
+</Header>
+<Footer reportPageType="0">
+<Background name="NullBackground" />
+<LeftList>
+</LeftList>
+<CenterList>
+</CenterList>
+<RightList>
+</RightList>
+</Footer>
+<RowHeight defaultValue="19">
+<![CDATA[19,40,40,19,19,30]]>
+</RowHeight>
+<ColumnWidth defaultValue="72">
+<![CDATA[84,70,100,21,72,90,113]]>
+</ColumnWidth>
+<CellElementList>
+<C c="0" r="1" rs="2" s="0"><O t="S"><![CDATA[报表说明：]]></O>
+</C>
+<C c="1" r="1" cs="6" s="1"><O t="S"><![CDATA[1、此报表用于统计某月公费或私费的用户数，并按照分类提供明细。]]></O>
+</C>
+<C c="1" r="2" cs="6" s="2"><O t="S"><![CDATA[2、统计月份输入格式为6位数字。例：统计2010年1月的宽带用户，在统计月份中录入“201001”然后点击查询即可。]]></O>
+</C>
+<C c="1" r="4"><O t="S"><![CDATA[统计月份：]]></O>
+</C>
+<C c="2" r="4"><O t="PR" >
+<ParameterRef name="yf" />
+</O>
+</C>
+<C c="4" r="4"><O t="S"><![CDATA[用户类型：]]></O>
+</C>
+<C c="5" r="4"><O t="PR" >
+<ParameterRef name="yhlx" />
+</O>
+</C>
+<C c="6" r="4" s="3"><O t="PB" >
+<ParameterButton name="查询" type="0" />
+</O>
+</C>
+</CellElementList>
+</WorkSheet>
+</ReportParameterAttr>
+<AutoRecalculate>false</AutoRecalculate>
+<DesignAttributes>
+</DesignAttributes>
+<ReportWebAttr>
+<EmailManager mailHost="" password="___" user="" fromEmailAddress="" />
+<ServerPrinter>
+</ServerPrinter>
+</ReportWebAttr>
+<ReportWriteAttr>
+</ReportWriteAttr>
+<Header reportPageType="0">
+<Background name="NullBackground" />
+<LeftList>
+</LeftList>
+<CenterList>
+</CenterList>
+<RightList>
+</RightList>
+</Header>
+<Footer reportPageType="0">
+<Background name="NullBackground" />
+<LeftList>
+</LeftList>
+<CenterList>
+</CenterList>
+<RightList>
+</RightList>
+</Footer>
+<RowHeight defaultValue="19">
+<![CDATA[14,39,34,30,30,30,35]]>
+</RowHeight>
+<ColumnWidth defaultValue="72">
+<![CDATA[36,66,215,78,95]]>
+</ColumnWidth>
+<CellElementList>
+<C c="1" r="1" cs="5" s="4"><O t="Formula" class="Formula" ><Attributes><![CDATA[="宽带"+IF($yhlx==1,"私费","公费")+"统计表"]]></Attributes></O>
+</C>
+<C c="0" r="2" cs="2" s="5"><O t="S"><![CDATA[统计月份:]]></O>
+</C>
+<C c="2" r="2" s="6"><O t="Formula" class="Formula" ><Attributes><![CDATA[=$yf]]></Attributes></O>
+</C>
+<C c="3" r="2" s="6"><O t="S"><![CDATA[用户类型：]]></O>
+</C>
+<C c="4" r="2" s="6"><O t="Formula" class="Formula" ><Attributes><![CDATA[=IF($yhlx==1,"私费用户","公费用户")]]></Attributes></O>
+<Expand dir="0" />
+</C>
+<C c="1" r="3" s="7"><O t="S"><![CDATA[序号]]></O>
+</C>
+<C c="2" r="3" s="7"><O t="S"><![CDATA[计费规则]]></O>
+</C>
+<C c="3" r="3" cs="2" s="7"><O t="S"><![CDATA[用户数量]]></O>
+</C>
+<C c="1" r="4" s="8"><O t="Formula" class="Formula" ><Attributes><![CDATA[=&C5]]></Attributes></O>
+<Expand leftParentDefault="false" left="C5" />
+</C>
+<C c="2" r="4" s="8"><O t="DSColumn"><Attributes dsName="宽带统计" columnName="feename" />
+<RG class="com.fr.report.cellElement.core.FunctionGrouper"></RG></O>
+<Expand dir="0" />
+</C>
+<C c="3" r="4" cs="2" s="8"><O t="DSColumn"><Attributes dsName="宽带统计" columnName="num" />
+<RG class="com.fr.report.cellElement.core.FunctionGrouper"></RG></O>
+<NameJavaScriptGroup>
+<NameJavaScript name="sfmingxi">
+<JavaScript class="com.fr.report.javaScript.ReportletHyperlink"><TargetFrame><![CDATA[_blank]]></TargetFrame>
+<ReportletName extendParameters="false"><![CDATA[/com/tsdreport/commonreport/radtongjimingxi.cpt]]></ReportletName>
+<Parameters>
+<Parameter>
+<Attributes name="yf"
+ type="7"
+ shown="true" />
+<O t="Formula" class="Formula" ><Attributes><![CDATA[=C3]]></Attributes></O>
+</Parameter>
+<Parameter>
+<Attributes name="jfgz"
+ type="7"
+ shown="true" />
+<O t="Formula" class="Formula" ><Attributes><![CDATA[=C5]]></Attributes></O>
+</Parameter>
+<Parameter>
+<Attributes name="yhlx"
+ type="7"
+ shown="true" />
+<O t="Formula" class="Formula" ><Attributes><![CDATA[=if($yhlx==1,"1","2,4")]]></Attributes></O>
+</Parameter>
+</Parameters>
+</JavaScript>
+</NameJavaScript>
+</NameJavaScriptGroup>
+<Expand dir="0" />
+</C>
+<C c="1" r="5" cs="2" s="7"><O t="S"><![CDATA[合计]]></O>
+</C>
+<C c="3" r="5" cs="2" s="7"><O t="Formula" class="Formula" ><Attributes><![CDATA[=SUM(D5)]]></Attributes></O>
+<NameJavaScriptGroup>
+<NameJavaScript name="宽带合计明细">
+<JavaScript class="com.fr.report.javaScript.ReportletHyperlink"><TargetFrame><![CDATA[_blank]]></TargetFrame>
+<ReportletName extendParameters="false"><![CDATA[/com/tsdreport/commonreport/radhjtongjimingxi.cpt]]></ReportletName>
+<Parameters>
+<Parameter>
+<Attributes name="yf"
+ type="7"
+ shown="true" />
+<O t="Formula" class="Formula" ><Attributes><![CDATA[=C3]]></Attributes></O>
+</Parameter>
+<Parameter>
+<Attributes name="yhlx"
+ type="7"
+ shown="true" />
+<O t="Formula" class="Formula" ><Attributes><![CDATA[=if($yhlx==1,"1","2,4")]]></Attributes></O>
+</Parameter>
+</Parameters>
+</JavaScript>
+</NameJavaScript>
+</NameJavaScriptGroup>
+</C>
+<C c="0" r="6" cs="2" s="5"><O t="S"><![CDATA[统计时间:]]></O>
+<Expand dir="0" />
+</C>
+<C c="2" r="6" s="6"><O t="DSColumn"><Attributes dsName="当前时间" columnName="today" />
+<Condition class="com.fr.data.condition.ListCondition"></Condition>
+<RG class="com.fr.report.cellElement.core.FunctionGrouper"></RG><Result><![CDATA[format(today,"yyyy-MM-dd  HH:mm:ss")]]></Result></O>
+<Expand dir="0" />
+</C>
+<C c="3" r="6" cs="3" s="6"><O t="Formula" class="Formula" ><Attributes><![CDATA[="统计人："+$username]]></Attributes></O>
+</C>
+<C c="1" r="13"><O t="S"><![CDATA[]]></O>
+</C>
+</CellElementList>
+</Report>
+<StyleList>
+<Style horizontal_alignment="4">
+<FRFont name="SimSun" style="1" size="14" />
+<Background name="NullBackground" />
+<Border><Bottom style="1" /></Border>
+</Style>
+<Style>
+<FRFont name="SimSun" style="1" size="14" />
+<Background name="NullBackground" />
+<Border></Border>
+</Style>
+<Style>
+<FRFont name="SimSun" style="1" size="14" />
+<Background name="NullBackground" />
+<Border><Bottom style="1" /></Border>
+</Style>
+<Style horizontal_alignment="4">
+<FRFont name="SimSun" style="0" size="12" />
+<Background name="NullBackground" />
+<Border></Border>
+</Style>
+<Style horizontal_alignment="0">
+<FRFont name="SimSun" style="1" size="20" />
+<Background name="NullBackground" />
+<Border></Border>
+</Style>
+<Style horizontal_alignment="4">
+<FRFont name="SimSun" style="0" size="14" />
+<Background name="NullBackground" />
+<Border></Border>
+</Style>
+<Style>
+<FRFont name="SimSun" style="0" size="14" />
+<Background name="NullBackground" />
+<Border></Border>
+</Style>
+<Style horizontal_alignment="0">
+<FRFont name="SimSun" style="1" size="16" />
+<Background name="NullBackground" />
+<Border><Top style="1" /><Bottom style="1" /><Left style="1" /><Right style="1" /></Border>
+</Style>
+<Style horizontal_alignment="0">
+<FRFont name="SimSun" style="0" size="15" />
+<Background name="NullBackground" />
+<Border><Top style="1" /><Bottom style="1" /><Left style="1" /><Right style="1" /></Border>
+</Style>
+</StyleList>
+</WorkBook>

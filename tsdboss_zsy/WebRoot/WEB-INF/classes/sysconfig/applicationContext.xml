@@ -1,0 +1,207 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:aop="http://www.springframework.org/schema/aop"
+	xmlns:tx="http://www.springframework.org/schema/tx"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+	
+	 http://www.springframework.org/schema/beans/spring-beans-2.0.xsd http://www.springframework.org/schema/tx
+	http://www.springframework.org/schema/tx/spring-tx-2.5.xsd
+	http://www.springframework.org/schema/aop
+	http://www.springframework.org/schema/aop/spring-aop-2.5.xsd">
+
+	<!-- 将  dehelper类交由spring来管理，实现接口，由spring注入applicationContext -->
+	<bean id="dbhelper" class="com.tsd.dao.DBhelper"></bean>
+	<bean id="tsdboss" class="com.mchange.v2.c3p0.ComboPooledDataSource" destroy-method="close" dependency-check="none">	
+
+		<property name="driverClass" value="oracle.jdbc.driver.OracleDriver" />
+	  <property name="jdbcUrl" value="jdbc:oracle:thin:@192.168.0.60:1521:orcl" />  
+	<!--  <property name="jdbcUrl" value="jdbc:oracle:thin:@127.0.0.1:1521:tsdboss" />  -->
+		<property name="user" value="tsd" />
+		<property name="password" value="tsd2010psw" /> 
+		
+	<!-- 	
+		
+		<property name="jdbcUrl" value="jdbc:oracle:thin:@192.168.45.203:1521:orcl" />
+		<property name="user" value="tsd_xifei" />
+		<property name="password" value="tsd2010psw" /> -->
+		
+		
+		
+		
+
+		<!-- 当连接池中的连接耗尽的时候c3p0一次同时获取的连接数。Default： 3 -->
+		<property name="acquireIncrement" value="2" />
+		<property name="initialPoolSize" value="15" />
+		<property name="minPoolSize" value="8" />
+		<property name="maxPoolSize" value="50" />
+		<!-- 最大空闲时间，60秒内未使用则连接被丢弃。若为0则永不丢弃。Default： 0 -->
+		<property name="maxIdleTime" value="300" />
+		<!-- 每60秒检查所有连接池中的空闲连接。Default： 0 -->
+		<property name="idleConnectionTestPeriod" value="300" />
+		<!--
+			JDBC的标准参数，用以控制数据源内加载的PreparedStatements数量。但由于预缓存的statements
+			属于单个connection而不是整个连接池。所以设置这个参数需要考虑到多方面的因素。
+			如果maxStatements与maxStatementsPerConnection均为0，则缓存被关闭。Default： 0 
+		-->
+		<property name="maxStatements" value="0" />
+		<!-- 定义在从数据库获取新连接失败后重复尝试的次数。Default： 30 -->
+		<property name="numHelperThreads" value="10" />
+		<property name="acquireRetryAttempts" value="30" />
+		<!--
+			获取连接失败将会引起所有等待连接池来获取连接的线程抛出异常。但是数据源仍有效
+			保留，并在下次调用getConnection（）的时候继续尝试获取连接。如果设为true，那么在尝试
+			获取连接失败后该数据源将申明已断开并永久关闭。Default： false
+		-->
+		<property name="breakAfterAcquireFailure" value="false" />
+		<!--
+			因性能消耗大请只在需要的时候使用它。如果设为true那么在每个connection提交的
+			时候都将校验其有效性。建议使用idleConnectionTestPeriod或automaticTestTable
+			等方法来提升连接测试的性能。Default： false
+		-->
+		<property name="testConnectionOnCheckout" value="false" />
+		<!-- 如果设为true那么在取得连接的同时将校验连接的有效性。Default: false -->
+		<property name="testConnectionOnCheckin" value="true"/>
+ 	</bean>
+ 	
+ 	<!-- 定义使用c3p0连接池的数据源 -->
+	<bean id="radius" class="com.mchange.v2.c3p0.ComboPooledDataSource" destroy-method="close" dependency-check="none">
+		<!-- 注册mysql驱动 -->
+		<property name="driverClass" value="com.mysql.jdbc.Driver" />
+		<!-- 连接字符串 -->
+		<property name="jdbcUrl" value="jdbc:mysql://192.168.45.85:3306/radius" />
+		<!-- 登录账户和密码 -->
+		<property name="user" value="root" />
+		<property name="password" value="tsdradius"/>
+		
+		<!-- 当连接池中的连接耗尽的时候c3p0一次同时获取的连接数。Default： 3 -->
+		<property name="acquireIncrement" value="2" />
+		<property name="initialPoolSize" value="5" />
+		<property name="minPoolSize" value="5" />
+		<property name="maxPoolSize" value="25" />
+		<!-- 最大空闲时间，60秒内未使用则连接被丢弃。若为0则永不丢弃。Default： 0 -->
+		<property name="maxIdleTime" value="300" />
+		<!-- 每60秒检查所有连接池中的空闲连接。Default： 0 -->
+		<property name="idleConnectionTestPeriod" value="300" />
+		<!--
+			JDBC的标准参数，用以控制数据源内加载的PreparedStatements数量。但由于预缓存的statements
+			属于单个connection而不是整个连接池。所以设置这个参数需要考虑到多方面的因素。
+			如果maxStatements与maxStatementsPerConnection均为0，则缓存被关闭。Default： 0 
+		-->
+		<property name="maxStatements" value="0" />
+		<!-- 定义在从数据库获取新连接失败后重复尝试的次数。Default： 30 -->
+		<property name="numHelperThreads" value="10" />
+		<property name="acquireRetryAttempts" value="30" />
+		<!--
+			获取连接失败将会引起所有等待连接池来获取连接的线程抛出异常。但是数据源仍有效
+			保留，并在下次调用getConnection（）的时候继续尝试获取连接。如果设为true，那么在尝试
+			获取连接失败后该数据源将申明已断开并永久关闭。Default： false
+		-->
+		<property name="breakAfterAcquireFailure" value="false" />
+		<!--
+			因性能消耗大请只在需要的时候使用它。如果设为true那么在每个connection提交的
+			时候都将校验其有效性。建议使用idleConnectionTestPeriod或automaticTestTable
+			等方法来提升连接测试的性能。Default： false
+		-->
+		<property name="testConnectionOnCheckout" value="false" />
+		<!-- 如果设为true那么在取得连接的同时将校验连接的有效性。Default: false -->
+		<property name="testConnectionOnCheckin" value="true"/>
+	</bean>
+ 	
+ 	<!--
+ 	<bean id="tsdBroadBand" parent="tsdboss"></bean>
+ 	<bean id="tsdBilling" parent="tsdboss"></bean>
+    -->
+	<bean id="hibernateTemplate"
+		class="org.springframework.orm.hibernate3.HibernateTemplate">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+
+	<bean id="jdbcTemplate"
+		class="org.springframework.jdbc.core.JdbcTemplate">
+		<constructor-arg>
+			<ref bean="tsdboss" />
+		</constructor-arg>
+	</bean>
+
+	<!-- springJDBC事务配置 -->
+	<bean id="jdbcTransActionManager"
+		class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+		<constructor-arg>
+			<ref bean="tsdboss" />
+		</constructor-arg>
+	</bean>
+
+	<bean id="transactionManager" class="org.springframework.orm.hibernate3.HibernateTransactionManager">
+ 		<property name="sessionFactory">
+ 			<ref local="sessionFactory"/>
+ 		</property>
+ 	</bean>
+	<!-- yyl-ml add -->
+	<bean id="sortingLogFilter" class="com.tsd.service.util.SortingLogFilter">
+	</bean>
+	<bean id="txTemplate" class="org.springframework.transaction.support.TransactionTemplate">
+		<property name="transactionManager" ref="jdbcTransActionManager"/>
+	</bean>
+	<!-- 扩展至方法 -->
+<!--	<tx:advice id="txAdvice"
+		transaction-manager="transactionManager">
+		<tx:attributes>
+			<tx:method name="add*" propagation="REQUIRED"
+				rollback-for="Exception" />
+			<tx:method name="update*" propagation="REQUIRED"
+				rollback-for="Exception" />
+			<tx:method name="modify*" propagation="REQUIRED"
+				rollback-for="Exception" />
+			<tx:method name="insert*" propagation="REQUIRED"
+				rollback-for="Exception" />
+			<tx:method name="delete*" propagation="REQUIRED"
+				rollback-for="Exception" />
+			<tx:method name="receive*" propagation="REQUIRED"
+				rollback-for="Exception" />
+			<tx:method name="submit*" propagation="REQUIRED"
+				rollback-for="Exception" />
+			<tx:method name="*" read-only="true" />
+
+		</tx:attributes>
+	</tx:advice>
+-->
+	<!-- AOP设置 使用AspectJ的语法进行切面定义 -->
+<!--	<aop:config>
+		<aop:pointcut id="serviceOperation"
+			expression="execution(* com.tsd.service.*.*(..))"/>
+		<aop:advisor advice-ref="txAdvice"
+			pointcut-ref="serviceOperation" />
+	</aop:config>
+-->
+    
+	<!-- 配置hibernate org.hibernate.dialect.MySQL5InnoDBDialect-->
+	<bean id="sessionFactory"
+		class="org.springframework.orm.hibernate3.LocalSessionFactoryBean">
+		<property name="dataSource" ref="tsdboss" />
+		<property name="hibernateProperties">
+			<props>
+				<prop key="hibernate.dialect">
+					org.hibernate.dialect.SQLServerDialect  
+				</prop>
+				<prop key="show_sql">true</prop>
+				<prop key="hibernate.use_sql_comments">true</prop>
+				<prop key="hibernate.jdbc.batch_size">16</prop>
+				<prop key="hibernate.generate_statistics">true</prop>
+				<prop key="hibernate.connection.release_mode">
+					auto
+				</prop>
+				<prop key="hibernate.autoReconnect">true</prop>
+				<prop key="hibernate.cache.provider_class">org.hibernate.cache.HashtableCacheProvider</prop>
+			</props>
+		</property> 	 
+	</bean>
+    <!--加载常量表 -->	 
+	<bean id="loadAllDataDict" class="com.tsd.service.LoadAllDataDict"
+		init-method="loadAll">		
+	</bean>
+	
+	<!--读取单个常量表 -->
+	<bean id="getDataDictOne" class="com.tsd.service.GetDataDictOne">
+	</bean>
+</beans>

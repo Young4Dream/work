@@ -1,0 +1,224 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<WorkBook>
+<Version>6.2</Version>
+<Report class="com.fr.report.WorkSheet" name="sheet1">
+<TableDataMap>
+<NameTableData name="查询用户">
+<TableData class="com.fr.data.impl.DBTableData">
+<Parameters>
+<Parameter>
+<Attributes name="departname"
+ type="0"
+ shown="true" />
+<O t="S"><![CDATA[]]></O>
+</Parameter>
+<Parameter>
+<Attributes name="userarea"
+ type="0"
+ shown="true" />
+<O t="S"><![CDATA[]]></O>
+</Parameter>
+</Parameters>
+<Attributes isCache="true" isDiskCache="true" />
+<Connection class="com.fr.data.impl.NameDatabaseConnection">
+<DatabaseName><![CDATA[broadband]]></DatabaseName>
+</Connection><Query><![CDATA[call radxiaoyu10('[?departname|?]','[?userarea|?]');
+ ]]></Query>
+</TableData>
+</NameTableData>
+<NameTableData name="统计时间">
+<TableData class="com.fr.data.impl.DBTableData">
+<Parameters>
+</Parameters>
+<Attributes isCache="true" isDiskCache="true" />
+<Connection class="com.fr.data.impl.NameDatabaseConnection">
+<DatabaseName><![CDATA[broadband]]></DatabaseName>
+</Connection><Query><![CDATA[select now();]]></Query>
+</TableData>
+</NameTableData>
+<NameTableData name="用户性质">
+<TableData class="com.fr.data.impl.DBTableData">
+<Parameters>
+</Parameters>
+<Attributes isCache="true" isDiskCache="true" />
+<Connection class="com.fr.data.impl.NameDatabaseConnection">
+<DatabaseName><![CDATA[broadband]]></DatabaseName>
+</Connection><Query><![CDATA[select typeid,usertype from radusertype ]]></Query>
+</TableData>
+</NameTableData>
+<NameTableData name="计费规则">
+<TableData class="com.fr.data.impl.DBTableData">
+<Parameters>
+</Parameters>
+<Attributes isCache="true" isDiskCache="true" />
+<Connection class="com.fr.data.impl.NameDatabaseConnection">
+<DatabaseName><![CDATA[broadband]]></DatabaseName>
+</Connection><Query><![CDATA[select feecode,feename from tbl_IspList]]></Query>
+</TableData>
+</NameTableData>
+</TableDataMap>
+<ReportSettings orientation="1" shrinkToFit="false" headerHeight="0.0" footerHeight="0.0">
+<Margin top="0.27" left="0.1968503937007874" bottom="0.27" right="0.1968503937007874" />
+</ReportSettings>
+<ReportPageAttr>
+<HR F="0" T="1" /></ReportPageAttr>
+<ReportParameterAttr>
+<Parameters>
+</Parameters>
+<Attributes showWindow="true" delayPlaying="true" windowPosition="0" userDefineWindow="false" />
+<PWTitle><![CDATA[参数]]></PWTitle>
+</ReportParameterAttr>
+<AutoRecalculate>false</AutoRecalculate>
+<DesignAttributes>
+</DesignAttributes>
+<ReportWebAttr>
+<EmailManager mailHost="" password="___" user="" fromEmailAddress="" />
+<ServerPrinter>
+</ServerPrinter>
+</ReportWebAttr>
+<ReportWriteAttr>
+</ReportWriteAttr>
+<Header reportPageType="0">
+<Background name="NullBackground" />
+<LeftList>
+</LeftList>
+<CenterList>
+</CenterList>
+<RightList>
+</RightList>
+</Header>
+<Footer reportPageType="0">
+<Background name="NullBackground" />
+<LeftList>
+</LeftList>
+<CenterList>
+</CenterList>
+<RightList>
+</RightList>
+</Footer>
+<RowHeight defaultValue="19">
+<![CDATA[43,35,36,25]]>
+</RowHeight>
+<ColumnWidth defaultValue="72">
+<![CDATA[37,83,74,72,94,104,85,87,184,215]]>
+</ColumnWidth>
+<CellElementList>
+<C c="0" r="0" cs="10" s="0"><O t="Formula" class="Formula" ><Attributes><![CDATA[=if($departname=='系统管理员','',$userarea)+"告警用户"]]></Attributes></O>
+</C>
+<C c="0" r="1" s="1"><O t="S"><![CDATA[序号]]></O>
+</C>
+<C c="1" r="1" s="1"><O t="S"><![CDATA[账号]]></O>
+</C>
+<C c="2" r="1" s="1"><O t="S"><![CDATA[姓名]]></O>
+</C>
+<C c="3" r="1" s="1"><O t="S"><![CDATA[实时余额]]></O>
+</C>
+<C c="4" r="1" s="1"><O t="S"><![CDATA[用户状态]]></O>
+</C>
+<C c="5" r="1" s="1"><O t="S"><![CDATA[计费规则]]></O>
+</C>
+<C c="6" r="1" s="1"><O t="S"><![CDATA[用户性质]]></O>
+</C>
+<C c="7" r="1" s="1"><O t="S"><![CDATA[联系电话]]></O>
+</C>
+<C c="8" r="1" s="1"><O t="S"><![CDATA[单位]]></O>
+</C>
+<C c="9" r="1" s="1"><O t="S"><![CDATA[地址]]></O>
+</C>
+<C c="0" r="2" s="2"><O t="Formula" class="Formula" ><Attributes><![CDATA[=&B3]]></Attributes></O>
+<Expand dir="0" leftParentDefault="false" left="B3" />
+</C>
+<C c="1" r="2" s="2"><O t="DSColumn"><Attributes dsName="查询用户" columnName="username" />
+<Condition class="com.fr.data.condition.ListCondition"></Condition>
+<RG class="com.fr.report.cellElement.core.FunctionGrouper"></RG><Result><![CDATA[$$$]]></Result></O>
+<Expand dir="0" leftParentDefault="false" />
+</C>
+<C c="2" r="2" s="2"><O t="DSColumn"><Attributes dsName="查询用户" columnName="srealname" />
+<RG class="com.fr.report.cellElement.core.FunctionGrouper"></RG></O>
+<Expand dir="0" />
+</C>
+<C c="3" r="2" s="3"><O t="DSColumn"><Attributes dsName="查询用户" columnName="remainfee-fee5" />
+<RG class="com.fr.report.cellElement.core.FunctionGrouper"></RG></O>
+<Expand dir="0" />
+</C>
+<C c="4" r="2" s="2"><O t="DSColumn"><Attributes dsName="查询用户" columnName="status" />
+<Condition class="com.fr.data.condition.ListCondition"></Condition>
+<RG class="com.fr.report.cellElement.core.FunctionGrouper"></RG><Result><![CDATA[IF(status==100,"申请停机",if(status==0,"正常","")+if(status==1,"锁定","")+if(status==2,"欠费停机",""))]]></Result></O>
+<Expand dir="0" />
+</C>
+<C c="5" r="2" s="2"><O t="DSColumn"><Attributes dsName="计费规则" columnName="feename" />
+<Condition class="com.fr.data.condition.CommonCondition"><CNAME><![CDATA[feecode]]></CNAME><Compare op="0">
+<AnDSColumn dsName="查询用户" columnName="ifeetype" /></Compare>
+</Condition>
+<RG class="com.fr.report.cellElement.core.FunctionGrouper"></RG><Result><![CDATA[$$$]]></Result></O>
+<Expand dir="0" />
+</C>
+<C c="6" r="2" s="2"><O t="DSColumn"><Attributes dsName="用户性质" columnName="usertype" />
+<Condition class="com.fr.data.condition.CommonCondition"><CNAME><![CDATA[typeid]]></CNAME><Compare op="0">
+<AnDSColumn dsName="查询用户" columnName="sdh1" /></Compare>
+</Condition>
+<RG class="com.fr.report.cellElement.core.FunctionGrouper"></RG><Result><![CDATA[$$$]]></Result></O>
+<Expand dir="0" />
+</C>
+<C c="7" r="2" s="2"><O t="DSColumn"><Attributes dsName="查询用户" columnName="sdh" />
+<RG class="com.fr.report.cellElement.core.FunctionGrouper"></RG></O>
+<Expand dir="0" />
+</C>
+<C c="8" r="2" s="2"><O t="DSColumn"><Attributes dsName="查询用户" columnName="sbm" />
+<RG class="com.fr.report.cellElement.core.FunctionGrouper"></RG></O>
+<Expand dir="0" />
+</C>
+<C c="9" r="2" s="2"><O t="DSColumn"><Attributes dsName="查询用户" columnName="saddress" />
+<RG class="com.fr.report.cellElement.core.FunctionGrouper"></RG></O>
+<Expand dir="0" />
+</C>
+<C c="0" r="3" s="4"></C>
+<C c="1" r="3" s="5"><O t="S"><![CDATA[统计人：]]></O>
+</C>
+<C c="2" r="3" s="4"><O t="Formula" class="Formula" ><Attributes><![CDATA[=$username]]></Attributes></O>
+</C>
+<C c="3" r="3" s="4"></C>
+<C c="7" r="3" s="4"></C>
+<C c="8" r="3" s="5"><O t="S"><![CDATA[统计时间：]]></O>
+</C>
+<C c="9" r="3" s="4"><O t="DSColumn"><Attributes dsName="统计时间" columnName="now()" />
+<RG class="com.fr.report.cellElement.core.FunctionGrouper"></RG></O>
+<Expand dir="0" />
+</C>
+</CellElementList>
+</Report>
+<StyleList>
+<Style horizontal_alignment="0">
+<FRFont name="SimSun" style="1" size="20" />
+<Background name="NullBackground" />
+<Border></Border>
+</Style>
+<Style horizontal_alignment="0">
+<FRFont name="SimSun" style="1" size="15" />
+<Background name="NullBackground" />
+<Border><Top style="1" /><Bottom style="1" /><Left style="1" /><Right style="1" /></Border>
+</Style>
+<Style horizontal_alignment="0">
+<FRFont name="SimSun" style="0" size="12" />
+<Background name="NullBackground" />
+<Border><Top style="1" /><Bottom style="1" /><Left style="1" /><Right style="1" /></Border>
+</Style>
+<Style horizontal_alignment="0">
+<Format class="java.text.DecimalFormat"><![CDATA[#0.00]]>
+</Format>
+<FRFont name="SimSun" style="0" size="12" />
+<Background name="NullBackground" />
+<Border><Top style="1" /><Bottom style="1" /><Left style="1" /><Right style="1" /></Border>
+</Style>
+<Style>
+<FRFont name="SimSun" style="0" size="13" />
+<Background name="NullBackground" />
+<Border></Border>
+</Style>
+<Style horizontal_alignment="4">
+<FRFont name="SimSun" style="0" size="13" />
+<Background name="NullBackground" />
+<Border></Border>
+</Style>
+</StyleList>
+</WorkBook>

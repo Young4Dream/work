@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<WorkBook>
+<Version>6.2</Version>
+<Report class="com.fr.report.WorkSheet" name="sheet1">
+<TableDataMap>
+<NameTableData name="ds2">
+<TableData class="com.fr.data.impl.DBTableData">
+<Parameters>
+<Parameter>
+<Attributes name="fusearchsql"
+ type="0"
+ shown="true" />
+<O t="S"><![CDATA[]]></O>
+</Parameter>
+</Parameters>
+<Attributes isCache="true" isDiskCache="true" />
+<Connection class="com.fr.data.impl.NameDatabaseConnection">
+<DatabaseName><![CDATA[tsdCDR]]></DatabaseName>
+</Connection><Query><![CDATA[SELECT * FROM Call_Type_WJ  where [?fusearchsql|?]]]></Query>
+</TableData>
+</NameTableData>
+</TableDataMap>
+<ReportSettings shrinkToFit="false" headerHeight="0.0" footerHeight="0.0">
+<Margin top="0.27" left="0.7499999999999999" bottom="0.27" right="0.7499999999999999" />
+</ReportSettings>
+<ReportPageAttr>
+<HR F="0" T="1" /></ReportPageAttr>
+<ReportParameterAttr>
+<Parameters>
+</Parameters>
+<Attributes showWindow="true" delayPlaying="true" windowPosition="0" userDefineWindow="false" />
+<PWTitle><![CDATA[参数]]></PWTitle>
+</ReportParameterAttr>
+<AutoRecalculate>false</AutoRecalculate>
+<DesignAttributes>
+</DesignAttributes>
+<ReportWebAttr>
+<EmailManager mailHost="" password="___" user="" fromEmailAddress="" />
+<ServerPrinter>
+</ServerPrinter>
+</ReportWebAttr>
+<ReportWriteAttr>
+</ReportWriteAttr>
+<Header reportPageType="0">
+<Background name="NullBackground" />
+<LeftList>
+</LeftList>
+<CenterList>
+</CenterList>
+<RightList>
+</RightList>
+</Header>
+<Footer reportPageType="0">
+<Background name="NullBackground" />
+<LeftList>
+</LeftList>
+<CenterList>
+</CenterList>
+<RightList>
+</RightList>
+</Footer>
+<RowHeight defaultValue="19">
+<![CDATA[40,26,26]]>
+</RowHeight>
+<ColumnWidth defaultValue="72">
+<![CDATA[48,182,163,212]]>
+</ColumnWidth>
+<CellElementList>
+<C c="0" r="0" cs="4" s="0"><O t="S"><![CDATA[定义网间结算呼叫类型明细]]></O>
+</C>
+<C c="0" r="1" s="1"><O t="S"><![CDATA[序号]]></O>
+<CellGUIAttr autoAdjustRowHeight="1" ></CellGUIAttr></C>
+<C c="1" r="1" s="1"><O t="S"><![CDATA[ 呼叫类型]]></O>
+</C>
+<C c="2" r="1" s="1"><O t="S"><![CDATA[计费网名]]></O>
+</C>
+<C c="3" r="1" s="1"><O t="S"><![CDATA[被叫字冠]]></O>
+</C>
+<C c="0" r="2" s="2"><O t="Formula" class="Formula" ><Attributes><![CDATA[=&B3]]></Attributes></O>
+<CellGUIAttr autoAdjustRowHeight="1" ></CellGUIAttr><Expand leftParentDefault="false" left="B3" />
+</C>
+<C c="1" r="2" s="2"><O t="DSColumn"><Attributes dsName="ds2" columnName="Call_Type" />
+<Condition class="com.fr.data.condition.ListCondition"></Condition>
+<RG class="com.fr.report.cellElement.core.FunctionGrouper"><Attr divideMode="1" /></RG><Result><![CDATA[$$$]]></Result></O>
+<CellGUIAttr autoAdjustRowHeight="1" ></CellGUIAttr><Expand dir="0" />
+</C>
+<C c="2" r="2" s="2"><O t="DSColumn"><Attributes dsName="ds2" columnName="NetName" />
+<RG class="com.fr.report.cellElement.core.FunctionGrouper"></RG></O>
+<CellGUIAttr autoAdjustRowHeight="1" ></CellGUIAttr></C>
+<C c="3" r="2" s="2"><O t="DSColumn"><Attributes dsName="ds2" columnName="Bjzg" />
+<RG class="com.fr.report.cellElement.core.FunctionGrouper"></RG></O>
+<CellGUIAttr autoAdjustRowHeight="1" ></CellGUIAttr></C>
+<C c="1" r="3" s="3"></C>
+<C c="2" r="3" s="3"></C>
+<C c="3" r="3" s="3"></C>
+<C c="1" r="16"></C>
+</CellElementList>
+</Report>
+<StyleList>
+<Style horizontal_alignment="0">
+<FRFont name="SimSun" style="1" size="18" />
+<Background name="NullBackground" />
+<Border></Border>
+</Style>
+<Style horizontal_alignment="0">
+<FRFont name="SimSun" style="1" size="12" />
+<Background name="NullBackground" />
+<Border><Top style="1" /><Bottom style="1" /><Left style="1" /><Right style="1" /></Border>
+</Style>
+<Style horizontal_alignment="0">
+<FRFont name="SimSun" style="0" size="12" />
+<Background name="NullBackground" />
+<Border><Top style="1" /><Bottom style="1" /><Left style="1" /><Right style="1" /></Border>
+</Style>
+<Style horizontal_alignment="0">
+<FRFont name="SimSun" style="0" size="12" />
+<Background name="NullBackground" />
+<Border></Border>
+</Style>
+</StyleList>
+</WorkBook>

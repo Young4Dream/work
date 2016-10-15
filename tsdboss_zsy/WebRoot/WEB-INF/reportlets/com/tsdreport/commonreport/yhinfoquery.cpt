@@ -1,0 +1,447 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<WorkBook xmlVersion="20100901">
+<TableDataMap>
+<TableData name="档案" class="com.fr.data.impl.DBTableData">
+<Parameters>
+<Parameter>
+<Attributes name="area"/>
+<O>
+<![CDATA[%]]></O>
+</Parameter>
+<Parameter>
+<Attributes name="kduser"/>
+<O>
+<![CDATA[0]]></O>
+</Parameter>
+<Parameter>
+<Attributes name="dh"/>
+<O>
+<![CDATA[48101]]></O>
+</Parameter>
+<Parameter>
+<Attributes name="state"/>
+<O>
+<![CDATA[%]]></O>
+</Parameter>
+<Parameter>
+<Attributes name="usertype"/>
+<O>
+<![CDATA[-1]]></O>
+</Parameter>
+<Parameter>
+<Attributes name="dhlx"/>
+<O>
+<![CDATA[%]]></O>
+</Parameter>
+<Parameter>
+<Attributes name="regdateto"/>
+<O>
+<![CDATA[2999-12-31]]></O>
+</Parameter>
+<Parameter>
+<Attributes name="feetype"/>
+<O>
+<![CDATA[%]]></O>
+</Parameter>
+<Parameter>
+<Attributes name="inctype"/>
+<O>
+<![CDATA[dh]]></O>
+</Parameter>
+<Parameter>
+<Attributes name="creditpoint"/>
+<O>
+<![CDATA[-1]]></O>
+</Parameter>
+<Parameter>
+<Attributes name="regdatefrom"/>
+<O>
+<![CDATA[1919-01-01]]></O>
+</Parameter>
+</Parameters>
+<Attributes maxMemRowCount="-1"/>
+<Connection class="com.fr.data.impl.NameDatabaseConnection">
+<DatabaseName>
+<![CDATA[tsdBilling]]></DatabaseName>
+</Connection>
+<Query>
+<![CDATA[select y.*,h.bm1 hthbm1,h.yhmc hthyhmc 
+  from yhdang y
+  left join hthdang h on
+  y.hth=h.hth
+ where y. ${inctype} like '${dh}%'
+   and y.reg_date between c('${regdatefrom}') and c('${regdateto} 23:59:59')
+   and y.tjbz in (select hwjb from hwjbdef where showname like '${state}')
+   and ('0' = '${kduser}' or
+       ('1' = '${kduser}' and
+       y.dh in (select sdh from radcheck where sdh is not null)) or
+       ('2' = '${kduser}' and
+       y.dh not in (select sdh from radcheck where sdh is not null)))
+   and ('-1' = '${usertype}' or
+       ('-1' ! = '${usertype}' and y.usertype = ${usertype}))
+   and y.dhlx like '${dhlx}'
+   and (y.dh in
+       (select dh
+           from attachfee ee
+          where ee.feetype like '${feetype}'
+         union
+         select dh from hfintime hf where hf.fee_type like '${feetype}'))
+   and y.bz3 like '${area}' and ('-1' = '${creditpoint}' or ('-1' ! = '${creditpoint}' and y.creditpoint = '${creditpoint}')) order by y.dh
+]]></Query>
+</TableData>
+<TableData name="状态" class="com.fr.data.impl.DBTableData">
+<Parameters/>
+<Attributes maxMemRowCount="-1"/>
+<Connection class="com.fr.data.impl.NameDatabaseConnection">
+<DatabaseName>
+<![CDATA[tsdBilling]]></DatabaseName>
+</Connection>
+<Query>
+<![CDATA[select * from hwjbdef]]></Query>
+</TableData>
+<TableData name="大客户" class="com.fr.data.impl.DBTableData">
+<Parameters/>
+<Attributes maxMemRowCount="-1"/>
+<Connection class="com.fr.data.impl.NameDatabaseConnection">
+<DatabaseName>
+<![CDATA[tsdBilling]]></DatabaseName>
+</Connection>
+<Query>
+<![CDATA[select hth,bm1 from hthdang where custtype=1 and bm1 is not null]]></Query>
+</TableData>
+<TableData name="时间" class="com.fr.data.impl.DBTableData">
+<Parameters/>
+<Attributes maxMemRowCount="-1"/>
+<Connection class="com.fr.data.impl.NameDatabaseConnection">
+<DatabaseName>
+<![CDATA[tsdBilling]]></DatabaseName>
+</Connection>
+<Query>
+<![CDATA[select '打印时间：' || to_char(sysdate,'YYYY-MM-DD HH24:MI:SS') TM from dual]]></Query>
+</TableData>
+</TableDataMap>
+<ReportWebAttr>
+<Title>
+<![CDATA[用户综合资料]]></Title>
+<Background name="NullBackground"/>
+<CacheValidateTime>
+<![CDATA[0]]></CacheValidateTime>
+</ReportWebAttr>
+<Report class="com.fr.report.WorkSheet" name="sheet1">
+<ReportPageAttr>
+<HR F="2" T="2"/>
+<FR/>
+<HC/>
+<FC/>
+</ReportPageAttr>
+<RowHeight defaultValue="19">
+<![CDATA[42,25,28,24,24,19,19,19,19,19,19,19,19,19,19,19,19,19,19,19,19,19,19,19,19,19,19,19,19,19,19,19,19,19,19,19,19,19,19,19,19,19,19,19,19,19,19,19,19,19,19,19]]></RowHeight>
+<ColumnWidth defaultValue="72">
+<![CDATA[62,82,72,72,72,72,72,72,72,72,72,72,72,72,81,72,72,72,72,72,72]]></ColumnWidth>
+<CellElementList>
+<C c="0" r="0" cs="15" s="0">
+<O>
+<![CDATA[用 户 综 合 资 料]]></O>
+<Expand/>
+</C>
+<C c="12" r="1" cs="3">
+<O t="DSColumn">
+<Attributes dsName="时间" columnName="TM"/>
+<Complex/>
+<RG class="com.fr.report.cellElement.core.FunctionGrouper"/>
+<Parameters/>
+</O>
+<Expand dir="0"/>
+</C>
+<C c="0" r="2" s="1">
+<O>
+<![CDATA[电话号码]]></O>
+<Expand/>
+</C>
+<C c="1" r="2" s="1">
+<O>
+<![CDATA[账户号]]></O>
+<Expand/>
+</C>
+<C c="2" r="2" s="1">
+<O>
+<![CDATA[账户名称]]></O>
+<Expand/>
+</C>
+<C c="3" r="2" s="1">
+<O>
+<![CDATA[催费性质]]></O>
+<Expand/>
+</C>
+<C c="4" r="2" s="1">
+<O>
+<![CDATA[用户名称]]></O>
+<Expand/>
+</C>
+<C c="5" r="2" s="1">
+<O>
+<![CDATA[地址]]></O>
+<Expand/>
+</C>
+<C c="6" r="2" s="1">
+<O>
+<![CDATA[身份证]]></O>
+<Expand/>
+</C>
+<C c="7" r="2" s="1">
+<O>
+<![CDATA[联系电话 ]]></O>
+<Expand/>
+</C>
+<C c="8" r="2" s="1">
+<O>
+<![CDATA[用户类型]]></O>
+<Expand/>
+</C>
+<C c="9" r="2" s="1">
+<O>
+<![CDATA[状态]]></O>
+<Expand/>
+</C>
+<C c="10" r="2" s="1">
+<O>
+<![CDATA[集团号]]></O>
+<Expand/>
+</C>
+<C c="11" r="2" s="1">
+<O>
+<![CDATA[信誉度]]></O>
+<Expand/>
+</C>
+<C c="12" r="2" s="1">
+<O>
+<![CDATA[开户时间]]></O>
+<Expand/>
+</C>
+<C c="13" r="2" s="1">
+<O>
+<![CDATA[销户时间]]></O>
+<Expand/>
+</C>
+<C c="14" r="2" s="1">
+<O>
+<![CDATA[所属站]]></O>
+<Expand/>
+</C>
+<C c="0" r="3">
+<O t="DSColumn">
+<Attributes dsName="档案" columnName="DH"/>
+<Complex/>
+<RG class="com.fr.report.cellElement.core.FunctionGrouper"/>
+<Parameters/>
+</O>
+<Expand dir="0"/>
+</C>
+<C c="1" r="3">
+<O t="DSColumn">
+<Attributes dsName="档案" columnName="HTH"/>
+<Complex/>
+<RG class="com.fr.report.cellElement.core.FunctionGrouper"/>
+<Parameters/>
+</O>
+<Expand dir="0"/>
+</C>
+<C c="2" r="3">
+<O t="DSColumn">
+<Attributes dsName="档案" columnName="HTHYHMC"/>
+<Complex/>
+<RG class="com.fr.report.cellElement.core.FunctionGrouper"/>
+<Parameters/>
+</O>
+<Expand dir="0"/>
+</C>
+<C c="3" r="3">
+<O t="DSColumn">
+<Attributes dsName="档案" columnName="CALLSHEDULENO"/>
+<Complex/>
+<RG class="com.fr.report.cellElement.core.FunctionGrouper"/>
+<Parameters/>
+</O>
+<Expand dir="0"/>
+</C>
+<C c="4" r="3">
+<O t="DSColumn">
+<Attributes dsName="档案" columnName="YHMC"/>
+<Complex/>
+<RG class="com.fr.report.cellElement.core.FunctionGrouper"/>
+<Parameters/>
+</O>
+<Expand dir="0"/>
+</C>
+<C c="5" r="3">
+<O t="DSColumn">
+<Attributes dsName="档案" columnName="YHDZ"/>
+<Complex/>
+<RG class="com.fr.report.cellElement.core.FunctionGrouper"/>
+<Parameters/>
+</O>
+<Expand dir="0"/>
+</C>
+<C c="6" r="3">
+<O t="DSColumn">
+<Attributes dsName="档案" columnName="BZ7"/>
+<Complex/>
+<RG class="com.fr.report.cellElement.core.FunctionGrouper"/>
+<Parameters/>
+</O>
+<Expand dir="0"/>
+</C>
+<C c="7" r="3">
+<O t="DSColumn">
+<Attributes dsName="档案" columnName="BZ8"/>
+<Complex/>
+<RG class="com.fr.report.cellElement.core.FunctionGrouper"/>
+<Parameters/>
+</O>
+<Expand dir="0"/>
+</C>
+<C c="8" r="3">
+<O t="DSColumn">
+<Attributes dsName="档案" columnName="USERTYPE"/>
+<Complex/>
+<RG class="com.fr.report.cellElement.core.FunctionGrouper"/>
+<Parameters/>
+</O>
+<Expand dir="0"/>
+</C>
+<C c="9" r="3">
+<O t="DSColumn">
+<Attributes dsName="状态" columnName="SHOWNAME"/>
+<Condition class="com.fr.data.condition.CommonCondition">
+<CNAME>
+<![CDATA[HWJB]]></CNAME>
+<Compare op="0">
+<AnDSColumn dsName="档案" columnName="TJBZ"/>
+</Compare>
+</Condition>
+<Complex/>
+<RG class="com.fr.report.cellElement.core.FunctionGrouper"/>
+<Result>
+<![CDATA[$$$]]></Result>
+<Parameters/>
+</O>
+<Expand dir="0"/>
+</C>
+<C c="10" r="3">
+<O t="DSColumn">
+<Attributes dsName="大客户" columnName="HTH"/>
+<Condition class="com.fr.data.condition.CommonCondition">
+<CNAME>
+<![CDATA[BM1]]></CNAME>
+<Compare op="0">
+<AnDSColumn dsName="档案" columnName="HTHBM1"/>
+</Compare>
+</Condition>
+<Complex/>
+<RG class="com.fr.report.cellElement.core.FunctionGrouper">
+<Attr divideMode="1"/>
+</RG>
+<Result>
+<![CDATA[$$$]]></Result>
+<Parameters/>
+</O>
+<Expand dir="0"/>
+</C>
+<C c="11" r="3">
+<O t="DSColumn">
+<Attributes dsName="档案" columnName="CREDITPOINT"/>
+<Complex/>
+<RG class="com.fr.report.cellElement.core.FunctionGrouper"/>
+<Parameters/>
+</O>
+<Expand dir="0"/>
+</C>
+<C c="12" r="3">
+<O t="DSColumn">
+<Attributes dsName="档案" columnName="REG_DATE"/>
+<Complex/>
+<RG class="com.fr.report.cellElement.core.FunctionGrouper"/>
+<Parameters/>
+</O>
+<Expand dir="0"/>
+</C>
+<C c="13" r="3">
+<O t="DSColumn">
+<Attributes dsName="档案" columnName="DELDATE"/>
+<Complex/>
+<RG class="com.fr.report.cellElement.core.FunctionGrouper"/>
+<Parameters/>
+</O>
+<Expand dir="0"/>
+</C>
+<C c="14" r="3">
+<O t="DSColumn">
+<Attributes dsName="档案" columnName="BZ3"/>
+<Complex/>
+<RG class="com.fr.report.cellElement.core.FunctionGrouper"/>
+<Parameters/>
+</O>
+<Expand dir="0"/>
+</C>
+<C c="0" r="4" cs="3">
+<O t="Formula" class="Formula">
+<Attributes>
+<![CDATA[="共有 " + count(A4) + " 条记录"]]></Attributes>
+</O>
+<Expand/>
+</C>
+</CellElementList>
+<ReportSettings headerHeight="0.0" footerHeight="0.2362204724409449">
+<PaperSetting orientation="1">
+<Margin top="0.27" left="0.08070866141732283" bottom="0.27" right="0.08070866141732283"/>
+</PaperSetting>
+</ReportSettings>
+<Header reportPageType="0">
+<Background name="NullBackground"/>
+<LeftList/>
+<CenterList/>
+<RightList/>
+</Header>
+<Footer reportPageType="0">
+<Background name="NullBackground"/>
+<LeftList/>
+<CenterList/>
+<RightList>
+<HFElement className="com.fr.report.core.headerfooter.TextHFElement">
+<FRFont name="SimSun" style="0" size="12"/>
+<![CDATA[当前第 ]]></HFElement>
+<HFElement className="com.fr.report.core.headerfooter.PageNumberHFElement">
+<FRFont name="SimSun" style="0" size="12"/>
+<![CDATA[1]]></HFElement>
+<HFElement className="com.fr.report.core.headerfooter.TextHFElement">
+<FRFont name="SimSun" style="0" size="12"/>
+<![CDATA[ 页,共 ]]></HFElement>
+<HFElement className="com.fr.report.core.headerfooter.NumberOfPageHFElement">
+<FRFont name="SimSun" style="0" size="12"/>
+<![CDATA[100]]></HFElement>
+<HFElement className="com.fr.report.core.headerfooter.TextHFElement">
+<FRFont name="SimSun" style="0" size="12"/>
+<![CDATA[ 页            ]]></HFElement>
+</RightList>
+</Footer>
+</Report>
+<ReportParameterAttr>
+<Attributes showWindow="false" delayPlaying="true" windowPosition="1" align="1"/>
+<PWTitle>
+<![CDATA[参数]]></PWTitle>
+</ReportParameterAttr>
+<StyleList>
+<Style horizontal_alignment="0">
+<FRFont name="SimSun" style="1" size="20"/>
+<Background name="NullBackground"/>
+<Border/>
+</Style>
+<Style>
+<FRFont name="SimSun" style="0" size="12"/>
+<Background name="NullBackground"/>
+<Border>
+<Bottom style="1"/>
+</Border>
+</Style>
+</StyleList>
+</WorkBook>

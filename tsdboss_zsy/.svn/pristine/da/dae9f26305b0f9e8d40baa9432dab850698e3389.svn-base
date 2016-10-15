@@ -1,0 +1,285 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<WorkBook>
+<Version>6.2</Version>
+<Report class="com.fr.report.WorkSheet" name="sheet1">
+<TableDataMap>
+<NameTableData name="删除日志查询">
+<TableData class="com.fr.data.impl.DBTableData">
+<Parameters>
+<Parameter>
+<Attributes name="fusearchsql"
+ type="0"
+ shown="true" />
+<O t="S"><![CDATA[]]></O>
+</Parameter>
+</Parameters>
+<Attributes isCache="true" isDiskCache="true" />
+<Connection class="com.fr.data.impl.NameDatabaseConnection">
+<DatabaseName><![CDATA[tsdBilling]]></DatabaseName>
+</Connection><Query><![CDATA[SELECT * FROM packageuser_del where [?fusearchsql|?] ]]></Query>
+</TableData>
+</NameTableData>
+<NameTableData name="ds1">
+<TableData class="com.fr.data.impl.DBTableData">
+<Parameters>
+</Parameters>
+<Attributes isCache="true" isDiskCache="true" />
+<Connection class="com.fr.data.impl.NameDatabaseConnection">
+<DatabaseName><![CDATA[tsdBilling]]></DatabaseName>
+</Connection><Query><![CDATA[select userid,username from sys_user;]]></Query>
+</TableData>
+</NameTableData>
+</TableDataMap>
+<ReportSettings orientation="1" shrinkToFit="false" headerHeight="0.0" footerHeight="0.0">
+<PaperSize width="23.389" height="33.056" />
+<Margin top="0.27" left="0.1968503937007874" bottom="0.27" right="0.1968503937007874" />
+</ReportSettings>
+<ReportPageAttr>
+<HR F="0" T="1" /></ReportPageAttr>
+<ReportParameterAttr>
+<Parameters>
+</Parameters>
+<Attributes showWindow="true" delayPlaying="true" windowPosition="0" userDefineWindow="false" />
+<PWTitle><![CDATA[参数]]></PWTitle>
+</ReportParameterAttr>
+<AutoRecalculate>false</AutoRecalculate>
+<DesignAttributes>
+</DesignAttributes>
+<ReportWebAttr>
+<EmailManager mailHost="" password="___" user="" fromEmailAddress="" />
+<ServerPrinter>
+</ServerPrinter>
+</ReportWebAttr>
+<ReportWriteAttr>
+</ReportWriteAttr>
+<Header reportPageType="0">
+<Background name="NullBackground" />
+<LeftList>
+</LeftList>
+<CenterList>
+</CenterList>
+<RightList>
+</RightList>
+</Header>
+<Footer reportPageType="0">
+<Background name="NullBackground" />
+<LeftList>
+</LeftList>
+<CenterList>
+</CenterList>
+<RightList>
+</RightList>
+</Footer>
+<RowHeight defaultValue="19">
+<![CDATA[32,30,30]]>
+</RowHeight>
+<ColumnWidth defaultValue="72">
+<![CDATA[38,73,76,72,72,72,72,72,100,81,72,72,72,72,72,72,72,72,72,72,72,72,72,72,72,72,72,72,77,72,295]]>
+</ColumnWidth>
+<CellElementList>
+<C c="0" r="0" cs="12" s="0"><O t="S"><![CDATA[套餐用户档案删除日志]]></O>
+</C>
+<C c="12" r="0" s="1"></C>
+<C c="15" r="0" s="1"></C>
+<C c="18" r="0" s="1"></C>
+<C c="21" r="0" s="1"></C>
+<C c="24" r="0" s="1"></C>
+<C c="25" r="0" s="1"></C>
+<C c="26" r="0" s="1"></C>
+<C c="27" r="0" s="1"></C>
+<C c="28" r="0" s="1"></C>
+<C c="29" r="0" s="1"></C>
+<C c="0" r="1" s="2"><O t="S"><![CDATA[序号]]></O>
+<CellGUIAttr autoAdjustRowHeight="1" ></CellGUIAttr></C>
+<C c="1" r="1" s="2"><O t="S"><![CDATA[删除时间]]></O>
+<CellGUIAttr autoAdjustRowHeight="1" ></CellGUIAttr></C>
+<C c="2" r="1" s="2"><O t="S"><![CDATA[删除人工号]]></O>
+<CellGUIAttr autoAdjustRowHeight="1" ></CellGUIAttr></C>
+<C c="3" r="1" s="2"><O t="S"><![CDATA[捆绑电话]]></O>
+<CellGUIAttr autoAdjustRowHeight="1" ></CellGUIAttr></C>
+<C c="4" r="1" s="2"><O t="S"><![CDATA[用户姓名]]></O>
+<CellGUIAttr autoAdjustRowHeight="1" ></CellGUIAttr></C>
+<C c="5" r="1" s="2"><O t="S"><![CDATA[证件号码]]></O>
+<CellGUIAttr autoAdjustRowHeight="1" ></CellGUIAttr></C>
+<C c="6" r="1" s="2"><O t="S"><![CDATA[宽带帐号]]></O>
+<CellGUIAttr autoAdjustRowHeight="1" ></CellGUIAttr></C>
+<C c="7" r="1" s="2"><O t="S"><![CDATA[用户姓名]]></O>
+<CellGUIAttr autoAdjustRowHeight="1" ></CellGUIAttr></C>
+<C c="8" r="1" s="2"><O t="S"><![CDATA[证件号码]]></O>
+<CellGUIAttr autoAdjustRowHeight="1" ></CellGUIAttr></C>
+<C c="9" r="1" s="2"><O t="S"><![CDATA[营收区域]]></O>
+<CellGUIAttr autoAdjustRowHeight="1" ></CellGUIAttr></C>
+<C c="10" r="1" s="2"><O t="S"><![CDATA[业务联系人]]></O>
+<CellGUIAttr autoAdjustRowHeight="1" ></CellGUIAttr></C>
+<C c="11" r="1" s="2"><O t="S"><![CDATA[生效日期]]></O>
+<CellGUIAttr autoAdjustRowHeight="1" ></CellGUIAttr></C>
+<C c="12" r="1" s="2"><O t="S"><![CDATA[189号码1]]></O>
+<CellGUIAttr autoAdjustRowHeight="1" ></CellGUIAttr></C>
+<C c="13" r="1" s="2"><O t="S"><![CDATA[用户姓名1]]></O>
+<CellGUIAttr autoAdjustRowHeight="1" ></CellGUIAttr></C>
+<C c="14" r="1" s="2"><O t="S"><![CDATA[证件号码1]]></O>
+<CellGUIAttr autoAdjustRowHeight="1" ></CellGUIAttr></C>
+<C c="15" r="1" s="2"><O t="S"><![CDATA[189号码2]]></O>
+<CellGUIAttr autoAdjustRowHeight="1" ></CellGUIAttr></C>
+<C c="16" r="1" s="2"><O t="S"><![CDATA[用户姓名2]]></O>
+<CellGUIAttr autoAdjustRowHeight="1" ></CellGUIAttr></C>
+<C c="17" r="1" s="2"><O t="S"><![CDATA[证件号码2]]></O>
+<CellGUIAttr autoAdjustRowHeight="1" ></CellGUIAttr></C>
+<C c="18" r="1" s="2"><O t="S"><![CDATA[189号码3]]></O>
+<CellGUIAttr autoAdjustRowHeight="1" ></CellGUIAttr></C>
+<C c="19" r="1" s="2"><O t="S"><![CDATA[用户姓名3]]></O>
+<CellGUIAttr autoAdjustRowHeight="1" ></CellGUIAttr></C>
+<C c="20" r="1" s="2"><O t="S"><![CDATA[证件号码3]]></O>
+<CellGUIAttr autoAdjustRowHeight="1" ></CellGUIAttr></C>
+<C c="21" r="1" s="2"><O t="S"><![CDATA[189号码4]]></O>
+<CellGUIAttr autoAdjustRowHeight="1" ></CellGUIAttr></C>
+<C c="22" r="1" s="2"><O t="S"><![CDATA[用户姓名4]]></O>
+<CellGUIAttr autoAdjustRowHeight="1" ></CellGUIAttr></C>
+<C c="23" r="1" s="2"><O t="S"><![CDATA[证件号码4]]></O>
+<CellGUIAttr autoAdjustRowHeight="1" ></CellGUIAttr></C>
+<C c="24" r="1" s="2"><O t="S"><![CDATA[189号码5]]></O>
+<CellGUIAttr autoAdjustRowHeight="1" ></CellGUIAttr></C>
+<C c="25" r="1" s="2"><O t="S"><![CDATA[用户姓名5]]></O>
+<CellGUIAttr autoAdjustRowHeight="1" ></CellGUIAttr></C>
+<C c="26" r="1" s="2"><O t="S"><![CDATA[证件号码5]]></O>
+<CellGUIAttr autoAdjustRowHeight="1" ></CellGUIAttr></C>
+<C c="27" r="1" s="2"><O t="S"><![CDATA[失效日期]]></O>
+<CellGUIAttr autoAdjustRowHeight="1" ></CellGUIAttr></C>
+<C c="28" r="1" s="2"><O t="S"><![CDATA[金额]]></O>
+<CellGUIAttr autoAdjustRowHeight="1" ></CellGUIAttr></C>
+<C c="29" r="1" s="2"><O t="S"><![CDATA[收费项目]]></O>
+<CellGUIAttr autoAdjustRowHeight="1" ></CellGUIAttr></C>
+<C c="30" r="1" s="2"><O t="S"><![CDATA[地址]]></O>
+<CellGUIAttr autoAdjustRowHeight="1" ></CellGUIAttr></C>
+<C c="0" r="2" s="3"><O t="Formula" class="Formula" ><Attributes><![CDATA[=&B3]]></Attributes></O>
+<CellGUIAttr autoAdjustRowHeight="1" ></CellGUIAttr><Expand leftParentDefault="false" left="B3" />
+</C>
+<C c="1" r="2" s="3"><O t="DSColumn"><Attributes dsName="删除日志查询" columnName="deldate" />
+<Condition class="com.fr.data.condition.ListCondition"></Condition>
+<RG class="com.fr.report.cellElement.core.FunctionGrouper"><Attr divideMode="1" /></RG><Result><![CDATA[$$$]]></Result></O>
+<CellGUIAttr autoAdjustRowHeight="1" ></CellGUIAttr><Expand dir="0" />
+</C>
+<C c="2" r="2" s="3"><O t="DSColumn"><Attributes dsName="ds1" columnName="username" />
+<Condition class="com.fr.data.condition.CommonCondition"><CNAME><![CDATA[userid]]></CNAME><Compare op="0">
+<AnDSColumn dsName="删除日志查询" columnName="deluser" /></Compare>
+</Condition>
+<RG class="com.fr.report.cellElement.core.FunctionGrouper"><Attr divideMode="1" /></RG><Result><![CDATA[$$$]]></Result></O>
+<CellGUIAttr autoAdjustRowHeight="1" ></CellGUIAttr><Expand dir="0" />
+</C>
+<C c="3" r="2" s="3"><O t="DSColumn"><Attributes dsName="删除日志查询" columnName="dh" />
+<Condition class="com.fr.data.condition.ListCondition"></Condition>
+<RG class="com.fr.report.cellElement.core.FunctionGrouper"><Attr divideMode="1" /></RG><Result><![CDATA[$$$]]></Result></O>
+<CellGUIAttr autoAdjustRowHeight="1" ></CellGUIAttr><Expand dir="0" />
+</C>
+<C c="4" r="2" s="3"><O t="DSColumn"><Attributes dsName="删除日志查询" columnName="tel_name" />
+<Condition class="com.fr.data.condition.ListCondition"></Condition>
+<RG class="com.fr.report.cellElement.core.FunctionGrouper"><Attr divideMode="1" /></RG><Result><![CDATA[$$$]]></Result></O>
+<CellGUIAttr autoAdjustRowHeight="1" ></CellGUIAttr><Expand dir="0" />
+</C>
+<C c="5" r="2" s="3"><O t="DSColumn"><Attributes dsName="删除日志查询" columnName="tel_cardid" />
+<RG class="com.fr.report.cellElement.core.FunctionGrouper"></RG></O>
+<CellGUIAttr autoAdjustRowHeight="1" ></CellGUIAttr></C>
+<C c="6" r="2" s="3"><O t="DSColumn"><Attributes dsName="删除日志查询" columnName="account" />
+<Condition class="com.fr.data.condition.ListCondition"></Condition>
+<RG class="com.fr.report.cellElement.core.FunctionGrouper"><Attr divideMode="1" /></RG><Result><![CDATA[$$$]]></Result></O>
+<CellGUIAttr autoAdjustRowHeight="1" ></CellGUIAttr><Expand dir="0" />
+</C>
+<C c="7" r="2" s="3"><O t="DSColumn"><Attributes dsName="删除日志查询" columnName="bb_name" />
+<RG class="com.fr.report.cellElement.core.FunctionGrouper"></RG></O>
+<CellGUIAttr autoAdjustRowHeight="1" ></CellGUIAttr></C>
+<C c="8" r="2" s="3"><O t="DSColumn"><Attributes dsName="删除日志查询" columnName="bb_cardid" />
+<RG class="com.fr.report.cellElement.core.FunctionGrouper"></RG></O>
+<CellGUIAttr autoAdjustRowHeight="1" ></CellGUIAttr></C>
+<C c="9" r="2" s="3"><O t="DSColumn"><Attributes dsName="删除日志查询" columnName="area" />
+<RG class="com.fr.report.cellElement.core.FunctionGrouper"></RG></O>
+<CellGUIAttr autoAdjustRowHeight="1" ></CellGUIAttr></C>
+<C c="10" r="2" s="3"><O t="DSColumn"><Attributes dsName="删除日志查询" columnName="busilinkman" />
+<RG class="com.fr.report.cellElement.core.FunctionGrouper"></RG></O>
+<CellGUIAttr autoAdjustRowHeight="1" ></CellGUIAttr></C>
+<C c="11" r="2" s="3"><O t="DSColumn"><Attributes dsName="删除日志查询" columnName="createdate" />
+<RG class="com.fr.report.cellElement.core.FunctionGrouper"></RG></O>
+<CellGUIAttr autoAdjustRowHeight="1" ></CellGUIAttr></C>
+<C c="12" r="2" s="3"><O t="DSColumn"><Attributes dsName="删除日志查询" columnName="eMobile1" />
+<RG class="com.fr.report.cellElement.core.FunctionGrouper"></RG></O>
+<CellGUIAttr autoAdjustRowHeight="1" ></CellGUIAttr></C>
+<C c="13" r="2" s="3"><O t="DSColumn"><Attributes dsName="删除日志查询" columnName="eName1" />
+<RG class="com.fr.report.cellElement.core.FunctionGrouper"></RG></O>
+<CellGUIAttr autoAdjustRowHeight="1" ></CellGUIAttr></C>
+<C c="14" r="2" s="3"><O t="DSColumn"><Attributes dsName="删除日志查询" columnName="eCardID1" />
+<RG class="com.fr.report.cellElement.core.FunctionGrouper"></RG></O>
+<CellGUIAttr autoAdjustRowHeight="1" ></CellGUIAttr></C>
+<C c="15" r="2" s="3"><O t="DSColumn"><Attributes dsName="删除日志查询" columnName="eMobile2" />
+<RG class="com.fr.report.cellElement.core.FunctionGrouper"></RG></O>
+<CellGUIAttr autoAdjustRowHeight="1" ></CellGUIAttr></C>
+<C c="16" r="2" s="3"><O t="DSColumn"><Attributes dsName="删除日志查询" columnName="eName2" />
+<RG class="com.fr.report.cellElement.core.FunctionGrouper"></RG></O>
+<CellGUIAttr autoAdjustRowHeight="1" ></CellGUIAttr></C>
+<C c="17" r="2" s="3"><O t="DSColumn"><Attributes dsName="删除日志查询" columnName="eCardID2" />
+<RG class="com.fr.report.cellElement.core.FunctionGrouper"></RG></O>
+<CellGUIAttr autoAdjustRowHeight="1" ></CellGUIAttr></C>
+<C c="18" r="2" s="3"><O t="DSColumn"><Attributes dsName="删除日志查询" columnName="eMobile3" />
+<RG class="com.fr.report.cellElement.core.FunctionGrouper"></RG></O>
+<CellGUIAttr autoAdjustRowHeight="1" ></CellGUIAttr></C>
+<C c="19" r="2" s="3"><O t="DSColumn"><Attributes dsName="删除日志查询" columnName="eName3" />
+<RG class="com.fr.report.cellElement.core.FunctionGrouper"></RG></O>
+<CellGUIAttr autoAdjustRowHeight="1" ></CellGUIAttr></C>
+<C c="20" r="2" s="3"><O t="DSColumn"><Attributes dsName="删除日志查询" columnName="eCardID3" />
+<RG class="com.fr.report.cellElement.core.FunctionGrouper"></RG></O>
+<CellGUIAttr autoAdjustRowHeight="1" ></CellGUIAttr></C>
+<C c="21" r="2" s="3"><O t="DSColumn"><Attributes dsName="删除日志查询" columnName="eMobile4" />
+<RG class="com.fr.report.cellElement.core.FunctionGrouper"></RG></O>
+<CellGUIAttr autoAdjustRowHeight="1" ></CellGUIAttr></C>
+<C c="22" r="2" s="3"><O t="DSColumn"><Attributes dsName="删除日志查询" columnName="eName4" />
+<RG class="com.fr.report.cellElement.core.FunctionGrouper"></RG></O>
+<CellGUIAttr autoAdjustRowHeight="1" ></CellGUIAttr></C>
+<C c="23" r="2" s="3"><O t="DSColumn"><Attributes dsName="删除日志查询" columnName="eCardID4" />
+<RG class="com.fr.report.cellElement.core.FunctionGrouper"></RG></O>
+<CellGUIAttr autoAdjustRowHeight="1" ></CellGUIAttr></C>
+<C c="24" r="2" s="3"><O t="DSColumn"><Attributes dsName="删除日志查询" columnName="eMobile5" />
+<RG class="com.fr.report.cellElement.core.FunctionGrouper"></RG></O>
+<CellGUIAttr autoAdjustRowHeight="1" ></CellGUIAttr></C>
+<C c="25" r="2" s="3"><O t="DSColumn"><Attributes dsName="删除日志查询" columnName="eName5" />
+<RG class="com.fr.report.cellElement.core.FunctionGrouper"></RG></O>
+<CellGUIAttr autoAdjustRowHeight="1" ></CellGUIAttr></C>
+<C c="26" r="2" s="3"><O t="DSColumn"><Attributes dsName="删除日志查询" columnName="eCardID5" />
+<RG class="com.fr.report.cellElement.core.FunctionGrouper"></RG></O>
+<CellGUIAttr autoAdjustRowHeight="1" ></CellGUIAttr></C>
+<C c="27" r="2" s="3"><O t="DSColumn"><Attributes dsName="删除日志查询" columnName="enddate" />
+<RG class="com.fr.report.cellElement.core.FunctionGrouper"></RG></O>
+<CellGUIAttr autoAdjustRowHeight="1" ></CellGUIAttr></C>
+<C c="28" r="2" s="3"><O t="DSColumn"><Attributes dsName="删除日志查询" columnName="fee" />
+<RG class="com.fr.report.cellElement.core.FunctionGrouper"></RG></O>
+<CellGUIAttr autoAdjustRowHeight="1" ></CellGUIAttr></C>
+<C c="29" r="2" s="3"><O t="DSColumn"><Attributes dsName="删除日志查询" columnName="feeitem" />
+<RG class="com.fr.report.cellElement.core.FunctionGrouper"></RG></O>
+<CellGUIAttr autoAdjustRowHeight="1" ></CellGUIAttr></C>
+<C c="30" r="2" s="3"><O t="DSColumn"><Attributes dsName="删除日志查询" columnName="address" />
+<Condition class="com.fr.data.condition.ListCondition"></Condition>
+<RG class="com.fr.report.cellElement.core.FunctionGrouper"><Attr divideMode="1" /></RG><Result><![CDATA[$$$]]></Result></O>
+<CellGUIAttr autoAdjustRowHeight="1" ></CellGUIAttr><Expand dir="0" />
+</C>
+</CellElementList>
+</Report>
+<StyleList>
+<Style horizontal_alignment="0">
+<FRFont name="SimSun" style="1" size="18" />
+<Background name="NullBackground" />
+<Border></Border>
+</Style>
+<Style>
+<FRFont name="SimSun" style="1" size="18" />
+<Background name="NullBackground" />
+<Border></Border>
+</Style>
+<Style horizontal_alignment="0">
+<FRFont name="SimSun" style="1" size="12" />
+<Background name="NullBackground" />
+<Border><Top style="1" /><Bottom style="1" /><Left style="1" /><Right style="1" /></Border>
+</Style>
+<Style horizontal_alignment="0">
+<FRFont name="SimSun" style="0" size="12" />
+<Background name="NullBackground" />
+<Border><Top style="1" /><Bottom style="1" /><Left style="1" /><Right style="1" /></Border>
+</Style>
+</StyleList>
+</WorkBook>

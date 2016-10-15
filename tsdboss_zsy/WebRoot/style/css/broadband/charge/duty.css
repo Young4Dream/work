@@ -1,0 +1,7 @@
+body{background-color: #FFFFFF}
+.tabcss {text-align:center;margin-left:5px;margin-top:0px;cursor: hand;text-decoration: none;}
+.tabcss td{border: 1px solid #C1DAD7;background: #fff; font-size:14px; padding: 6px 6px 6px 12px; color: #4f6b72;}
+.trcss td{background-color: #CAE8EA;font-weight: bold;}
+.tabcss td a{background: #fff; font-size:14px;color: #4f6b72;text-decoration: none;}
+.tabcss td a:hover{color: #FF8C00;}
+.btn{margin-left: 5px;margin-top: 5px;width: 60px;height:30px;border-right: #87cefa 1px solid; padding-right: 5px; border-top: #87cefa 1px solid; padding-left: 5px; font-size: 12px; filter: progid:dximagetransform.microsoft.gradient(gradienttype=0,startcolorstr=#ffffff, endcolorstr=#87cefa); border-left: #87cefa 1px solid; cursor: hand;color: black; padding-top: 2px; border-bottom: #87cefa 1px solid}

@@ -1,0 +1,231 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<WorkBook>
+<Version>6.2</Version>
+<Report class="com.fr.report.WorkSheet" name="sheet1">
+<TableDataMap>
+<NameTableData name="radfaultfee">
+<TableData class="com.fr.data.impl.DBTableData">
+<Parameters>
+<Parameter>
+<Attributes name="FaultID"
+ type="0"
+ shown="true" />
+<O t="S"><![CDATA[]]></O>
+</Parameter>
+</Parameters>
+<Attributes isCache="true" isDiskCache="true" />
+<Connection class="com.fr.data.impl.NameDatabaseConnection">
+<DatabaseName><![CDATA[broadband]]></DatabaseName>
+</Connection><Query><![CDATA[select Cashier,UserName,sflsz,sRealName,sDh,Area,linkman,linktel,sAddress,FeeName,Fee,CashierDate 
+from radfault where FaultID='[?FaultID|?]' ]]></Query>
+</TableData>
+</NameTableData>
+</TableDataMap>
+<ReportSettings shrinkToFit="false" headerHeight="0.0" footerHeight="0.0">
+<Margin top="0.0731496062992126" left="0.7893700787401575" bottom="0.11251968503937008" right="0.19881889763779528" />
+</ReportSettings>
+<ReportPageAttr>
+</ReportPageAttr>
+<ReportParameterAttr>
+<Parameters>
+</Parameters>
+<Attributes showWindow="true" delayPlaying="true" windowPosition="0" userDefineWindow="false" />
+<PWTitle><![CDATA[参数]]></PWTitle>
+</ReportParameterAttr>
+<AutoRecalculate>false</AutoRecalculate>
+<DesignAttributes>
+</DesignAttributes>
+<ReportWebAttr>
+<EmailManager mailHost="" password="___" user="" fromEmailAddress="" />
+<ServerPrinter>
+</ServerPrinter>
+<ToolbarManager immediatelyAppletPrint="false" immediatelyPdfPrint="false" showToolbar="true" specifiedToolbar="true" toolbarPosition="1" isIconVisible="true" isTextVisible="true" isShowPageSetup="false" isShowFlashPrint="true" isShowPDFPrint="false" isShowAppletPrint="false" isShowPDF="false" isShowExcel="false" isShowPrint="false" isShowExport="true" isShowEmail="false">
+<firstIconObject path="/com/fr/web/images/first.png">
+</firstIconObject>
+<previousIconObject path="/com/fr/web/images/previous.png">
+</previousIconObject>
+<nextIconObject path="/com/fr/web/images/next.png">
+</nextIconObject>
+<lastIconObject path="/com/fr/web/images/last.png">
+</lastIconObject>
+<pageSetupIconObject path="/com/fr/web/images/pageSetup.png">
+</pageSetupIconObject>
+<flashPrintIconObject path="/com/fr/web/images/flashPrint.png">
+</flashPrintIconObject>
+<pdfPrintIconObject path="/com/fr/web/images/pdfPrint.png">
+</pdfPrintIconObject>
+<appletPrintIconObject path="/com/fr/web/images/appletPrint.png">
+</appletPrintIconObject>
+<pdfIconObject path="/com/fr/web/images/pdf.png">
+</pdfIconObject>
+<printIconObject path="/com/fr/web/images/serverPrint.png">
+</printIconObject>
+<exportIconObject path="/com/fr/web/images/export.png">
+</exportIconObject>
+<emailIconObject path="/com/fr/web/images/email.png">
+</emailIconObject>
+</ToolbarManager>
+</ReportWebAttr>
+<ReportWriteAttr>
+</ReportWriteAttr>
+<Header reportPageType="0">
+<Background name="NullBackground" />
+<LeftList>
+</LeftList>
+<CenterList>
+</CenterList>
+<RightList>
+</RightList>
+</Header>
+<Footer reportPageType="0">
+<Background name="NullBackground" />
+<LeftList>
+</LeftList>
+<CenterList>
+</CenterList>
+<RightList>
+</RightList>
+</Footer>
+<RowHeight defaultValue="19">
+<![CDATA[24,24,24,24,72,24,24,24]]>
+</RowHeight>
+<ColumnWidth defaultValue="72">
+<![CDATA[88,72,38,73,72,65,121,104,64]]>
+</ColumnWidth>
+<CellElementList>
+<C c="0" r="0" cs="9" s="0"><O t="S"><![CDATA[宽带故障缴费受理工作单(重打票)]]></O>
+</C>
+<C c="0" r="1" s="1"><O t="S"><![CDATA[用户名称]]></O>
+</C>
+<C c="1" r="1" cs="4" s="2"><O t="DSColumn"><Attributes dsName="radfaultfee" columnName="sRealName" />
+<RG class="com.fr.report.cellElement.core.FunctionGrouper"></RG></O>
+<Expand dir="0" />
+</C>
+<C c="5" r="1"><O t="S"><![CDATA[]]></O>
+</C>
+<C c="6" r="1" s="1"><O t="S"><![CDATA[缴费流水号]]></O>
+</C>
+<C c="7" r="1" cs="2" s="2"><O t="DSColumn"><Attributes dsName="radfaultfee" columnName="sflsz" />
+<RG class="com.fr.report.cellElement.core.FunctionGrouper"></RG></O>
+<Expand dir="0" />
+</C>
+<C c="0" r="2" s="3"><O t="S"><![CDATA[用户账号]]></O>
+</C>
+<C c="1" r="2" cs="2" s="4"><O t="DSColumn"><Attributes dsName="radfaultfee" columnName="UserName" />
+<RG class="com.fr.report.cellElement.core.FunctionGrouper"></RG></O>
+<Expand dir="0" />
+</C>
+<C c="3" r="2" s="3"><O t="S"><![CDATA[绑定电话]]></O>
+</C>
+<C c="4" r="2" cs="2" s="3"><O t="DSColumn"><Attributes dsName="radfaultfee" columnName="sDh" />
+<RG class="com.fr.report.cellElement.core.FunctionGrouper"></RG></O>
+<Expand dir="0" />
+</C>
+<C c="6" r="2" s="3"><O t="S"><![CDATA[联系人]]></O>
+</C>
+<C c="7" r="2" cs="2" s="4"><O t="DSColumn"><Attributes dsName="radfaultfee" columnName="linkman" />
+<RG class="com.fr.report.cellElement.core.FunctionGrouper"></RG></O>
+<Expand dir="0" />
+</C>
+<C c="0" r="3" s="3"><O t="S"><![CDATA[联系电话]]></O>
+</C>
+<C c="1" r="3" cs="2" s="4"><O t="DSColumn"><Attributes dsName="radfaultfee" columnName="linktel" />
+<RG class="com.fr.report.cellElement.core.FunctionGrouper"></RG></O>
+<Expand dir="0" />
+</C>
+<C c="3" r="3" s="3"><O t="S"><![CDATA[用户地址]]></O>
+</C>
+<C c="4" r="3" cs="5" s="4"><O t="DSColumn"><Attributes dsName="radfaultfee" columnName="sAddress" />
+<RG class="com.fr.report.cellElement.core.FunctionGrouper"></RG></O>
+<Expand dir="0" />
+</C>
+<C c="0" r="4" s="3"><O t="S"><![CDATA[宽带故障处理项目]]></O>
+</C>
+<C c="1" r="4" cs="8" s="5"><O t="DSColumn"><Attributes dsName="radfaultfee" columnName="FeeName" />
+<RG class="com.fr.report.cellElement.core.FunctionGrouper"></RG></O>
+<Expand dir="0" />
+</C>
+<C c="0" r="5" s="3"><O t="S"><![CDATA[金额(大写)]]></O>
+</C>
+<C c="1" r="5" cs="5" s="4"><O t="DSColumn"><Attributes dsName="radfaultfee" columnName="Fee" />
+<Condition class="com.fr.data.condition.ListCondition"></Condition>
+<RG class="com.fr.report.cellElement.core.FunctionGrouper"></RG><Result><![CDATA[CNMONEY($$$)]]></Result></O>
+<Expand dir="0" />
+</C>
+<C c="6" r="5" s="3"><O t="S"><![CDATA[应缴费]]></O>
+</C>
+<C c="7" r="5" cs="2" s="6"><O t="DSColumn"><Attributes dsName="radfaultfee" columnName="Fee" />
+<RG class="com.fr.report.cellElement.core.FunctionGrouper"></RG></O>
+<Expand dir="0" />
+</C>
+<C c="0" r="6" s="3"><O t="S"><![CDATA[营业厅]]></O>
+</C>
+<C c="1" r="6" cs="5" s="4"><O t="DSColumn"><Attributes dsName="radfaultfee" columnName="Area" />
+<RG class="com.fr.report.cellElement.core.FunctionGrouper"></RG></O>
+<Expand dir="0" />
+</C>
+<C c="6" r="6" s="3"><O t="S"><![CDATA[收款人]]></O>
+</C>
+<C c="7" r="6" cs="2" s="7"><O t="DSColumn"><Attributes dsName="radfaultfee" columnName="Cashier" />
+<RG class="com.fr.report.cellElement.core.FunctionGrouper"></RG></O>
+<Expand dir="0" />
+</C>
+<C c="0" r="7" cs="3" s="3"><O t="S"><![CDATA[本收据未盖收款专用章无效]]></O>
+</C>
+<C c="3" r="7" s="3"><O t="S"><![CDATA[打印时间]]></O>
+</C>
+<C c="4" r="7" cs="2" s="4"><O t="DSColumn"><Attributes dsName="radfaultfee" columnName="CashierDate" />
+<RG class="com.fr.report.cellElement.core.FunctionGrouper"></RG></O>
+<Expand dir="0" />
+</C>
+<C c="6" r="7" s="3"><O t="S"><![CDATA[客户签字]]></O>
+</C>
+<C c="7" r="7" cs="2" s="4"><Expand dir="0" />
+</C>
+</CellElementList>
+</Report>
+<StyleList>
+<Style horizontal_alignment="0">
+<FRFont name="SimSun" style="1" size="18" />
+<Background name="NullBackground" />
+<Border></Border>
+</Style>
+<Style horizontal_alignment="0">
+<FRFont name="SimSun" style="0" size="14" />
+<Background name="NullBackground" />
+<Border></Border>
+</Style>
+<Style>
+<FRFont name="SimSun" style="0" size="14" />
+<Background name="NullBackground" />
+<Border></Border>
+</Style>
+<Style horizontal_alignment="0">
+<FRFont name="SimSun" style="0" size="14" />
+<Background name="NullBackground" />
+<Border><Top style="1" /><Bottom style="1" /><Left style="1" /><Right style="1" /></Border>
+</Style>
+<Style>
+<FRFont name="SimSun" style="0" size="14" />
+<Background name="NullBackground" />
+<Border><Top style="1" /><Bottom style="1" /><Left style="1" /><Right style="1" /></Border>
+</Style>
+<Style imageLayout="2">
+<FRFont name="SimSun" style="0" size="14" />
+<Background name="NullBackground" />
+<Border><Top style="1" /><Bottom style="1" /><Left style="1" /><Right style="1" /></Border>
+</Style>
+<Style horizontal_alignment="4">
+<Format class="java.text.DecimalFormat"><![CDATA[¤#,##0.00]]>
+</Format>
+<FRFont name="SimSun" style="0" size="14" />
+<Background name="NullBackground" />
+<Border><Top style="1" /><Bottom style="1" /><Left style="1" /><Right style="1" /></Border>
+</Style>
+<Style>
+<FRFont name="SimSun" style="0" size="12" />
+<Background name="NullBackground" />
+<Border><Top style="1" /><Bottom style="1" /><Left style="1" /><Right style="1" /></Border>
+</Style>
+</StyleList>
+</WorkBook>

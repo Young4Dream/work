@@ -1,0 +1,186 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<WorkBook>
+<Version>6.2</Version>
+<Report class="com.fr.report.WorkSheet" name="sheet1">
+<TableDataMap>
+<NameTableData name="UserOfFixedIP">
+<TableData class="com.fr.data.impl.DBTableData">
+<Parameters>
+<Parameter>
+<Attributes name="fusearchsql"
+ type="0"
+ shown="true" />
+<O t="S"><![CDATA[]]></O>
+</Parameter>
+</Parameters>
+<Attributes isCache="true" isDiskCache="true" />
+<Connection class="com.fr.data.impl.NameDatabaseConnection">
+<DatabaseName><![CDATA[broadband]]></DatabaseName>
+</Connection><Query><![CDATA[select Address as "Address",sbm1 as "sbm1",IPAddress as "IPAddress",sbm2 as "sbm2",sbm3 as "sbm3",sbm4 as "sbm4",hth as "hth",userarea as "userarea",b.FeeName as "FeeName",case when CompleteDate=to_date('1990-01-01 00:00:00','yyyy-mm-dd hh24:mi:ss') then '' else  to_char(CompleteDate,'yyyy-mm-dd hh24:mi:ss') end as "CompleteDate",case when isComplete='Y' then '是' when isComplete='N' then '否'  else '' end as "isComplete",Fee as "Fee",UserID as "UserID",to_char(RecDate,'yyyy-mm-dd hh24:mi:ss') as "RecDate",memo as "memo" from UserOfFixedIP a left join tbl_IspList b on a.iFeeType=b.FeeCode where [?fusearchsql|?]]]></Query>
+</TableData>
+</NameTableData>
+</TableDataMap>
+<ReportSettings shrinkToFit="false" headerHeight="0.0" footerHeight="0.0">
+<Margin top="0.27" left="0.75" bottom="0.27" right="0.75" />
+</ReportSettings>
+<ReportParameterAttr>
+<Parameters>
+</Parameters>
+<Attributes showWindow="true" delayPlaying="true" windowPosition="0" userDefineWindow="false" />
+<PWTitle><![CDATA[参数]]></PWTitle>
+</ReportParameterAttr>
+<AutoRecalculate>false</AutoRecalculate>
+<DesignAttributes>
+</DesignAttributes>
+<ReportWebAttr>
+<EmailManager mailHost="" password="___" user="" fromEmailAddress="" />
+<ServerPrinter>
+</ServerPrinter>
+</ReportWebAttr>
+<ReportWriteAttr>
+</ReportWriteAttr>
+<Header reportPageType="0">
+<Background name="NullBackground" />
+<LeftList>
+</LeftList>
+<CenterList>
+</CenterList>
+<RightList>
+</RightList>
+</Header>
+<Footer reportPageType="0">
+<Background name="NullBackground" />
+<LeftList>
+</LeftList>
+<CenterList>
+</CenterList>
+<RightList>
+</RightList>
+</Footer>
+<RowHeight defaultValue="19">
+<![CDATA[]]>
+</RowHeight>
+<ColumnWidth defaultValue="72">
+<![CDATA[72,72,72,109,111,97,99,72,72,72,129,72,72,72,130,94]]>
+</ColumnWidth>
+<CellElementList>
+<C c="0" r="0" cs="7" s="0"><O t="S"><![CDATA[宽带固定IP管理]]></O>
+</C>
+<C c="0" r="1" s="1"><O t="S"><![CDATA[序号]]></O>
+</C>
+<C c="1" r="1" s="1"><O t="S"><![CDATA[IP地址]]></O>
+</C>
+<C c="2" r="1" s="1"><O t="S"><![CDATA[地址]]></O>
+</C>
+<C c="3" r="1" s="1"><O t="S"><![CDATA[一级部门]]></O>
+</C>
+<C c="4" r="1" s="1"><O t="S"><![CDATA[二级部门]]></O>
+</C>
+<C c="5" r="1" s="1"><O t="S"><![CDATA[三级部门]]></O>
+</C>
+<C c="6" r="1" s="1"><O t="S"><![CDATA[四级部门]]></O>
+</C>
+<C c="7" r="1" s="1"><O t="S"><![CDATA[合同号]]></O>
+</C>
+<C c="8" r="1" s="1"><O t="S"><![CDATA[用户区域]]></O>
+</C>
+<C c="9" r="1" s="1"><O t="S"><![CDATA[计费规则]]></O>
+</C>
+<C c="10" r="1" s="1"><O t="S"><![CDATA[竣工日期]]></O>
+</C>
+<C c="11" r="1" s="1"><O t="S"><![CDATA[是否竣工]]></O>
+</C>
+<C c="12" r="1" s="1"><O t="S"><![CDATA[费用]]></O>
+</C>
+<C c="13" r="1" s="1"><O t="S"><![CDATA[工号ID]]></O>
+</C>
+<C c="14" r="1" s="1"><O t="S"><![CDATA[记录日期]]></O>
+</C>
+<C c="15" r="1" s="1"><O t="S"><![CDATA[备注]]></O>
+</C>
+<C c="0" r="2" s="2"><O t="Formula" class="Formula" ><Attributes><![CDATA[=&B3]]></Attributes></O>
+<Expand leftParentDefault="false" left="B3" />
+</C>
+<C c="1" r="2" s="2"><O t="DSColumn"><Attributes dsName="UserOfFixedIP" columnName="IPAddress" />
+<Condition class="com.fr.data.condition.ListCondition"></Condition>
+<RG class="com.fr.report.cellElement.core.FunctionGrouper"><Attr divideMode="1" /></RG><Result><![CDATA[$$$]]></Result></O>
+<Expand dir="0" />
+</C>
+<C c="2" r="2" s="2"><O t="DSColumn"><Attributes dsName="UserOfFixedIP" columnName="Address" />
+<RG class="com.fr.report.cellElement.core.FunctionGrouper"></RG></O>
+<Expand dir="0" />
+</C>
+<C c="3" r="2" s="2"><O t="DSColumn"><Attributes dsName="UserOfFixedIP" columnName="sbm1" />
+<RG class="com.fr.report.cellElement.core.FunctionGrouper"></RG></O>
+<CellGUIAttr autoAdjustRowHeight="1" ></CellGUIAttr><Expand dir="0" />
+</C>
+<C c="4" r="2" s="2"><O t="DSColumn"><Attributes dsName="UserOfFixedIP" columnName="sbm2" />
+<RG class="com.fr.report.cellElement.core.FunctionGrouper"></RG></O>
+<CellGUIAttr autoAdjustRowHeight="1" ></CellGUIAttr><Expand dir="0" />
+</C>
+<C c="5" r="2" s="2"><O t="DSColumn"><Attributes dsName="UserOfFixedIP" columnName="sbm3" />
+<RG class="com.fr.report.cellElement.core.FunctionGrouper"></RG></O>
+<CellGUIAttr autoAdjustRowHeight="1" ></CellGUIAttr><Expand dir="0" />
+</C>
+<C c="6" r="2" s="2"><O t="DSColumn"><Attributes dsName="UserOfFixedIP" columnName="sbm4" />
+<RG class="com.fr.report.cellElement.core.FunctionGrouper"></RG></O>
+<CellGUIAttr autoAdjustRowHeight="1" ></CellGUIAttr><Expand dir="0" />
+</C>
+<C c="7" r="2" s="2"><O t="DSColumn"><Attributes dsName="UserOfFixedIP" columnName="hth" />
+<RG class="com.fr.report.cellElement.core.FunctionGrouper"></RG></O>
+<Expand dir="0" />
+</C>
+<C c="8" r="2" s="2"><O t="DSColumn"><Attributes dsName="UserOfFixedIP" columnName="userarea" />
+<RG class="com.fr.report.cellElement.core.FunctionGrouper"></RG></O>
+<Expand dir="0" />
+</C>
+<C c="9" r="2" s="2"><O t="DSColumn"><Attributes dsName="UserOfFixedIP" columnName="FeeName" />
+<RG class="com.fr.report.cellElement.core.FunctionGrouper"></RG></O>
+<Expand dir="0" />
+</C>
+<C c="10" r="2" s="2"><O t="DSColumn"><Attributes dsName="UserOfFixedIP" columnName="CompleteDate" />
+<RG class="com.fr.report.cellElement.core.FunctionGrouper"></RG></O>
+<Expand dir="0" />
+</C>
+<C c="11" r="2" s="2"><O t="DSColumn"><Attributes dsName="UserOfFixedIP" columnName="isComplete" />
+<RG class="com.fr.report.cellElement.core.FunctionGrouper"></RG></O>
+<Expand dir="0" />
+</C>
+<C c="12" r="2" s="2"><O t="DSColumn"><Attributes dsName="UserOfFixedIP" columnName="Fee" />
+<RG class="com.fr.report.cellElement.core.FunctionGrouper"></RG></O>
+<Expand dir="0" />
+</C>
+<C c="13" r="2" s="2"><O t="DSColumn"><Attributes dsName="UserOfFixedIP" columnName="UserID" />
+<RG class="com.fr.report.cellElement.core.FunctionGrouper"></RG></O>
+<Expand dir="0" />
+</C>
+<C c="14" r="2" s="2"><O t="DSColumn"><Attributes dsName="UserOfFixedIP" columnName="RecDate" />
+<RG class="com.fr.report.cellElement.core.FunctionGrouper"></RG></O>
+<Expand dir="0" />
+</C>
+<C c="15" r="2" s="2"><O t="DSColumn"><Attributes dsName="UserOfFixedIP" columnName="memo" />
+<RG class="com.fr.report.cellElement.core.FunctionGrouper"></RG></O>
+<CellGUIAttr autoAdjustRowHeight="1" ></CellGUIAttr><Expand dir="0" />
+</C>
+</CellElementList>
+</Report>
+<StyleList>
+<Style horizontal_alignment="0">
+<FRFont name="SimSun" style="0" size="16" />
+<Background name="NullBackground" />
+<Border></Border>
+</Style>
+<Style horizontal_alignment="0">
+<FRFont name="SimSun" style="0" size="12" />
+<Background name="ColorBackground"
+ color="-1">
+</Background>
+<Border><Top style="1" /><Bottom style="1" /><Left style="1" /><Right style="1" /></Border>
+</Style>
+<Style horizontal_alignment="0">
+<FRFont name="SimSun" style="0" size="12" />
+<Background name="NullBackground" />
+<Border><Top style="1" /><Bottom style="1" /><Left style="1" /><Right style="1" /></Border>
+</Style>
+</StyleList>
+</WorkBook>

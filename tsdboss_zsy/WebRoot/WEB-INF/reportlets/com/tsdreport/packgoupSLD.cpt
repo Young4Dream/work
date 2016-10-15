@@ -1,0 +1,401 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<WorkBook>
+<Version>6.2</Version>
+<Report class="com.fr.report.WorkSheet" name="sheet1">
+<TableDataMap>
+<NameTableData name="pack">
+<TableData class="com.fr.data.impl.DBTableData">
+<Parameters>
+<Parameter>
+<Attributes name="puid"
+ type="0"
+ shown="true" />
+<O t="S"><![CDATA[]]></O>
+</Parameter>
+</Parameters>
+<Attributes isCache="true" isDiskCache="true" />
+<Connection class="com.fr.data.impl.NameDatabaseConnection">
+<DatabaseName><![CDATA[tsdBilling]]></DatabaseName>
+</Connection><Query><![CDATA[select * from packageuser  where puid='[?puid|?]']]></Query>
+</TableData>
+</NameTableData>
+<NameTableData name="packagefunc">
+<TableData class="com.fr.data.impl.DBTableData">
+<Parameters>
+</Parameters>
+<Attributes isCache="true" isDiskCache="true" />
+<Connection class="com.fr.data.impl.NameDatabaseConnection">
+<DatabaseName><![CDATA[tsdBilling]]></DatabaseName>
+</Connection><Query><![CDATA[select pkid,packagename,yhlb,packagetype,feename from packagefunc p,yhlb y where y.id=p.usertype]]></Query>
+</TableData>
+</NameTableData>
+<NameTableData name="packageupdate">
+<TableData class="com.fr.data.impl.DBTableData">
+<Parameters>
+<Parameter>
+<Attributes name="lsz"
+ type="0"
+ shown="true" />
+<O t="S"><![CDATA[]]></O>
+</Parameter>
+</Parameters>
+<Attributes isCache="true" isDiskCache="true" />
+<Connection class="com.fr.data.impl.NameDatabaseConnection">
+<DatabaseName><![CDATA[tsdBilling]]></DatabaseName>
+</Connection><Query><![CDATA[select * from packageupdate where lsz='[?lsz?]']]></Query>
+</TableData>
+</NameTableData>
+</TableDataMap>
+<ReportSettings shrinkToFit="false" headerHeight="0.0" footerHeight="0.0">
+<Margin top="0.3093700787401575" left="0.39566929133858275" bottom="0.27" right="0.986220472440945" />
+</ReportSettings>
+<ReportPageAttr>
+</ReportPageAttr>
+<ReportParameterAttr>
+<Parameters>
+</Parameters>
+<Attributes showWindow="true" delayPlaying="true" windowPosition="0" userDefineWindow="false" />
+<PWTitle><![CDATA[参数]]></PWTitle>
+</ReportParameterAttr>
+<AutoRecalculate>false</AutoRecalculate>
+<DesignAttributes>
+</DesignAttributes>
+<ReportWebAttr>
+<EmailManager mailHost="" password="___" user="" fromEmailAddress="" />
+<ServerPrinter>
+</ServerPrinter>
+<ToolbarManager showToolbar="true" specifiedToolbar="true" toolbarPosition="1" isIconVisible="true" isTextVisible="true" isShowPageSetup="false" isShowFlashPrint="true" isShowPDFPrint="false" isShowAppletPrint="false" isShowPDF="false" isShowExcel="false" isShowPrint="false" isShowExport="true" isShowEmail="false">
+<firstIconObject path="/com/fr/web/images/first.png">
+</firstIconObject>
+<previousIconObject path="/com/fr/web/images/previous.png">
+</previousIconObject>
+<nextIconObject path="/com/fr/web/images/next.png">
+</nextIconObject>
+<lastIconObject path="/com/fr/web/images/last.png">
+</lastIconObject>
+<pageSetupIconObject path="/com/fr/web/images/pageSetup.png">
+</pageSetupIconObject>
+<flashPrintIconObject path="/com/fr/web/images/flashPrint.png">
+</flashPrintIconObject>
+<pdfPrintIconObject path="/com/fr/web/images/pdfPrint.png">
+</pdfPrintIconObject>
+<appletPrintIconObject path="/com/fr/web/images/pdfPrint.png">
+</appletPrintIconObject>
+<pdfIconObject path="/com/fr/web/images/pdf.png">
+</pdfIconObject>
+<printIconObject path="/com/fr/web/images/serverPrint.png">
+</printIconObject>
+<exportIconObject path="/com/fr/web/images/export.png">
+</exportIconObject>
+<emailIconObject path="/com/fr/web/images/email.png">
+</emailIconObject>
+</ToolbarManager>
+</ReportWebAttr>
+<ReportWriteAttr>
+</ReportWriteAttr>
+<Header reportPageType="0">
+<Background name="NullBackground" />
+<LeftList>
+</LeftList>
+<CenterList>
+</CenterList>
+<RightList>
+</RightList>
+</Header>
+<Footer reportPageType="0">
+<Background name="NullBackground" />
+<LeftList>
+</LeftList>
+<CenterList>
+</CenterList>
+<RightList>
+</RightList>
+</Footer>
+<RowHeight defaultValue="19">
+<![CDATA[28,19,32,32,32,32,32,32,32,32,32,32,32,32,28]]>
+</RowHeight>
+<ColumnWidth defaultValue="72">
+<![CDATA[78,10,78,61,46,40,60,25,113,60,77]]>
+</ColumnWidth>
+<CellElementList>
+<C c="0" r="0" cs="11" s="0"><O t="S"><![CDATA[青海石油通信公司油田e家业务受理单]]></O>
+</C>
+<C c="8" r="1" cs="3" s="1"><O t="DSColumn"><Attributes dsName="packageupdate" columnName="lsz" />
+<Condition class="com.fr.data.condition.ListCondition"></Condition>
+<RG class="com.fr.report.cellElement.core.FunctionGrouper"></RG><Result><![CDATA["序号："+$$$]]></Result></O>
+<Expand dir="0" />
+</C>
+<C c="0" r="2" s="2"><O t="S"><![CDATA[电话号码]]></O>
+</C>
+<C c="1" r="2" cs="2" s="3"><O t="DSColumn"><Attributes dsName="pack" columnName="dh" />
+<RG class="com.fr.report.cellElement.core.FunctionGrouper"></RG></O>
+<Expand dir="0" />
+</C>
+<C c="3" r="2" s="2"><O t="S"><![CDATA[姓  名]]></O>
+</C>
+<C c="4" r="2" cs="2" s="3"><O t="DSColumn"><Attributes dsName="pack" columnName="tel_name" />
+<RG class="com.fr.report.cellElement.core.FunctionGrouper"></RG></O>
+<Expand dir="0" />
+</C>
+<C c="6" r="2" s="4"></C>
+<C c="7" r="2" s="5"></C>
+<C c="8" r="2" s="5"></C>
+<C c="9" r="2" s="5"></C>
+<C c="10" r="2" s="6"></C>
+<C c="0" r="3" s="2"><O t="S"><![CDATA[宽带帐号]]></O>
+</C>
+<C c="1" r="3" cs="2" s="3"><O t="DSColumn"><Attributes dsName="pack" columnName="account" />
+<RG class="com.fr.report.cellElement.core.FunctionGrouper"></RG></O>
+<Expand dir="0" />
+</C>
+<C c="3" r="3" s="2"><O t="S"><![CDATA[姓  名]]></O>
+</C>
+<C c="4" r="3" cs="2" s="3"><O t="DSColumn"><Attributes dsName="pack" columnName="bb_name" />
+<RG class="com.fr.report.cellElement.core.FunctionGrouper"></RG></O>
+<Expand dir="0" />
+</C>
+<C c="6" r="3" s="7"></C>
+<C c="7" r="3"></C>
+<C c="8" r="3"></C>
+<C c="9" r="3"></C>
+<C c="10" r="3" s="8"></C>
+<C c="0" r="4" s="2"><O t="S"><![CDATA[油田e通]]></O>
+</C>
+<C c="1" r="4" cs="2" s="9"><O t="DSColumn"><Attributes dsName="pack" columnName="eMobile1" />
+<RG class="com.fr.report.cellElement.core.FunctionGrouper"></RG></O>
+<Expand dir="0" />
+</C>
+<C c="3" r="4" s="2"><O t="S"><![CDATA[姓  名]]></O>
+</C>
+<C c="4" r="4" cs="2" s="3"><O t="DSColumn"><Attributes dsName="pack" columnName="eName1" />
+<RG class="com.fr.report.cellElement.core.FunctionGrouper"></RG></O>
+<Expand dir="0" />
+</C>
+<C c="6" r="4" s="7"></C>
+<C c="7" r="4"></C>
+<C c="8" r="4" cs="2" rs="4" s="10"><O t="S"><![CDATA[身份证复印件]]></O>
+</C>
+<C c="10" r="4" s="8"></C>
+<C c="0" r="5" s="2"><O t="S"><![CDATA[油田e通]]></O>
+</C>
+<C c="1" r="5" cs="2" s="3"><O t="DSColumn"><Attributes dsName="pack" columnName="eMobile2" />
+<RG class="com.fr.report.cellElement.core.FunctionGrouper"></RG></O>
+<Expand dir="0" />
+</C>
+<C c="3" r="5" s="2"><O t="S"><![CDATA[姓  名]]></O>
+</C>
+<C c="4" r="5" cs="2" s="3"><O t="DSColumn"><Attributes dsName="pack" columnName="eName2" />
+<RG class="com.fr.report.cellElement.core.FunctionGrouper"></RG></O>
+<Expand dir="0" />
+</C>
+<C c="6" r="5" s="7"></C>
+<C c="7" r="5"></C>
+<C c="10" r="5" s="8"></C>
+<C c="0" r="6" s="2"><O t="S"><![CDATA[油田e通]]></O>
+</C>
+<C c="1" r="6" cs="2" s="3"><O t="DSColumn"><Attributes dsName="pack" columnName="eMobile3" />
+<RG class="com.fr.report.cellElement.core.FunctionGrouper"></RG></O>
+<Expand dir="0" />
+</C>
+<C c="3" r="6" s="2"><O t="S"><![CDATA[姓  名]]></O>
+</C>
+<C c="4" r="6" cs="2" s="3"><O t="DSColumn"><Attributes dsName="pack" columnName="eName3" />
+<RG class="com.fr.report.cellElement.core.FunctionGrouper"></RG></O>
+<Expand dir="0" />
+</C>
+<C c="6" r="6" s="7"></C>
+<C c="7" r="6"></C>
+<C c="10" r="6" s="8"></C>
+<C c="0" r="7" s="2"><O t="S"><![CDATA[油田e通]]></O>
+</C>
+<C c="1" r="7" cs="2" s="3"><O t="DSColumn"><Attributes dsName="pack" columnName="eMobile4" />
+<RG class="com.fr.report.cellElement.core.FunctionGrouper"></RG></O>
+<Expand dir="0" />
+</C>
+<C c="3" r="7" s="2"><O t="S"><![CDATA[姓  名]]></O>
+</C>
+<C c="4" r="7" cs="2" s="3"><O t="DSColumn"><Attributes dsName="pack" columnName="eName4" />
+<RG class="com.fr.report.cellElement.core.FunctionGrouper"></RG></O>
+<Expand dir="0" />
+</C>
+<C c="6" r="7" s="7"></C>
+<C c="7" r="7"></C>
+<C c="10" r="7" s="8"></C>
+<C c="0" r="8" s="2"><O t="S"><![CDATA[油田e通]]></O>
+</C>
+<C c="1" r="8" cs="2" s="3"><O t="DSColumn"><Attributes dsName="pack" columnName="eMobile5" />
+<RG class="com.fr.report.cellElement.core.FunctionGrouper"></RG></O>
+<Expand dir="0" />
+</C>
+<C c="3" r="8" s="2"><O t="S"><![CDATA[姓  名]]></O>
+</C>
+<C c="4" r="8" cs="2" s="3"><O t="DSColumn"><Attributes dsName="pack" columnName="eName5" />
+<RG class="com.fr.report.cellElement.core.FunctionGrouper"></RG></O>
+<Expand dir="0" />
+</C>
+<C c="6" r="8" s="7"></C>
+<C c="7" r="8"></C>
+<C c="8" r="8"></C>
+<C c="9" r="8"></C>
+<C c="10" r="8" s="8"></C>
+<C c="0" r="9" s="2"><O t="S"><![CDATA[地    址]]></O>
+</C>
+<C c="1" r="9" cs="5" s="3"><O t="DSColumn"><Attributes dsName="pack" columnName="address" />
+<RG class="com.fr.report.cellElement.core.FunctionGrouper"></RG></O>
+<Expand dir="0" />
+</C>
+<C c="6" r="9" s="11"></C>
+<C c="7" r="9" s="12"></C>
+<C c="8" r="9" s="12"></C>
+<C c="9" r="9" s="12"></C>
+<C c="10" r="9" s="13"></C>
+<C c="0" r="10" s="2"><O t="S"><![CDATA[套 餐 包]]></O>
+</C>
+<C c="1" r="10" cs="5" s="3"><O t="DSColumn"><Attributes dsName="packagefunc" columnName="packagename" />
+<Condition class="com.fr.data.condition.CommonCondition"><CNAME><![CDATA[pkid]]></CNAME><Compare op="0">
+<AnDSColumn dsName="pack" columnName="pkid" /></Compare>
+</Condition>
+<RG class="com.fr.report.cellElement.core.FunctionGrouper"></RG><Result><![CDATA[$$$]]></Result></O>
+<Expand dir="0" />
+</C>
+<C c="6" r="10" cs="2" s="2"><O t="S"><![CDATA[用户类型]]></O>
+</C>
+<C c="8" r="10" cs="3" s="3"><O t="DSColumn"><Attributes dsName="packagefunc" columnName="yhlb" />
+<Condition class="com.fr.data.condition.ListCondition"></Condition>
+<RG class="com.fr.report.cellElement.core.FunctionGrouper"></RG><Result><![CDATA[$$$]]></Result></O>
+<Expand dir="0" />
+</C>
+<C c="0" r="11" s="2"><O t="S"><![CDATA[原套餐类型]]></O>
+</C>
+<C c="1" r="11" cs="5" s="3"><O t="DSColumn"><Attributes dsName="packagefunc" columnName="packagetype" />
+<Condition class="com.fr.data.condition.CommonCondition"><CNAME><![CDATA[pkid]]></CNAME><Compare op="0">
+<AnDSColumn dsName="packageupdate" columnName="oldpkid" /></Compare>
+</Condition>
+<RG class="com.fr.report.cellElement.core.FunctionGrouper"></RG><Result><![CDATA[$$$]]></Result></O>
+<Expand dir="0" />
+</C>
+<C c="6" r="11" cs="2" s="2"><O t="S"><![CDATA[新套餐类型]]></O>
+</C>
+<C c="8" r="11" cs="3" s="3"><O t="DSColumn"><Attributes dsName="packagefunc" columnName="packagetype" />
+<Condition class="com.fr.data.condition.CommonCondition"><CNAME><![CDATA[pkid]]></CNAME><Compare op="0">
+<AnDSColumn dsName="packageupdate" columnName="newpkid" /></Compare>
+</Condition>
+<Complex reselect="true" />
+<RG class="com.fr.report.cellElement.core.FunctionGrouper"></RG><Result><![CDATA[$$$]]></Result></O>
+<Expand dir="0" />
+</C>
+<C c="0" r="12" s="2"><O t="S"><![CDATA[受理地点]]></O>
+</C>
+<C c="1" r="12" cs="2" s="3"><O t="DSColumn"><Attributes dsName="packageupdate" columnName="area" />
+<RG class="com.fr.report.cellElement.core.FunctionGrouper"></RG></O>
+<Expand dir="0" />
+</C>
+<C c="3" r="12" s="2"><O t="S"><![CDATA[受 理 人]]></O>
+</C>
+<C c="4" r="12" cs="2" s="14"><O t="DSColumn"><Attributes dsName="packageupdate" columnName="userid" />
+<RG class="com.fr.report.cellElement.core.FunctionGrouper"></RG></O>
+<Expand dir="0" />
+</C>
+<C c="6" r="12" s="2"><O t="S"><![CDATA[受理时间]]></O>
+</C>
+<C c="7" r="12" cs="2" s="3"><O t="DSColumn"><Attributes dsName="packageupdate" columnName="updatedate" />
+<RG class="com.fr.report.cellElement.core.FunctionGrouper"></RG></O>
+<Expand dir="0" />
+</C>
+<C c="9" r="12" s="2"><O t="S"><![CDATA[客户签字]]></O>
+</C>
+<C c="10" r="12" s="15"></C>
+<C c="0" r="13" s="2"><O t="S"><![CDATA[备    注]]></O>
+</C>
+<C c="1" r="13" cs="10" s="3"><O t="S"><![CDATA[]]></O>
+<Expand dir="0" />
+</C>
+<C c="0" r="14" cs="3" s="9"><O t="S"><![CDATA[本票据未盖章无效]]></O>
+</C>
+</CellElementList>
+</Report>
+<StyleList>
+<Style horizontal_alignment="0">
+<FRFont name="SimSun" style="0" size="20" />
+<Background name="NullBackground" />
+<Border></Border>
+</Style>
+<Style horizontal_alignment="4">
+<FRFont name="SimSun" style="0" size="14" />
+<Background name="NullBackground" />
+<Border></Border>
+</Style>
+<Style horizontal_alignment="0">
+<FRFont name="SimSun" style="0" size="14" />
+<Background name="NullBackground" />
+<Border><Top style="1" /><Bottom style="1" /><Left style="1" /><Right style="1" /></Border>
+</Style>
+<Style>
+<FRFont name="SimSun" style="0" size="14" />
+<Background name="NullBackground" />
+<Border><Top style="1" /><Bottom style="1" /><Left style="1" /><Right style="1" /></Border>
+</Style>
+<Style>
+<FRFont name="SimSun" style="0" size="12" />
+<Background name="NullBackground" />
+<Border><Top style="1" /><Left style="1" /></Border>
+</Style>
+<Style>
+<FRFont name="SimSun" style="0" size="12" />
+<Background name="NullBackground" />
+<Border><Top style="1" /></Border>
+</Style>
+<Style>
+<FRFont name="SimSun" style="0" size="12" />
+<Background name="NullBackground" />
+<Border><Top style="1" /><Right style="1" /></Border>
+</Style>
+<Style>
+<FRFont name="SimSun" style="0" size="12" />
+<Background name="NullBackground" />
+<Border><Left style="1" /></Border>
+</Style>
+<Style>
+<FRFont name="SimSun" style="0" size="12" />
+<Background name="NullBackground" />
+<Border><Right style="1" /></Border>
+</Style>
+<Style>
+<FRFont name="SimSun" style="0" size="14" />
+<Background name="NullBackground" />
+<Border></Border>
+</Style>
+<Style horizontal_alignment="0">
+<FRFont name="SimSun" style="0" size="12" />
+<Background name="NullBackground" />
+<Border></Border>
+</Style>
+<Style>
+<FRFont name="SimSun" style="0" size="12" />
+<Background name="NullBackground" />
+<Border><Bottom style="1" /><Left style="1" /></Border>
+</Style>
+<Style>
+<FRFont name="SimSun" style="0" size="12" />
+<Background name="NullBackground" />
+<Border><Bottom style="1" /></Border>
+</Style>
+<Style>
+<FRFont name="SimSun" style="0" size="12" />
+<Background name="NullBackground" />
+<Border><Bottom style="1" /><Right style="1" /></Border>
+</Style>
+<Style horizontal_alignment="0">
+<Format class="java.text.DecimalFormat"><![CDATA[¤#,##0.00]]>
+</Format>
+<FRFont name="SimSun" style="0" size="14" />
+<Background name="NullBackground" />
+<Border><Top style="1" /><Bottom style="1" /><Left style="1" /><Right style="1" /></Border>
+</Style>
+<Style>
+<FRFont name="SimSun" style="0" size="12" />
+<Background name="NullBackground" />
+<Border><Top style="1" /><Bottom style="1" /><Left style="1" /><Right style="1" /></Border>
+</Style>
+</StyleList>
+</WorkBook>

@@ -1,0 +1,265 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<WorkBook>
+<Version>6.2</Version>
+<Report class="com.fr.report.WorkSheet" name="sheet1">
+<TableDataMap>
+<NameTableData name="私费">
+<TableData class="com.fr.data.impl.DBTableData">
+<Parameters>
+<Parameter>
+<Attributes name="hzyf"
+ type="0"
+ shown="true" />
+<O t="S"><![CDATA[]]></O>
+</Parameter>
+</Parameters>
+<Attributes isCache="true" isDiskCache="true" />
+<Connection class="com.fr.data.impl.NameDatabaseConnection">
+<DatabaseName><![CDATA[broadband]]></DatabaseName>
+</Connection><Query><![CDATA[SELECT * FROM radhuizong where UserType=1 and hzyf='[?hzyf|?]' ]]></Query>
+</TableData>
+</NameTableData>
+<NameTableData name="受理费">
+<TableData class="com.fr.data.impl.DBTableData">
+<Parameters>
+<Parameter>
+<Attributes name="hzyf"
+ type="0"
+ shown="true" />
+<O t="S"><![CDATA[]]></O>
+</Parameter>
+</Parameters>
+<Attributes isCache="true" isDiskCache="true" />
+<Connection class="com.fr.data.impl.NameDatabaseConnection">
+<DatabaseName><![CDATA[broadband]]></DatabaseName>
+</Connection><Query><![CDATA[select Fee,username from radjob where Fee<>0 and date_format(JobRecTime,'%Y%m')='[?hzyf|?]' and PayMode='Cash']]></Query>
+</TableData>
+</NameTableData>
+<NameTableData name="故障费">
+<TableData class="com.fr.data.impl.DBTableData">
+<Parameters>
+<Parameter>
+<Attributes name="hzyf"
+ type="0"
+ shown="true" />
+<O t="S"><![CDATA[]]></O>
+</Parameter>
+</Parameters>
+<Attributes isCache="true" isDiskCache="true" />
+<Connection class="com.fr.data.impl.NameDatabaseConnection">
+<DatabaseName><![CDATA[broadband]]></DatabaseName>
+</Connection><Query><![CDATA[select Fee,username from radfault where Fee<>0 and date_format(CashierDate,'%Y%m')='[?hzyf|?]' and PayMode='Cash']]></Query>
+</TableData>
+</NameTableData>
+<NameTableData name="统计人">
+<TableData class="com.fr.data.impl.DBTableData">
+<Parameters>
+<Parameter>
+<Attributes name="userid"
+ type="0"
+ shown="true" />
+<O t="S"><![CDATA[]]></O>
+</Parameter>
+</Parameters>
+<Attributes isCache="true" isDiskCache="true" />
+<Connection class="com.fr.data.impl.NameDatabaseConnection">
+<DatabaseName><![CDATA[tsdBilling]]></DatabaseName>
+</Connection><Query><![CDATA[select username from sys_user
+where userid='[?userid|?]']]></Query>
+</TableData>
+</NameTableData>
+<NameTableData name="打印时间">
+<TableData class="com.fr.data.impl.DBTableData">
+<Parameters>
+</Parameters>
+<Attributes isCache="true" isDiskCache="true" />
+<Connection class="com.fr.data.impl.NameDatabaseConnection">
+<DatabaseName><![CDATA[broadband]]></DatabaseName>
+</Connection><Query><![CDATA[select now()]]></Query>
+</TableData>
+</NameTableData>
+</TableDataMap>
+<ReportSettings shrinkToFit="false" headerHeight="0.0" footerHeight="0.0">
+<Margin top="0.27" left="0.75" bottom="0.27" right="0.75" />
+</ReportSettings>
+<ReportParameterAttr>
+<Parameters>
+</Parameters>
+<Attributes showWindow="true" delayPlaying="false" windowPosition="1" userDefineWindow="true" />
+<PWTitle><![CDATA[参数]]></PWTitle>
+<WorkSheet>
+<ReportSettings shrinkToFit="false" headerHeight="0.0" footerHeight="0.0">
+<Margin top="0.27" left="0.75" bottom="0.27" right="0.75" />
+</ReportSettings>
+<ReportParameterAttr>
+<Parameters>
+</Parameters>
+<Attributes showWindow="true" delayPlaying="true" windowPosition="0" userDefineWindow="false" />
+<PWTitle><![CDATA[参数]]></PWTitle>
+</ReportParameterAttr>
+<AutoRecalculate>false</AutoRecalculate>
+<DesignAttributes>
+</DesignAttributes>
+<ReportWebAttr>
+<EmailManager mailHost="" password="___" user="" fromEmailAddress="" />
+<ServerPrinter>
+</ServerPrinter>
+</ReportWebAttr>
+<ReportWriteAttr>
+</ReportWriteAttr>
+<RowHeight defaultValue="19">
+<![CDATA[]]>
+</RowHeight>
+<ColumnWidth defaultValue="72">
+<![CDATA[72,79]]>
+</ColumnWidth>
+<CellElementList>
+<C c="0" r="0"><O t="S"><![CDATA[月份：]]></O>
+</C>
+<C c="1" r="0"><O t="PR" >
+<ParameterRef name="hzyf" />
+</O>
+</C>
+<C c="3" r="0"><O t="PB" >
+<ParameterButton name="查询" type="0" />
+</O>
+</C>
+<C c="3" r="1"></C>
+</CellElementList>
+</WorkSheet>
+</ReportParameterAttr>
+<AutoRecalculate>false</AutoRecalculate>
+<DesignAttributes>
+</DesignAttributes>
+<ReportWebAttr>
+<EmailManager mailHost="" password="___" user="" fromEmailAddress="" />
+<ServerPrinter>
+</ServerPrinter>
+</ReportWebAttr>
+<ReportWriteAttr>
+</ReportWriteAttr>
+<Header reportPageType="0">
+<Background name="NullBackground" />
+<LeftList>
+</LeftList>
+<CenterList>
+</CenterList>
+<RightList>
+</RightList>
+</Header>
+<Footer reportPageType="0">
+<Background name="NullBackground" />
+<LeftList>
+</LeftList>
+<CenterList>
+</CenterList>
+<RightList>
+</RightList>
+</Footer>
+<RowHeight defaultValue="19">
+<![CDATA[46,25,25,25]]>
+</RowHeight>
+<ColumnWidth defaultValue="72">
+<![CDATA[121,85,102,85,118,85]]>
+</ColumnWidth>
+<CellElementList>
+<C c="0" r="0" cs="6" s="0"><O t="S"><![CDATA[私费用户统计表]]></O>
+</C>
+<C c="0" r="1" s="1"><O t="S"><![CDATA[月份：]]></O>
+<Expand dir="0" />
+</C>
+<C c="1" r="1" s="1"><O t="DSColumn"><Attributes dsName="私费" columnName="hzyf" />
+<RG class="com.fr.report.cellElement.core.FunctionGrouper"></RG></O>
+<Expand dir="0" />
+</C>
+<C c="2" r="1" s="1"></C>
+<C c="3" r="1" s="1"></C>
+<C c="4" r="1" s="1"></C>
+<C c="5" r="1" s="1"></C>
+<C c="0" r="2" s="2"><O t="S"><![CDATA[账号]]></O>
+</C>
+<C c="1" r="2" s="2"><O t="S"><![CDATA[月租]]></O>
+</C>
+<C c="2" r="2" s="2"><O t="S"><![CDATA[受理费]]></O>
+</C>
+<C c="3" r="2" s="2"><O t="S"><![CDATA[故障费]]></O>
+</C>
+<C c="4" r="2" s="2"><O t="S"><![CDATA[其他费]]></O>
+</C>
+<C c="5" r="2" s="2"><O t="S"><![CDATA[应收合计]]></O>
+</C>
+<C c="0" r="3" s="2"><O t="DSColumn"><Attributes dsName="私费" columnName="UserName" />
+<Condition class="com.fr.data.condition.ListCondition"></Condition>
+<RG class="com.fr.report.cellElement.core.SummaryGrouper"><FN><![CDATA[com.fr.data.util.function.CountFunction]]></FN></RG><Result><![CDATA[$$$]]></Result></O>
+</C>
+<C c="1" r="3" s="3"><O t="DSColumn"><Attributes dsName="私费" columnName="heji" />
+<Condition class="com.fr.data.condition.ListCondition"></Condition>
+<RG class="com.fr.report.cellElement.core.SummaryGrouper"><FN><![CDATA[com.fr.data.util.function.SumFunction]]></FN></RG><Result><![CDATA[$$$]]></Result></O>
+</C>
+<C c="2" r="3" s="3"><O t="DSColumn"><Attributes dsName="受理费" columnName="Fee" />
+<Condition class="com.fr.data.condition.ListCondition"></Condition>
+<Complex reselect="true" />
+<RG class="com.fr.report.cellElement.core.SummaryGrouper"><FN><![CDATA[com.fr.data.util.function.SumFunction]]></FN></RG><Result><![CDATA[$$$]]></Result></O>
+</C>
+<C c="3" r="3" s="3"><O t="DSColumn"><Attributes dsName="故障费" columnName="Fee" />
+<Condition class="com.fr.data.condition.ListCondition"></Condition>
+<Complex reselect="true" />
+<RG class="com.fr.report.cellElement.core.SummaryGrouper"><FN><![CDATA[com.fr.data.util.function.SumFunction]]></FN></RG><Result><![CDATA[$$$]]></Result></O>
+</C>
+<C c="4" r="3" s="3"><O t="DSColumn"><Attributes dsName="私费" columnName="adjustfee" />
+<Condition class="com.fr.data.condition.ListCondition"></Condition>
+<RG class="com.fr.report.cellElement.core.SummaryGrouper"><FN><![CDATA[com.fr.data.util.function.SumFunction]]></FN></RG><Result><![CDATA[$$$]]></Result></O>
+<Expand leftParentDefault="false" left="A4" />
+</C>
+<C c="5" r="3" s="3"><O t="Formula" class="Formula" ><Attributes><![CDATA[=SUM(a4,b4,c4,d4,e4)]]></Attributes></O>
+</C>
+<C c="0" r="4" s="4"><O t="S"><![CDATA[统计人：]]></O>
+</C>
+<C c="1" r="4"><O t="DSColumn"><Attributes dsName="统计人" columnName="username" />
+<RG class="com.fr.report.cellElement.core.FunctionGrouper"></RG></O>
+<Expand dir="0" />
+</C>
+<C c="2" r="4" s="5"><O t="S"><![CDATA[统计时间：]]></O>
+</C>
+<C c="3" r="4" cs="2" s="4"><O t="DSColumn"><Attributes dsName="打印时间" columnName="now()" />
+<RG class="com.fr.report.cellElement.core.FunctionGrouper"></RG></O>
+<Expand dir="0" />
+</C>
+<C c="5" r="4" s="4"></C>
+</CellElementList>
+</Report>
+<StyleList>
+<Style horizontal_alignment="0">
+<FRFont name="SimSun" style="0" size="19" />
+<Background name="NullBackground" />
+<Border></Border>
+</Style>
+<Style horizontal_alignment="0">
+<FRFont name="SimSun" style="0" size="12" />
+<Background name="NullBackground" />
+<Border><Bottom style="1" /></Border>
+</Style>
+<Style horizontal_alignment="0">
+<FRFont name="SimSun" style="0" size="12" />
+<Background name="NullBackground" />
+<Border><Top style="1" /><Bottom style="1" /><Left style="1" /><Right style="1" /></Border>
+</Style>
+<Style horizontal_alignment="4">
+<Format class="java.text.DecimalFormat"><![CDATA[¤#,##0.00]]>
+</Format>
+<FRFont name="SimSun" style="0" size="12" />
+<Background name="NullBackground" />
+<Border><Top style="1" /><Bottom style="1" /><Left style="1" /><Right style="1" /></Border>
+</Style>
+<Style horizontal_alignment="0">
+<FRFont name="SimSun" style="0" size="12" />
+<Background name="NullBackground" />
+<Border></Border>
+</Style>
+<Style horizontal_alignment="4">
+<FRFont name="SimSun" style="0" size="12" />
+<Background name="NullBackground" />
+<Border></Border>
+</Style>
+</StyleList>
+</WorkBook>

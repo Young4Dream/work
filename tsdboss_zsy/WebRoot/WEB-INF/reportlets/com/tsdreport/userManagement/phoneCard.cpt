@@ -1,0 +1,167 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<WorkBook>
+<Version>6.2</Version>
+<Report class="com.fr.report.WorkSheet" name="sheet1">
+<TableDataMap>
+<NameTableData name="ds1">
+<TableData class="com.fr.data.impl.DBTableData">
+<Parameters>
+<Parameter>
+<Attributes name="fusearchsql"
+ type="0"
+ shown="true" />
+<O t="S"><![CDATA[]]></O>
+</Parameter>
+</Parameters>
+<Attributes isCache="true" isDiskCache="true" />
+<Connection class="com.fr.data.impl.NameDatabaseConnection">
+<DatabaseName><![CDATA[tsdBilling]]></DatabaseName>
+</Connection><Query><![CDATA[select CardID,cCardNo,cPassword,mCash,BeginDate,EndDate,cIsUse,IsActive,tUseDate,cDh FROM Tbl_CardNo  where [?fusearchsql|?]]]></Query>
+</TableData>
+</NameTableData>
+</TableDataMap>
+<ReportSettings orientation="1" shrinkToFit="false" headerHeight="0.0" footerHeight="0.0">
+<Margin top="0.27" left="0.7499999999999999" bottom="0.27" right="0.7499999999999999" />
+</ReportSettings>
+<ReportPageAttr>
+<HR F="0" T="1" /></ReportPageAttr>
+<ReportParameterAttr>
+<Parameters>
+</Parameters>
+<Attributes showWindow="true" delayPlaying="true" windowPosition="0" userDefineWindow="false" />
+<PWTitle><![CDATA[参数]]></PWTitle>
+</ReportParameterAttr>
+<AutoRecalculate>false</AutoRecalculate>
+<DesignAttributes>
+</DesignAttributes>
+<ReportWebAttr>
+<EmailManager mailHost="" password="___" user="" fromEmailAddress="" />
+<ServerPrinter>
+</ServerPrinter>
+</ReportWebAttr>
+<ReportWriteAttr>
+</ReportWriteAttr>
+<Header reportPageType="0">
+<Background name="NullBackground" />
+<LeftList>
+</LeftList>
+<CenterList>
+</CenterList>
+<RightList>
+</RightList>
+</Header>
+<Footer reportPageType="0">
+<Background name="NullBackground" />
+<LeftList>
+<HFElement className="TextHFElement">
+<FRFont name="SimSun" style="0" size="12" />
+<![CDATA[打印日期：]]>
+</HFElement>
+<HFElement className="DateHFElement">
+<FRFont name="SimSun" style="0" size="12" />
+<Format class="java.text.SimpleDateFormat"><![CDATA[yyyy-MM-dd]]>
+</Format>
+</HFElement>
+</LeftList>
+<CenterList>
+<HFElement className="TextHFElement">
+<FRFont name="SimSun" style="0" size="12" />
+<![CDATA[制表人：尤红玉]]>
+</HFElement>
+</CenterList>
+<RightList>
+<HFElement className="TextHFElement">
+<FRFont name="SimSun" style="0" size="12" />
+<![CDATA[第]]>
+</HFElement>
+<HFElement className="PageNumberHFElement">
+<FRFont name="SimSun" style="0" size="12" />
+<![CDATA[1]]>
+</HFElement>
+<HFElement className="TextHFElement">
+<FRFont name="SimSun" style="0" size="12" />
+<![CDATA[页]]>
+</HFElement>
+</RightList>
+</Footer>
+<RowHeight defaultValue="19">
+<![CDATA[31,28,28]]>
+</RowHeight>
+<ColumnWidth defaultValue="72">
+<![CDATA[103,94,66,66,65,61,147,146,145,84]]>
+</ColumnWidth>
+<CellElementList>
+<C c="0" r="0" cs="10" s="0"><O t="S"><![CDATA[电话充值业务管理]]></O>
+</C>
+<C c="0" r="1" s="1"><O t="S"><![CDATA[序号]]></O>
+</C>
+<C c="1" r="1" s="1"><O t="S"><![CDATA[卡号]]></O>
+</C>
+<C c="2" r="1" s="1"><O t="S"><![CDATA[密码]]></O>
+</C>
+<C c="3" r="1" s="1"><O t="S"><![CDATA[面值]]></O>
+</C>
+<C c="4" r="1" s="1"><O t="S"><![CDATA[使用状态]]></O>
+</C>
+<C c="5" r="1" s="1"><O t="S"><![CDATA[是否激活]]></O>
+</C>
+<C c="6" r="1" s="1"><O t="S"><![CDATA[制卡日期]]></O>
+</C>
+<C c="7" r="1" s="1"><O t="S"><![CDATA[有效日期]]></O>
+</C>
+<C c="8" r="1" s="1"><O t="S"><![CDATA[使用日期]]></O>
+</C>
+<C c="9" r="1" s="1"><O t="S"><![CDATA[充值电话]]></O>
+</C>
+<C c="0" r="2" s="2"><O t="DSColumn"><Attributes dsName="ds1" columnName="CardID" />
+<Condition class="com.fr.data.condition.ListCondition"></Condition>
+<RG class="com.fr.report.cellElement.core.FunctionGrouper"><Attr divideMode="1" /></RG><Result><![CDATA[$$$]]></Result></O>
+<Expand dir="0" />
+</C>
+<C c="1" r="2" s="2"><O t="DSColumn"><Attributes dsName="ds1" columnName="cCardNo" />
+<RG class="com.fr.report.cellElement.core.FunctionGrouper"></RG></O>
+</C>
+<C c="2" r="2" s="2"><O t="DSColumn"><Attributes dsName="ds1" columnName="cPassword" />
+<RG class="com.fr.report.cellElement.core.FunctionGrouper"></RG></O>
+</C>
+<C c="3" r="2" s="2"><O t="DSColumn"><Attributes dsName="ds1" columnName="mCash" />
+<RG class="com.fr.report.cellElement.core.FunctionGrouper"></RG></O>
+</C>
+<C c="4" r="2" s="2"><O t="DSColumn"><Attributes dsName="ds1" columnName="cIsUse" />
+<RG class="com.fr.report.cellElement.core.FunctionGrouper"></RG></O>
+</C>
+<C c="5" r="2" s="2"><O t="DSColumn"><Attributes dsName="ds1" columnName="IsActive" />
+<RG class="com.fr.report.cellElement.core.FunctionGrouper"></RG></O>
+</C>
+<C c="6" r="2" s="2"><O t="DSColumn"><Attributes dsName="ds1" columnName="BeginDate" />
+<RG class="com.fr.report.cellElement.core.FunctionGrouper"></RG></O>
+</C>
+<C c="7" r="2" s="2"><O t="DSColumn"><Attributes dsName="ds1" columnName="EndDate" />
+<RG class="com.fr.report.cellElement.core.FunctionGrouper"></RG></O>
+</C>
+<C c="8" r="2" s="2"><O t="DSColumn"><Attributes dsName="ds1" columnName="tUseDate" />
+<RG class="com.fr.report.cellElement.core.FunctionGrouper"></RG></O>
+</C>
+<C c="9" r="2" s="2"><O t="DSColumn"><Attributes dsName="ds1" columnName="cDh" />
+<RG class="com.fr.report.cellElement.core.FunctionGrouper"></RG></O>
+</C>
+</CellElementList>
+</Report>
+<StyleList>
+<Style horizontal_alignment="0">
+<FRFont name="SimSun" style="1" size="18" />
+<Background name="NullBackground" />
+<Border></Border>
+</Style>
+<Style horizontal_alignment="0">
+<FRFont name="SimSun" style="1" size="13" />
+<Background name="NullBackground" />
+<Border><Top style="1" /><Bottom style="1" /><Left style="1" /><Right style="1" /></Border>
+</Style>
+<Style horizontal_alignment="0">
+<FRFont name="SimSun" style="0" size="13" />
+<Background name="NullBackground" />
+<Border><Top style="1" /><Bottom style="1" /><Left style="1" /><Right style="1" /></Border>
+</Style>
+</StyleList>
+</WorkBook>

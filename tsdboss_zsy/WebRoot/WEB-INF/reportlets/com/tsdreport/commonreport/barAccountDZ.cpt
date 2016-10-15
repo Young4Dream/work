@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<WorkBook>
+<Version>6.2</Version>
+<Report class="com.fr.report.WorkSheet" name="sheet1">
+<TableDataMap>
+<NameTableData name="对账单">
+<TableData class="com.fr.data.impl.DBTableData">
+<Parameters>
+<Parameter>
+<Attributes name="fusearchsql"
+ type="0"
+ shown="true" />
+<O t="S"><![CDATA[1=1]]></O>
+</Parameter>
+</Parameters>
+<Attributes isCache="true" isDiskCache="true" />
+<Connection class="com.fr.data.impl.NameDatabaseConnection">
+<DatabaseName><![CDATA[tsdReport]]></DatabaseName>
+</Connection><Query><![CDATA[select TimeInterval as "TimeInterval",NetFee as "NetFee",ZaFee as "ZaFee",TcDh as "TcDh",TcKd as "TcKd",HeJi as "HeJi",userid as "username" from barAccountStatusConfirm where [?fusearchsql|1=1?]]]></Query>
+</TableData>
+</NameTableData>
+<NameTableData name="工号">
+<TableData class="com.fr.data.impl.DBTableData">
+<Parameters>
+</Parameters>
+<Attributes isCache="true" isDiskCache="true" />
+<Connection class="com.fr.data.impl.NameDatabaseConnection">
+<DatabaseName><![CDATA[tsdBilling]]></DatabaseName>
+</Connection><Query><![CDATA[select userid as "userid",username as "username" from sys_user]]></Query>
+</TableData>
+</NameTableData>
+</TableDataMap>
+<ReportSettings orientation="1" shrinkToFit="false" headerHeight="0.0" footerHeight="0.0">
+<Margin top="0.27" left="0.08070866141732283" bottom="0.27" right="0.08070866141732283" />
+</ReportSettings>
+<ReportPageAttr>
+</ReportPageAttr>
+<ReportParameterAttr>
+<Parameters>
+</Parameters>
+<Attributes showWindow="true" delayPlaying="true" windowPosition="0" userDefineWindow="false" />
+<PWTitle><![CDATA[参数]]></PWTitle>
+</ReportParameterAttr>
+<AutoRecalculate>false</AutoRecalculate>
+<DesignAttributes>
+</DesignAttributes>
+<ReportWebAttr>
+<EmailManager mailHost="" password="___" user="" fromEmailAddress="" />
+<ServerPrinter>
+</ServerPrinter>
+</ReportWebAttr>
+<ReportWriteAttr>
+</ReportWriteAttr>
+<RowHeight defaultValue="19">
+<![CDATA[51,28,26]]>
+</RowHeight>
+<ColumnWidth defaultValue="72">
+<![CDATA[39,329,93,124,105,101,91,86,71]]>
+</ColumnWidth>
+<CellElementList>
+<C c="0" r="0" cs="9" s="0"><O t="S"><![CDATA[小区网宽带（套餐电话）缴费统计表]]></O>
+</C>
+<C c="0" r="1" s="1"><O t="S"><![CDATA[序号]]></O>
+</C>
+<C c="1" r="1" s="1"><O t="S"><![CDATA[时间]]></O>
+</C>
+<C c="2" r="1" s="1"><O t="S"><![CDATA[姓名]]></O>
+</C>
+<C c="3" r="1" s="1"><O t="S"><![CDATA[小区网基本费]]></O>
+</C>
+<C c="4" r="1" s="1"><O t="S"><![CDATA[小区网杂费]]></O>
+</C>
+<C c="5" r="1" s="1"><O t="S"><![CDATA[套餐电话]]></O>
+</C>
+<C c="6" r="1" s="1"><O t="S"><![CDATA[套餐宽带]]></O>
+</C>
+<C c="7" r="1" s="1"><O t="S"><![CDATA[合计]]></O>
+</C>
+<C c="8" r="1" s="1"><O t="S"><![CDATA[签名]]></O>
+</C>
+<C c="0" r="2" s="2"><O t="Formula" class="Formula" ><Attributes><![CDATA[=&B3]]></Attributes></O>
+<Expand leftParentDefault="false" left="B3" />
+</C>
+<C c="1" r="2" s="2"><O t="DSColumn"><Attributes dsName="对账单" columnName="TimeInterval" />
+<RG class="com.fr.report.cellElement.core.FunctionGrouper"></RG></O>
+<Expand dir="0" leftParentDefault="false" upParentDefault="false" />
+</C>
+<C c="2" r="2" s="2"><O t="DSColumn"><Attributes dsName="工号" columnName="username" />
+<Condition class="com.fr.data.condition.CommonCondition"><CNAME><![CDATA[username]]></CNAME><Compare op="0">
+<AnDSColumn dsName="工号" columnName="username" /></Compare>
+</Condition>
+<RG class="com.fr.report.cellElement.core.FunctionGrouper"></RG><Result><![CDATA[$$$]]></Result></O>
+<Expand dir="0" />
+</C>
+<C c="3" r="2" s="2"><O t="DSColumn"><Attributes dsName="对账单" columnName="NetFee" />
+<RG class="com.fr.report.cellElement.core.FunctionGrouper"></RG></O>
+<Expand dir="0" />
+</C>
+<C c="4" r="2" s="2"><O t="DSColumn"><Attributes dsName="对账单" columnName="ZaFee" />
+<RG class="com.fr.report.cellElement.core.FunctionGrouper"></RG></O>
+<Expand dir="0" />
+</C>
+<C c="5" r="2" s="2"><O t="DSColumn"><Attributes dsName="对账单" columnName="TcDh" />
+<RG class="com.fr.report.cellElement.core.FunctionGrouper"></RG></O>
+<Expand dir="0" />
+</C>
+<C c="6" r="2" s="2"><O t="DSColumn"><Attributes dsName="对账单" columnName="TcKd" />
+<RG class="com.fr.report.cellElement.core.FunctionGrouper"></RG></O>
+<Expand dir="0" />
+</C>
+<C c="7" r="2" s="2"><O t="DSColumn"><Attributes dsName="对账单" columnName="HeJi" />
+<RG class="com.fr.report.cellElement.core.FunctionGrouper"></RG></O>
+<Expand dir="0" />
+</C>
+<C c="8" r="2" s="2"><O t="DSColumn"><Attributes dsName="工号" columnName="username" />
+<Condition class="com.fr.data.condition.CommonCondition"><CNAME><![CDATA[username]]></CNAME><Compare op="0">
+<AnDSColumn dsName="工号" columnName="username" /></Compare>
+</Condition>
+<RG class="com.fr.report.cellElement.core.FunctionGrouper"></RG><Result><![CDATA[$$$]]></Result></O>
+<Expand dir="0" />
+</C>
+</CellElementList>
+</Report>
+<StyleList>
+<Style horizontal_alignment="0">
+<FRFont name="SimSun" style="1" size="20" />
+<Background name="NullBackground" />
+<Border></Border>
+</Style>
+<Style horizontal_alignment="0">
+<FRFont name="SimSun" style="1" size="14" />
+<Background name="NullBackground" />
+<Border><Top style="1" /><Bottom style="1" /><Left style="1" /><Right style="1" /></Border>
+</Style>
+<Style horizontal_alignment="0">
+<FRFont name="SimSun" style="0" size="14" />
+<Background name="NullBackground" />
+<Border><Top style="1" /><Bottom style="1" /><Left style="1" /><Right style="1" /></Border>
+</Style>
+</StyleList>
+</WorkBook>

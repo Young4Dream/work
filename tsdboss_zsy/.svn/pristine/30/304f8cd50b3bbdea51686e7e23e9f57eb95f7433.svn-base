@@ -1,0 +1,609 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<WorkBook xmlVersion="20100901">
+<TableDataMap>
+<TableData name="businessfee" class="com.fr.data.impl.DBTableData">
+<Parameters/>
+<Attributes maxMemRowCount="-1"/>
+<Connection class="com.fr.data.impl.NameDatabaseConnection">
+<DatabaseName>
+<![CDATA[tsdBilling]]></DatabaseName>
+</Connection>
+<Query>
+<![CDATA[select * from businessfee ]]></Query>
+</TableData>
+<TableData name="teljob" class="com.fr.data.impl.DBTableData">
+<Parameters>
+<Parameter>
+<Attributes name="JobID"/>
+<O>
+<![CDATA[]]></O>
+</Parameter>
+</Parameters>
+<Attributes maxMemRowCount="-1"/>
+<Connection class="com.fr.data.impl.NameDatabaseConnection">
+<DatabaseName>
+<![CDATA[tsdBilling]]></DatabaseName>
+</Connection>
+<Query>
+<![CDATA[select t.ID,t.lsh,nvl(t.VALUE18,0),t.xdh,t.hth,(YJJE+nvl(VALUE18,0)) ss from  teljob t  where t.id=${JobID}]]></Query>
+</TableData>
+</TableDataMap>
+<ReportWebAttr>
+<ServerPrinter/>
+<Background name="NullBackground"/>
+<CacheValidateTime>
+<![CDATA[0]]></CacheValidateTime>
+</ReportWebAttr>
+<Report class="com.fr.report.WorkSheet" name="sheet1">
+<ReportPageAttr>
+<HR/>
+<FR/>
+<HC/>
+<FC/>
+</ReportPageAttr>
+<RowHeight defaultValue="19">
+<![CDATA[30,30,30,30,30,26,26,25,25,33,25,22,60,25,90,19]]></RowHeight>
+<ColumnWidth defaultValue="72">
+<![CDATA[76,65,71,79,66,80,72,79,51,72,72]]></ColumnWidth>
+<CellElementList>
+<C c="0" r="0" s="0">
+<O>
+<![CDATA[]]></O>
+<Expand/>
+<CellInsertPolicy/>
+<CellPageAttr/>
+</C>
+<C c="1" r="0" cs="3" s="1">
+<O t="Formula" class="Formula">
+<Attributes>
+<![CDATA[=TODAY()]]></Attributes>
+</O>
+<Expand leftParentDefault="false" left="B5"/>
+</C>
+<C c="4" r="0" s="2">
+<O>
+<![CDATA[通信业]]></O>
+<Expand leftParentDefault="false" left="B5"/>
+</C>
+<C c="5" r="0" s="3">
+<Expand/>
+</C>
+<C c="6" r="0" s="3">
+<Expand/>
+</C>
+<C c="7" r="0" s="3">
+<Expand/>
+</C>
+<C c="8" r="0" s="3">
+<Expand/>
+</C>
+<C c="0" r="1" s="4">
+<O>
+<![CDATA[机打票号：]]></O>
+<Expand/>
+</C>
+<C c="1" r="1" cs="3" s="4">
+<O t="DSColumn">
+<Attributes dsName="teljob" columnName="LSH"/>
+<Complex/>
+<RG class="com.fr.report.cellElement.core.FunctionGrouper"/>
+<Parameters/>
+</O>
+<Expand dir="0"/>
+</C>
+<C c="4" r="1" s="4">
+<Expand/>
+</C>
+<C c="5" r="1" s="4">
+<Expand/>
+</C>
+<C c="6" r="1" s="4">
+<Expand/>
+</C>
+<C c="7" r="1" s="4">
+<Expand/>
+</C>
+<C c="8" r="1" s="4">
+<Expand/>
+</C>
+<C c="0" r="2" s="3">
+<O>
+<![CDATA[客户名称：]]></O>
+<Expand/>
+</C>
+<C c="1" r="2" cs="3" s="3">
+<O t="DSColumn">
+<Attributes dsName="teljob" columnName="XM"/>
+<Complex/>
+<RG class="com.fr.report.cellElement.core.FunctionGrouper"/>
+<Parameters/>
+</O>
+<Expand dir="0"/>
+</C>
+<C c="4" r="2" s="3">
+<Expand/>
+</C>
+<C c="5" r="2" s="3">
+<Expand/>
+</C>
+<C c="6" r="2" s="3">
+<Expand/>
+</C>
+<C c="7" r="2" s="3">
+<Expand/>
+</C>
+<C c="8" r="2" s="3">
+<Expand/>
+</C>
+<C c="0" r="3" s="5">
+<O>
+<![CDATA[电话号码]]></O>
+<Expand/>
+</C>
+<C c="1" r="3" s="6">
+<O t="DSColumn">
+<Attributes dsName="teljob" columnName="XDH"/>
+<Complex/>
+<RG class="com.fr.report.cellElement.core.FunctionGrouper"/>
+<Parameters/>
+</O>
+<Expand dir="0"/>
+</C>
+<C c="2" r="3" s="6">
+<O>
+<![CDATA[付费账号]]></O>
+<Expand/>
+</C>
+<C c="3" r="3" cs="2" s="6">
+<O t="DSColumn">
+<Attributes dsName="teljob" columnName="HTH"/>
+<Complex/>
+<RG class="com.fr.report.cellElement.core.FunctionGrouper"/>
+<Parameters/>
+</O>
+<Expand dir="0"/>
+</C>
+<C c="5" r="3" s="6">
+<Expand dir="0"/>
+</C>
+<C c="6" r="3" s="5">
+<O>
+<![CDATA[结算方式]]></O>
+<Expand/>
+</C>
+<C c="7" r="3" cs="2" s="6">
+<O>
+<![CDATA[现  金]]></O>
+<Expand/>
+</C>
+<C c="0" r="4" s="5">
+<O>
+<![CDATA[费用项目]]></O>
+<Expand/>
+</C>
+<C c="1" r="4" cs="2" s="6">
+<O>
+<![CDATA[金额（元）]]></O>
+<Expand/>
+</C>
+<C c="3" r="4" s="7">
+<O>
+<![CDATA[费用项目]]></O>
+<Expand/>
+</C>
+<C c="4" r="4" cs="2" s="8">
+<O>
+<![CDATA[金额（元）]]></O>
+<Expand/>
+</C>
+<C c="6" r="4" s="5">
+<O>
+<![CDATA[费用项目]]></O>
+<Expand/>
+</C>
+<C c="7" r="4" cs="2" s="6">
+<O>
+<![CDATA[金额（元）]]></O>
+<Expand/>
+</C>
+<C c="0" r="5" s="9">
+<O>
+<![CDATA[预存话费]]></O>
+<Expand/>
+</C>
+<C c="1" r="5" cs="2" s="10">
+<O t="DSColumn">
+<Attributes dsName="teljob" columnName="NVL(T.VALUE18,0)"/>
+<Complex/>
+<RG class="com.fr.report.cellElement.core.FunctionGrouper"/>
+<Parameters/>
+</O>
+<Expand dir="0"/>
+</C>
+<C c="3" r="5" s="11">
+<Expand/>
+</C>
+<C c="4" r="5" s="9">
+<Expand/>
+</C>
+<C c="5" r="5" s="12">
+<Expand/>
+</C>
+<C c="6" r="5" s="9">
+<Expand/>
+</C>
+<C c="7" r="5" cs="2" s="10">
+<Expand dir="0" leftParentDefault="false" left="B5"/>
+</C>
+<C c="0" r="6" s="3">
+<O t="DSColumn">
+<Attributes dsName="businessfee" columnName="FEETYPE"/>
+<Condition class="com.fr.data.condition.CommonCondition">
+<CNAME>
+<![CDATA[JOBID]]></CNAME>
+<Compare op="0">
+<AnDSColumn dsName="teljob" columnName="ID"/>
+</Compare>
+</Condition>
+<Complex/>
+<RG class="com.fr.report.cellElement.core.FunctionGrouper"/>
+<Result>
+<![CDATA[$$$]]></Result>
+<Parameters/>
+</O>
+<Expand dir="0"/>
+</C>
+<C c="1" r="6" cs="2" s="13">
+<O t="DSColumn">
+<Attributes dsName="businessfee" columnName="FEE"/>
+<Condition class="com.fr.data.condition.ListCondition"/>
+<Complex/>
+<RG class="com.fr.report.cellElement.core.FunctionGrouper"/>
+<Result>
+<![CDATA[$$$]]></Result>
+<Parameters/>
+</O>
+<Expand dir="0"/>
+</C>
+<C c="3" r="6" s="14">
+<Expand/>
+</C>
+<C c="4" r="6" s="3">
+<Expand/>
+</C>
+<C c="5" r="6" s="15">
+<Expand/>
+</C>
+<C c="6" r="6" s="3">
+<Expand/>
+</C>
+<C c="7" r="6" cs="2" s="13">
+<Expand dir="0" leftParentDefault="false" left="B5"/>
+</C>
+<C c="0" r="7" s="3">
+<Expand/>
+</C>
+<C c="1" r="7" cs="2" s="3">
+<Expand/>
+</C>
+<C c="3" r="7" s="14">
+<Expand/>
+</C>
+<C c="4" r="7" s="3">
+<Expand/>
+</C>
+<C c="5" r="7" s="15">
+<Expand/>
+</C>
+<C c="6" r="7" s="3">
+<Expand/>
+</C>
+<C c="7" r="7" cs="2" s="13">
+<Expand dir="0" leftParentDefault="false" left="B5"/>
+</C>
+<C c="0" r="8" s="3">
+<Expand/>
+</C>
+<C c="1" r="8" s="3">
+<Expand/>
+</C>
+<C c="2" r="8" s="3">
+<Expand/>
+</C>
+<C c="3" r="8" s="14">
+<Expand/>
+</C>
+<C c="4" r="8" s="3">
+<Expand/>
+</C>
+<C c="5" r="8" s="15">
+<Expand/>
+</C>
+<C c="6" r="8" s="3">
+<Expand/>
+</C>
+<C c="7" r="8" cs="2" s="13">
+<Expand dir="0" leftParentDefault="false" left="B5"/>
+</C>
+<C c="0" r="9" s="4">
+<Expand/>
+</C>
+<C c="1" r="9" s="4">
+<Expand/>
+</C>
+<C c="2" r="9" s="4">
+<Expand/>
+</C>
+<C c="3" r="9" s="16">
+<Expand/>
+</C>
+<C c="4" r="9" s="4">
+<Expand/>
+</C>
+<C c="5" r="9" s="17">
+<Expand/>
+</C>
+<C c="6" r="9" s="4">
+<Expand/>
+</C>
+<C c="7" r="9" s="18">
+<Expand/>
+</C>
+<C c="8" r="9" s="18">
+<Expand/>
+</C>
+<C c="0" r="10" cs="2" s="2">
+<O>
+<![CDATA[合计人民币：]]></O>
+<Expand/>
+</C>
+<C c="2" r="10" cs="4" rs="2">
+<O t="DSColumn">
+<Attributes dsName="teljob" columnName="SS"/>
+<Complex/>
+<RG class="com.fr.report.cellElement.core.FunctionGrouper"/>
+<Parameters/>
+</O>
+<Expand dir="0"/>
+</C>
+<C c="6" r="10" rs="2" s="3">
+<O>
+<![CDATA[实收小写：]]></O>
+<Expand/>
+</C>
+<C c="7" r="10" cs="2" rs="2" s="13">
+<O t="DSColumn">
+<Attributes dsName="teljob" columnName="SS"/>
+<Complex/>
+<RG class="com.fr.report.cellElement.core.FunctionGrouper"/>
+<Parameters/>
+</O>
+<Expand dir="0"/>
+</C>
+<C c="0" r="11" cs="2" s="2">
+<O>
+<![CDATA[（大写）]]></O>
+<Expand/>
+</C>
+<C c="0" r="13" cs="2">
+<O>
+<![CDATA[收款单位（盖章）：]]></O>
+<Expand/>
+</C>
+<C c="2" r="13" s="3">
+<O>
+<![CDATA[通信管理处]]></O>
+<Expand/>
+</C>
+<C c="3" r="13" s="3">
+<O>
+<![CDATA[开票人：]]></O>
+<Expand/>
+</C>
+<C c="4" r="13" s="2">
+<Expand dir="0" leftParentDefault="false" left="B5"/>
+</C>
+<C c="5" r="13" s="3">
+<O>
+<![CDATA[收款人：]]></O>
+<Expand/>
+</C>
+<C c="6" r="13" s="2">
+<Expand dir="0" leftParentDefault="false" left="B5"/>
+</C>
+<C c="7" r="13">
+<Expand/>
+</C>
+<C c="8" r="13">
+<Expand/>
+</C>
+</CellElementList>
+<ReportSettings firstPageNumber="2" isHorizontalCenterOnPage="true" headerHeight="0.0" footerHeight="0.0">
+<PaperSetting>
+<PaperSize width="8.268" height="5.511889763779529"/>
+<Margin top="0.984251968503937" left="0.7874015748031498" bottom="0.0" right="0.7874015748031498"/>
+</PaperSetting>
+</ReportSettings>
+<Header reportPageType="0">
+<Background name="NullBackground"/>
+<LeftList/>
+<CenterList/>
+<RightList/>
+</Header>
+<Footer reportPageType="0">
+<Background name="NullBackground"/>
+<LeftList/>
+<CenterList/>
+<RightList/>
+</Footer>
+<ReportWriteAttr/>
+</Report>
+<ReportParameterAttr>
+<Attributes showWindow="true" delayPlaying="true" windowPosition="0" align="1"/>
+<PWTitle>
+<![CDATA[参数]]></PWTitle>
+<ParameterUI class="com.fr.report.parameter.CustomParameterUI">
+<ReportPageAttr>
+<HR/>
+<FR/>
+<HC/>
+<FC/>
+</ReportPageAttr>
+<RowHeight defaultValue="19">
+<![CDATA[19,19,19,19,19,19,19,19,19,19,19]]></RowHeight>
+<ColumnWidth defaultValue="72">
+<![CDATA[72,72,72,72,72,72,72,72,72,72,72]]></ColumnWidth>
+<CellElementList>
+<C c="0" r="0">
+<O>
+<![CDATA[查询]]></O>
+<Widget class="com.fr.report.web.ui.impl.form.FormSubmitButton">
+<WidgetAttr/>
+</Widget>
+</C>
+</CellElementList>
+<ReportSettings headerHeight="0.0" footerHeight="0.0">
+<PaperSetting>
+<Margin top="0.27" left="0.75" bottom="0.27" right="0.75"/>
+</PaperSetting>
+</ReportSettings>
+</ParameterUI>
+</ReportParameterAttr>
+<StyleList>
+<Style>
+<FRFont name="SimSun" style="1" size="13"/>
+<Background name="NullBackground"/>
+<Border/>
+</Style>
+<Style imageLayout="2">
+<FRFont name="SimSun" style="0" size="13"/>
+<Background name="NullBackground"/>
+<Border/>
+</Style>
+<Style horizontal_alignment="0">
+<FRFont name="SimSun" style="0" size="13"/>
+<Background name="NullBackground"/>
+<Border/>
+</Style>
+<Style>
+<FRFont name="SimSun" style="0" size="13"/>
+<Background name="NullBackground"/>
+<Border/>
+</Style>
+<Style>
+<FRFont name="SimSun" style="0" size="13"/>
+<Background name="NullBackground"/>
+<Border>
+<Bottom style="1"/>
+</Border>
+</Style>
+<Style>
+<FRFont name="SimSun" style="0" size="13"/>
+<Background name="NullBackground"/>
+<Border>
+<Top style="1"/>
+<Bottom style="1"/>
+</Border>
+</Style>
+<Style horizontal_alignment="0">
+<FRFont name="SimSun" style="0" size="13"/>
+<Background name="NullBackground"/>
+<Border>
+<Top style="1"/>
+<Bottom style="1"/>
+</Border>
+</Style>
+<Style horizontal_alignment="0">
+<FRFont name="SimSun" style="0" size="13"/>
+<Background name="NullBackground"/>
+<Border>
+<Top style="1"/>
+<Left style="1"/>
+</Border>
+</Style>
+<Style horizontal_alignment="0">
+<FRFont name="SimSun" style="0" size="13"/>
+<Background name="NullBackground"/>
+<Border>
+<Top style="1"/>
+<Right style="1"/>
+</Border>
+</Style>
+<Style>
+<FRFont name="SimSun" style="0" size="13"/>
+<Background name="NullBackground"/>
+<Border>
+<Top style="1"/>
+</Border>
+</Style>
+<Style horizontal_alignment="0">
+<Format class="java.text.DecimalFormat">
+<![CDATA[¤#,##0.00;¤-#,##0.00]]></Format>
+<FRFont name="SimSun" style="0" size="13"/>
+<Background name="NullBackground"/>
+<Border>
+<Top style="1"/>
+</Border>
+</Style>
+<Style>
+<FRFont name="SimSun" style="0" size="13"/>
+<Background name="NullBackground"/>
+<Border>
+<Top style="1"/>
+<Left style="1"/>
+</Border>
+</Style>
+<Style>
+<FRFont name="SimSun" style="0" size="13"/>
+<Background name="NullBackground"/>
+<Border>
+<Top style="1"/>
+<Right style="1"/>
+</Border>
+</Style>
+<Style horizontal_alignment="0">
+<Format class="java.text.DecimalFormat">
+<![CDATA[¤#,##0.00;¤-#,##0.00]]></Format>
+<FRFont name="SimSun" style="0" size="13"/>
+<Background name="NullBackground"/>
+<Border/>
+</Style>
+<Style>
+<FRFont name="SimSun" style="0" size="13"/>
+<Background name="NullBackground"/>
+<Border>
+<Left style="1"/>
+</Border>
+</Style>
+<Style>
+<FRFont name="SimSun" style="0" size="13"/>
+<Background name="NullBackground"/>
+<Border>
+<Right style="1"/>
+</Border>
+</Style>
+<Style>
+<FRFont name="SimSun" style="0" size="13"/>
+<Background name="NullBackground"/>
+<Border>
+<Bottom style="1"/>
+<Left style="1"/>
+</Border>
+</Style>
+<Style>
+<FRFont name="SimSun" style="0" size="13"/>
+<Background name="NullBackground"/>
+<Border>
+<Bottom style="1"/>
+<Right style="1"/>
+</Border>
+</Style>
+<Style horizontal_alignment="0">
+<FRFont name="SimSun" style="0" size="13"/>
+<Background name="NullBackground"/>
+<Border>
+<Bottom style="1"/>
+</Border>
+</Style>
+</StyleList>
+</WorkBook>

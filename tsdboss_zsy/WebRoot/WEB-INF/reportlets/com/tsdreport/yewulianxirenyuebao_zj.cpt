@@ -1,0 +1,254 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<WorkBook>
+<Version>6.2</Version>
+<Report class="com.fr.report.WorkSheet" name="sheet1">
+<TableDataMap>
+<NameTableData name="业务联系人月统计表">
+<TableData class="com.fr.data.impl.DBTableData">
+<Parameters>
+<Parameter>
+<Attributes name="slyf"
+ type="0"
+ shown="true" />
+<O t="S"><![CDATA[]]></O>
+</Parameter>
+</Parameters>
+<Attributes isCache="true" isDiskCache="true" />
+<Connection class="com.fr.data.impl.NameDatabaseConnection">
+<DatabaseName><![CDATA[tsdReport]]></DatabaseName>
+</Connection><Query><![CDATA[select a.busilinkman, count(*) as ywl, b.sbm
+from tsdbilling.telcount2009billing.dbo.packageuser a,
+tsdbilling.telcount2009billing.dbo.Staff b
+where  convert(varchar(6),a.createdate,112)='[?slyf|?]'
+and a.busilinkman=b.username
+group by a.busilinkman,b.sbm
+order by b.sbm desc]]></Query>
+</TableData>
+</NameTableData>
+</TableDataMap>
+<ReportSettings shrinkToFit="false" headerHeight="0.0" footerHeight="0.0">
+<Margin top="0.27" left="0.7499999999999999" bottom="0.27" right="0.7499999999999999" />
+</ReportSettings>
+<ReportPageAttr>
+<HR F="0" T="1" /><HC F="0" T="4" /></ReportPageAttr>
+<ReportParameterAttr>
+<Parameters>
+</Parameters>
+<Attributes showWindow="true" delayPlaying="true" windowPosition="1" userDefineWindow="true" />
+<PWTitle><![CDATA[参数]]></PWTitle>
+<WorkSheet>
+<ReportSettings shrinkToFit="false" headerHeight="0.0" footerHeight="0.0">
+<Margin top="0.27" left="0.75" bottom="0.27" right="0.75" />
+</ReportSettings>
+<ReportParameterAttr>
+<Parameters>
+</Parameters>
+<Attributes showWindow="true" delayPlaying="true" windowPosition="0" userDefineWindow="false" />
+<PWTitle><![CDATA[参数]]></PWTitle>
+</ReportParameterAttr>
+<AutoRecalculate>false</AutoRecalculate>
+<DesignAttributes>
+</DesignAttributes>
+<ReportWebAttr>
+<EmailManager mailHost="" password="___" user="" fromEmailAddress="" />
+<ServerPrinter>
+</ServerPrinter>
+</ReportWebAttr>
+<ReportWriteAttr>
+</ReportWriteAttr>
+<Header reportPageType="0">
+<Background name="NullBackground" />
+<LeftList>
+</LeftList>
+<CenterList>
+</CenterList>
+<RightList>
+</RightList>
+</Header>
+<Footer reportPageType="0">
+<Background name="NullBackground" />
+<LeftList>
+</LeftList>
+<CenterList>
+</CenterList>
+<RightList>
+</RightList>
+</Footer>
+<RowHeight defaultValue="19">
+<![CDATA[43,59]]>
+</RowHeight>
+<ColumnWidth defaultValue="72">
+<![CDATA[123,84,98,102]]>
+</ColumnWidth>
+<CellElementList>
+<C c="0" r="0" rs="2" s="0"><O t="S"><![CDATA[报表说明：]]></O>
+</C>
+<C c="1" r="0" cs="6" s="1"><O t="S"><![CDATA[1、该报表统计“油田e家”业务联系人月统计报表用，权限开放统计组人员、公费业务管理人员使用。]]></O>
+</C>
+<C c="1" r="1" cs="6" s="2"><O t="S"><![CDATA[2、查询月份输入格式为6为数字。例：查询2010年1月的业务联系人，在查询月份中录入“201001”然后点击查询即可。]]></O>
+</C>
+<C c="2" r="3" s="3"><O t="S"><![CDATA[查询月份：]]></O>
+</C>
+<C c="3" r="3" s="4"><O t="PR" >
+<ParameterRef name="slyf" />
+</O>
+</C>
+<C c="4" r="3" s="4"><O t="PB" >
+<ParameterButton name="查询" type="0" />
+</O>
+</C>
+</CellElementList>
+</WorkSheet>
+</ReportParameterAttr>
+<AutoRecalculate>false</AutoRecalculate>
+<DesignAttributes>
+</DesignAttributes>
+<ReportWebAttr>
+<EmailManager mailHost="" password="___" user="" fromEmailAddress="" />
+<ServerPrinter>
+</ServerPrinter>
+</ReportWebAttr>
+<ReportWriteAttr>
+</ReportWriteAttr>
+<Header reportPageType="0">
+<Background name="NullBackground" />
+<LeftList>
+</LeftList>
+<CenterList>
+</CenterList>
+<RightList>
+</RightList>
+</Header>
+<Footer reportPageType="0">
+<Background name="NullBackground" />
+<LeftList>
+</LeftList>
+<CenterList>
+</CenterList>
+<RightList>
+</RightList>
+</Footer>
+<RowHeight defaultValue="19">
+<![CDATA[36]]>
+</RowHeight>
+<ColumnWidth defaultValue="72">
+<![CDATA[72,151,72,148,125]]>
+</ColumnWidth>
+<CellElementList>
+<C c="0" r="0" cs="5" s="5"><O t="S"><![CDATA[业务联系人月统计表]]></O>
+</C>
+<C c="5" r="0"><O t="S"><![CDATA[]]></O>
+</C>
+<C c="0" r="1" s="6"><O t="S"><![CDATA[序号]]></O>
+</C>
+<C c="1" r="1" s="6"><O t="S"><![CDATA[业务联系人]]></O>
+</C>
+<C c="2" r="1" s="6"><O t="S"><![CDATA[业务数量]]></O>
+</C>
+<C c="3" r="1" s="6"><O t="S"><![CDATA[单位]]></O>
+</C>
+<C c="4" r="1" s="6"><O t="S"><![CDATA[备注]]></O>
+</C>
+<C c="0" r="2" s="7"><O t="Formula" class="Formula" ><Attributes><![CDATA[=&B3]]></Attributes></O>
+<Expand leftParentDefault="false" left="B3" />
+</C>
+<C c="1" r="2" s="8"><O t="DSColumn"><Attributes dsName="业务联系人月统计表" columnName="busilinkman" />
+<RG class="com.fr.report.cellElement.core.FunctionGrouper"></RG></O>
+<NameJavaScriptGroup>
+<NameJavaScript name="网络报表1">
+<JavaScript class="com.fr.report.javaScript.ReportletHyperlink"><Features><![CDATA[height=800,width=400]]></Features>
+<ReportletName extendParameters="true"><![CDATA[/com/tsdreport/yewulianxirenmingxi_zj.cpt]]></ReportletName>
+<Parameters>
+<Parameter>
+<Attributes name="ywr"
+ type="10"
+ shown="true" />
+</Parameter>
+</Parameters>
+</JavaScript>
+</NameJavaScript>
+</NameJavaScriptGroup>
+<Expand dir="0" />
+</C>
+<C c="2" r="2" s="7"><O t="DSColumn"><Attributes dsName="业务联系人月统计表" columnName="ywl" />
+<RG class="com.fr.report.cellElement.core.FunctionGrouper"></RG></O>
+<Expand dir="0" />
+</C>
+<C c="3" r="2" s="7"><O t="DSColumn"><Attributes dsName="业务联系人月统计表" columnName="sbm" />
+<RG class="com.fr.report.cellElement.core.FunctionGrouper"></RG></O>
+<Expand dir="0" />
+</C>
+<C c="4" r="2" s="7"></C>
+<C c="0" r="3" s="9"><O t="S"><![CDATA[合计：]]></O>
+</C>
+<C c="1" r="3" s="9"><O t="DSColumn"><Attributes dsName="业务联系人月统计表" columnName="ywl" />
+<Condition class="com.fr.data.condition.ListCondition"></Condition>
+<RG class="com.fr.report.cellElement.core.SummaryGrouper"><FN><![CDATA[com.fr.data.util.function.SumFunction]]></FN></RG><Result><![CDATA[$$$]]></Result></O>
+</C>
+<C c="3" r="3" s="9"><O t="S"><![CDATA[打印时间：]]></O>
+</C>
+<C c="4" r="3" s="10"><O t="S"><![CDATA[]]></O>
+</C>
+<C c="5" r="3" s="9"></C>
+</CellElementList>
+</Report>
+<StyleList>
+<Style horizontal_alignment="4">
+<FRFont name="SimSun" style="1" size="14" />
+<Background name="NullBackground" />
+<Border><Bottom style="1" /></Border>
+</Style>
+<Style>
+<FRFont name="SimSun" style="1" size="14" />
+<Background name="NullBackground" />
+<Border></Border>
+</Style>
+<Style>
+<FRFont name="SimSun" style="1" size="14" />
+<Background name="NullBackground" />
+<Border><Bottom style="1" /></Border>
+</Style>
+<Style horizontal_alignment="4">
+<FRFont name="SimSun" style="0" size="12" />
+<Background name="NullBackground" />
+<Border></Border>
+</Style>
+<Style horizontal_alignment="0">
+<FRFont name="SimSun" style="0" size="12" />
+<Background name="NullBackground" />
+<Border></Border>
+</Style>
+<Style horizontal_alignment="0">
+<FRFont name="SimSun" style="1" size="14" />
+<Background name="NullBackground" />
+<Border></Border>
+</Style>
+<Style horizontal_alignment="0">
+<FRFont name="SimSun" style="1" size="12" />
+<Background name="NullBackground" />
+<Border><Top style="1" /><Bottom style="1" /><Left style="1" /><Right style="1" /></Border>
+</Style>
+<Style horizontal_alignment="0">
+<FRFont name="SimSun" style="0" size="12" />
+<Background name="NullBackground" />
+<Border><Top style="1" /><Bottom style="1" /><Left style="1" /><Right style="1" /></Border>
+</Style>
+<Style horizontal_alignment="0">
+<FRFont name="SimSun" style="0" size="12" underline="1" />
+<Background name="NullBackground" />
+<Border><Top style="1" /><Bottom style="1" /><Left style="1" /><Right style="1" /></Border>
+</Style>
+<Style horizontal_alignment="0">
+<FRFont name="SimSun" style="1" size="12" />
+<Background name="NullBackground" />
+<Border></Border>
+</Style>
+<Style horizontal_alignment="0">
+<Format class="java.text.SimpleDateFormat"><![CDATA[yyyy-M-d h:mm]]>
+</Format>
+<FRFont name="SimSun" style="1" size="12" />
+<Background name="NullBackground" />
+<Border></Border>
+</Style>
+</StyleList>
+</WorkBook>

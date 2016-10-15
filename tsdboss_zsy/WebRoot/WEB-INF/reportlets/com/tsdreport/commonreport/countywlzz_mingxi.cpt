@@ -1,0 +1,207 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<WorkBook>
+<Version>6.2</Version>
+<Report class="com.fr.report.WorkSheet" name="sheet1">
+<TableDataMap>
+<NameTableData name="明细查询">
+<TableData class="com.fr.data.impl.DBTableData">
+<Parameters>
+<Parameter>
+<Attributes name="yff"
+ type="0"
+ shown="true" />
+<O t="S"><![CDATA[]]></O>
+</Parameter>
+<Parameter>
+<Attributes name="sbm"
+ type="0"
+ shown="true" />
+<O t="S"><![CDATA[]]></O>
+</Parameter>
+<Parameter>
+<Attributes name="jtype"
+ type="0"
+ shown="true" />
+<O t="S"><![CDATA[]]></O>
+</Parameter>
+<Parameter>
+<Attributes name="itype"
+ type="0"
+ shown="true" />
+<O t="S"><![CDATA[]]></O>
+</Parameter>
+<Parameter>
+<Attributes name="yhxz"
+ type="0"
+ shown="true" />
+<O t="S"><![CDATA[]]></O>
+</Parameter>
+<Parameter>
+<Attributes name="uarea"
+ type="0"
+ shown="true" />
+<O t="S"><![CDATA[]]></O>
+</Parameter>
+</Parameters>
+<Attributes isCache="true" isDiskCache="true" />
+<Connection class="com.fr.data.impl.NameDatabaseConnection">
+<DatabaseName><![CDATA[tsdReport]]></DatabaseName>
+</Connection><Query><![CDATA[exec countywlzzMx '[?yff|?]','[?sbm|?]','[?jtype|?]', '[?itype|?]', '[?yhxz|?]','[?uarea|?]']]></Query>
+</TableData>
+</NameTableData>
+<NameTableData name="计费规则">
+<TableData class="com.fr.data.impl.DBTableData">
+<Parameters>
+</Parameters>
+<Attributes isCache="true" isDiskCache="true" />
+<Connection class="com.fr.data.impl.NameDatabaseConnection">
+<DatabaseName><![CDATA[broadband]]></DatabaseName>
+</Connection><Query><![CDATA[select feecode,feename from tbl_IspList;]]></Query>
+</TableData>
+</NameTableData>
+<NameTableData name="用户类型">
+<TableData class="com.fr.data.impl.DBTableData">
+<Parameters>
+</Parameters>
+<Attributes isCache="true" isDiskCache="true" />
+<Connection class="com.fr.data.impl.NameDatabaseConnection">
+<DatabaseName><![CDATA[broadband]]></DatabaseName>
+</Connection><Query><![CDATA[select typeid,usertype from radusertype;]]></Query>
+</TableData>
+</NameTableData>
+</TableDataMap>
+<ReportSettings orientation="1" shrinkToFit="false" headerHeight="0.0" footerHeight="0.0">
+<Margin top="0.27" left="0.1968503937007874" bottom="0.27" right="0.1968503937007874" />
+</ReportSettings>
+<ReportPageAttr>
+<HR F="0" T="2" /></ReportPageAttr>
+<ReportParameterAttr>
+<Parameters>
+</Parameters>
+<Attributes showWindow="true" delayPlaying="true" windowPosition="0" userDefineWindow="false" />
+<PWTitle><![CDATA[参数]]></PWTitle>
+</ReportParameterAttr>
+<AutoRecalculate>false</AutoRecalculate>
+<DesignAttributes>
+</DesignAttributes>
+<ReportWebAttr>
+<EmailManager mailHost="" password="___" user="" fromEmailAddress="" />
+<ServerPrinter>
+</ServerPrinter>
+</ReportWebAttr>
+<ReportWriteAttr>
+</ReportWriteAttr>
+<Header reportPageType="0">
+<Background name="NullBackground" />
+<LeftList>
+</LeftList>
+<CenterList>
+</CenterList>
+<RightList>
+</RightList>
+</Header>
+<Footer reportPageType="0">
+<Background name="NullBackground" />
+<LeftList>
+</LeftList>
+<CenterList>
+</CenterList>
+<RightList>
+</RightList>
+</Footer>
+<RowHeight defaultValue="19">
+<![CDATA[40,19,25,28]]>
+</RowHeight>
+<ColumnWidth defaultValue="72">
+<![CDATA[40,100,101,80,83,120,90,80,171,192]]>
+</ColumnWidth>
+<CellElementList>
+<C c="0" r="0" cs="10" s="0"><O t="Formula" class="Formula" ><Attributes><![CDATA[="油田信息小区网"+if($yhxz=="1","住宅用户",if($yhxz=='2',"办公用户",if($yhxz=="3","商业用户",if($yhxz=="4","公寓用户","酒店宾馆用户"))))+"业务量明细表"]]></Attributes></O>
+</C>
+<C c="0" r="2" s="1"><O t="S"><![CDATA[序号]]></O>
+</C>
+<C c="1" r="2" s="1"><O t="S"><![CDATA[用户账号]]></O>
+</C>
+<C c="2" r="2" s="1"><O t="S"><![CDATA[用户名称]]></O>
+</C>
+<C c="3" r="2" s="1"><O t="S"><![CDATA[联系电话]]></O>
+</C>
+<C c="4" r="2" s="1"><O t="S"><![CDATA[工单类型]]></O>
+</C>
+<C c="5" r="2" s="1"><O t="S"><![CDATA[计费规则]]></O>
+</C>
+<C c="6" r="2" s="1"><O t="S"><![CDATA[用户类型]]></O>
+</C>
+<C c="7" r="2" s="1"><O t="S"><![CDATA[区域]]></O>
+</C>
+<C c="8" r="2" s="1"><O t="S"><![CDATA[部门]]></O>
+</C>
+<C c="9" r="2" s="1"><O t="S"><![CDATA[地址]]></O>
+</C>
+<C c="0" r="3" s="2"><O t="Formula" class="Formula" ><Attributes><![CDATA[=&B4]]></Attributes></O>
+<Expand dir="0" leftParentDefault="false" left="B4" />
+</C>
+<C c="1" r="3" s="2"><O t="DSColumn"><Attributes dsName="明细查询" columnName="UserName" />
+<Condition class="com.fr.data.condition.ListCondition"></Condition>
+<RG class="com.fr.report.cellElement.core.FunctionGrouper"><Attr divideMode="1" /></RG><Result><![CDATA[$$$]]></Result></O>
+<Expand dir="0" leftParentDefault="false" />
+</C>
+<C c="2" r="3" s="2"><O t="DSColumn"><Attributes dsName="明细查询" columnName="sRealName" />
+<RG class="com.fr.report.cellElement.core.FunctionGrouper"></RG></O>
+<Expand dir="0" />
+</C>
+<C c="3" r="3" s="2"><O t="DSColumn"><Attributes dsName="明细查询" columnName="sDh" />
+<RG class="com.fr.report.cellElement.core.FunctionGrouper"></RG></O>
+<Expand dir="0" />
+</C>
+<C c="4" r="3" s="2"><O t="DSColumn"><Attributes dsName="明细查询" columnName="jobtype" />
+<Condition class="com.fr.data.condition.ListCondition"></Condition>
+<RG class="com.fr.report.cellElement.core.FunctionGrouper"></RG><Result><![CDATA[if(jobtype=="shizhuang","实装","")+if(jobtype=="setup","入网","")+if(jobtype=="destroy","退网","")+if(jobtype=="move","移机","")]]></Result></O>
+<Expand dir="0" />
+</C>
+<C c="5" r="3" s="2"><O t="DSColumn"><Attributes dsName="计费规则" columnName="feename" />
+<Condition class="com.fr.data.condition.CommonCondition"><CNAME><![CDATA[feecode]]></CNAME><Compare op="0">
+<AnDSColumn dsName="明细查询" columnName="iFeeType" /></Compare>
+</Condition>
+<RG class="com.fr.report.cellElement.core.FunctionGrouper"></RG><Result><![CDATA[$$$]]></Result></O>
+<Expand dir="0" />
+</C>
+<C c="6" r="3" s="2"><O t="DSColumn"><Attributes dsName="用户类型" columnName="usertype" />
+<Condition class="com.fr.data.condition.CommonCondition"><CNAME><![CDATA[typeid]]></CNAME><Compare op="0">
+<AnDSColumn dsName="明细查询" columnName="sDh1" /></Compare>
+</Condition>
+<RG class="com.fr.report.cellElement.core.FunctionGrouper"></RG><Result><![CDATA[$$$]]></Result></O>
+<Expand dir="0" />
+</C>
+<C c="7" r="3" s="2"><O t="DSColumn"><Attributes dsName="明细查询" columnName="sDh2" />
+<RG class="com.fr.report.cellElement.core.FunctionGrouper"></RG></O>
+<Expand dir="0" />
+</C>
+<C c="8" r="3" s="2"><O t="DSColumn"><Attributes dsName="明细查询" columnName="sBm" />
+<RG class="com.fr.report.cellElement.core.FunctionGrouper"></RG></O>
+<Expand dir="0" />
+</C>
+<C c="9" r="3" s="2"><O t="DSColumn"><Attributes dsName="明细查询" columnName="sAddress" />
+<RG class="com.fr.report.cellElement.core.FunctionGrouper"></RG></O>
+<Expand dir="0" />
+</C>
+</CellElementList>
+</Report>
+<StyleList>
+<Style horizontal_alignment="0">
+<FRFont name="SimSun" style="1" size="18" />
+<Background name="NullBackground" />
+<Border></Border>
+</Style>
+<Style horizontal_alignment="0">
+<FRFont name="SimSun" style="1" size="12" />
+<Background name="NullBackground" />
+<Border><Top style="1" /><Bottom style="1" /><Left style="1" /><Right style="1" /></Border>
+</Style>
+<Style horizontal_alignment="0">
+<FRFont name="SimSun" style="0" size="12" />
+<Background name="NullBackground" />
+<Border><Top style="1" /><Bottom style="1" /><Left style="1" /><Right style="1" /></Border>
+</Style>
+</StyleList>
+</WorkBook>

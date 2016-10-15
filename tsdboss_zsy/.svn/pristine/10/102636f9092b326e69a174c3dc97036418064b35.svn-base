@@ -1,0 +1,409 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<WorkBook xmlVersion="20100901">
+<TableDataMap>
+<TableData name="档案" class="com.fr.data.impl.DBTableData">
+<Parameters>
+<Parameter>
+<Attributes name="hth"/>
+<O>
+<![CDATA[%]]></O>
+</Parameter>
+<Parameter>
+<Attributes name="area"/>
+<O>
+<![CDATA[%]]></O>
+</Parameter>
+<Parameter>
+<Attributes name="yhlb"/>
+<O>
+<![CDATA[%]]></O>
+</Parameter>
+<Parameter>
+<Attributes name="dh"/>
+<O>
+<![CDATA[4810]]></O>
+</Parameter>
+<Parameter>
+<Attributes name="dj"/>
+<O>
+<![CDATA[%]]></O>
+</Parameter>
+<Parameter>
+<Attributes name="yhmc"/>
+<O>
+<![CDATA[%]]></O>
+</Parameter>
+<Parameter>
+<Attributes name="callpaytype"/>
+<O>
+<![CDATA[%]]></O>
+</Parameter>
+<Parameter>
+<Attributes name="delbz"/>
+<O>
+<![CDATA[%]]></O>
+</Parameter>
+<Parameter>
+<Attributes name="BIGHTH1"/>
+<O>
+<![CDATA[%]]></O>
+</Parameter>
+</Parameters>
+<Attributes maxMemRowCount="-1"/>
+<Connection class="com.fr.data.impl.NameDatabaseConnection">
+<DatabaseName>
+<![CDATA[tsdBilling]]></DatabaseName>
+</Connection>
+<Query>
+<![CDATA[select g.*,f.byye_ysk,f.skr_date
+  from hthdang g
+  left join (
+select hth,byye_ysk,skr_date from hthhf f where f.hzyf=(select tvalues from tsd_ini i where i.tsection='收费结账' and i.tident='当前收费月份')) f
+  on g.hth=f.hth
+ where g.hth like '${hth}'
+   and nvl(g.dh, '0000') like '${dh}%'
+   and g.yhmc like '%${yhmc}%'
+   and g.callpaytype like '${callpaytype}'
+   and nvl(g.delbz, 'normal') like '${delbz}'
+   and g.bz2 like '${dj}'
+   and g.yhlb like '${yhlb}'
+   and g.bz9 like '${area}'
+   and g.custtype=2
+   and ((nvl('${bighth1}', 'null') = '%' and 1 = 1) or (nvl('${bighth1}', 'null') ! = '%' and g.bm1 = (select bm1
+                                                                                                                               from hthdang gg
+                                                                                                                              where gg.hth like
+                                                                                                                                    '${bighth1}'
+                                                                                                                                and gg.custtype = 1
+                                                                                                                                and rownum = 1))) order by g.hth
+]]></Query>
+</TableData>
+<TableData name="时间" class="com.fr.data.impl.DBTableData">
+<Parameters/>
+<Attributes maxMemRowCount="-1"/>
+<Connection class="com.fr.data.impl.NameDatabaseConnection">
+<DatabaseName>
+<![CDATA[tsdBilling]]></DatabaseName>
+</Connection>
+<Query>
+<![CDATA[select '打印时间：' || to_char(sysdate,'YYYY-MM-DD HH24:MI:SS') TM from dual]]></Query>
+</TableData>
+<TableData name="大客户" class="com.fr.data.impl.DBTableData">
+<Parameters/>
+<Attributes maxMemRowCount="-1"/>
+<Connection class="com.fr.data.impl.NameDatabaseConnection">
+<DatabaseName>
+<![CDATA[tsdBilling]]></DatabaseName>
+</Connection>
+<Query>
+<![CDATA[select hth,bm1 from hthdang where custtype=1 and bm1 is not null]]></Query>
+</TableData>
+<TableData name="付费类型" class="com.fr.data.impl.DBTableData">
+<Parameters/>
+<Attributes maxMemRowCount="-1"/>
+<Connection class="com.fr.data.impl.NameDatabaseConnection">
+<DatabaseName>
+<![CDATA[tsdBilling]]></DatabaseName>
+</Connection>
+<Query>
+<![CDATA[select * from CallPayType]]></Query>
+</TableData>
+</TableDataMap>
+<ReportWebAttr>
+<Title>
+<![CDATA[帐户综合资料]]></Title>
+<Background name="NullBackground"/>
+<CacheValidateTime>
+<![CDATA[0]]></CacheValidateTime>
+</ReportWebAttr>
+<Report class="com.fr.report.WorkSheet" name="sheet1">
+<ReportPageAttr>
+<HR F="2" T="2"/>
+<FR/>
+<HC/>
+<FC/>
+</ReportPageAttr>
+<RowHeight defaultValue="19">
+<![CDATA[40,24,24,24,19,19,19,19,19,19,19,19,19,19,19,19,19,19,19,19,19,19,19,19,19,19,19,19,19,19,19,19,19,19,19,19,19,19,19,19,19,19,19,19,19,19,19,19,19,19,19,19]]></RowHeight>
+<ColumnWidth defaultValue="72">
+<![CDATA[72,93,72,72,72,72,72,72,72,72,72,72,84,72,72,72,72,72,72,72]]></ColumnWidth>
+<CellElementList>
+<C c="0" r="0" cs="13" s="0">
+<O>
+<![CDATA[帐 户 综 合 资 料]]></O>
+<Expand/>
+</C>
+<C c="10" r="1" cs="3">
+<O t="DSColumn">
+<Attributes dsName="时间" columnName="TM"/>
+<Complex/>
+<RG class="com.fr.report.cellElement.core.FunctionGrouper"/>
+<Parameters/>
+</O>
+<Expand dir="0"/>
+</C>
+<C c="0" r="2" s="1">
+<O>
+<![CDATA[账户号]]></O>
+<Expand/>
+</C>
+<C c="1" r="2" s="1">
+<O>
+<![CDATA[账户名称]]></O>
+<Expand/>
+</C>
+<C c="2" r="2" s="1">
+<O>
+<![CDATA[大客户号]]></O>
+<Expand/>
+</C>
+<C c="3" r="2" s="1">
+<O>
+<![CDATA[主用户号]]></O>
+<Expand/>
+</C>
+<C c="4" r="2" s="1">
+<O>
+<![CDATA[信誉度]]></O>
+<Expand/>
+</C>
+<C c="5" r="2" s="1">
+<O>
+<![CDATA[余额]]></O>
+<Expand/>
+</C>
+<C c="6" r="2" s="1">
+<O>
+<![CDATA[缴费日期]]></O>
+<Expand/>
+</C>
+<C c="7" r="2" s="1">
+<O>
+<![CDATA[账户类型]]></O>
+<Expand/>
+</C>
+<C c="8" r="2" s="1">
+<O>
+<![CDATA[状态]]></O>
+<Expand/>
+</C>
+<C c="9" r="2" s="1">
+<O>
+<![CDATA[是否代收]]></O>
+<Expand/>
+</C>
+<C c="10" r="2" s="1">
+<O>
+<![CDATA[证件号码]]></O>
+<Expand/>
+</C>
+<C c="11" r="2" s="1">
+<O>
+<![CDATA[客户属性 ]]></O>
+<Expand/>
+</C>
+<C c="12" r="2" s="1">
+<O>
+<![CDATA[所属局]]></O>
+<Expand/>
+</C>
+<C c="0" r="3">
+<O t="DSColumn">
+<Attributes dsName="档案" columnName="HTH"/>
+<Complex/>
+<RG class="com.fr.report.cellElement.core.FunctionGrouper"/>
+<Parameters/>
+</O>
+<Expand dir="0"/>
+</C>
+<C c="1" r="3">
+<O t="DSColumn">
+<Attributes dsName="档案" columnName="YHMC"/>
+<Complex/>
+<RG class="com.fr.report.cellElement.core.FunctionGrouper"/>
+<Parameters/>
+</O>
+<Expand dir="0"/>
+</C>
+<C c="2" r="3">
+<O t="DSColumn">
+<Attributes dsName="大客户" columnName="HTH"/>
+<Condition class="com.fr.data.condition.CommonCondition">
+<CNAME>
+<![CDATA[BM1]]></CNAME>
+<Compare op="0">
+<AnDSColumn dsName="档案" columnName="BM1"/>
+</Compare>
+</Condition>
+<Complex/>
+<RG class="com.fr.report.cellElement.core.FunctionGrouper"/>
+<Result>
+<![CDATA[$$$]]></Result>
+<Parameters/>
+</O>
+<Expand dir="0"/>
+</C>
+<C c="3" r="3">
+<O t="DSColumn">
+<Attributes dsName="档案" columnName="DH"/>
+<Complex/>
+<RG class="com.fr.report.cellElement.core.FunctionGrouper"/>
+<Parameters/>
+</O>
+<Expand dir="0"/>
+</C>
+<C c="4" r="3">
+<O t="DSColumn">
+<Attributes dsName="档案" columnName="CREDITPOINT"/>
+<Complex/>
+<RG class="com.fr.report.cellElement.core.FunctionGrouper"/>
+<Parameters/>
+</O>
+<Expand dir="0"/>
+</C>
+<C c="5" r="3">
+<O t="DSColumn">
+<Attributes dsName="档案" columnName="BYYE_YSK"/>
+<Complex/>
+<RG class="com.fr.report.cellElement.core.FunctionGrouper"/>
+<Parameters/>
+</O>
+<Expand dir="0"/>
+</C>
+<C c="6" r="3">
+<O t="DSColumn">
+<Attributes dsName="档案" columnName="SKR_DATE"/>
+<Complex/>
+<RG class="com.fr.report.cellElement.core.FunctionGrouper"/>
+<Parameters/>
+</O>
+<Expand dir="0"/>
+</C>
+<C c="7" r="3">
+<O t="DSColumn">
+<Attributes dsName="付费类型" columnName="TYPENAME"/>
+<Condition class="com.fr.data.condition.CommonCondition">
+<CNAME>
+<![CDATA[CALLPAYTYPE]]></CNAME>
+<Compare op="0">
+<AnDSColumn dsName="档案" columnName="CALLPAYTYPE"/>
+</Compare>
+</Condition>
+<Complex/>
+<RG class="com.fr.report.cellElement.core.FunctionGrouper"/>
+<Result>
+<![CDATA[$$$]]></Result>
+<Parameters/>
+</O>
+<Expand dir="0"/>
+</C>
+<C c="8" r="3">
+<O t="DSColumn">
+<Attributes dsName="档案" columnName="DELBZ"/>
+<Condition class="com.fr.data.condition.ListCondition"/>
+<Complex/>
+<RG class="com.fr.report.cellElement.core.FunctionGrouper"/>
+<Result>
+<![CDATA[if($$$='destroy','销户','正常')]]></Result>
+<Parameters/>
+</O>
+<Expand dir="0"/>
+</C>
+<C c="9" r="3">
+<O t="DSColumn">
+<Attributes dsName="档案" columnName="BZ2"/>
+<Condition class="com.fr.data.condition.ListCondition"/>
+<Complex/>
+<RG class="com.fr.report.cellElement.core.FunctionGrouper"/>
+<Result>
+<![CDATA[if($$$='Y','是','否')]]></Result>
+<Parameters/>
+</O>
+<Expand dir="0"/>
+</C>
+<C c="10" r="3">
+<O t="DSColumn">
+<Attributes dsName="档案" columnName="IDCARD"/>
+<Complex/>
+<RG class="com.fr.report.cellElement.core.FunctionGrouper"/>
+<Parameters/>
+</O>
+<Expand dir="0"/>
+</C>
+<C c="11" r="3">
+<O t="DSColumn">
+<Attributes dsName="档案" columnName="YHLB"/>
+<Complex/>
+<RG class="com.fr.report.cellElement.core.FunctionGrouper"/>
+<Parameters/>
+</O>
+<Expand dir="0"/>
+</C>
+<C c="12" r="3">
+<O t="DSColumn">
+<Attributes dsName="档案" columnName="BZ9"/>
+<Complex/>
+<RG class="com.fr.report.cellElement.core.FunctionGrouper"/>
+<Parameters/>
+</O>
+<Expand dir="0"/>
+</C>
+<C c="5" r="4">
+<O>
+<![CDATA[]]></O>
+<Expand/>
+</C>
+</CellElementList>
+<ReportSettings headerHeight="0.0" footerHeight="0.23622047244094493">
+<PaperSetting orientation="1">
+<Margin top="0.27" left="0.4744094488188977" bottom="0.27" right="0.4744094488188977"/>
+</PaperSetting>
+</ReportSettings>
+<Header reportPageType="0">
+<Background name="NullBackground"/>
+<LeftList/>
+<CenterList/>
+<RightList/>
+</Header>
+<Footer reportPageType="0">
+<Background name="NullBackground"/>
+<LeftList/>
+<CenterList/>
+<RightList>
+<HFElement className="com.fr.report.core.headerfooter.TextHFElement">
+<FRFont name="SimSun" style="0" size="12"/>
+<![CDATA[当前第 ]]></HFElement>
+<HFElement className="com.fr.report.core.headerfooter.PageNumberHFElement">
+<FRFont name="SimSun" style="0" size="12"/>
+<![CDATA[1]]></HFElement>
+<HFElement className="com.fr.report.core.headerfooter.TextHFElement">
+<FRFont name="SimSun" style="0" size="12"/>
+<![CDATA[ 页，共 ]]></HFElement>
+<HFElement className="com.fr.report.core.headerfooter.NumberOfPageHFElement">
+<FRFont name="SimSun" style="0" size="12"/>
+<![CDATA[100]]></HFElement>
+<HFElement className="com.fr.report.core.headerfooter.TextHFElement">
+<FRFont name="SimSun" style="0" size="12"/>
+<![CDATA[ 页          ]]></HFElement>
+</RightList>
+</Footer>
+</Report>
+<ReportParameterAttr>
+<Attributes showWindow="false" delayPlaying="true" windowPosition="1" align="1"/>
+<PWTitle>
+<![CDATA[参数]]></PWTitle>
+</ReportParameterAttr>
+<StyleList>
+<Style horizontal_alignment="0">
+<FRFont name="SimSun" style="1" size="20"/>
+<Background name="NullBackground"/>
+<Border/>
+</Style>
+<Style>
+<FRFont name="SimSun" style="0" size="12"/>
+<Background name="NullBackground"/>
+<Border>
+<Bottom style="1"/>
+</Border>
+</Style>
+</StyleList>
+</WorkBook>
