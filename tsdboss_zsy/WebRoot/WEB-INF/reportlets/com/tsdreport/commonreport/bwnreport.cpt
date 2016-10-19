@@ -54,7 +54,27 @@ order by hth,jx]]></Query>
 <![CDATA[tsdBilling]]></DatabaseName>
 </Connection>
 <Query>
-<![CDATA[select distinct to_char(sgrq,'yyyymm') aa from teljob where sgrq<=sysdate and rownum<=10 order by aa desc]]></Query>
+<![CDATA[select * from (select distinct to_char(sgrq,'yyyymm') aa from teljob where sgrq<=sysdate and to_number(to_char(sgrq,'yyyymm'))>200001 order by aa desc) where rownum<=12]]></Query>
+</TableData>
+<TableData name="new" class="com.fr.data.impl.DBTableData">
+<Parameters>
+<Parameter>
+<Attributes name="countMonth" isAutoInc="false"/>
+<O>
+<![CDATA[]]></O>
+</Parameter>
+</Parameters>
+<Attributes maxMemRowCount="-1"/>
+<Connection class="com.fr.data.impl.NameDatabaseConnection">
+<DatabaseName>
+<![CDATA[tsdBilling]]></DatabaseName>
+</Connection>
+<Query>
+<![CDATA[select a.*,b.bm1 from 
+(
+select a.*,b.cmonth sy 
+       from dhtj a full join (select * from dhtj where cmonth=(select case substr('${countMonth}',5) when '01' then (substr('${countMonth}',1,4)-1)||'12' else to_char('${countMonth}'-1) end from dual)) b 
+       on a.dh=b.dh where a.cmonth='${countMonth}') a,hthdang b where a.hth=b.hth order by a.hth ]]></Query>
 </TableData>
 </TableDataMap>
 <ReportWebAttr>
@@ -87,7 +107,7 @@ order by hth,jx]]></Query>
 <C c="0" r="1" cs="17" s="1">
 <O t="Formula" class="Formula">
 <Attributes>
-<![CDATA[=CONCATENATE("统计月份：  ", $countMonth)]]></Attributes>
+<![CDATA[=CONCATENATE("统计月份：", $countMonth)]]></Attributes>
 </O>
 <CellGUIAttr/>
 <CellPageAttr/>
@@ -242,47 +262,7 @@ order by hth,jx]]></Query>
 </C>
 <C c="1" r="4" s="2">
 <O t="DSColumn">
-<Attributes dsName="dangyue" columnName="HTH"/>
-<Condition class="com.fr.data.condition.ListCondition"/>
-<Complex/>
-<RG class="com.fr.report.cellElement.core.FunctionGrouper"/>
-<Parameters/>
-</O>
-<CellGUIAttr/>
-<CellPageAttr/>
-<Expand dir="0" leftParentDefault="false"/>
-</C>
-<C c="2" r="4" s="3">
-<O t="DSColumn">
-<Attributes dsName="dangyue" columnName="DWMC"/>
-<Complex/>
-<RG class="com.fr.report.cellElement.core.SummaryGrouper">
-<FN>
-<![CDATA[com.fr.data.util.function.MaxFunction]]></FN>
-</RG>
-<Parameters/>
-</O>
-<CellGUIAttr/>
-<CellPageAttr/>
-<Expand leftParentDefault="false" left="B5"/>
-</C>
-<C c="3" r="4" s="2">
-<O t="DSColumn">
-<Attributes dsName="dangyue" columnName="DHLB"/>
-<Complex/>
-<RG class="com.fr.report.cellElement.core.SummaryGrouper">
-<FN>
-<![CDATA[com.fr.data.util.function.MaxFunction]]></FN>
-</RG>
-<Parameters/>
-</O>
-<CellGUIAttr/>
-<CellPageAttr/>
-<Expand leftParentDefault="false" left="B5"/>
-</C>
-<C c="4" r="4" s="2">
-<O t="DSColumn">
-<Attributes dsName="dangyue" columnName="COLD"/>
+<Attributes dsName="new" columnName="HTH"/>
 <Complex/>
 <RG class="com.fr.report.cellElement.core.FunctionGrouper"/>
 <Parameters/>
@@ -291,22 +271,115 @@ order by hth,jx]]></Query>
 <CellPageAttr/>
 <Expand dir="0"/>
 </C>
-<C c="5" r="4" s="3">
+<C c="2" r="4" s="3">
 <O t="DSColumn">
-<Attributes dsName="dangyue" columnName="CC"/>
-<Condition class="com.fr.data.condition.ListCondition"/>
+<Attributes dsName="new" columnName="BM1"/>
 <Complex/>
 <RG class="com.fr.report.cellElement.core.SummaryGrouper">
 <FN>
-<![CDATA[com.fr.data.util.function.SumFunction]]></FN>
+<![CDATA[com.fr.data.util.function.MaxFunction]]></FN>
 </RG>
-<Result>
-<![CDATA[IF($$$ == 0,'',$$$)]]></Result>
 <Parameters/>
 </O>
 <CellGUIAttr/>
 <CellPageAttr/>
-<Expand leftParentDefault="false" left="B5"/>
+<Expand/>
+</C>
+<C c="3" r="4" s="2">
+<O t="DSColumn">
+<Attributes dsName="new" columnName="YHLB"/>
+<Complex/>
+<RG class="com.fr.report.cellElement.core.SummaryGrouper">
+<FN>
+<![CDATA[com.fr.data.util.function.MaxFunction]]></FN>
+</RG>
+<Parameters/>
+</O>
+<CellGUIAttr/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="4" r="4" s="2">
+<O t="DSColumn">
+<Attributes dsName="new" columnName="SY"/>
+<Condition class="com.fr.data.condition.ListCondition">
+<JoinCondition join="0">
+<Condition class="com.fr.data.condition.CommonCondition">
+<CNUMBER>
+<![CDATA[8]]></CNUMBER>
+<CNAME>
+<![CDATA[SY]]></CNAME>
+<Compare op="1">
+<O>
+<![CDATA[]]></O>
+</Compare>
+</Condition>
+</JoinCondition>
+<JoinCondition join="0">
+<Condition class="com.fr.data.condition.CommonCondition">
+<CNUMBER>
+<![CDATA[8]]></CNUMBER>
+<CNAME>
+<![CDATA[SY]]></CNAME>
+<Compare op="1">
+<ColumnRow column="0" row="99"/>
+</Compare>
+</Condition>
+</JoinCondition>
+</Condition>
+<Complex/>
+<RG class="com.fr.report.cellElement.core.SummaryGrouper">
+<FN>
+<![CDATA[com.fr.data.util.function.CountFunction]]></FN>
+</RG>
+<Result>
+<![CDATA[if($$$=0,"",$$$)]]></Result>
+<Parameters/>
+</O>
+<CellGUIAttr/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="5" r="4" s="3">
+<O t="DSColumn">
+<Attributes dsName="new" columnName="CMONTH"/>
+<Condition class="com.fr.data.condition.ListCondition">
+<JoinCondition join="0">
+<Condition class="com.fr.data.condition.CommonCondition">
+<CNUMBER>
+<![CDATA[7]]></CNUMBER>
+<CNAME>
+<![CDATA[CMONTH]]></CNAME>
+<Compare op="1">
+<O>
+<![CDATA[]]></O>
+</Compare>
+</Condition>
+</JoinCondition>
+<JoinCondition join="0">
+<Condition class="com.fr.data.condition.CommonCondition">
+<CNUMBER>
+<![CDATA[7]]></CNUMBER>
+<CNAME>
+<![CDATA[CMONTH]]></CNAME>
+<Compare op="1">
+<ColumnRow column="0" row="99"/>
+</Compare>
+</Condition>
+</JoinCondition>
+</Condition>
+<Complex/>
+<RG class="com.fr.report.cellElement.core.SummaryGrouper">
+<FN>
+<![CDATA[com.fr.data.util.function.CountFunction]]></FN>
+</RG>
+<Result>
+<![CDATA[if($$$=0,"",$$$)]]></Result>
+<Parameters/>
+</O>
+<CellGUIAttr/>
+<CellPageAttr/>
+<Expand/>
 </C>
 <C c="6" r="4" s="3">
 <O t="Formula" class="Formula">
@@ -328,10 +401,12 @@ order by hth,jx]]></Query>
 </C>
 <C c="8" r="4" s="2">
 <O t="DSColumn">
-<Attributes dsName="dangyue" columnName="CC"/>
+<Attributes dsName="new" columnName="CMONTH"/>
+<Condition class="com.fr.data.condition.ListCondition">
+<JoinCondition join="0">
 <Condition class="com.fr.data.condition.CommonCondition">
 <CNUMBER>
-<![CDATA[7]]></CNUMBER>
+<![CDATA[6]]></CNUMBER>
 <CNAME>
 <![CDATA[JX]]></CNAME>
 <Compare op="0">
@@ -339,25 +414,29 @@ order by hth,jx]]></Query>
 <![CDATA[5998]]></O>
 </Compare>
 </Condition>
+</JoinCondition>
+</Condition>
 <Complex/>
 <RG class="com.fr.report.cellElement.core.SummaryGrouper">
 <FN>
-<![CDATA[com.fr.data.util.function.SumFunction]]></FN>
+<![CDATA[com.fr.data.util.function.CountFunction]]></FN>
 </RG>
 <Result>
-<![CDATA[IF($$$ == 0,'',$$$)]]></Result>
+<![CDATA[if($$$=0,"",$$$)]]></Result>
 <Parameters/>
 </O>
 <CellGUIAttr/>
 <CellPageAttr/>
-<Expand leftParentDefault="false" left="B5"/>
+<Expand/>
 </C>
 <C c="9" r="4" s="2">
 <O t="DSColumn">
-<Attributes dsName="dangyue" columnName="CC"/>
+<Attributes dsName="new" columnName="CMONTH"/>
+<Condition class="com.fr.data.condition.ListCondition">
+<JoinCondition join="0">
 <Condition class="com.fr.data.condition.CommonCondition">
 <CNUMBER>
-<![CDATA[7]]></CNUMBER>
+<![CDATA[6]]></CNUMBER>
 <CNAME>
 <![CDATA[JX]]></CNAME>
 <Compare op="0">
@@ -365,13 +444,15 @@ order by hth,jx]]></Query>
 <![CDATA[6209]]></O>
 </Compare>
 </Condition>
+</JoinCondition>
+</Condition>
 <Complex/>
 <RG class="com.fr.report.cellElement.core.SummaryGrouper">
 <FN>
-<![CDATA[com.fr.data.util.function.SumFunction]]></FN>
+<![CDATA[com.fr.data.util.function.CountFunction]]></FN>
 </RG>
 <Result>
-<![CDATA[IF($$$ == 0,'',$$$)]]></Result>
+<![CDATA[if($$$=0,"",$$$)]]></Result>
 <Parameters/>
 </O>
 <CellGUIAttr/>
@@ -380,10 +461,12 @@ order by hth,jx]]></Query>
 </C>
 <C c="10" r="4" s="2">
 <O t="DSColumn">
-<Attributes dsName="dangyue" columnName="CC"/>
+<Attributes dsName="new" columnName="CMONTH"/>
+<Condition class="com.fr.data.condition.ListCondition">
+<JoinCondition join="0">
 <Condition class="com.fr.data.condition.CommonCondition">
 <CNUMBER>
-<![CDATA[7]]></CNUMBER>
+<![CDATA[6]]></CNUMBER>
 <CNAME>
 <![CDATA[JX]]></CNAME>
 <Compare op="0">
@@ -391,13 +474,15 @@ order by hth,jx]]></Query>
 <![CDATA[6206]]></O>
 </Compare>
 </Condition>
+</JoinCondition>
+</Condition>
 <Complex/>
 <RG class="com.fr.report.cellElement.core.SummaryGrouper">
 <FN>
-<![CDATA[com.fr.data.util.function.SumFunction]]></FN>
+<![CDATA[com.fr.data.util.function.CountFunction]]></FN>
 </RG>
 <Result>
-<![CDATA[IF($$$ == 0,'',$$$)]]></Result>
+<![CDATA[if($$$=0,"",$$$)]]></Result>
 <Parameters/>
 </O>
 <CellGUIAttr/>
@@ -406,10 +491,12 @@ order by hth,jx]]></Query>
 </C>
 <C c="11" r="4" s="2">
 <O t="DSColumn">
-<Attributes dsName="dangyue" columnName="CC"/>
+<Attributes dsName="new" columnName="CMONTH"/>
+<Condition class="com.fr.data.condition.ListCondition">
+<JoinCondition join="0">
 <Condition class="com.fr.data.condition.CommonCondition">
 <CNUMBER>
-<![CDATA[7]]></CNUMBER>
+<![CDATA[6]]></CNUMBER>
 <CNAME>
 <![CDATA[JX]]></CNAME>
 <Compare op="0">
@@ -417,13 +504,15 @@ order by hth,jx]]></Query>
 <![CDATA[6359]]></O>
 </Compare>
 </Condition>
+</JoinCondition>
+</Condition>
 <Complex/>
 <RG class="com.fr.report.cellElement.core.SummaryGrouper">
 <FN>
-<![CDATA[com.fr.data.util.function.SumFunction]]></FN>
+<![CDATA[com.fr.data.util.function.CountFunction]]></FN>
 </RG>
 <Result>
-<![CDATA[IF($$$ == 0,'',$$$)]]></Result>
+<![CDATA[if($$$=0,"",$$$)]]></Result>
 <Parameters/>
 </O>
 <CellGUIAttr/>
@@ -432,10 +521,12 @@ order by hth,jx]]></Query>
 </C>
 <C c="12" r="4" s="2">
 <O t="DSColumn">
-<Attributes dsName="dangyue" columnName="CC"/>
+<Attributes dsName="new" columnName="CMONTH"/>
+<Condition class="com.fr.data.condition.ListCondition">
+<JoinCondition join="0">
 <Condition class="com.fr.data.condition.CommonCondition">
 <CNUMBER>
-<![CDATA[7]]></CNUMBER>
+<![CDATA[6]]></CNUMBER>
 <CNAME>
 <![CDATA[JX]]></CNAME>
 <Compare op="0">
@@ -443,13 +534,15 @@ order by hth,jx]]></Query>
 <![CDATA[8016]]></O>
 </Compare>
 </Condition>
+</JoinCondition>
+</Condition>
 <Complex/>
 <RG class="com.fr.report.cellElement.core.SummaryGrouper">
 <FN>
-<![CDATA[com.fr.data.util.function.SumFunction]]></FN>
+<![CDATA[com.fr.data.util.function.CountFunction]]></FN>
 </RG>
 <Result>
-<![CDATA[IF($$$ == 0,'',$$$)]]></Result>
+<![CDATA[if($$$=0,"",$$$)]]></Result>
 <Parameters/>
 </O>
 <CellGUIAttr/>
@@ -458,24 +551,26 @@ order by hth,jx]]></Query>
 </C>
 <C c="13" r="4" s="3">
 <O t="DSColumn">
-<Attributes dsName="dangyue" columnName="CC"/>
+<Attributes dsName="new" columnName="CMONTH"/>
 <Condition class="com.fr.data.condition.CommonCondition">
 <CNUMBER>
-<![CDATA[7]]></CNUMBER>
+<![CDATA[6]]></CNUMBER>
 <CNAME>
 <![CDATA[JX]]></CNAME>
 <Compare op="0">
-<O>
-<![CDATA[8276]]></O>
+<O t="Formula" class="Formula">
+<Attributes>
+<![CDATA[=left(n4,4)]]></Attributes>
+</O>
 </Compare>
 </Condition>
 <Complex/>
 <RG class="com.fr.report.cellElement.core.SummaryGrouper">
 <FN>
-<![CDATA[com.fr.data.util.function.SumFunction]]></FN>
+<![CDATA[com.fr.data.util.function.CountFunction]]></FN>
 </RG>
 <Result>
-<![CDATA[IF($$$ == 0,'',$$$)]]></Result>
+<![CDATA[if($$$=0,"",$$$)]]></Result>
 <Parameters/>
 </O>
 <CellGUIAttr/>
@@ -484,24 +579,26 @@ order by hth,jx]]></Query>
 </C>
 <C c="14" r="4" s="2">
 <O t="DSColumn">
-<Attributes dsName="dangyue" columnName="CC"/>
+<Attributes dsName="new" columnName="CMONTH"/>
 <Condition class="com.fr.data.condition.CommonCondition">
 <CNUMBER>
-<![CDATA[7]]></CNUMBER>
+<![CDATA[6]]></CNUMBER>
 <CNAME>
 <![CDATA[JX]]></CNAME>
 <Compare op="0">
-<O>
-<![CDATA[8376]]></O>
+<O t="Formula" class="Formula">
+<Attributes>
+<![CDATA[=left(o4,4)]]></Attributes>
+</O>
 </Compare>
 </Condition>
 <Complex/>
 <RG class="com.fr.report.cellElement.core.SummaryGrouper">
 <FN>
-<![CDATA[com.fr.data.util.function.SumFunction]]></FN>
+<![CDATA[com.fr.data.util.function.CountFunction]]></FN>
 </RG>
 <Result>
-<![CDATA[IF($$$ == 0,'',$$$)]]></Result>
+<![CDATA[if($$$=0,"",$$$)]]></Result>
 <Parameters/>
 </O>
 <CellGUIAttr/>

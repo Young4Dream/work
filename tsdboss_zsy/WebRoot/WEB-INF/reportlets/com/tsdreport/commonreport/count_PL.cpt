@@ -1,0 +1,515 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<WorkBook xmlVersion="20120203" releaseVersion="7.0.0">
+<TableDataMap>
+<TableData name="count" class="com.fr.data.impl.DBTableData">
+<Parameters>
+<Parameter>
+<Attributes name="countMonth" isAutoInc="false"/>
+<O>
+<![CDATA[]]></O>
+</Parameter>
+</Parameters>
+<Attributes maxMemRowCount="-1"/>
+<Connection class="com.fr.data.impl.NameDatabaseConnection">
+<DatabaseName>
+<![CDATA[tsdBilling]]></DatabaseName>
+</Connection>
+<Query>
+<![CDATA[select nvl(a.m,b.m) tjyf,nvl(a.bm,b.bm) bm,nvl(a.hth,b.hth) hth,nvl(a.pt,b.pt) zxlx,a.p bysj,nvl(a.xz,b.xz) xz,b.p sysj from 
+(
+select '${countMonth}' m ,max(bm1) bm,hth,pl_type_desc pt,count(pkg_fee) p,max(xz) xz from (select to_char(a.start_time,'yyyymm') smonth, to_char(a.end_time,'yyyymm')emonth, a.pkg_fee, a.user_tel, b.hth, c.package_type,e.typename,d.bm1,b.pl_type_desc,substr(d.yhlb,1,2) xz
+from ocs_user_pag_rln a, pl_users b, ocs_package_main c,hthdang d,callpaytype e
+where a.user_id = b.pl_id
+and a.pid = c.id 
+and c.service_type = '专线' 
+and a.pkg_fee > 0 
+and b.hth=d.hth 
+and d.callpaytype=e.callpaytype 
+and to_number('${countMonth}') between to_number(to_char(a.start_time,'yyyymm')) and to_number(to_char(a.end_time,'yyyymm'))) group by hth,pl_type_desc
+)a full join
+(
+select '${countMonth}' m ,max(bm1) bm,hth,pl_type_desc pt,count(pkg_fee) p,max(xz) xz from (select to_char(a.start_time,'yyyymm') smonth, to_char(a.end_time,'yyyymm')emonth, a.pkg_fee, a.user_tel, b.hth, c.package_type,e.typename,d.bm1,b.pl_type_desc,substr(d.yhlb,1,2) xz
+from ocs_user_pag_rln a, pl_users b, ocs_package_main c,hthdang d,callpaytype e
+where a.user_id = b.pl_id
+and a.pid = c.id 
+and c.service_type = '专线' 
+and a.pkg_fee > 0 
+and b.hth=d.hth 
+and d.callpaytype=e.callpaytype 
+and to_number((select case substr('${countMonth}',5) when '01' then (substr('${countMonth}',1,4)-1)||'12' else to_char('${countMonth}'-1) end from dual)) between to_number(to_char(a.start_time,'yyyymm')) and to_number(to_char(a.end_time,'yyyymm'))) group by hth,pl_type_desc
+)b on a.hth=b.hth and a.pt=b.pt and a.m=b.m 
+]]></Query>
+</TableData>
+<TableData name="pl_type" class="com.fr.data.impl.DBTableData">
+<Parameters/>
+<Attributes maxMemRowCount="-1"/>
+<Connection class="com.fr.data.impl.NameDatabaseConnection">
+<DatabaseName>
+<![CDATA[tsdBilling]]></DatabaseName>
+</Connection>
+<Query>
+<![CDATA[select * from pl_type]]></Query>
+</TableData>
+<TableData name="monthOfPLUsers" class="com.fr.data.impl.DBTableData">
+<Parameters/>
+<Attributes maxMemRowCount="-1"/>
+<Connection class="com.fr.data.impl.NameDatabaseConnection">
+<DatabaseName>
+<![CDATA[tsdBilling]]></DatabaseName>
+</Connection>
+<Query>
+<![CDATA[select distinct to_char(start_time,'yyyymm') a from ocs_user_pag_rln cc  order by a desc]]></Query>
+</TableData>
+</TableDataMap>
+<ReportWebAttr/>
+<Report class="com.fr.report.WorkSheet" name="sheet1">
+<ReportPageAttr>
+<HR/>
+<FR/>
+<HC/>
+<FC/>
+</ReportPageAttr>
+<RowHeight defaultValue="723900">
+<![CDATA[723900,723900,723900,723900,723900,723900,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,723900]]></RowHeight>
+<ColumnWidth defaultValue="2743200">
+<![CDATA[1409700,2705100,8724900,2743200,2160000,2160000,1440000,1440000,1562100,3848100,2743200]]></ColumnWidth>
+<CellElementList>
+<C c="0" r="0" cs="10" s="0">
+<O>
+<![CDATA[年专线收费报表]]></O>
+<CellGUIAttr/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="0" r="1" cs="10" s="1">
+<O t="Formula" class="Formula">
+<Attributes>
+<![CDATA[="(" + C8 + "年" + C9 + "月)"]]></Attributes>
+</O>
+<CellGUIAttr/>
+<CellPageAttr/>
+<Present class="com.fr.base.present.DictPresent">
+<Dictionary class="com.fr.data.impl.TableDataDictionary">
+<FormulaDictAttr ki="0" vi="0"/>
+<TableDataDictAttr>
+<TableData class="com.fr.data.impl.NameTableData">
+<Name>
+<![CDATA[ds2]]></Name>
+</TableData>
+</TableDataDictAttr>
+</Dictionary>
+</Present>
+<Expand/>
+</C>
+<C c="0" r="2" rs="2" s="2">
+<O>
+<![CDATA[序号]]></O>
+<CellGUIAttr/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="1" r="2" rs="2" s="2">
+<O>
+<![CDATA[合同号]]></O>
+<CellGUIAttr/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="2" r="2" rs="2" s="2">
+<O>
+<![CDATA[单位名称]]></O>
+<CellGUIAttr/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="3" r="2" rs="2" s="2">
+<O>
+<![CDATA[电话类别]]></O>
+<CellGUIAttr/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="4" r="2" cs="2" s="2">
+<O>
+<![CDATA[专线总数]]></O>
+<CellGUIAttr/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="6" r="2" cs="2" s="2">
+<O>
+<![CDATA[月变化量]]></O>
+<CellGUIAttr/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="8" r="2" s="2">
+<O>
+<![CDATA[各类型专线数]]></O>
+<CellGUIAttr/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="9" r="2" rs="2" s="2">
+<O>
+<![CDATA[备注]]></O>
+<CellGUIAttr/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="4" r="3" s="2">
+<O>
+<![CDATA[上月]]></O>
+<CellGUIAttr/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="5" r="3" s="2">
+<O>
+<![CDATA[本月]]></O>
+<CellGUIAttr/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="6" r="3" s="2">
+<O>
+<![CDATA[增加]]></O>
+<CellGUIAttr/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="7" r="3" s="2">
+<O>
+<![CDATA[减少]]></O>
+<CellGUIAttr/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="8" r="3" s="2">
+<O t="DSColumn">
+<Attributes dsName="pl_type" columnName="NAME"/>
+<Complex/>
+<RG class="com.fr.report.cellElement.core.FunctionGrouper"/>
+<Parameters/>
+</O>
+<CellGUIAttr/>
+<CellPageAttr/>
+<Expand dir="1"/>
+</C>
+<C c="0" r="4" s="2">
+<O t="Formula" class="Formula">
+<Attributes>
+<![CDATA[=if(B5 = "", "", seq())]]></Attributes>
+</O>
+<CellGUIAttr/>
+<CellPageAttr/>
+<Expand leftParentDefault="false" left="B5"/>
+</C>
+<C c="1" r="4" s="2">
+<O t="DSColumn">
+<Attributes dsName="count" columnName="HTH"/>
+<Complex order="1"/>
+<RG class="com.fr.report.cellElement.core.FunctionGrouper"/>
+<Result>
+<![CDATA[$$$]]></Result>
+<Parameters/>
+</O>
+<CellGUIAttr/>
+<CellPageAttr/>
+<Expand dir="0"/>
+</C>
+<C c="2" r="4" s="2">
+<O t="DSColumn">
+<Attributes dsName="count" columnName="BM"/>
+<Complex/>
+<RG class="com.fr.report.cellElement.core.SummaryGrouper">
+<FN>
+<![CDATA[com.fr.data.util.function.MaxFunction]]></FN>
+</RG>
+<Parameters/>
+</O>
+<CellGUIAttr/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="3" r="4" s="2">
+<O t="DSColumn">
+<Attributes dsName="count" columnName="XZ"/>
+<Complex/>
+<RG class="com.fr.report.cellElement.core.SummaryGrouper">
+<FN>
+<![CDATA[com.fr.data.util.function.MaxFunction]]></FN>
+</RG>
+<Result>
+<![CDATA[if($$$=0,"",$$$)]]></Result>
+<Parameters/>
+</O>
+<CellGUIAttr/>
+<CellPageAttr/>
+<Expand leftParentDefault="false" left="B5"/>
+</C>
+<C c="4" r="4" s="2">
+<O t="DSColumn">
+<Attributes dsName="count" columnName="SYSJ"/>
+<Condition class="com.fr.data.condition.ListCondition">
+<JoinCondition join="0">
+<Condition class="com.fr.data.condition.CommonCondition">
+<CNUMBER>
+<![CDATA[7]]></CNUMBER>
+<CNAME>
+<![CDATA[SYSJ]]></CNAME>
+<Compare op="1">
+<O>
+<![CDATA[]]></O>
+</Compare>
+</Condition>
+</JoinCondition>
+<JoinCondition join="0">
+<Condition class="com.fr.data.condition.CommonCondition">
+<CNUMBER>
+<![CDATA[7]]></CNUMBER>
+<CNAME>
+<![CDATA[SYSJ]]></CNAME>
+<Compare op="1">
+<ColumnRow column="0" row="99"/>
+</Compare>
+</Condition>
+</JoinCondition>
+</Condition>
+<Complex/>
+<RG class="com.fr.report.cellElement.core.SummaryGrouper">
+<FN>
+<![CDATA[com.fr.data.util.function.SumFunction]]></FN>
+</RG>
+<Result>
+<![CDATA[if($$$=0,"",$$$)]]></Result>
+<Parameters/>
+</O>
+<CellGUIAttr/>
+<CellPageAttr/>
+<Expand leftParentDefault="false" left="B5"/>
+</C>
+<C c="5" r="4" s="2">
+<O t="DSColumn">
+<Attributes dsName="count" columnName="BYSJ"/>
+<Condition class="com.fr.data.condition.ListCondition">
+<JoinCondition join="0">
+<Condition class="com.fr.data.condition.CommonCondition">
+<CNUMBER>
+<![CDATA[5]]></CNUMBER>
+<CNAME>
+<![CDATA[BYSJ]]></CNAME>
+<Compare op="1">
+<O>
+<![CDATA[]]></O>
+</Compare>
+</Condition>
+</JoinCondition>
+<JoinCondition join="0">
+<Condition class="com.fr.data.condition.CommonCondition">
+<CNUMBER>
+<![CDATA[5]]></CNUMBER>
+<CNAME>
+<![CDATA[BYSJ]]></CNAME>
+<Compare op="1">
+<ColumnRow column="0" row="99"/>
+</Compare>
+</Condition>
+</JoinCondition>
+</Condition>
+<Complex/>
+<RG class="com.fr.report.cellElement.core.SummaryGrouper">
+<FN>
+<![CDATA[com.fr.data.util.function.SumFunction]]></FN>
+</RG>
+<Result>
+<![CDATA[if($$$=0,"",$$$)]]></Result>
+<Parameters/>
+</O>
+<CellGUIAttr/>
+<CellPageAttr/>
+<Expand leftParentDefault="false" left="B5"/>
+</C>
+<C c="6" r="4" s="2">
+<O t="Formula" class="Formula">
+<Attributes>
+<![CDATA[=if(f5-e5<=0,"",f5-e5)]]></Attributes>
+</O>
+<CellGUIAttr/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="7" r="4" s="2">
+<O t="Formula" class="Formula">
+<Attributes>
+<![CDATA[=if(e5-f5<=0,"",e5-f5)]]></Attributes>
+</O>
+<CellGUIAttr/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="8" r="4" s="2">
+<O t="DSColumn">
+<Attributes dsName="count" columnName="BYSJ"/>
+<Condition class="com.fr.data.condition.ListCondition">
+<JoinCondition join="0">
+<Condition class="com.fr.data.condition.CommonCondition">
+<CNUMBER>
+<![CDATA[4]]></CNUMBER>
+<CNAME>
+<![CDATA[ZXLX]]></CNAME>
+<Compare op="0">
+<ColumnRow column="8" row="3"/>
+</Compare>
+</Condition>
+</JoinCondition>
+</Condition>
+<Complex/>
+<RG class="com.fr.report.cellElement.core.SummaryGrouper">
+<FN>
+<![CDATA[com.fr.data.util.function.SumFunction]]></FN>
+</RG>
+<Result>
+<![CDATA[if($$$=0,"",$$$)]]></Result>
+<Parameters/>
+</O>
+<CellGUIAttr/>
+<CellPageAttr/>
+<Expand leftParentDefault="false" left="B5"/>
+</C>
+<C c="9" r="4" s="2">
+<CellGUIAttr/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="2" r="7" s="1">
+<O t="Formula" class="Formula">
+<Attributes>
+<![CDATA[=left($countMonth, 4)]]></Attributes>
+</O>
+<CellGUIAttr/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="2" r="8" s="1">
+<O t="Formula" class="Formula">
+<Attributes>
+<![CDATA[=right($countMonth, 2)]]></Attributes>
+</O>
+<CellGUIAttr/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="1" r="18">
+<CellGUIAttr/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="2" r="20">
+<CellGUIAttr/>
+<CellPageAttr/>
+<Expand/>
+</C>
+</CellElementList>
+<ReportAttrSet>
+<ReportSettings headerHeight="0" footerHeight="0">
+<PaperSetting orientation="1">
+<PaperSize width="42768000" height="60480000"/>
+<Margin top="986400" left="2743200" bottom="986400" right="2743200"/>
+</PaperSetting>
+</ReportSettings>
+</ReportAttrSet>
+</Report>
+<ReportParameterAttr>
+<Attributes showWindow="true" delayPlaying="true" windowPosition="1" align="1"/>
+<PWTitle>
+<![CDATA[参数]]></PWTitle>
+<ParameterUI class="com.fr.report.parameter.FormParameterUI">
+<DesignAttr width="200" height="31"/>
+<Layout class="com.fr.form.ui.container.WAbsoluteLayout">
+<WidgetName name="para"/>
+<WidgetAttr/>
+<Widget class="com.fr.form.ui.container.WAbsoluteLayout$BoundsWidget">
+<InnerWidget class="com.fr.form.ui.ComboBox">
+<WidgetName name="countMonth"/>
+<WidgetAttr/>
+<allowBlank>
+<![CDATA[false]]></allowBlank>
+<Dictionary class="com.fr.data.impl.TableDataDictionary">
+<FormulaDictAttr ki="0" vi="0"/>
+<TableDataDictAttr>
+<TableData class="com.fr.data.impl.NameTableData">
+<Name>
+<![CDATA[monthOfPLUsers]]></Name>
+</TableData>
+</TableDataDictAttr>
+</Dictionary>
+<widgetValue>
+<databinding>
+<![CDATA[{Name:monthOfPLUsers,Key:A}]]></databinding>
+</widgetValue>
+</InnerWidget>
+<BoundsAttr x="8" y="8" width="102" height="21"/>
+</Widget>
+<Widget class="com.fr.form.ui.container.WAbsoluteLayout$BoundsWidget">
+<InnerWidget class="com.fr.form.ui.FreeButton">
+<Listener event="click">
+<JavaScript class="com.fr.base.js.JavaScriptImpl">
+<Parameters/>
+<Content>
+<![CDATA[this.disable();]]></Content>
+</JavaScript>
+</Listener>
+<Listener event="click">
+<JavaScript class="com.fr.base.js.JavaScriptImpl">
+<Parameters/>
+<Content>
+<![CDATA[if (this.options.form != null && $.isFunction(this.options.form.formSubmit)) {
+	this.options.form.formSubmit({
+	url : "${servletURL}?op=fr_dialog&cmd=parameters_d&sessionID=${sessionID}",
+	asyn : true,
+	callback : function(res, status) {_g().loadContentPane();}}				
+	);
+	var self = this;
+	_g().once("afterload", function() {
+		self.enable();
+	})
+}]]></Content>
+</JavaScript>
+</Listener>
+<WidgetName name="查询"/>
+<WidgetAttr/>
+<Text>
+<![CDATA[查询]]></Text>
+<Hotkeys>
+<![CDATA[enter]]></Hotkeys>
+</InnerWidget>
+<BoundsAttr x="120" y="8" width="80" height="21"/>
+</Widget>
+<LCAttr vgap="0" hgap="0"/>
+</Layout>
+</ParameterUI>
+</ReportParameterAttr>
+<StyleList>
+<Style horizontal_alignment="0" imageLayout="1">
+<FRFont name="SimSun" style="1" size="96"/>
+<Background name="NullBackground"/>
+<Border/>
+</Style>
+<Style horizontal_alignment="0" imageLayout="1">
+<FRFont name="SimSun" style="0" size="72"/>
+<Background name="NullBackground"/>
+<Border/>
+</Style>
+<Style horizontal_alignment="0" imageLayout="1">
+<FRFont name="SimSun" style="0" size="72"/>
+<Background name="NullBackground"/>
+<Border>
+<Top style="1"/>
+<Bottom style="1"/>
+<Left style="1"/>
+<Right style="1"/>
+</Border>
+</Style>
+</StyleList>
+</WorkBook>

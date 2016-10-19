@@ -18,20 +18,14 @@
 <![CDATA[select * from ywzh_tj where cntmonth='[?querytime|201208?]A' and jx<>'宽带网络' order by orderid,jx]]></Query>
 </TableData>
 <TableData name="dhsl6209" class="com.fr.data.impl.DBTableData">
-<Parameters>
-<Parameter>
-<Attributes name="querytime" isAutoInc="false"/>
-<O>
-<![CDATA[201508]]></O>
-</Parameter>
-</Parameters>
+<Parameters/>
 <Attributes maxMemRowCount="-1"/>
 <Connection class="com.fr.data.impl.NameDatabaseConnection">
 <DatabaseName>
 <![CDATA[tsdBilling]]></DatabaseName>
 </Connection>
 <Query>
-<![CDATA[select sum(b.dhsl) from ywzh_tj b where b.ywarea in('石油大厦','六铺炕','太阳宫','科技园','金融街') and b.jx='6209' and b.cntmonth='[?querytime|201208?]A']]></Query>
+<![CDATA[select * from (select distinct cntmonth from ywzh_tj  order by cntmonth desc) where rownum<=12]]></Query>
 </TableData>
 </TableDataMap>
 <ReportWebAttr>
@@ -1183,29 +1177,10 @@
 <PWTitle>
 <![CDATA[参数]]></PWTitle>
 <ParameterUI class="com.fr.report.parameter.FormParameterUI">
-<DesignAttr width="800" height="200"/>
+<DesignAttr width="192" height="21"/>
 <Layout class="com.fr.form.ui.container.WAbsoluteLayout">
 <WidgetName name="para"/>
 <WidgetAttr/>
-<Widget class="com.fr.form.ui.container.WAbsoluteLayout$BoundsWidget">
-<InnerWidget class="com.fr.form.ui.Label">
-<WidgetName name="Labelquerytime"/>
-<WidgetAttr/>
-<LabelAttr textalign="0" autoline="true"/>
-<widgetValue>
-<O>
-<![CDATA[querytime:]]></O>
-</widgetValue>
-</InnerWidget>
-<BoundsAttr x="50" y="25" width="80" height="21"/>
-</Widget>
-<Widget class="com.fr.form.ui.container.WAbsoluteLayout$BoundsWidget">
-<InnerWidget class="com.fr.form.ui.EditorHolder">
-<WidgetName name="querytime"/>
-<WidgetAttr/>
-</InnerWidget>
-<BoundsAttr x="130" y="25" width="80" height="21"/>
-</Widget>
 <Widget class="com.fr.form.ui.container.WAbsoluteLayout$BoundsWidget">
 <InnerWidget class="com.fr.form.ui.FreeButton">
 <Listener event="click">
@@ -1239,7 +1214,27 @@
 <Hotkeys>
 <![CDATA[enter]]></Hotkeys>
 </InnerWidget>
-<BoundsAttr x="230" y="25" width="80" height="21"/>
+<BoundsAttr x="112" y="0" width="80" height="21"/>
+</Widget>
+<Widget class="com.fr.form.ui.container.WAbsoluteLayout$BoundsWidget">
+<InnerWidget class="com.fr.form.ui.ComboBox">
+<WidgetName name="querytime"/>
+<WidgetAttr/>
+<Dictionary class="com.fr.data.impl.TableDataDictionary">
+<FormulaDictAttr ki="0" vi="0"/>
+<TableDataDictAttr>
+<TableData class="com.fr.data.impl.NameTableData">
+<Name>
+<![CDATA[dhsl6209]]></Name>
+</TableData>
+</TableDataDictAttr>
+</Dictionary>
+<widgetValue>
+<databinding>
+<![CDATA[{Name:dhsl6209,Key:CNTMONTH}]]></databinding>
+</widgetValue>
+</InnerWidget>
+<BoundsAttr x="8" y="0" width="91" height="21"/>
 </Widget>
 <LCAttr vgap="0" hgap="0"/>
 </Layout>
