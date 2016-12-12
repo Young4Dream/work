@@ -1,6 +1,0 @@
-.tsdbtn {height:30px;margin-left:10px;BORDER-RIGHT: #87CEFA 1px solid; PADDING-RIGHT: 5px; BORDER-TOP: #87CEFA 1px solid; PADDING-LEFT: 5px; FONT-SIZE: 12px; FILTER: progid:DXImageTransform.Microsoft.Gradient(GradientType=0,StartColorStr=#FFFFFF, EndColorStr=#87CEFA); BORDER-LEFT: #87CEFA 1px solid; CURSOR: hand;COLOR: black; PADDING-TOP: 2px; BORDER-BOTTOM: #87CEFA 1px solid}
-b{font-size:14px}
-.jobtabclass{border: 1px; border-style: solid; border-color: #87CEFA;}
-.highlight{background-color:#B3CBFF;}
-.selected{background-color:#66ffcc;}
-hr {border:1px #A9C8D9 dotted;}

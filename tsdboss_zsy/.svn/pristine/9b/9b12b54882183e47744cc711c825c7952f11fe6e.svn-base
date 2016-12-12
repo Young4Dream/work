@@ -1,6 +1,0 @@
-patch.yxx=select LinkMan,Hth,Sgnr,Xdz,Sgrq from teljob where XDH='<dh>'
-patch.getDhnull=select h.dh from hmzy_detail h where h.dh not in (select dh from yhdang) and h.dh not in (select dh from raduserinfo where dh is not null) and h.dh not in (select dh from rad_busi_new where dh is not null) and h.dh between '63598000' and '63599999'
-patch.dhvalue=select h.dh from hmzy_detail h where h.dh not in (select dh from yhdang) and h.dh not in (select dh from raduserinfo where dh is not null) and h.dh not in (select dh from rad_busi_new where dh is not null) and h.dh='<dh>' and h.dh between '63598000' and '63599999'
-patch.getDhyhdang=select y.dh,y.yhmc from yhdang y where y.dh  not in (select dh from raduserinfo where dh is not null) and y.dh not in (select dh from rad_busi_new where dh is not null)  
-patch.getyhdangDh=select y.dh,y.yhmc from yhdang y where y.dh='<dh>' and y.dh  not in (select dh from raduserinfo where dh is not null) and y.dh not in (select dh from rad_busi_new where dh is not null)  and rownum<30
-patch.getDhyhdangpage=select count(y.dh) from yhdang y where y.dh  not in (select dh from raduserinfo where dh is not null) and y.dh not in (select dh from rad_busi_new where dh is not null)

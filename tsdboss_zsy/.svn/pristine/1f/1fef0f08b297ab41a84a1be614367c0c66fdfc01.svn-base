@@ -1,6 +1,0 @@
-WorkFlow.updateRadJobAcc = update radjob set internetacct='<radacc>' where jobid=<jobid>
-WorkFlow.updateRadAcc = update rad_busi_new set internetacct='<radacc>', pwd='<radpwd>' where uiid=<busiid>
-WorkFlow.getRadJobBusiId =select busiid from radjob where jobid\=<jobid>
-
-#Rad.checkAcc = select (select count(*) from raduserinfo where internetacct='<radacc>') + (select count(*) from rad_busi_new where internetacct='<radacc>') cc from dual;
-Rad.checkAcc =select count(*) from raduserinfo where internetacct\='<radacc>'
