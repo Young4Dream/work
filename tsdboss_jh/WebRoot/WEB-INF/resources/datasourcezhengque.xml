@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<DatasourceManager xmlVersion="20120203"
+	releaseVersion="7.0.0">
+	<ConnectionMap>
+		<Connection name="postgres" class="com.fr.data.impl.JDBCDatabaseConnection">
+			<DatabaseAttr />
+			<JDBCDatabaseAttr url="jdbc:postgresql://10.11.5.130:5432/tsdboss"
+				driver="org.postgresql.Driver" user="tsd"
+				password="___0022003f006b0075005600a20058006f" encryptPassword="true">
+				<DBCPAttr />
+			</JDBCDatabaseAttr>
+		</Connection>
+		<Connection name="tsdBilling" class="com.fr.data.impl.JDBCDatabaseConnection">
+			<DatabaseAttr originalCharsetName="UTF-8"
+				newCharsetName="UTF-8" />
+			<JDBCDatabaseAttr url="jdbc:postgresql://10.11.5.130:5432/tsdboss"
+				driver="org.postgresql.Driver" user="tsd"
+				password="___0022003f006b0075005600a20058006f" encryptPassword="true">
+				<DBCPAttr />
+			</JDBCDatabaseAttr>
+		</Connection>
+	</ConnectionMap>
+</DatasourceManager>

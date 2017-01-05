@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<DatasourceManager xmlVersion="20120203" releaseVersion="7.0.0">
+<ConnectionMap>
+<Connection name="tsdBilling" class="com.fr.data.impl.JDBCDatabaseConnection">
+<DatabaseAttr originalCharsetName="UTF-8" newCharsetName="UTF-8"/>
+<JDBCDatabaseAttr url="jdbc:postgresql://10.11.5.130:5432/tsdboss" driver="org.postgresql.Driver" user="tsd" password="___0022003f006b0075005600a20058006f" encryptPassword="true">
+<DBCPAttr/>
+</JDBCDatabaseAttr>
+</Connection>
+</ConnectionMap>
+<TableDataMap>
+<TableData name="员工信息表" class="com.fr.data.impl.DBTableData">
+<Parameters/>
+<Attributes maxMemRowCount="-1"/>
+<Connection class="com.fr.data.impl.NameDatabaseConnection">
+<DatabaseName>
+<![CDATA[tsdBilling]]></DatabaseName>
+</Connection>
+<Query>
+<![CDATA[SELECT * FROM 员工信息表]]></Query>
+</TableData>
+<TableData name="用户信息表" class="com.fr.data.impl.DBTableData">
+<Parameters/>
+<Attributes maxMemRowCount="-1"/>
+<Connection class="com.fr.data.impl.NameDatabaseConnection">
+<DatabaseName>
+<![CDATA[FRDemo]]></DatabaseName>
+</Connection>
+<Query>
+<![CDATA[SELECT * FROM [userinfo]A]]></Query>
+</TableData>
+<TableData name="System1" class="com.fr.data.impl.DBTableData">
+<Parameters/>
+<Attributes maxMemRowCount="-1"/>
+<Connection class="com.fr.data.impl.JDBCDatabaseConnection">
+<DatabaseAttr/>
+<JDBCDatabaseAttr url="emb:jdbc:hsqldb:file:D:\FineReport\develop\7.0\build\package\WebReport\WEB-INF\finedb/db;hsqldb.default_table_type=cached;hsqldb.cache_scale=8;hsqldb.applog=0;hsqldb.cache_file_scale=8;hsqldb.cache_size_scale=8;" driver="com.fr.third.org.hsqldb.jdbcDriver" user="sa" password="___" encryptPassword="true">
+<DBCPAttr initialSize="10" maxActive="100" maxIdle="30" minIdle="10" maxWait="5000"/>
+</JDBCDatabaseAttr>
+</Connection>
+<Query>
+<![CDATA[Select * from PUBLIC.FR_T_SYSTEM1]]></Query>
+</TableData>
+</TableDataMap>
+<ADHOCMap>
+<TableData name="员工信息表" class="com.fr.data.impl.ADHOCNamedTableData">
+<DBTableDataName>
+<![CDATA[员工信息表]]></DBTableDataName>
+</TableData>
+<TableData name="员工信息表_SQL视图" class="com.fr.data.impl.ADHOCSQLTableData">
+<DBConnectionName>
+<![CDATA[FRDemo]]></DBConnectionName>
+<Query>
+<![CDATA[select * from 员工信息表]]></Query>
+</TableData>
+</ADHOCMap>
+</DatasourceManager>

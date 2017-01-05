@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<FunctionManager xmlVersion="20120203" releaseVersion="7.0.0">
+	<FunctionDefList>
+		<FunctionDef name="hzyf">
+			<Class className="" />
+			<Description>
+<![CDATA[]]>
+			</Description>
+		</FunctionDef>
+		<FunctionDef name="hth">
+			<Class className="" />
+			<Description>
+<![CDATA[]]>
+			</Description>
+		</FunctionDef>
+	</FunctionDefList>
+</FunctionManager>
