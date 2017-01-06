@@ -1,0 +1,1308 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.tboss.ssm.mapper.YhdangMapper">
+	<resultMap id="BaseResultMap" type="com.tboss.ssm.po.Yhdang">
+		<id column="DH" property="dh" jdbcType="VARCHAR" />
+		<result column="HTH" property="hth" jdbcType="VARCHAR" />
+		<result column="JXH" property="jxh" jdbcType="VARCHAR" />
+		<result column="YHMC" property="yhmc" jdbcType="VARCHAR" />
+		<result column="BM1" property="bm1" jdbcType="VARCHAR" />
+		<result column="BM2" property="bm2" jdbcType="VARCHAR" />
+		<result column="BM3" property="bm3" jdbcType="VARCHAR" />
+		<result column="BM4" property="bm4" jdbcType="VARCHAR" />
+		<result column="BMBH" property="bmbh" jdbcType="VARCHAR" />
+		<result column="YHDZ" property="yhdz" jdbcType="VARCHAR" />
+		<result column="HWJB" property="hwjb" jdbcType="VARCHAR" />
+		<result column="HWJB0" property="hwjb0" jdbcType="VARCHAR" />
+		<result column="HWJB1" property="hwjb1" jdbcType="VARCHAR" />
+		<result column="LASTADJUSTDATE" property="lastadjustdate"
+			jdbcType="DATE" />
+		<result column="CALLSHEDULENO" property="callsheduleno"
+			jdbcType="VARCHAR" />
+		<result column="ADJUSTSHEDULENO" property="adjustsheduleno"
+			jdbcType="VARCHAR" />
+		<result column="ZLH" property="zlh" jdbcType="VARCHAR" />
+		<result column="JFLB" property="jflb" jdbcType="VARCHAR" />
+		<result column="MFJB" property="mfjb" jdbcType="VARCHAR" />
+		<result column="MIMA" property="mima" jdbcType="VARCHAR" />
+		<result column="MIMA2" property="mima2" jdbcType="VARCHAR" />
+		<result column="REG_DATE" property="regDate" jdbcType="DATE" />
+		<result column="STARTDATE" property="startdate" jdbcType="DATE" />
+		<result column="ENDDATE" property="enddate" jdbcType="DATE" />
+		<result column="TJBZ" property="tjbz" jdbcType="VARCHAR" />
+		<result column="TJDATE" property="tjdate" jdbcType="DATE" />
+		<result column="STOPBZ" property="stopbz" jdbcType="VARCHAR" />
+		<result column="DELBZ" property="delbz" jdbcType="VARCHAR" />
+		<result column="DELDATE" property="deldate" jdbcType="DATE" />
+		<result column="DHLX" property="dhlx" jdbcType="VARCHAR" />
+		<result column="CUSTTYPE" property="custtype" jdbcType="DECIMAL" />
+		<result column="JHJ_ID" property="jhjId" jdbcType="DECIMAL" />
+		<result column="DHGN" property="dhgn" jdbcType="VARCHAR" />
+		<result column="BZ1" property="bz1" jdbcType="VARCHAR" />
+		<result column="BZ2" property="bz2" jdbcType="VARCHAR" />
+		<result column="BZ3" property="bz3" jdbcType="VARCHAR" />
+		<result column="BZ4" property="bz4" jdbcType="VARCHAR" />
+		<result column="BZ5" property="bz5" jdbcType="VARCHAR" />
+		<result column="BZ6" property="bz6" jdbcType="VARCHAR" />
+		<result column="BZ7" property="bz7" jdbcType="VARCHAR" />
+		<result column="BZ8" property="bz8" jdbcType="VARCHAR" />
+		<result column="BZ9" property="bz9" jdbcType="VARCHAR" />
+		<result column="BZ10" property="bz10" jdbcType="VARCHAR" />
+		<result column="MOKUAIJU" property="mokuaiju" jdbcType="VARCHAR" />
+		<result column="MODUAL" property="modual" jdbcType="VARCHAR" />
+		<result column="PORT" property="port" jdbcType="VARCHAR" />
+		<result column="TYPENUM" property="typenum" jdbcType="VARCHAR" />
+		<result column="JBKZLX" property="jbkzlx" jdbcType="VARCHAR" />
+		<result column="YWAREA" property="ywarea" jdbcType="VARCHAR" />
+		<result column="DHID" property="dhid" jdbcType="DECIMAL" />
+		<result column="MOBILE" property="mobile" jdbcType="VARCHAR" />
+		<result column="CREDITGRADE" property="creditgrade" jdbcType="DECIMAL" />
+		<result column="CREDITPOINT" property="creditpoint" jdbcType="DECIMAL" />
+		<result column="USERTYPE" property="usertype" jdbcType="DECIMAL" />
+		<result column="SERVICEAREA" property="servicearea" jdbcType="DECIMAL" />
+		<result column="MKJ2" property="mkj2" jdbcType="VARCHAR" />
+		<result column="MKJ3" property="mkj3" jdbcType="VARCHAR" />
+		<result column="MKJ4" property="mkj4" jdbcType="VARCHAR" />
+		<result column="MKJACROSS" property="mkjacross" jdbcType="DECIMAL" />
+		<result column="FJDATE" property="fjdate" jdbcType="DATE" />
+		<result column="STARTDZ" property="startdz" jdbcType="VARCHAR" />
+		<result column="ENDDZ" property="enddz" jdbcType="VARCHAR" />
+	</resultMap>
+	<resultMap id="ResultMapWithBLOBs" type="com.tboss.ssm.po.Yhdang"
+		extends="BaseResultMap">
+		<result column="PHOTO" property="photo" jdbcType="BLOB" />
+	</resultMap>
+	<sql id="Example_Where_Clause">
+		<where>
+			<foreach collection="oredCriteria" item="criteria" separator="or">
+				<if test="criteria.valid">
+					<trim prefix="(" suffix=")" prefixOverrides="and">
+						<foreach collection="criteria.criteria" item="criterion">
+							<choose>
+								<when test="criterion.noValue">
+									and ${criterion.condition}
+								</when>
+								<when test="criterion.singleValue">
+									and ${criterion.condition} #{criterion.value}
+								</when>
+								<when test="criterion.betweenValue">
+									and ${criterion.condition} #{criterion.value} and
+									#{criterion.secondValue}
+								</when>
+								<when test="criterion.listValue">
+									and ${criterion.condition}
+									<foreach collection="criterion.value" item="listItem"
+										open="(" close=")" separator=",">
+										#{listItem}
+									</foreach>
+								</when>
+							</choose>
+						</foreach>
+					</trim>
+				</if>
+			</foreach>
+		</where>
+	</sql>
+	<sql id="Update_By_Example_Where_Clause">
+		<where>
+			<foreach collection="example.oredCriteria" item="criteria"
+				separator="or">
+				<if test="criteria.valid">
+					<trim prefix="(" suffix=")" prefixOverrides="and">
+						<foreach collection="criteria.criteria" item="criterion">
+							<choose>
+								<when test="criterion.noValue">
+									and ${criterion.condition}
+								</when>
+								<when test="criterion.singleValue">
+									and ${criterion.condition} #{criterion.value}
+								</when>
+								<when test="criterion.betweenValue">
+									and ${criterion.condition} #{criterion.value} and
+									#{criterion.secondValue}
+								</when>
+								<when test="criterion.listValue">
+									and ${criterion.condition}
+									<foreach collection="criterion.value" item="listItem"
+										open="(" close=")" separator=",">
+										#{listItem}
+									</foreach>
+								</when>
+							</choose>
+						</foreach>
+					</trim>
+				</if>
+			</foreach>
+		</where>
+	</sql>
+	<sql id="Base_Column_List">
+		DH, HTH, JXH, YHMC, BM1, BM2, BM3, BM4, BMBH, YHDZ, HWJB, HWJB0, HWJB1,
+		LASTADJUSTDATE,
+		CALLSHEDULENO, ADJUSTSHEDULENO, ZLH, JFLB, MFJB, MIMA, MIMA2, REG_DATE, STARTDATE,
+		ENDDATE, TJBZ, TJDATE, STOPBZ, DELBZ, DELDATE, DHLX, CUSTTYPE, JHJ_ID,
+		DHGN, BZ1,
+		BZ2, BZ3, BZ4, BZ5, BZ6, BZ7, BZ8, BZ9, BZ10, MOKUAIJU, MODUAL, PORT,
+		TYPENUM, JBKZLX,
+		YWAREA, DHID, MOBILE, CREDITGRADE, CREDITPOINT, USERTYPE, SERVICEAREA, MKJ2,
+		MKJ3,
+		MKJ4, MKJACROSS, FJDATE, STARTDZ, ENDDZ
+	</sql>
+	<sql id="Blob_Column_List">
+		PHOTO
+	</sql>
+	<select id="selectByExampleWithBLOBs" resultMap="ResultMapWithBLOBs"
+		parameterType="com.tboss.ssm.po.YhdangExample">
+		select
+		<if test="distinct">
+			distinct
+		</if>
+		<include refid="Base_Column_List" />
+		,
+		<include refid="Blob_Column_List" />
+		from YHDANG
+		<if test="_parameter != null">
+			<include refid="Example_Where_Clause" />
+		</if>
+		<if test="orderByClause != null">
+			order by ${orderByClause}
+		</if>
+	</select>
+	<select id="selectByExample" resultMap="BaseResultMap"
+		parameterType="com.tboss.ssm.po.YhdangExample">
+		select
+		<if test="distinct">
+			distinct
+		</if>
+		<include refid="Base_Column_List" />
+		from YHDANG
+		<if test="_parameter != null">
+			<include refid="Example_Where_Clause" />
+		</if>
+		<if test="orderByClause != null">
+			order by ${orderByClause}
+		</if>
+	</select>
+	<select id="selectByPrimaryKey" resultMap="ResultMapWithBLOBs"
+		parameterType="java.lang.String">
+		select
+		<include refid="Base_Column_List" />
+		,
+		<include refid="Blob_Column_List" />
+		from YHDANG
+		where DH = #{dh,jdbcType=VARCHAR}
+	</select>
+	<delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+		delete from YHDANG
+		where DH = #{dh,jdbcType=VARCHAR}
+	</delete>
+	<delete id="deleteByExample" parameterType="com.tboss.ssm.po.YhdangExample">
+		delete from YHDANG
+		<if test="_parameter != null">
+			<include refid="Example_Where_Clause" />
+		</if>
+	</delete>
+	<insert id="insert" parameterType="com.tboss.ssm.po.Yhdang">
+		insert into YHDANG (DH, HTH, JXH,
+		YHMC, BM1, BM2, BM3,
+		BM4, BMBH, YHDZ, HWJB,
+		HWJB0, HWJB1, LASTADJUSTDATE,
+		CALLSHEDULENO, ADJUSTSHEDULENO, ZLH,
+		JFLB, MFJB, MIMA, MIMA2,
+		REG_DATE, STARTDATE, ENDDATE,
+		TJBZ, TJDATE, STOPBZ,
+		DELBZ, DELDATE, DHLX,
+		CUSTTYPE, JHJ_ID, DHGN,
+		BZ1, BZ2, BZ3, BZ4,
+		BZ5, BZ6, BZ7, BZ8,
+		BZ9, BZ10, MOKUAIJU,
+		MODUAL, PORT, TYPENUM,
+		JBKZLX, YWAREA, DHID,
+		MOBILE, CREDITGRADE, CREDITPOINT,
+		USERTYPE, SERVICEAREA, MKJ2,
+		MKJ3, MKJ4, MKJACROSS,
+		FJDATE, STARTDZ, ENDDZ,
+		PHOTO)
+		values (#{dh,jdbcType=VARCHAR}, #{hth,jdbcType=VARCHAR},
+		#{jxh,jdbcType=VARCHAR},
+		#{yhmc,jdbcType=VARCHAR}, #{bm1,jdbcType=VARCHAR}, #{bm2,jdbcType=VARCHAR},
+		#{bm3,jdbcType=VARCHAR},
+		#{bm4,jdbcType=VARCHAR}, #{bmbh,jdbcType=VARCHAR}, #{yhdz,jdbcType=VARCHAR},
+		#{hwjb,jdbcType=VARCHAR},
+		#{hwjb0,jdbcType=VARCHAR}, #{hwjb1,jdbcType=VARCHAR}, #{lastadjustdate,jdbcType=DATE},
+		#{callsheduleno,jdbcType=VARCHAR},
+		#{adjustsheduleno,jdbcType=VARCHAR}, #{zlh,jdbcType=VARCHAR},
+		#{jflb,jdbcType=VARCHAR}, #{mfjb,jdbcType=VARCHAR},
+		#{mima,jdbcType=VARCHAR}, #{mima2,jdbcType=VARCHAR},
+		#{regDate,jdbcType=DATE}, #{startdate,jdbcType=DATE},
+		#{enddate,jdbcType=DATE},
+		#{tjbz,jdbcType=VARCHAR}, #{tjdate,jdbcType=DATE}, #{stopbz,jdbcType=VARCHAR},
+		#{delbz,jdbcType=VARCHAR}, #{deldate,jdbcType=DATE},
+		#{dhlx,jdbcType=VARCHAR},
+		#{custtype,jdbcType=DECIMAL}, #{jhjId,jdbcType=DECIMAL}, #{dhgn,jdbcType=VARCHAR},
+		#{bz1,jdbcType=VARCHAR}, #{bz2,jdbcType=VARCHAR},
+		#{bz3,jdbcType=VARCHAR}, #{bz4,jdbcType=VARCHAR},
+		#{bz5,jdbcType=VARCHAR}, #{bz6,jdbcType=VARCHAR},
+		#{bz7,jdbcType=VARCHAR}, #{bz8,jdbcType=VARCHAR},
+		#{bz9,jdbcType=VARCHAR}, #{bz10,jdbcType=VARCHAR},
+		#{mokuaiju,jdbcType=VARCHAR},
+		#{modual,jdbcType=VARCHAR}, #{port,jdbcType=VARCHAR}, #{typenum,jdbcType=VARCHAR},
+		#{jbkzlx,jdbcType=VARCHAR}, #{ywarea,jdbcType=VARCHAR},
+		#{dhid,jdbcType=DECIMAL},
+		#{mobile,jdbcType=VARCHAR}, #{creditgrade,jdbcType=DECIMAL}, #{creditpoint,jdbcType=DECIMAL},
+		#{usertype,jdbcType=DECIMAL}, #{servicearea,jdbcType=DECIMAL},
+		#{mkj2,jdbcType=VARCHAR},
+		#{mkj3,jdbcType=VARCHAR}, #{mkj4,jdbcType=VARCHAR}, #{mkjacross,jdbcType=DECIMAL},
+		#{fjdate,jdbcType=DATE}, #{startdz,jdbcType=VARCHAR},
+		#{enddz,jdbcType=VARCHAR},
+		#{photo,jdbcType=BLOB})
+	</insert>
+	<insert id="insertSelective" parameterType="com.tboss.ssm.po.Yhdang">
+		insert into YHDANG
+		<trim prefix="(" suffix=")" suffixOverrides=",">
+			<if test="dh != null">
+				DH,
+			</if>
+			<if test="hth != null">
+				HTH,
+			</if>
+			<if test="jxh != null">
+				JXH,
+			</if>
+			<if test="yhmc != null">
+				YHMC,
+			</if>
+			<if test="bm1 != null">
+				BM1,
+			</if>
+			<if test="bm2 != null">
+				BM2,
+			</if>
+			<if test="bm3 != null">
+				BM3,
+			</if>
+			<if test="bm4 != null">
+				BM4,
+			</if>
+			<if test="bmbh != null">
+				BMBH,
+			</if>
+			<if test="yhdz != null">
+				YHDZ,
+			</if>
+			<if test="hwjb != null">
+				HWJB,
+			</if>
+			<if test="hwjb0 != null">
+				HWJB0,
+			</if>
+			<if test="hwjb1 != null">
+				HWJB1,
+			</if>
+			<if test="lastadjustdate != null">
+				LASTADJUSTDATE,
+			</if>
+			<if test="callsheduleno != null">
+				CALLSHEDULENO,
+			</if>
+			<if test="adjustsheduleno != null">
+				ADJUSTSHEDULENO,
+			</if>
+			<if test="zlh != null">
+				ZLH,
+			</if>
+			<if test="jflb != null">
+				JFLB,
+			</if>
+			<if test="mfjb != null">
+				MFJB,
+			</if>
+			<if test="mima != null">
+				MIMA,
+			</if>
+			<if test="mima2 != null">
+				MIMA2,
+			</if>
+			<if test="regDate != null">
+				REG_DATE,
+			</if>
+			<if test="startdate != null">
+				STARTDATE,
+			</if>
+			<if test="enddate != null">
+				ENDDATE,
+			</if>
+			<if test="tjbz != null">
+				TJBZ,
+			</if>
+			<if test="tjdate != null">
+				TJDATE,
+			</if>
+			<if test="stopbz != null">
+				STOPBZ,
+			</if>
+			<if test="delbz != null">
+				DELBZ,
+			</if>
+			<if test="deldate != null">
+				DELDATE,
+			</if>
+			<if test="dhlx != null">
+				DHLX,
+			</if>
+			<if test="custtype != null">
+				CUSTTYPE,
+			</if>
+			<if test="jhjId != null">
+				JHJ_ID,
+			</if>
+			<if test="dhgn != null">
+				DHGN,
+			</if>
+			<if test="bz1 != null">
+				BZ1,
+			</if>
+			<if test="bz2 != null">
+				BZ2,
+			</if>
+			<if test="bz3 != null">
+				BZ3,
+			</if>
+			<if test="bz4 != null">
+				BZ4,
+			</if>
+			<if test="bz5 != null">
+				BZ5,
+			</if>
+			<if test="bz6 != null">
+				BZ6,
+			</if>
+			<if test="bz7 != null">
+				BZ7,
+			</if>
+			<if test="bz8 != null">
+				BZ8,
+			</if>
+			<if test="bz9 != null">
+				BZ9,
+			</if>
+			<if test="bz10 != null">
+				BZ10,
+			</if>
+			<if test="mokuaiju != null">
+				MOKUAIJU,
+			</if>
+			<if test="modual != null">
+				MODUAL,
+			</if>
+			<if test="port != null">
+				PORT,
+			</if>
+			<if test="typenum != null">
+				TYPENUM,
+			</if>
+			<if test="jbkzlx != null">
+				JBKZLX,
+			</if>
+			<if test="ywarea != null">
+				YWAREA,
+			</if>
+			<if test="dhid != null">
+				DHID,
+			</if>
+			<if test="mobile != null">
+				MOBILE,
+			</if>
+			<if test="creditgrade != null">
+				CREDITGRADE,
+			</if>
+			<if test="creditpoint != null">
+				CREDITPOINT,
+			</if>
+			<if test="usertype != null">
+				USERTYPE,
+			</if>
+			<if test="servicearea != null">
+				SERVICEAREA,
+			</if>
+			<if test="mkj2 != null">
+				MKJ2,
+			</if>
+			<if test="mkj3 != null">
+				MKJ3,
+			</if>
+			<if test="mkj4 != null">
+				MKJ4,
+			</if>
+			<if test="mkjacross != null">
+				MKJACROSS,
+			</if>
+			<if test="fjdate != null">
+				FJDATE,
+			</if>
+			<if test="startdz != null">
+				STARTDZ,
+			</if>
+			<if test="enddz != null">
+				ENDDZ,
+			</if>
+			<if test="photo != null">
+				PHOTO,
+			</if>
+		</trim>
+		<trim prefix="values (" suffix=")" suffixOverrides=",">
+			<if test="dh != null">
+				#{dh,jdbcType=VARCHAR},
+			</if>
+			<if test="hth != null">
+				#{hth,jdbcType=VARCHAR},
+			</if>
+			<if test="jxh != null">
+				#{jxh,jdbcType=VARCHAR},
+			</if>
+			<if test="yhmc != null">
+				#{yhmc,jdbcType=VARCHAR},
+			</if>
+			<if test="bm1 != null">
+				#{bm1,jdbcType=VARCHAR},
+			</if>
+			<if test="bm2 != null">
+				#{bm2,jdbcType=VARCHAR},
+			</if>
+			<if test="bm3 != null">
+				#{bm3,jdbcType=VARCHAR},
+			</if>
+			<if test="bm4 != null">
+				#{bm4,jdbcType=VARCHAR},
+			</if>
+			<if test="bmbh != null">
+				#{bmbh,jdbcType=VARCHAR},
+			</if>
+			<if test="yhdz != null">
+				#{yhdz,jdbcType=VARCHAR},
+			</if>
+			<if test="hwjb != null">
+				#{hwjb,jdbcType=VARCHAR},
+			</if>
+			<if test="hwjb0 != null">
+				#{hwjb0,jdbcType=VARCHAR},
+			</if>
+			<if test="hwjb1 != null">
+				#{hwjb1,jdbcType=VARCHAR},
+			</if>
+			<if test="lastadjustdate != null">
+				#{lastadjustdate,jdbcType=DATE},
+			</if>
+			<if test="callsheduleno != null">
+				#{callsheduleno,jdbcType=VARCHAR},
+			</if>
+			<if test="adjustsheduleno != null">
+				#{adjustsheduleno,jdbcType=VARCHAR},
+			</if>
+			<if test="zlh != null">
+				#{zlh,jdbcType=VARCHAR},
+			</if>
+			<if test="jflb != null">
+				#{jflb,jdbcType=VARCHAR},
+			</if>
+			<if test="mfjb != null">
+				#{mfjb,jdbcType=VARCHAR},
+			</if>
+			<if test="mima != null">
+				#{mima,jdbcType=VARCHAR},
+			</if>
+			<if test="mima2 != null">
+				#{mima2,jdbcType=VARCHAR},
+			</if>
+			<if test="regDate != null">
+				#{regDate,jdbcType=DATE},
+			</if>
+			<if test="startdate != null">
+				#{startdate,jdbcType=DATE},
+			</if>
+			<if test="enddate != null">
+				#{enddate,jdbcType=DATE},
+			</if>
+			<if test="tjbz != null">
+				#{tjbz,jdbcType=VARCHAR},
+			</if>
+			<if test="tjdate != null">
+				#{tjdate,jdbcType=DATE},
+			</if>
+			<if test="stopbz != null">
+				#{stopbz,jdbcType=VARCHAR},
+			</if>
+			<if test="delbz != null">
+				#{delbz,jdbcType=VARCHAR},
+			</if>
+			<if test="deldate != null">
+				#{deldate,jdbcType=DATE},
+			</if>
+			<if test="dhlx != null">
+				#{dhlx,jdbcType=VARCHAR},
+			</if>
+			<if test="custtype != null">
+				#{custtype,jdbcType=DECIMAL},
+			</if>
+			<if test="jhjId != null">
+				#{jhjId,jdbcType=DECIMAL},
+			</if>
+			<if test="dhgn != null">
+				#{dhgn,jdbcType=VARCHAR},
+			</if>
+			<if test="bz1 != null">
+				#{bz1,jdbcType=VARCHAR},
+			</if>
+			<if test="bz2 != null">
+				#{bz2,jdbcType=VARCHAR},
+			</if>
+			<if test="bz3 != null">
+				#{bz3,jdbcType=VARCHAR},
+			</if>
+			<if test="bz4 != null">
+				#{bz4,jdbcType=VARCHAR},
+			</if>
+			<if test="bz5 != null">
+				#{bz5,jdbcType=VARCHAR},
+			</if>
+			<if test="bz6 != null">
+				#{bz6,jdbcType=VARCHAR},
+			</if>
+			<if test="bz7 != null">
+				#{bz7,jdbcType=VARCHAR},
+			</if>
+			<if test="bz8 != null">
+				#{bz8,jdbcType=VARCHAR},
+			</if>
+			<if test="bz9 != null">
+				#{bz9,jdbcType=VARCHAR},
+			</if>
+			<if test="bz10 != null">
+				#{bz10,jdbcType=VARCHAR},
+			</if>
+			<if test="mokuaiju != null">
+				#{mokuaiju,jdbcType=VARCHAR},
+			</if>
+			<if test="modual != null">
+				#{modual,jdbcType=VARCHAR},
+			</if>
+			<if test="port != null">
+				#{port,jdbcType=VARCHAR},
+			</if>
+			<if test="typenum != null">
+				#{typenum,jdbcType=VARCHAR},
+			</if>
+			<if test="jbkzlx != null">
+				#{jbkzlx,jdbcType=VARCHAR},
+			</if>
+			<if test="ywarea != null">
+				#{ywarea,jdbcType=VARCHAR},
+			</if>
+			<if test="dhid != null">
+				#{dhid,jdbcType=DECIMAL},
+			</if>
+			<if test="mobile != null">
+				#{mobile,jdbcType=VARCHAR},
+			</if>
+			<if test="creditgrade != null">
+				#{creditgrade,jdbcType=DECIMAL},
+			</if>
+			<if test="creditpoint != null">
+				#{creditpoint,jdbcType=DECIMAL},
+			</if>
+			<if test="usertype != null">
+				#{usertype,jdbcType=DECIMAL},
+			</if>
+			<if test="servicearea != null">
+				#{servicearea,jdbcType=DECIMAL},
+			</if>
+			<if test="mkj2 != null">
+				#{mkj2,jdbcType=VARCHAR},
+			</if>
+			<if test="mkj3 != null">
+				#{mkj3,jdbcType=VARCHAR},
+			</if>
+			<if test="mkj4 != null">
+				#{mkj4,jdbcType=VARCHAR},
+			</if>
+			<if test="mkjacross != null">
+				#{mkjacross,jdbcType=DECIMAL},
+			</if>
+			<if test="fjdate != null">
+				#{fjdate,jdbcType=DATE},
+			</if>
+			<if test="startdz != null">
+				#{startdz,jdbcType=VARCHAR},
+			</if>
+			<if test="enddz != null">
+				#{enddz,jdbcType=VARCHAR},
+			</if>
+			<if test="photo != null">
+				#{photo,jdbcType=BLOB},
+			</if>
+		</trim>
+	</insert>
+	<select id="countByExample" parameterType="com.tboss.ssm.po.YhdangExample"
+		resultType="java.lang.Integer">
+		select count(*) from YHDANG
+		<if test="_parameter != null">
+			<include refid="Example_Where_Clause" />
+		</if>
+	</select>
+	<update id="updateByExampleSelective" parameterType="map">
+		update YHDANG
+		<set>
+			<if test="record.dh != null">
+				DH = #{record.dh,jdbcType=VARCHAR},
+			</if>
+			<if test="record.hth != null">
+				HTH = #{record.hth,jdbcType=VARCHAR},
+			</if>
+			<if test="record.jxh != null">
+				JXH = #{record.jxh,jdbcType=VARCHAR},
+			</if>
+			<if test="record.yhmc != null">
+				YHMC = #{record.yhmc,jdbcType=VARCHAR},
+			</if>
+			<if test="record.bm1 != null">
+				BM1 = #{record.bm1,jdbcType=VARCHAR},
+			</if>
+			<if test="record.bm2 != null">
+				BM2 = #{record.bm2,jdbcType=VARCHAR},
+			</if>
+			<if test="record.bm3 != null">
+				BM3 = #{record.bm3,jdbcType=VARCHAR},
+			</if>
+			<if test="record.bm4 != null">
+				BM4 = #{record.bm4,jdbcType=VARCHAR},
+			</if>
+			<if test="record.bmbh != null">
+				BMBH = #{record.bmbh,jdbcType=VARCHAR},
+			</if>
+			<if test="record.yhdz != null">
+				YHDZ = #{record.yhdz,jdbcType=VARCHAR},
+			</if>
+			<if test="record.hwjb != null">
+				HWJB = #{record.hwjb,jdbcType=VARCHAR},
+			</if>
+			<if test="record.hwjb0 != null">
+				HWJB0 = #{record.hwjb0,jdbcType=VARCHAR},
+			</if>
+			<if test="record.hwjb1 != null">
+				HWJB1 = #{record.hwjb1,jdbcType=VARCHAR},
+			</if>
+			<if test="record.lastadjustdate != null">
+				LASTADJUSTDATE = #{record.lastadjustdate,jdbcType=DATE},
+			</if>
+			<if test="record.callsheduleno != null">
+				CALLSHEDULENO = #{record.callsheduleno,jdbcType=VARCHAR},
+			</if>
+			<if test="record.adjustsheduleno != null">
+				ADJUSTSHEDULENO = #{record.adjustsheduleno,jdbcType=VARCHAR},
+			</if>
+			<if test="record.zlh != null">
+				ZLH = #{record.zlh,jdbcType=VARCHAR},
+			</if>
+			<if test="record.jflb != null">
+				JFLB = #{record.jflb,jdbcType=VARCHAR},
+			</if>
+			<if test="record.mfjb != null">
+				MFJB = #{record.mfjb,jdbcType=VARCHAR},
+			</if>
+			<if test="record.mima != null">
+				MIMA = #{record.mima,jdbcType=VARCHAR},
+			</if>
+			<if test="record.mima2 != null">
+				MIMA2 = #{record.mima2,jdbcType=VARCHAR},
+			</if>
+			<if test="record.regDate != null">
+				REG_DATE = #{record.regDate,jdbcType=DATE},
+			</if>
+			<if test="record.startdate != null">
+				STARTDATE = #{record.startdate,jdbcType=DATE},
+			</if>
+			<if test="record.enddate != null">
+				ENDDATE = #{record.enddate,jdbcType=DATE},
+			</if>
+			<if test="record.tjbz != null">
+				TJBZ = #{record.tjbz,jdbcType=VARCHAR},
+			</if>
+			<if test="record.tjdate != null">
+				TJDATE = #{record.tjdate,jdbcType=DATE},
+			</if>
+			<if test="record.stopbz != null">
+				STOPBZ = #{record.stopbz,jdbcType=VARCHAR},
+			</if>
+			<if test="record.delbz != null">
+				DELBZ = #{record.delbz,jdbcType=VARCHAR},
+			</if>
+			<if test="record.deldate != null">
+				DELDATE = #{record.deldate,jdbcType=DATE},
+			</if>
+			<if test="record.dhlx != null">
+				DHLX = #{record.dhlx,jdbcType=VARCHAR},
+			</if>
+			<if test="record.custtype != null">
+				CUSTTYPE = #{record.custtype,jdbcType=DECIMAL},
+			</if>
+			<if test="record.jhjId != null">
+				JHJ_ID = #{record.jhjId,jdbcType=DECIMAL},
+			</if>
+			<if test="record.dhgn != null">
+				DHGN = #{record.dhgn,jdbcType=VARCHAR},
+			</if>
+			<if test="record.bz1 != null">
+				BZ1 = #{record.bz1,jdbcType=VARCHAR},
+			</if>
+			<if test="record.bz2 != null">
+				BZ2 = #{record.bz2,jdbcType=VARCHAR},
+			</if>
+			<if test="record.bz3 != null">
+				BZ3 = #{record.bz3,jdbcType=VARCHAR},
+			</if>
+			<if test="record.bz4 != null">
+				BZ4 = #{record.bz4,jdbcType=VARCHAR},
+			</if>
+			<if test="record.bz5 != null">
+				BZ5 = #{record.bz5,jdbcType=VARCHAR},
+			</if>
+			<if test="record.bz6 != null">
+				BZ6 = #{record.bz6,jdbcType=VARCHAR},
+			</if>
+			<if test="record.bz7 != null">
+				BZ7 = #{record.bz7,jdbcType=VARCHAR},
+			</if>
+			<if test="record.bz8 != null">
+				BZ8 = #{record.bz8,jdbcType=VARCHAR},
+			</if>
+			<if test="record.bz9 != null">
+				BZ9 = #{record.bz9,jdbcType=VARCHAR},
+			</if>
+			<if test="record.bz10 != null">
+				BZ10 = #{record.bz10,jdbcType=VARCHAR},
+			</if>
+			<if test="record.mokuaiju != null">
+				MOKUAIJU = #{record.mokuaiju,jdbcType=VARCHAR},
+			</if>
+			<if test="record.modual != null">
+				MODUAL = #{record.modual,jdbcType=VARCHAR},
+			</if>
+			<if test="record.port != null">
+				PORT = #{record.port,jdbcType=VARCHAR},
+			</if>
+			<if test="record.typenum != null">
+				TYPENUM = #{record.typenum,jdbcType=VARCHAR},
+			</if>
+			<if test="record.jbkzlx != null">
+				JBKZLX = #{record.jbkzlx,jdbcType=VARCHAR},
+			</if>
+			<if test="record.ywarea != null">
+				YWAREA = #{record.ywarea,jdbcType=VARCHAR},
+			</if>
+			<if test="record.dhid != null">
+				DHID = #{record.dhid,jdbcType=DECIMAL},
+			</if>
+			<if test="record.mobile != null">
+				MOBILE = #{record.mobile,jdbcType=VARCHAR},
+			</if>
+			<if test="record.creditgrade != null">
+				CREDITGRADE = #{record.creditgrade,jdbcType=DECIMAL},
+			</if>
+			<if test="record.creditpoint != null">
+				CREDITPOINT = #{record.creditpoint,jdbcType=DECIMAL},
+			</if>
+			<if test="record.usertype != null">
+				USERTYPE = #{record.usertype,jdbcType=DECIMAL},
+			</if>
+			<if test="record.servicearea != null">
+				SERVICEAREA = #{record.servicearea,jdbcType=DECIMAL},
+			</if>
+			<if test="record.mkj2 != null">
+				MKJ2 = #{record.mkj2,jdbcType=VARCHAR},
+			</if>
+			<if test="record.mkj3 != null">
+				MKJ3 = #{record.mkj3,jdbcType=VARCHAR},
+			</if>
+			<if test="record.mkj4 != null">
+				MKJ4 = #{record.mkj4,jdbcType=VARCHAR},
+			</if>
+			<if test="record.mkjacross != null">
+				MKJACROSS = #{record.mkjacross,jdbcType=DECIMAL},
+			</if>
+			<if test="record.fjdate != null">
+				FJDATE = #{record.fjdate,jdbcType=DATE},
+			</if>
+			<if test="record.startdz != null">
+				STARTDZ = #{record.startdz,jdbcType=VARCHAR},
+			</if>
+			<if test="record.enddz != null">
+				ENDDZ = #{record.enddz,jdbcType=VARCHAR},
+			</if>
+			<if test="record.photo != null">
+				PHOTO = #{record.photo,jdbcType=BLOB},
+			</if>
+		</set>
+		<if test="_parameter != null">
+			<include refid="Update_By_Example_Where_Clause" />
+		</if>
+	</update>
+	<update id="updateByExampleWithBLOBs" parameterType="map">
+		update YHDANG
+		set DH = #{record.dh,jdbcType=VARCHAR},
+		HTH = #{record.hth,jdbcType=VARCHAR},
+		JXH = #{record.jxh,jdbcType=VARCHAR},
+		YHMC = #{record.yhmc,jdbcType=VARCHAR},
+		BM1 = #{record.bm1,jdbcType=VARCHAR},
+		BM2 = #{record.bm2,jdbcType=VARCHAR},
+		BM3 = #{record.bm3,jdbcType=VARCHAR},
+		BM4 = #{record.bm4,jdbcType=VARCHAR},
+		BMBH = #{record.bmbh,jdbcType=VARCHAR},
+		YHDZ = #{record.yhdz,jdbcType=VARCHAR},
+		HWJB = #{record.hwjb,jdbcType=VARCHAR},
+		HWJB0 = #{record.hwjb0,jdbcType=VARCHAR},
+		HWJB1 = #{record.hwjb1,jdbcType=VARCHAR},
+		LASTADJUSTDATE = #{record.lastadjustdate,jdbcType=DATE},
+		CALLSHEDULENO = #{record.callsheduleno,jdbcType=VARCHAR},
+		ADJUSTSHEDULENO = #{record.adjustsheduleno,jdbcType=VARCHAR},
+		ZLH = #{record.zlh,jdbcType=VARCHAR},
+		JFLB = #{record.jflb,jdbcType=VARCHAR},
+		MFJB = #{record.mfjb,jdbcType=VARCHAR},
+		MIMA = #{record.mima,jdbcType=VARCHAR},
+		MIMA2 = #{record.mima2,jdbcType=VARCHAR},
+		REG_DATE = #{record.regDate,jdbcType=DATE},
+		STARTDATE = #{record.startdate,jdbcType=DATE},
+		ENDDATE = #{record.enddate,jdbcType=DATE},
+		TJBZ = #{record.tjbz,jdbcType=VARCHAR},
+		TJDATE = #{record.tjdate,jdbcType=DATE},
+		STOPBZ = #{record.stopbz,jdbcType=VARCHAR},
+		DELBZ = #{record.delbz,jdbcType=VARCHAR},
+		DELDATE = #{record.deldate,jdbcType=DATE},
+		DHLX = #{record.dhlx,jdbcType=VARCHAR},
+		CUSTTYPE = #{record.custtype,jdbcType=DECIMAL},
+		JHJ_ID = #{record.jhjId,jdbcType=DECIMAL},
+		DHGN = #{record.dhgn,jdbcType=VARCHAR},
+		BZ1 = #{record.bz1,jdbcType=VARCHAR},
+		BZ2 = #{record.bz2,jdbcType=VARCHAR},
+		BZ3 = #{record.bz3,jdbcType=VARCHAR},
+		BZ4 = #{record.bz4,jdbcType=VARCHAR},
+		BZ5 = #{record.bz5,jdbcType=VARCHAR},
+		BZ6 = #{record.bz6,jdbcType=VARCHAR},
+		BZ7 = #{record.bz7,jdbcType=VARCHAR},
+		BZ8 = #{record.bz8,jdbcType=VARCHAR},
+		BZ9 = #{record.bz9,jdbcType=VARCHAR},
+		BZ10 = #{record.bz10,jdbcType=VARCHAR},
+		MOKUAIJU = #{record.mokuaiju,jdbcType=VARCHAR},
+		MODUAL = #{record.modual,jdbcType=VARCHAR},
+		PORT = #{record.port,jdbcType=VARCHAR},
+		TYPENUM = #{record.typenum,jdbcType=VARCHAR},
+		JBKZLX = #{record.jbkzlx,jdbcType=VARCHAR},
+		YWAREA = #{record.ywarea,jdbcType=VARCHAR},
+		DHID = #{record.dhid,jdbcType=DECIMAL},
+		MOBILE = #{record.mobile,jdbcType=VARCHAR},
+		CREDITGRADE = #{record.creditgrade,jdbcType=DECIMAL},
+		CREDITPOINT = #{record.creditpoint,jdbcType=DECIMAL},
+		USERTYPE = #{record.usertype,jdbcType=DECIMAL},
+		SERVICEAREA = #{record.servicearea,jdbcType=DECIMAL},
+		MKJ2 = #{record.mkj2,jdbcType=VARCHAR},
+		MKJ3 = #{record.mkj3,jdbcType=VARCHAR},
+		MKJ4 = #{record.mkj4,jdbcType=VARCHAR},
+		MKJACROSS = #{record.mkjacross,jdbcType=DECIMAL},
+		FJDATE = #{record.fjdate,jdbcType=DATE},
+		STARTDZ = #{record.startdz,jdbcType=VARCHAR},
+		ENDDZ = #{record.enddz,jdbcType=VARCHAR},
+		PHOTO = #{record.photo,jdbcType=BLOB}
+		<if test="_parameter != null">
+			<include refid="Update_By_Example_Where_Clause" />
+		</if>
+	</update>
+	<update id="updateByExample" parameterType="map">
+		update YHDANG
+		set DH = #{record.dh,jdbcType=VARCHAR},
+		HTH = #{record.hth,jdbcType=VARCHAR},
+		JXH = #{record.jxh,jdbcType=VARCHAR},
+		YHMC = #{record.yhmc,jdbcType=VARCHAR},
+		BM1 = #{record.bm1,jdbcType=VARCHAR},
+		BM2 = #{record.bm2,jdbcType=VARCHAR},
+		BM3 = #{record.bm3,jdbcType=VARCHAR},
+		BM4 = #{record.bm4,jdbcType=VARCHAR},
+		BMBH = #{record.bmbh,jdbcType=VARCHAR},
+		YHDZ = #{record.yhdz,jdbcType=VARCHAR},
+		HWJB = #{record.hwjb,jdbcType=VARCHAR},
+		HWJB0 = #{record.hwjb0,jdbcType=VARCHAR},
+		HWJB1 = #{record.hwjb1,jdbcType=VARCHAR},
+		LASTADJUSTDATE = #{record.lastadjustdate,jdbcType=DATE},
+		CALLSHEDULENO = #{record.callsheduleno,jdbcType=VARCHAR},
+		ADJUSTSHEDULENO = #{record.adjustsheduleno,jdbcType=VARCHAR},
+		ZLH = #{record.zlh,jdbcType=VARCHAR},
+		JFLB = #{record.jflb,jdbcType=VARCHAR},
+		MFJB = #{record.mfjb,jdbcType=VARCHAR},
+		MIMA = #{record.mima,jdbcType=VARCHAR},
+		MIMA2 = #{record.mima2,jdbcType=VARCHAR},
+		REG_DATE = #{record.regDate,jdbcType=DATE},
+		STARTDATE = #{record.startdate,jdbcType=DATE},
+		ENDDATE = #{record.enddate,jdbcType=DATE},
+		TJBZ = #{record.tjbz,jdbcType=VARCHAR},
+		TJDATE = #{record.tjdate,jdbcType=DATE},
+		STOPBZ = #{record.stopbz,jdbcType=VARCHAR},
+		DELBZ = #{record.delbz,jdbcType=VARCHAR},
+		DELDATE = #{record.deldate,jdbcType=DATE},
+		DHLX = #{record.dhlx,jdbcType=VARCHAR},
+		CUSTTYPE = #{record.custtype,jdbcType=DECIMAL},
+		JHJ_ID = #{record.jhjId,jdbcType=DECIMAL},
+		DHGN = #{record.dhgn,jdbcType=VARCHAR},
+		BZ1 = #{record.bz1,jdbcType=VARCHAR},
+		BZ2 = #{record.bz2,jdbcType=VARCHAR},
+		BZ3 = #{record.bz3,jdbcType=VARCHAR},
+		BZ4 = #{record.bz4,jdbcType=VARCHAR},
+		BZ5 = #{record.bz5,jdbcType=VARCHAR},
+		BZ6 = #{record.bz6,jdbcType=VARCHAR},
+		BZ7 = #{record.bz7,jdbcType=VARCHAR},
+		BZ8 = #{record.bz8,jdbcType=VARCHAR},
+		BZ9 = #{record.bz9,jdbcType=VARCHAR},
+		BZ10 = #{record.bz10,jdbcType=VARCHAR},
+		MOKUAIJU = #{record.mokuaiju,jdbcType=VARCHAR},
+		MODUAL = #{record.modual,jdbcType=VARCHAR},
+		PORT = #{record.port,jdbcType=VARCHAR},
+		TYPENUM = #{record.typenum,jdbcType=VARCHAR},
+		JBKZLX = #{record.jbkzlx,jdbcType=VARCHAR},
+		YWAREA = #{record.ywarea,jdbcType=VARCHAR},
+		DHID = #{record.dhid,jdbcType=DECIMAL},
+		MOBILE = #{record.mobile,jdbcType=VARCHAR},
+		CREDITGRADE = #{record.creditgrade,jdbcType=DECIMAL},
+		CREDITPOINT = #{record.creditpoint,jdbcType=DECIMAL},
+		USERTYPE = #{record.usertype,jdbcType=DECIMAL},
+		SERVICEAREA = #{record.servicearea,jdbcType=DECIMAL},
+		MKJ2 = #{record.mkj2,jdbcType=VARCHAR},
+		MKJ3 = #{record.mkj3,jdbcType=VARCHAR},
+		MKJ4 = #{record.mkj4,jdbcType=VARCHAR},
+		MKJACROSS = #{record.mkjacross,jdbcType=DECIMAL},
+		FJDATE = #{record.fjdate,jdbcType=DATE},
+		STARTDZ = #{record.startdz,jdbcType=VARCHAR},
+		ENDDZ = #{record.enddz,jdbcType=VARCHAR}
+		<if test="_parameter != null">
+			<include refid="Update_By_Example_Where_Clause" />
+		</if>
+	</update>
+	<update id="updateByPrimaryKeySelective" parameterType="com.tboss.ssm.po.Yhdang">
+		update YHDANG
+		<set>
+			<if test="hth != null">
+				HTH = #{hth,jdbcType=VARCHAR},
+			</if>
+			<if test="jxh != null">
+				JXH = #{jxh,jdbcType=VARCHAR},
+			</if>
+			<if test="yhmc != null">
+				YHMC = #{yhmc,jdbcType=VARCHAR},
+			</if>
+			<if test="bm1 != null">
+				BM1 = #{bm1,jdbcType=VARCHAR},
+			</if>
+			<if test="bm2 != null">
+				BM2 = #{bm2,jdbcType=VARCHAR},
+			</if>
+			<if test="bm3 != null">
+				BM3 = #{bm3,jdbcType=VARCHAR},
+			</if>
+			<if test="bm4 != null">
+				BM4 = #{bm4,jdbcType=VARCHAR},
+			</if>
+			<if test="bmbh != null">
+				BMBH = #{bmbh,jdbcType=VARCHAR},
+			</if>
+			<if test="yhdz != null">
+				YHDZ = #{yhdz,jdbcType=VARCHAR},
+			</if>
+			<if test="hwjb != null">
+				HWJB = #{hwjb,jdbcType=VARCHAR},
+			</if>
+			<if test="hwjb0 != null">
+				HWJB0 = #{hwjb0,jdbcType=VARCHAR},
+			</if>
+			<if test="hwjb1 != null">
+				HWJB1 = #{hwjb1,jdbcType=VARCHAR},
+			</if>
+			<if test="lastadjustdate != null">
+				LASTADJUSTDATE = #{lastadjustdate,jdbcType=DATE},
+			</if>
+			<if test="callsheduleno != null">
+				CALLSHEDULENO = #{callsheduleno,jdbcType=VARCHAR},
+			</if>
+			<if test="adjustsheduleno != null">
+				ADJUSTSHEDULENO = #{adjustsheduleno,jdbcType=VARCHAR},
+			</if>
+			<if test="zlh != null">
+				ZLH = #{zlh,jdbcType=VARCHAR},
+			</if>
+			<if test="jflb != null">
+				JFLB = #{jflb,jdbcType=VARCHAR},
+			</if>
+			<if test="mfjb != null">
+				MFJB = #{mfjb,jdbcType=VARCHAR},
+			</if>
+			<if test="mima != null">
+				MIMA = #{mima,jdbcType=VARCHAR},
+			</if>
+			<if test="mima2 != null">
+				MIMA2 = #{mima2,jdbcType=VARCHAR},
+			</if>
+			<if test="regDate != null">
+				REG_DATE = #{regDate,jdbcType=DATE},
+			</if>
+			<if test="startdate != null">
+				STARTDATE = #{startdate,jdbcType=DATE},
+			</if>
+			<if test="enddate != null">
+				ENDDATE = #{enddate,jdbcType=DATE},
+			</if>
+			<if test="tjbz != null">
+				TJBZ = #{tjbz,jdbcType=VARCHAR},
+			</if>
+			<if test="tjdate != null">
+				TJDATE = #{tjdate,jdbcType=DATE},
+			</if>
+			<if test="stopbz != null">
+				STOPBZ = #{stopbz,jdbcType=VARCHAR},
+			</if>
+			<if test="delbz != null">
+				DELBZ = #{delbz,jdbcType=VARCHAR},
+			</if>
+			<if test="deldate != null">
+				DELDATE = #{deldate,jdbcType=DATE},
+			</if>
+			<if test="dhlx != null">
+				DHLX = #{dhlx,jdbcType=VARCHAR},
+			</if>
+			<if test="custtype != null">
+				CUSTTYPE = #{custtype,jdbcType=DECIMAL},
+			</if>
+			<if test="jhjId != null">
+				JHJ_ID = #{jhjId,jdbcType=DECIMAL},
+			</if>
+			<if test="dhgn != null">
+				DHGN = #{dhgn,jdbcType=VARCHAR},
+			</if>
+			<if test="bz1 != null">
+				BZ1 = #{bz1,jdbcType=VARCHAR},
+			</if>
+			<if test="bz2 != null">
+				BZ2 = #{bz2,jdbcType=VARCHAR},
+			</if>
+			<if test="bz3 != null">
+				BZ3 = #{bz3,jdbcType=VARCHAR},
+			</if>
+			<if test="bz4 != null">
+				BZ4 = #{bz4,jdbcType=VARCHAR},
+			</if>
+			<if test="bz5 != null">
+				BZ5 = #{bz5,jdbcType=VARCHAR},
+			</if>
+			<if test="bz6 != null">
+				BZ6 = #{bz6,jdbcType=VARCHAR},
+			</if>
+			<if test="bz7 != null">
+				BZ7 = #{bz7,jdbcType=VARCHAR},
+			</if>
+			<if test="bz8 != null">
+				BZ8 = #{bz8,jdbcType=VARCHAR},
+			</if>
+			<if test="bz9 != null">
+				BZ9 = #{bz9,jdbcType=VARCHAR},
+			</if>
+			<if test="bz10 != null">
+				BZ10 = #{bz10,jdbcType=VARCHAR},
+			</if>
+			<if test="mokuaiju != null">
+				MOKUAIJU = #{mokuaiju,jdbcType=VARCHAR},
+			</if>
+			<if test="modual != null">
+				MODUAL = #{modual,jdbcType=VARCHAR},
+			</if>
+			<if test="port != null">
+				PORT = #{port,jdbcType=VARCHAR},
+			</if>
+			<if test="typenum != null">
+				TYPENUM = #{typenum,jdbcType=VARCHAR},
+			</if>
+			<if test="jbkzlx != null">
+				JBKZLX = #{jbkzlx,jdbcType=VARCHAR},
+			</if>
+			<if test="ywarea != null">
+				YWAREA = #{ywarea,jdbcType=VARCHAR},
+			</if>
+			<if test="dhid != null">
+				DHID = #{dhid,jdbcType=DECIMAL},
+			</if>
+			<if test="mobile != null">
+				MOBILE = #{mobile,jdbcType=VARCHAR},
+			</if>
+			<if test="creditgrade != null">
+				CREDITGRADE = #{creditgrade,jdbcType=DECIMAL},
+			</if>
+			<if test="creditpoint != null">
+				CREDITPOINT = #{creditpoint,jdbcType=DECIMAL},
+			</if>
+			<if test="usertype != null">
+				USERTYPE = #{usertype,jdbcType=DECIMAL},
+			</if>
+			<if test="servicearea != null">
+				SERVICEAREA = #{servicearea,jdbcType=DECIMAL},
+			</if>
+			<if test="mkj2 != null">
+				MKJ2 = #{mkj2,jdbcType=VARCHAR},
+			</if>
+			<if test="mkj3 != null">
+				MKJ3 = #{mkj3,jdbcType=VARCHAR},
+			</if>
+			<if test="mkj4 != null">
+				MKJ4 = #{mkj4,jdbcType=VARCHAR},
+			</if>
+			<if test="mkjacross != null">
+				MKJACROSS = #{mkjacross,jdbcType=DECIMAL},
+			</if>
+			<if test="fjdate != null">
+				FJDATE = #{fjdate,jdbcType=DATE},
+			</if>
+			<if test="startdz != null">
+				STARTDZ = #{startdz,jdbcType=VARCHAR},
+			</if>
+			<if test="enddz != null">
+				ENDDZ = #{enddz,jdbcType=VARCHAR},
+			</if>
+			<if test="photo != null">
+				PHOTO = #{photo,jdbcType=BLOB},
+			</if>
+		</set>
+		where DH = #{dh,jdbcType=VARCHAR}
+	</update>
+	<update id="updateByPrimaryKeyWithBLOBs" parameterType="com.tboss.ssm.po.Yhdang">
+		update YHDANG
+		set HTH = #{hth,jdbcType=VARCHAR},
+		JXH = #{jxh,jdbcType=VARCHAR},
+		YHMC = #{yhmc,jdbcType=VARCHAR},
+		BM1 = #{bm1,jdbcType=VARCHAR},
+		BM2 = #{bm2,jdbcType=VARCHAR},
+		BM3 = #{bm3,jdbcType=VARCHAR},
+		BM4 = #{bm4,jdbcType=VARCHAR},
+		BMBH = #{bmbh,jdbcType=VARCHAR},
+		YHDZ = #{yhdz,jdbcType=VARCHAR},
+		HWJB = #{hwjb,jdbcType=VARCHAR},
+		HWJB0 = #{hwjb0,jdbcType=VARCHAR},
+		HWJB1 = #{hwjb1,jdbcType=VARCHAR},
+		LASTADJUSTDATE = #{lastadjustdate,jdbcType=DATE},
+		CALLSHEDULENO = #{callsheduleno,jdbcType=VARCHAR},
+		ADJUSTSHEDULENO = #{adjustsheduleno,jdbcType=VARCHAR},
+		ZLH = #{zlh,jdbcType=VARCHAR},
+		JFLB = #{jflb,jdbcType=VARCHAR},
+		MFJB = #{mfjb,jdbcType=VARCHAR},
+		MIMA = #{mima,jdbcType=VARCHAR},
+		MIMA2 = #{mima2,jdbcType=VARCHAR},
+		REG_DATE = #{regDate,jdbcType=DATE},
+		STARTDATE = #{startdate,jdbcType=DATE},
+		ENDDATE = #{enddate,jdbcType=DATE},
+		TJBZ = #{tjbz,jdbcType=VARCHAR},
+		TJDATE = #{tjdate,jdbcType=DATE},
+		STOPBZ = #{stopbz,jdbcType=VARCHAR},
+		DELBZ = #{delbz,jdbcType=VARCHAR},
+		DELDATE = #{deldate,jdbcType=DATE},
+		DHLX = #{dhlx,jdbcType=VARCHAR},
+		CUSTTYPE = #{custtype,jdbcType=DECIMAL},
+		JHJ_ID = #{jhjId,jdbcType=DECIMAL},
+		DHGN = #{dhgn,jdbcType=VARCHAR},
+		BZ1 = #{bz1,jdbcType=VARCHAR},
+		BZ2 = #{bz2,jdbcType=VARCHAR},
+		BZ3 = #{bz3,jdbcType=VARCHAR},
+		BZ4 = #{bz4,jdbcType=VARCHAR},
+		BZ5 = #{bz5,jdbcType=VARCHAR},
+		BZ6 = #{bz6,jdbcType=VARCHAR},
+		BZ7 = #{bz7,jdbcType=VARCHAR},
+		BZ8 = #{bz8,jdbcType=VARCHAR},
+		BZ9 = #{bz9,jdbcType=VARCHAR},
+		BZ10 = #{bz10,jdbcType=VARCHAR},
+		MOKUAIJU = #{mokuaiju,jdbcType=VARCHAR},
+		MODUAL = #{modual,jdbcType=VARCHAR},
+		PORT = #{port,jdbcType=VARCHAR},
+		TYPENUM = #{typenum,jdbcType=VARCHAR},
+		JBKZLX = #{jbkzlx,jdbcType=VARCHAR},
+		YWAREA = #{ywarea,jdbcType=VARCHAR},
+		DHID = #{dhid,jdbcType=DECIMAL},
+		MOBILE = #{mobile,jdbcType=VARCHAR},
+		CREDITGRADE = #{creditgrade,jdbcType=DECIMAL},
+		CREDITPOINT = #{creditpoint,jdbcType=DECIMAL},
+		USERTYPE = #{usertype,jdbcType=DECIMAL},
+		SERVICEAREA = #{servicearea,jdbcType=DECIMAL},
+		MKJ2 = #{mkj2,jdbcType=VARCHAR},
+		MKJ3 = #{mkj3,jdbcType=VARCHAR},
+		MKJ4 = #{mkj4,jdbcType=VARCHAR},
+		MKJACROSS = #{mkjacross,jdbcType=DECIMAL},
+		FJDATE = #{fjdate,jdbcType=DATE},
+		STARTDZ = #{startdz,jdbcType=VARCHAR},
+		ENDDZ = #{enddz,jdbcType=VARCHAR},
+		PHOTO = #{photo,jdbcType=BLOB}
+		where DH = #{dh,jdbcType=VARCHAR}
+	</update>
+	<update id="updateByPrimaryKey" parameterType="com.tboss.ssm.po.Yhdang">
+		update YHDANG
+		set HTH = #{hth,jdbcType=VARCHAR},
+		JXH = #{jxh,jdbcType=VARCHAR},
+		YHMC = #{yhmc,jdbcType=VARCHAR},
+		BM1 = #{bm1,jdbcType=VARCHAR},
+		BM2 = #{bm2,jdbcType=VARCHAR},
+		BM3 = #{bm3,jdbcType=VARCHAR},
+		BM4 = #{bm4,jdbcType=VARCHAR},
+		BMBH = #{bmbh,jdbcType=VARCHAR},
+		YHDZ = #{yhdz,jdbcType=VARCHAR},
+		HWJB = #{hwjb,jdbcType=VARCHAR},
+		HWJB0 = #{hwjb0,jdbcType=VARCHAR},
+		HWJB1 = #{hwjb1,jdbcType=VARCHAR},
+		LASTADJUSTDATE = #{lastadjustdate,jdbcType=DATE},
+		CALLSHEDULENO = #{callsheduleno,jdbcType=VARCHAR},
+		ADJUSTSHEDULENO = #{adjustsheduleno,jdbcType=VARCHAR},
+		ZLH = #{zlh,jdbcType=VARCHAR},
+		JFLB = #{jflb,jdbcType=VARCHAR},
+		MFJB = #{mfjb,jdbcType=VARCHAR},
+		MIMA = #{mima,jdbcType=VARCHAR},
+		MIMA2 = #{mima2,jdbcType=VARCHAR},
+		REG_DATE = #{regDate,jdbcType=DATE},
+		STARTDATE = #{startdate,jdbcType=DATE},
+		ENDDATE = #{enddate,jdbcType=DATE},
+		TJBZ = #{tjbz,jdbcType=VARCHAR},
+		TJDATE = #{tjdate,jdbcType=DATE},
+		STOPBZ = #{stopbz,jdbcType=VARCHAR},
+		DELBZ = #{delbz,jdbcType=VARCHAR},
+		DELDATE = #{deldate,jdbcType=DATE},
+		DHLX = #{dhlx,jdbcType=VARCHAR},
+		CUSTTYPE = #{custtype,jdbcType=DECIMAL},
+		JHJ_ID = #{jhjId,jdbcType=DECIMAL},
+		DHGN = #{dhgn,jdbcType=VARCHAR},
+		BZ1 = #{bz1,jdbcType=VARCHAR},
+		BZ2 = #{bz2,jdbcType=VARCHAR},
+		BZ3 = #{bz3,jdbcType=VARCHAR},
+		BZ4 = #{bz4,jdbcType=VARCHAR},
+		BZ5 = #{bz5,jdbcType=VARCHAR},
+		BZ6 = #{bz6,jdbcType=VARCHAR},
+		BZ7 = #{bz7,jdbcType=VARCHAR},
+		BZ8 = #{bz8,jdbcType=VARCHAR},
+		BZ9 = #{bz9,jdbcType=VARCHAR},
+		BZ10 = #{bz10,jdbcType=VARCHAR},
+		MOKUAIJU = #{mokuaiju,jdbcType=VARCHAR},
+		MODUAL = #{modual,jdbcType=VARCHAR},
+		PORT = #{port,jdbcType=VARCHAR},
+		TYPENUM = #{typenum,jdbcType=VARCHAR},
+		JBKZLX = #{jbkzlx,jdbcType=VARCHAR},
+		YWAREA = #{ywarea,jdbcType=VARCHAR},
+		DHID = #{dhid,jdbcType=DECIMAL},
+		MOBILE = #{mobile,jdbcType=VARCHAR},
+		CREDITGRADE = #{creditgrade,jdbcType=DECIMAL},
+		CREDITPOINT = #{creditpoint,jdbcType=DECIMAL},
+		USERTYPE = #{usertype,jdbcType=DECIMAL},
+		SERVICEAREA = #{servicearea,jdbcType=DECIMAL},
+		MKJ2 = #{mkj2,jdbcType=VARCHAR},
+		MKJ3 = #{mkj3,jdbcType=VARCHAR},
+		MKJ4 = #{mkj4,jdbcType=VARCHAR},
+		MKJACROSS = #{mkjacross,jdbcType=DECIMAL},
+		FJDATE = #{fjdate,jdbcType=DATE},
+		STARTDZ = #{startdz,jdbcType=VARCHAR},
+		ENDDZ = #{enddz,jdbcType=VARCHAR}
+		where DH = #{dh,jdbcType=VARCHAR}
+	</update>
+</mapper>

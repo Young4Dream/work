@@ -1,0 +1,666 @@
+A {
+	COLOR: #000066;
+	TEXT-DECORATION: none
+}
+
+A:hover {
+	TEXT-DECORATION: underline
+}
+
+BODY {
+	MARGIN: 0px;
+	BACKGROUND-COLOR: #336699
+}
+
+A {
+	FONT-SIZE: 9pt;
+	FONT-FAMILY: Simsun, Tahoma, Arial, Sans-serif
+}
+
+BODY {
+	FONT-SIZE: 9pt;
+	FONT-FAMILY: Simsun, Tahoma, Arial, Sans-serif
+}
+
+DIV {
+	FONT-SIZE: 9pt;
+	FONT-FAMILY: Simsun, Tahoma, Arial, Sans-serif
+}
+
+FONT {
+	FONT-SIZE: 9pt;
+	FONT-FAMILY: Simsun, Tahoma, Arial, Sans-serif
+}
+
+INPUT {
+	FONT-SIZE: 9pt;
+	FONT-FAMILY: Simsun, Tahoma, Arial, Sans-serif
+}
+
+LI {
+	FONT-SIZE: 9pt;
+	FONT-FAMILY: Simsun, Tahoma, Arial, Sans-serif
+}
+
+OPTION {
+	FONT-SIZE: 9pt;
+	FONT-FAMILY: Simsun, Tahoma, Arial, Sans-serif
+}
+
+P {
+	FONT-SIZE: 9pt;
+	FONT-FAMILY: Simsun, Tahoma, Arial, Sans-serif
+}
+
+SELECT {
+	FONT-SIZE: 9pt;
+	FONT-FAMILY: Simsun, Tahoma, Arial, Sans-serif
+}
+
+SPAN {
+	FONT-SIZE: 9pt;
+	FONT-FAMILY: Simsun, Tahoma, Arial, Sans-serif
+}
+
+TABLE {
+	FONT-SIZE: 9pt;
+	FONT-FAMILY: Simsun, Tahoma, Arial, Sans-serif
+}
+
+TEXTAREA {
+	FONT-SIZE: 9pt;
+	FONT-FAMILY: Simsun, Tahoma, Arial, Sans-serif
+}
+
+TD {
+	FONT-SIZE: 9pt;
+	FONT-FAMILY: Simsun, Tahoma, Arial, Sans-serif
+}
+
+TH {
+	FONT-SIZE: 9pt;
+	FONT-FAMILY: Simsun, Tahoma, Arial, Sans-serif
+}
+
+TR {
+	FONT-SIZE: 9pt;
+	FONT-FAMILY: Simsun, Tahoma, Arial, Sans-serif
+}
+
+UL {
+	FONT-SIZE: 9pt;
+	FONT-FAMILY: Simsun, Tahoma, Arial, Sans-serif
+}
+
+.bttnSlctd {
+	BORDER-RIGHT: #4586b3 1px solid;
+	PADDING-RIGHT: 4px;
+	BORDER-TOP: #4586b3 1px solid;
+	PADDING-LEFT: 4px;
+	BACKGROUND: #4791c5;
+	BORDER-LEFT: #4586b3 1px solid;
+	COLOR: #ffffff;
+	BORDER-BOTTOM: #4586b3 1px solid;
+	HEIGHT: 20px;
+	TEXT-DECORATION: none ! important
+}
+
+.bttn {
+	BORDER-RIGHT: #000000 1px solid;
+	BORDER-TOP: #000000 1px solid;
+	FONT-SIZE: 9pt;
+	BACKGROUND-IMAGE: url(/EN/img/bgTls.gif);
+	PADDING-BOTTOM: 3px;
+	BORDER-LEFT: #000000 1px solid;
+	CURSOR: hand;
+	COLOR: #000000;
+	BORDER-BOTTOM: #000000 1px solid;
+	HEIGHT: 20px
+}
+
+.bttnOn {
+	BORDER-RIGHT: #336699 1px solid;
+	PADDING-RIGHT: 4px;
+	BORDER-TOP: #336699 1px solid;
+	PADDING-LEFT: 4px;
+	BORDER-LEFT: #336699 1px solid;
+	CURSOR: hand;
+	COLOR: #000000;
+	BORDER-BOTTOM: #336699 1px solid;
+	HEIGHT: 20px;
+	BACKGROUND-COLOR: #e8f3ff;
+	TEXT-DECORATION: none ! important
+}
+
+.bttnOff {
+	PADDING-RIGHT: 5px;
+	PADDING-LEFT: 5px;
+	COLOR: #000000;
+	HEIGHT: 20px;
+	TEXT-DECORATION: none ! important
+}
+
+.currentVw {
+	FONT-SIZE: 13.5pt;
+	TEXT-ALIGN: center
+}
+
+.toolBarBg {
+	BACKGROUND-COLOR: #eff7ff
+}
+
+.timeRow {
+	PADDING-RIGHT: 4px;
+	PADDING-LEFT: 4px;
+	PADDING-BOTTOM: 4px;
+	PADDING-TOP: 4px;
+	BORDER-BOTTOM: #c1cdd8 1px solid;
+	BACKGROUND-COLOR: #ffffff;
+	TEXT-ALIGN: right;
+	valign: center
+}
+
+.timeFont {
+	FONT-WEIGHT: normal;
+	FONT-SIZE: 13.5pt;
+	COLOR: #000000
+}
+
+.timeFontSm {
+	FONT-SIZE: 9pt;
+	VERTICAL-ALIGN: super
+}
+
+.WhiteBold {
+	FONT-WEIGHT: normal;
+	COLOR: #ffffff
+}
+
+.WhiteText {
+	COLOR: #ffffff
+}
+
+.BlackText {
+	COLOR: #000000
+}
+
+.BlackBText {
+	FONT-WEIGHT: normal;
+	COLOR: #000000
+}
+
+.RedHR {
+	COLOR: #800000;
+	HEIGHT: 1px
+}
+
+.RedBoldText {
+	FONT-WEIGHT: normal;
+	COLOR: #800000
+}
+
+.TextDisabled {
+	COLOR: #8d8d8d
+}
+
+.titlelistTD {
+	BORDER-TOP: #c1cdd8 1px solid;
+	COLOR: #10659e;
+	BORDER-BOTTOM: #c1cdd8 1px solid;
+	HEIGHT: 24px;
+	BACKGROUND-COLOR: #dbeaf5
+}
+
+.sortTD {
+	BORDER-TOP: #c1cdd8 1px solid;
+	COLOR: #10659e;
+	BORDER-BOTTOM: #c1cdd8 1px solid;
+	HEIGHT: 24px;
+	BACKGROUND-COLOR: #9ecaeb
+}
+
+.listTD {
+	PADDING-RIGHT: 1px;
+	PADDING-LEFT: 1px;
+	BORDER-BOTTOM: #c1cdd8 1px solid;
+	HEIGHT: 23px
+}
+
+.listHeadFont {
+	FONT-WEIGHT: normal;
+	COLOR: #10659e
+}
+
+.ampm {
+	FONT-SIZE: 9pt;
+	COLOR: #104a7b
+}
+
+.noBrdr {
+	BORDER-RIGHT: 0px;
+	BORDER-TOP: 0px;
+	BORDER-LEFT: 0px;
+	BORDER-BOTTOM: 0px
+}
+
+.allDayTitle {
+	BORDER-RIGHT: #c1cdd8 1px solid;
+	BORDER-LEFT: 0px
+}
+
+.appt {
+	BORDER-LEFT: #c1cdd8 1px solid
+}
+
+.noAppt {
+	BORDER-LEFT: 0px;
+	BORDER-BOTTOM: #c1cdd8 1px solid
+}
+
+.endAppt {
+	BORDER-LEFT: #c1cdd8 1px solid;
+	BORDER-BOTTOM: #c1cdd8 1px solid
+}
+
+.barEndAppt {
+	BORDER-BOTTOM: #c1cdd8 1px solid
+}
+
+.apptFull {
+	BORDER-RIGHT: #c1cdd8 1px solid;
+	PADDING-RIGHT: 2px;
+	PADDING-LEFT: 2px;
+	PADDING-BOTTOM: 2px;
+	VERTICAL-ALIGN: top;
+	BORDER-LEFT: #75cd8e 5px solid;
+	PADDING-TOP: 2px;
+	BORDER-BOTTOM: #c1cdd8 1px solid;
+	BACKGROUND-COLOR: #ffffff
+}
+
+.apptMonth {
+	PADDING-RIGHT: 2px;
+	PADDING-LEFT: 2px;
+	PADDING-BOTTOM: 2px;
+	VERTICAL-ALIGN: top;
+	BORDER-LEFT: #75cd8e 2px solid;
+	PADDING-TOP: 2px;
+	BORDER-BOTTOM: #c1cdd8 1px solid;
+	BACKGROUND-COLOR: #ffffff
+}
+
+.big {
+	FONT-SIZE: 9pt
+}
+
+.bigBold {
+	FONT-WEIGHT: normal;
+	FONT-SIZE: 9pt
+}
+
+.bld {
+	FONT-WEIGHT: normal
+}
+
+.blueBoldTxt {
+	FONT-WEIGHT: normal;
+	COLOR: #104a7b
+}
+
+.box {
+	BORDER-RIGHT: #a0c6e5 1px solid;
+	BORDER-TOP: #a0c6e5 1px solid;
+	BORDER-LEFT: #a0c6e5 1px solid;
+	BORDER-BOTTOM: #a0c6e5 1px solid;
+	BACKGROUND-COLOR: #ffffff
+}
+
+.boxA {
+	BORDER-RIGHT: #a0c6e5 1px solid;
+	PADDING-RIGHT: 4px;
+	BORDER-TOP: #a0c6e5 1px solid;
+	OVERFLOW-Y: auto;
+	PADDING-LEFT: 4px;
+	OVERFLOW-X: hidden;
+	PADDING-BOTTOM: 4px;
+	VERTICAL-ALIGN: top;
+	BORDER-LEFT: #a0c6e5 1px solid;
+	PADDING-TOP: 4px;
+	BORDER-BOTTOM: #a0c6e5 1px solid;
+	BACKGROUND-COLOR: #ffffff
+}
+
+.boxHd {
+	BACKGROUND-COLOR: #a0c6e5
+}
+
+.bttnWinIE {
+	BORDER-RIGHT: #afc4d5 1px solid;
+	PADDING-RIGHT: 8px;
+	BORDER-TOP: #f0f0f0 1px solid;
+	PADDING-LEFT: 8px;
+	FONT-SIZE: 12px;
+	BACKGROUND: #dbeaf5;
+	BORDER-LEFT: #f0f0f0 1px solid;
+	CURSOR: hand;
+	COLOR: #000033;
+	PADDING-TOP: 3px;
+	BORDER-BOTTOM: #afc4d5 1px solid;
+	HEIGHT: 24px;
+	TEXT-DECORATION: none ! important
+}
+
+.darkGryLine {
+	HEIGHT: 1px;
+	BACKGROUND-COLOR: #9c9c9c
+}
+
+.gryTxt {
+	COLOR: #777777
+}
+
+.leftBarBg {
+	BACKGROUND-COLOR: #dbeaf5
+}
+
+.logo {
+	FONT-SIZE: 13.5pt;
+	COLOR: #ffffff;
+	BACKGROUND-COLOR: #336699
+}
+
+.ltGryLine {
+	HEIGHT: 1px;
+	BACKGROUND-COLOR: #c1cdd8
+}
+
+.msnNav {
+	COLOR: #d6e7ef
+}
+
+.monthDate {
+	FONT-SIZE: 13.5pt;
+	COLOR: black;
+	TEXT-ALIGN: right
+}
+
+.monthDayWeek {
+	FONT-WEIGHT: normal;
+	COLOR: #104a7b;
+	BACKGROUND-COLOR: #ffffff;
+	TEXT-ALIGN: center
+}
+
+.weekDayName {
+	
+}
+
+.weekDayNum {
+	FONT-WEIGHT: normal;
+	FONT-SIZE: 12pt
+}
+
+.weekAppt {
+	PADDING-LEFT: 2px;
+	BORDER-BOTTOM: #c1cdd8 1px solid
+}
+
+.weekApptBar {
+	BORDER-LEFT: #c1cdd8 1px solid;
+	BORDER-BOTTOM: #c1cdd8 1px solid
+}
+
+.msnHd {
+	PADDING-RIGHT: 4px;
+	PADDING-LEFT: 4px;
+	FONT-WEIGHT: normal;
+	PADDING-BOTTOM: 4px;
+	COLOR: #ffcc66;
+	PADDING-TOP: 4px;
+	BACKGROUND-COLOR: #104a7b
+}
+
+.notCurMonDate {
+	COLOR: #c9c9c9 ! important;
+	BACKGROUND-COLOR: #f2f7f2
+}
+
+.offWhtBg {
+	BACKGROUND-COLOR: #fffbf7
+}
+
+.pLogo {
+	FONT-WEIGHT: bold;
+	FONT-SIZE: 13.5pt
+}
+
+.redTxt {
+	COLOR: #e00505
+}
+
+.tab {
+	FONT-WEIGHT: normal;
+	COLOR: #000066;
+	TEXT-DECORATION: none ! important
+}
+
+.tabBg {
+	BACKGROUND-COLOR: #93bee2
+}
+
+.tagLine {
+	FONT-WEIGHT: normal;
+	COLOR: #d6e7ef
+}
+
+.timeWthr {
+	PADDING-RIGHT: 2px;
+	PADDING-LEFT: 2px;
+	FONT-SIZE: 12pt;
+	PADDING-BOTTOM: 2px;
+	WIDTH: 56px;
+	PADDING-TOP: 2px;
+	BORDER-BOTTOM: #c1cdd8 1px solid;
+	BACKGROUND-COLOR: #ffffff;
+	TEXT-ALIGN: right;
+	valign: center
+}
+
+.title {
+	FONT-WEIGHT: normal;
+	FONT-SIZE: 10.5pt;
+	COLOR: #104a7b
+}
+
+.today {
+	BORDER-RIGHT: #000066 1px solid;
+	PADDING-RIGHT: 2px;
+	BORDER-TOP: #000066 1px solid;
+	PADDING-LEFT: 2px;
+	FONT-WEIGHT: normal;
+	PADDING-BOTTOM: 2px;
+	BORDER-LEFT: #000066 1px solid;
+	PADDING-TOP: 2px;
+	BORDER-BOTTOM: #000066 1px solid;
+	BACKGROUND-COLOR: #fffae0
+}
+
+.todayUnSelected {
+	BORDER-RIGHT: #000066 1px solid;
+	PADDING-RIGHT: 2px;
+	BORDER-TOP: #000066 1px solid;
+	PADDING-LEFT: 2px;
+	FONT-WEIGHT: normal;
+	PADDING-BOTTOM: 2px;
+	BORDER-LEFT: #000066 1px solid;
+	PADDING-TOP: 2px;
+	BORDER-BOTTOM: #000066 1px solid;
+	BACKGROUND-COLOR: #fffae0
+}
+
+.todayBg {
+	BACKGROUND-COLOR: #fffae0
+}
+
+.todayTime {
+	PADDING-RIGHT: 4px;
+	PADDING-LEFT: 4px;
+	FONT-SIZE: 12pt;
+	PADDING-BOTTOM: 4px;
+	WIDTH: 41px;
+	PADDING-TOP: 4px;
+	BORDER-BOTTOM: #c1cdd8 1px solid;
+	BACKGROUND-COLOR: #fffae0;
+	TEXT-ALIGN: right;
+	valign: center
+}
+
+.txt {
+	FONT-SIZE: 9pt;
+	FONT-FAMILY: Simsun, Tahoma, Arial, Sans-serif
+}
+
+.whtBg {
+	BACKGROUND-COLOR: #ffffff
+}
+
+.whtBold {
+	FONT-WEIGHT: normal;
+	COLOR: #ffffff
+}
+
+.whtTxt {
+	COLOR: #ffffff
+}
+
+.yllwTxt {
+	COLOR: #ffcc66
+}
+
+.yearDate {
+	COLOR: #104a7b;
+	HEIGHT: 13.5pt;
+	TEXT-ALIGN: right
+}
+
+.linkOn {
+	CURSOR: hand;
+	TEXT-DECORATION: underline
+}
+
+.linkOff {
+	TEXT-DECORATION: none
+}
+
+.HeaderInlineCell {
+	BORDER-BOTTOM: #10659e 1px solid
+}
+
+.gStandardModalHeaderBg {
+	BACKGROUND-COLOR: #336699
+}
+
+.newBttText {
+	COLOR: #000000
+}
+
+.printHeaderLine {
+	COLOR: #000000
+}
+
+.currentDayBg {
+	BACKGROUND-COLOR: #4791c5
+}
+
+.linkBlue {
+	COLOR: #104a7b
+}
+
+.minicalMonYear {
+	FONT-WEIGHT: bold;
+	FONT-SIZE: 12px
+}
+
+.currentWeekBg {
+	BACKGROUND-COLOR: #dbeaf5
+}
+
+.leftBar {
+	BACKGROUND-COLOR: #dbeaf5
+}
+
+.rightBar {
+	
+}
+
+.menuBarBorder {
+	
+}
+
+.titlelistTDLeft {
+	BORDER-TOP: #c1cdd8 1px solid;
+	BORDER-LEFT: #c1cdd8 1px solid;
+	COLOR: #10659e;
+	BORDER-BOTTOM: #c1cdd8 1px solid;
+	HEIGHT: 24px;
+	BACKGROUND-COLOR: #dbeaf5
+}
+
+.titlelistTDRight {
+	BORDER-RIGHT: #c1cdd8 1px solid;
+	BORDER-TOP: #c1cdd8 1px solid;
+	COLOR: #10659e;
+	BORDER-BOTTOM: #c1cdd8 1px solid;
+	HEIGHT: 24px;
+	BACKGROUND-COLOR: #dbeaf5
+}
+
+.listTDLeft {
+	PADDING-RIGHT: 1px;
+	PADDING-LEFT: 1px;
+	BORDER-LEFT: #c1cdd8 1px solid;
+	BORDER-BOTTOM: #c1cdd8 1px solid;
+	HEIGHT: 23px
+}
+
+.listTDRight {
+	BORDER-RIGHT: #c1cdd8 1px solid;
+	PADDING-RIGHT: 1px;
+	PADDING-LEFT: 1px;
+	BORDER-BOTTOM: #c1cdd8 1px solid;
+	HEIGHT: 23px
+}
+
+.optionFrame {
+	WIDTH: 190px;
+	BACKGROUND-COLOR: #dbeaf5
+}
+
+.OptionsContent {
+	PADDING-RIGHT: 10px;
+	PADDING-LEFT: 10px;
+	PADDING-BOTTOM: 0px;
+	WIDTH: 586px;
+	PADDING-TOP: 0px;
+	BACKGROUND-COLOR: #ffffff
+}
+
+.OptionsContentTitle {
+	FONT-WEIGHT: normal;
+	FONT-SIZE: 18px;
+	TEXT-ALIGN: left
+}
+
+.OptionsNotes {
+	PADDING-RIGHT: 12px;
+	PADDING-LEFT: 12px;
+	PADDING-BOTTOM: 0px;
+	VERTICAL-ALIGN: top;
+	WIDTH: 190px;
+	PADDING-TOP: 0px;
+	BACKGROUND-COLOR: #dbeaf5
+}
+
+.OptionsNotesImg {
+	VERTICAL-ALIGN: middle
+}
